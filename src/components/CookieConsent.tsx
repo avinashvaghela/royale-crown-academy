@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import Icon from './Icon';
 
 const STORAGE_KEY = 'rca_cookie_consent';
