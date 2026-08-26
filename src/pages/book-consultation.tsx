@@ -37,7 +37,7 @@ export default function BookConsultation() {
     topic: '',
     preferredDate: '',
     message: '',
-    consent: false
+    consent: false,
   });
   const [submitted, setSubmitted] = useState(false);
   const [errors, setErrors] = useState({});
@@ -100,16 +100,16 @@ export default function BookConsultation() {
                   <p className="mt-2 text-[#FAF9F6]/80">We will contact you to arrange a convenient time.</p>
                 </div>
                 <div className="p-8">
-                  {submitted ?
-                  <div className="rounded-xl bg-[#E8D7B2]/20 p-8 text-center">
+                  {submitted ? (
+                    <div className="rounded-xl bg-[#E8D7B2]/20 p-8 text-center">
                       <h3 className="font-heading text-xl font-semibold text-[#102A56]">Consultation request received</h3>
                       <p className="mt-3 text-[#243247]/80">Thank you. A member of our team will be in touch shortly to arrange a convenient time to speak.</p>
                       <Link to="/" className="mt-6 inline-flex items-center rounded-md bg-[#102A56] px-6 py-3 text-sm font-semibold text-[#FAF9F6] transition-colors hover:bg-[#0B1D3A]">
                         Return to Home
                       </Link>
-                    </div> :
-
-                  <form onSubmit={handleSubmit} className="space-y-6" noValidate>
+                    </div>
+                  ) : (
+                    <form onSubmit={handleSubmit} className="space-y-6" noValidate>
                       <div className="grid gap-6 md:grid-cols-2">
                         <div>
                           <label htmlFor="name" className="block text-sm font-semibold text-[#102A56]">Name <span className="text-[#C6A15B]">*</span></label>
@@ -173,7 +173,7 @@ export default function BookConsultation() {
                         Request Consultation
                       </button>
                     </form>
-                  }
+                  )}
                 </div>
               </div>
             </div>
@@ -181,6 +181,6 @@ export default function BookConsultation() {
         </section>
       </main>
       <Footer />
-    </div>);
-
+    </div>
+  );
 }

@@ -31,39 +31,39 @@ export default function Subjects() {
   const ctaRef = useReveal();
 
   const subjectGroups = [
-  {
-    category: 'Core Subjects',
-    subjects: [
-    { name: 'English', levels: 'Primary, GCSE, A-Level where offered' },
-    { name: 'Maths', levels: 'Primary, GCSE, A-Level where offered' },
-    { name: 'Science', levels: 'Primary, GCSE, A-Level where offered' }]
-
-  },
-  {
-    category: 'Sciences',
-    subjects: [
-    { name: 'Biology', levels: 'GCSE, A-Level where offered' },
-    { name: 'Chemistry', levels: 'GCSE, A-Level where offered' },
-    { name: 'Physics', levels: 'GCSE, A-Level where offered' }]
-
-  },
-  {
-    category: 'Humanities & Social Sciences',
-    subjects: [
-    { name: 'History', levels: 'Primary, GCSE, A-Level where offered' },
-    { name: 'Geography', levels: 'Primary, GCSE, A-Level where offered' },
-    { name: 'Religious Studies', levels: 'GCSE, A-Level where offered' }]
-
-  },
-  {
-    category: 'Languages & Business',
-    subjects: [
-    { name: 'Modern Languages', levels: 'GCSE, A-Level where offered' },
-    { name: 'Business Studies', levels: 'GCSE, A-Level where offered' },
-    { name: 'Computing / IT', levels: 'Primary, GCSE, A-Level where offered' }]
-
-  }];
-
+    {
+      category: 'Core Subjects',
+      subjects: [
+        { name: 'English', levels: 'Primary, GCSE, A-Level where offered' },
+        { name: 'Maths', levels: 'Primary, GCSE, A-Level where offered' },
+        { name: 'Science', levels: 'Primary, GCSE, A-Level where offered' },
+      ],
+    },
+    {
+      category: 'Sciences',
+      subjects: [
+        { name: 'Biology', levels: 'GCSE, A-Level where offered' },
+        { name: 'Chemistry', levels: 'GCSE, A-Level where offered' },
+        { name: 'Physics', levels: 'GCSE, A-Level where offered' },
+      ],
+    },
+    {
+      category: 'Humanities & Social Sciences',
+      subjects: [
+        { name: 'History', levels: 'Primary, GCSE, A-Level where offered' },
+        { name: 'Geography', levels: 'Primary, GCSE, A-Level where offered' },
+        { name: 'Religious Studies', levels: 'GCSE, A-Level where offered' },
+      ],
+    },
+    {
+      category: 'Languages & Business',
+      subjects: [
+        { name: 'Modern Languages', levels: 'GCSE, A-Level where offered' },
+        { name: 'Business Studies', levels: 'GCSE, A-Level where offered' },
+        { name: 'Computing / IT', levels: 'Primary, GCSE, A-Level where offered' },
+      ],
+    },
+  ];
 
   return (
     <div className="min-h-screen bg-[#FAF9F6] font-body text-[#243247]">
@@ -95,15 +95,15 @@ export default function Subjects() {
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div ref={sectionRef} className="opacity-0 translate-y-8 transition-all duration-1000 ease-out">
               <div className="grid gap-12 lg:grid-cols-2">
-                {subjectGroups.map((group, groupIndex) =>
-                <div key={groupIndex} className="rounded-2xl border border-[#E5EAF1] bg-white p-8 shadow-sm">
+                {subjectGroups.map((group, groupIndex) => (
+                  <div key={groupIndex} className="rounded-2xl border border-[#E5EAF1] bg-white p-8 shadow-sm">
                     <div className="mb-6 flex items-center gap-3">
                       <span className="h-px w-8 bg-[#C6A15B]" />
                       <h2 className="font-heading text-2xl font-bold text-[#102A56]">{group.category}</h2>
                     </div>
                     <div className="space-y-4">
-                      {group.subjects.map((subject, i) =>
-                    <div key={i} className="flex items-center justify-between rounded-lg border border-[#E5EAF1] bg-[#FAF9F6] p-4 transition-all hover:border-[#C6A15B]/40 hover:shadow-sm">
+                      {group.subjects.map((subject, i) => (
+                        <div key={i} className="flex items-center justify-between rounded-lg border border-[#E5EAF1] bg-[#FAF9F6] p-4 transition-all hover:border-[#C6A15B]/40 hover:shadow-sm">
                           <div>
                             <h3 className="font-heading text-lg font-semibold text-[#102A56]">{subject.name}</h3>
                             <p className="text-sm text-[#243247]/65">{subject.levels}</p>
@@ -112,10 +112,10 @@ export default function Subjects() {
                             Enquire
                           </Link>
                         </div>
-                    )}
+                      ))}
                     </div>
                   </div>
-                )}
+                ))}
               </div>
             </div>
           </div>
@@ -134,6 +134,6 @@ export default function Subjects() {
         </section>
       </main>
       <Footer />
-    </div>);
-
+    </div>
+  );
 }

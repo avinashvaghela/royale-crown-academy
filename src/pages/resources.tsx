@@ -34,13 +34,13 @@ export default function Resources() {
   const categories = ['SEN Support', 'Tutoring', 'Parent Guides', 'School Resources', 'Learning Strategies', 'Exam Preparation', 'Education Insights'];
 
   const resources = [
-  { title: '[Article title placeholder: SEN support topic]', excerpt: '[Short excerpt placeholder. Replace with a summary of the article content.]', category: 'SEN Support', date: '[Date to be inserted]' },
-  { title: '[Article title placeholder: Tutoring topic]', excerpt: '[Short excerpt placeholder. Replace with a summary of the article content.]', category: 'Tutoring', date: '[Date to be inserted]' },
-  { title: '[Article title placeholder: Parent guide topic]', excerpt: '[Short excerpt placeholder. Replace with a summary of the article content.]', category: 'Parent Guides', date: '[Date to be inserted]' },
-  { title: '[Article title placeholder: School resource topic]', excerpt: '[Short excerpt placeholder. Replace with a summary of the article content.]', category: 'School Resources', date: '[Date to be inserted]' },
-  { title: '[Article title placeholder: Learning strategy topic]', excerpt: '[Short excerpt placeholder. Replace with a summary of the article content.]', category: 'Learning Strategies', date: '[Date to be inserted]' },
-  { title: '[Article title placeholder: Exam preparation topic]', excerpt: '[Short excerpt placeholder. Replace with a summary of the article content.]', category: 'Exam Preparation', date: '[Date to be inserted]' }];
-
+    { title: '[Article title placeholder: SEN support topic]', excerpt: '[Short excerpt placeholder. Replace with a summary of the article content.]', category: 'SEN Support', date: '[Date to be inserted]' },
+    { title: '[Article title placeholder: Tutoring topic]', excerpt: '[Short excerpt placeholder. Replace with a summary of the article content.]', category: 'Tutoring', date: '[Date to be inserted]' },
+    { title: '[Article title placeholder: Parent guide topic]', excerpt: '[Short excerpt placeholder. Replace with a summary of the article content.]', category: 'Parent Guides', date: '[Date to be inserted]' },
+    { title: '[Article title placeholder: School resource topic]', excerpt: '[Short excerpt placeholder. Replace with a summary of the article content.]', category: 'School Resources', date: '[Date to be inserted]' },
+    { title: '[Article title placeholder: Learning strategy topic]', excerpt: '[Short excerpt placeholder. Replace with a summary of the article content.]', category: 'Learning Strategies', date: '[Date to be inserted]' },
+    { title: '[Article title placeholder: Exam preparation topic]', excerpt: '[Short excerpt placeholder. Replace with a summary of the article content.]', category: 'Exam Preparation', date: '[Date to be inserted]' },
+  ];
 
   return (
     <div className="min-h-screen bg-[#FAF9F6] font-body text-[#243247]">
@@ -75,15 +75,15 @@ export default function Resources() {
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div ref={categoriesRef} className="opacity-0 translate-y-8 transition-all duration-1000 ease-out">
               <div className="flex flex-wrap justify-center gap-3">
-                {categories.map((category) =>
-                <button
-                  key={category}
-                  type="button"
-                  className="rounded-full border border-[#E5EAF1] bg-white px-5 py-2.5 text-sm font-medium text-[#102A56] transition-all hover:border-[#C6A15B]/40 hover:bg-[#FAF9F6]">
-
+                {categories.map((category) => (
+                  <button
+                    key={category}
+                    type="button"
+                    className="rounded-full border border-[#E5EAF1] bg-white px-5 py-2.5 text-sm font-medium text-[#102A56] transition-all hover:border-[#C6A15B]/40 hover:bg-[#FAF9F6]"
+                  >
                     {category}
                   </button>
-                )}
+                ))}
               </div>
             </div>
           </div>
@@ -93,8 +93,8 @@ export default function Resources() {
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div ref={resourcesRef} className="opacity-0 translate-y-8 transition-all duration-1000 ease-out">
               <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                {resources.map((resource, i) =>
-                <div key={i} className="group flex h-full flex-col rounded-2xl border border-[#E5EAF1] bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+                {resources.map((resource, i) => (
+                  <div key={i} className="group flex h-full flex-col rounded-2xl border border-[#E5EAF1] bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
                     <div className="flex items-center gap-2">
                       <span className="h-px w-6 bg-[#C6A15B]" />
                       <span className="text-xs font-semibold uppercase tracking-wider text-[#C6A15B]">{resource.category}</span>
@@ -106,7 +106,7 @@ export default function Resources() {
                       Read more <Icon name="arrowRight" className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                     </Link>
                   </div>
-                )}
+                ))}
               </div>
             </div>
           </div>
@@ -127,6 +127,6 @@ export default function Resources() {
         </section>
       </main>
       <Footer />
-    </div>);
-
+    </div>
+  );
 }

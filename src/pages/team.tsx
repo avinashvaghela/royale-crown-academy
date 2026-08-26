@@ -6,9 +6,9 @@ import SkipToContent from '../components/SkipToContent';
 import LogoWatermark from '../components/LogoWatermark';
 import Icon from '../components/Icon';
 
-const logoUrl = typeof window !== 'undefined' && window.serenities ?
-window.serenities.files.url('6bc96ae7cd439802480ecbdbdc283e0b') :
-'';
+const logoUrl = typeof window !== 'undefined' && window.serenities
+  ? window.serenities.files.url('6bc96ae7cd439802480ecbdbdc283e0b')
+  : '';
 
 function useReveal() {
   const ref = useRef(null);
@@ -36,11 +36,11 @@ export default function Team() {
   const joinRef = useReveal();
 
   const teamMembers = [
-  { name: '[Name to be inserted]', role: '[Role to be inserted]', specialisms: '[Specialisms to be inserted]', experience: '[Relevant experience to be inserted]', approach: '[Teaching or leadership approach to be inserted]' },
-  { name: '[Name to be inserted]', role: '[Role to be inserted]', specialisms: '[Specialisms to be inserted]', experience: '[Relevant experience to be inserted]', approach: '[Teaching approach to be inserted]' },
-  { name: '[Name to be inserted]', role: '[Role to be inserted]', specialisms: '[Specialisms to be inserted]', experience: '[Relevant experience to be inserted]', approach: '[Teaching approach to be inserted]' },
-  { name: '[Name to be inserted]', role: '[Role to be inserted]', specialisms: '[Specialisms to be inserted]', experience: '[Relevant experience to be inserted]', approach: '[Approach to be inserted]' }];
-
+    { name: '[Name to be inserted]', role: '[Role to be inserted]', specialisms: '[Specialisms to be inserted]', experience: '[Relevant experience to be inserted]', approach: '[Teaching or leadership approach to be inserted]' },
+    { name: '[Name to be inserted]', role: '[Role to be inserted]', specialisms: '[Specialisms to be inserted]', experience: '[Relevant experience to be inserted]', approach: '[Teaching approach to be inserted]' },
+    { name: '[Name to be inserted]', role: '[Role to be inserted]', specialisms: '[Specialisms to be inserted]', experience: '[Relevant experience to be inserted]', approach: '[Teaching approach to be inserted]' },
+    { name: '[Name to be inserted]', role: '[Role to be inserted]', specialisms: '[Specialisms to be inserted]', experience: '[Relevant experience to be inserted]', approach: '[Approach to be inserted]' },
+  ];
 
   return (
     <div className="min-h-screen bg-[#FAF9F6] font-body text-[#243247]">
@@ -75,8 +75,8 @@ export default function Team() {
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div ref={teamRef} className="opacity-0 translate-y-8 transition-all duration-1000 ease-out">
               <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-                {teamMembers.map((member, i) =>
-                <div key={i} className="group rounded-2xl border border-[#E5EAF1] bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+                {teamMembers.map((member, i) => (
+                  <div key={i} className="group rounded-2xl border border-[#E5EAF1] bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
                     <div className="aspect-square overflow-hidden rounded-xl bg-gradient-to-br from-[#EEF4FA] to-[#E8D7B2]/30">
                       <div className="flex h-full items-center justify-center">
                         <img src={logoUrl} alt="Royale Crown Academy crest" className="h-20 w-20 opacity-30" />
@@ -92,7 +92,7 @@ export default function Team() {
                       </div>
                     </div>
                   </div>
-                )}
+                ))}
               </div>
             </div>
           </div>
@@ -111,6 +111,6 @@ export default function Team() {
         </section>
       </main>
       <Footer />
-    </div>);
-
+    </div>
+  );
 }

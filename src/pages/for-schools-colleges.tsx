@@ -1,168 +1,256 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { motion, useReducedMotion } from 'framer-motion';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import SkipToContent from '../components/SkipToContent';
-import SchoolForm from '../components/SchoolForm';
-import LogoWatermark from '../components/LogoWatermark';
-import Icon from '../components/Icon';
+import CookieConsent from '../components/CookieConsent';
+import SEOHead from '../components/SEOHead';
+import { School, Users, BookOpen, Heart, ArrowRight, CheckCircle, Shield } from 'lucide-react';
 
-const logoUrl = typeof window !== 'undefined' && window.serenities ?
-window.serenities.files.url('6bc96ae7cd439802480ecbdbdc283e0b') :
-'';
+const fadeUp = {
+  hidden: { opacity: 0, y: 40 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] } }
+};
 
-function useReveal() {
-  const ref = useRef(null);
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          el.classList.add('opacity-100', 'translate-y-0');
-          el.classList.remove('opacity-0', 'translate-y-8');
-        }
-      },
-      { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
-    );
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, []);
-  return ref;
-}
+const staggerContainer = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { staggerChildren: 0.12, delayChildren: 0.2 } }
+};
 
 export default function ForSchoolsColleges() {
-  const heroRef = useReveal();
-  const servicesRef = useReveal();
-  const benefitsRef = useReveal();
-  const formRef = useReveal();
+  const prefersReducedMotion = useReducedMotion();
+  const [formData, setFormData] = useState({
+    name: '', jobTitle: '', school: '', email: '', phone: '', supportType: '', timeframe: '', message: '', consent: false
+  });
+  const [submitted, setSubmitted] = useState(false);
+  const schoolImageUrl = serenities.files.url('d8a52ffe130477f20c51a632ffc8d950');
 
-  const services = [
-  { title: 'SEN Tuition', desc: 'Specialist tuition and support for learners with identified additional needs.', icon: 'brain' },
-  { title: 'Targeted Tutoring', desc: 'Focused support in English, maths, science and study skills for individuals or small groups.', icon: 'bookOpen' },
-  { title: 'Catch-up Support', desc: 'Programmes designed to help learners close gaps and rebuild confidence.', icon: 'trendingUp' },
-  { title: 'One-to-one Learner Support', desc: 'Dedicated support for learners who need individual attention to thrive.', icon: 'user' },
-  { title: 'Small-group Programmes', desc: 'Structured group interventions for learners with similar needs or goals.', icon: 'users' },
-  { title: 'Teaching Assistants', desc: 'Classroom and learner support professionals matched to your setting.', icon: 'briefcase' },
-  { title: 'Cover Supervisors', desc: 'Reliable cover to maintain continuity in the absence of teaching staff.', icon: 'clipboardList' },
-  { title: 'Flexible Staffing Support', desc: 'Short-term, longer-term and ad-hoc staffing solutions.', icon: 'settings' }];
+  const handleChange = (e) => {
+    const { name, value, type, checked } = e.target;
+    setFormData(prev => ({ ...prev, [name]: type === 'checkbox' ? checked : value }));
+  };
 
-
-  const benefits = [
-  'Responsive, partnership-focused service',
-  'Support aligned to your school or college priorities',
-  'Clear communication and regular updates',
-  'Safeguarding-aware professionals and processes',
-  'Flexible arrangements to suit your budget and timetable'];
-
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setSubmitted(true);
+  };
 
   return (
-    <div className="min-h-screen bg-[#FAF9F6] font-body text-[#243247]">
-      <SkipToContent />
+    <div className="min-h-screen bg-background font-body text-foreground">
+      <SEOHead
+        title="For Schools & Colleges | Education Support & Staffing"
+        description="Flexible education support, SEN provision, tuition and staffing solutions for UK schools and colleges."
+        canonical="https://royalecrown.serenitiesai.com/for-schools-colleges"
+      />
       <Header />
       <main id="main-content">
-        <section className="relative overflow-hidden bg-[#102A56] pt-32 pb-20 lg:pt-44 lg:pb-28">
-          <div className="absolute inset-0 opacity-10">
-            <LogoWatermark className="h-[140%] w-[140%] -translate-x-1/4 -translate-y-1/4 text-[#FAF9F6]" />
+        {/* Hero */}
+        <section className="relative py-32 lg:py-40 bg-primary overflow-hidden">
+          <div className="absolute inset-0">
+            <img src={schoolImageUrl} alt="" className="w-full h-full object-cover opacity-30" />
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/95 to-[#0B1D3A]/90" />
           </div>
-          <div className="absolute inset-0 bg-gradient-to-br from-[#102A56] via-[#102A56]/95 to-[#0B1D3A]" />
-          <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div ref={heroRef} className="opacity-0 translate-y-8 transition-all duration-1000 ease-out">
-              <div className="grid items-center gap-12 lg:grid-cols-2">
-                <div>
-                  <div className="flex items-center gap-3 mb-6">
-                    <span className="h-px w-12 bg-[#C6A15B]" />
-                    <span className="text-sm font-semibold uppercase tracking-widest text-[#E8D7B2]">For Schools & Colleges</span>
+          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={staggerContainer}
+            >
+              <motion.span variants={fadeUp} className="text-secondary font-semibold tracking-wider uppercase text-sm">For Schools & Colleges</motion.span>
+              <motion.h1 variants={fadeUp} className="font-heading text-5xl md:text-6xl lg:text-7xl font-bold text-primary-foreground mt-6 mb-6">Education Support That Works Around Your Setting</motion.h1>
+              <motion.p variants={fadeUp} className="text-xl text-primary-foreground/80 max-w-3xl mx-auto leading-relaxed">
+                Flexible SEN support, targeted tuition, catch-up programmes and staffing solutions designed for headteachers, SENCOs and education leaders.
+              </motion.p>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Services */}
+        <section className="py-24 bg-background">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={staggerContainer}
+              className="text-center mb-16"
+            >
+              <motion.span variants={fadeUp} className="text-secondary font-semibold tracking-wider uppercase text-sm">Services for Settings</motion.span>
+              <motion.h2 variants={fadeUp} className="font-heading text-4xl md:text-5xl font-bold text-primary mt-4 mb-6">Comprehensive support for education settings</motion.h2>
+            </motion.div>
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={staggerContainer}
+              className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+            >
+              {[
+                { icon: Heart, title: "SEN Support", desc: "Specialist support for learners with additional educational needs." },
+                { icon: BookOpen, title: "Targeted Tutoring", desc: "One-to-one and small-group tuition for specific learners or cohorts." },
+                { icon: School, title: "Catch-Up Support", desc: "Structured intervention to help learners close gaps and rebuild confidence." },
+                { icon: Users, title: "Teaching Assistants", desc: "Classroom and SEN support staff to reinforce learning." },
+                { icon: Users, title: "Cover Supervisors", desc: "Reliable cover to maintain continuity in your setting." },
+                { icon: Shield, title: "Flexible Staffing", desc: "Responsive staffing solutions that adapt to your timetable and needs." }
+              ].map((service) => (
+                <motion.div key={service.title} variants={fadeUp} className="bg-white rounded-xl p-8 shadow-sm border border-surface-100 hover:shadow-lg transition-shadow group">
+                  <div className="w-12 h-12 rounded-lg bg-primary/5 flex items-center justify-center mb-5 group-hover:bg-secondary/20 transition-colors">
+                    <service.icon className="w-6 h-6 text-primary" />
                   </div>
-                  <h1 className="font-heading text-4xl font-bold leading-tight text-[#FAF9F6] sm:text-5xl lg:text-6xl">
-                    Education support that works around your setting.
-                  </h1>
-                  <p className="mt-6 max-w-xl text-lg leading-relaxed text-[#FAF9F6]/85">
-                    We partner with headteachers, SENCOs, DSLs, school business managers and college leaders to deliver SEN tuition, targeted tutoring, catch-up support and flexible staffing.
-                  </p>
-                  <div className="mt-10 flex flex-wrap gap-4">
-                    <a href="#request-support" className="inline-flex items-center rounded-md bg-[#C6A15B] px-6 py-3 text-base font-semibold text-[#0B1D3A] shadow-sm transition-all hover:bg-[#E8D7B2] hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C6A15B]">
-                      Request Support
-                    </a>
-                    <Link to="/education-staffing" className="inline-flex items-center rounded-md border border-[#FAF9F6]/30 bg-transparent px-6 py-3 text-base font-semibold text-[#FAF9F6] transition-all hover:bg-[#FAF9F6]/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C6A15B]">
-                      Explore Staffing
-                    </Link>
+                  <h3 className="font-heading text-xl font-bold text-primary mb-3">{service.title}</h3>
+                  <p className="text-surface-600 leading-relaxed">{service.desc}</p>
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Why Schools Choose Us */}
+        <section className="py-24 bg-surface-50">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid lg:grid-cols-2 gap-16 items-center">
+              <motion.div
+                initial={prefersReducedMotion ? {} : { opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+                className="relative"
+              >
+                <img src={schoolImageUrl} alt="School leadership team" className="rounded-2xl shadow-2xl w-full" />
+                <div className="absolute -bottom-6 -right-6 w-32 h-32 border-2 border-secondary rounded-2xl -z-10" />
+              </motion.div>
+              <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={staggerContainer}
+              >
+                <motion.span variants={fadeUp} className="text-secondary font-semibold tracking-wider uppercase text-sm">Why Schools Work With Us</motion.span>
+                <motion.h2 variants={fadeUp} className="font-heading text-4xl md:text-5xl font-bold text-primary mt-4 mb-6">A partner, not just a provider</motion.h2>
+                <motion.div variants={fadeUp} className="space-y-5">
+                  {[
+                    "Responsive communication and clear processes",
+                    "Support tailored to your setting's priorities",
+                    "Safeguarding-aware professionals",
+                    "Flexible arrangements that fit your timetable",
+                    "Regular review and ongoing partnership"
+                  ].map((item, index) => (
+                    <div key={index} className="flex gap-4">
+                      <CheckCircle className="w-6 h-6 text-secondary flex-shrink-0 mt-0.5" />
+                      <p className="text-surface-700 text-lg">{item}</p>
+                    </div>
+                  ))}
+                </motion.div>
+              </motion.div>
+            </div>
+          </div>
+        </section>
+
+        {/* Request Support Form */}
+        <section className="py-24 bg-background" id="request-support">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={staggerContainer}
+              className="text-center mb-12"
+            >
+              <motion.span variants={fadeUp} className="text-secondary font-semibold tracking-wider uppercase text-sm">Request Support</motion.span>
+              <motion.h2 variants={fadeUp} className="font-heading text-4xl md:text-5xl font-bold text-primary mt-4 mb-6">Discuss your school's requirements</motion.h2>
+              <motion.p variants={fadeUp} className="text-lg text-surface-600">
+                Complete the form below and a member of our team will contact you to discuss your needs.
+              </motion.p>
+            </motion.div>
+
+            <motion.div
+              initial={prefersReducedMotion ? {} : { opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="bg-white rounded-2xl p-8 md:p-12 shadow-lg border border-surface-100"
+            >
+              {submitted ? (
+                <div className="text-center py-12">
+                  <div className="w-16 h-16 mx-auto rounded-full bg-green-100 flex items-center justify-center mb-6">
+                    <CheckCircle className="w-8 h-8 text-green-600" />
                   </div>
+                  <h3 className="font-heading text-2xl font-bold text-primary mb-3">Thank you for your enquiry</h3>
+                  <p className="text-surface-600">We have received your message and will be in touch shortly.</p>
                 </div>
-                <div className="relative hidden lg:block">
-                  <div className="aspect-square overflow-hidden rounded-2xl border border-[#FAF9F6]/10 bg-gradient-to-br from-[#0B1D3A] to-[#102A56] shadow-2xl">
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <img src={logoUrl} alt="Royale Crown Academy crest" className="h-48 w-auto opacity-90" />
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div>
+                      <label htmlFor="name" className="block text-sm font-semibold text-primary mb-2">Name *</label>
+                      <input type="text" id="name" name="name" required value={formData.name} onChange={handleChange} className="w-full px-4 py-3 rounded-lg border border-surface-200 focus:border-secondary focus:ring-2 focus:ring-secondary/20 outline-none transition-all" />
+                    </div>
+                    <div>
+                      <label htmlFor="jobTitle" className="block text-sm font-semibold text-primary mb-2">Job Title *</label>
+                      <input type="text" id="jobTitle" name="jobTitle" required value={formData.jobTitle} onChange={handleChange} className="w-full px-4 py-3 rounded-lg border border-surface-200 focus:border-secondary focus:ring-2 focus:ring-secondary/20 outline-none transition-all" />
                     </div>
                   </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="py-20 lg:py-28">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div ref={servicesRef} className="opacity-0 translate-y-8 transition-all duration-1000 ease-out">
-              <div className="mx-auto max-w-3xl text-center">
-                <h2 className="font-heading text-3xl font-bold text-[#102A56] sm:text-4xl">Services for educational settings</h2>
-                <p className="mt-5 text-lg leading-relaxed text-[#243247]/80">A range of flexible support options designed around the needs of your learners and staff.</p>
-              </div>
-              <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-                {services.map((service, i) =>
-                <div key={i} className="group rounded-xl border border-[#E5EAF1] bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-[#EEF4FA] text-[#102A56] transition-colors group-hover:bg-[#102A56] group-hover:text-[#FAF9F6]">
-                      <Icon name={service.icon} className="h-6 w-6" />
-                    </div>
-                    <h3 className="mt-4 font-heading text-lg font-semibold text-[#102A56]">{service.title}</h3>
-                    <p className="mt-2 text-sm text-[#243247]/75 leading-relaxed">{service.desc}</p>
+                  <div>
+                    <label htmlFor="school" className="block text-sm font-semibold text-primary mb-2">School / College *</label>
+                    <input type="text" id="school" name="school" required value={formData.school} onChange={handleChange} className="w-full px-4 py-3 rounded-lg border border-surface-200 focus:border-secondary focus:ring-2 focus:ring-secondary/20 outline-none transition-all" />
                   </div>
-                )}
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="bg-[#102A56] py-20 text-[#FAF9F6] lg:py-28">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div ref={benefitsRef} className="opacity-0 translate-y-8 transition-all duration-1000 ease-out">
-              <div className="grid items-center gap-12 lg:grid-cols-2">
-                <div>
-                  <h2 className="font-heading text-3xl font-bold sm:text-4xl">Why partner with us?</h2>
-                  <p className="mt-5 text-lg text-[#FAF9F6]/80 leading-relaxed">
-                    We understand the pressures schools and colleges face. Our aim is to make it easier to access high-quality, reliable support when you need it.
-                  </p>
-                </div>
-                <ul className="space-y-4">
-                  {benefits.map((benefit, i) =>
-                  <li key={i} className="flex items-start gap-4">
-                      <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#FAF9F6]/20 text-[#FAF9F6]">✓</span>
-                      <span className="text-[#FAF9F6]/80">{benefit}</span>
-                    </li>
-                  )}
-                </ul>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section id="request-support" className="bg-[#EEF4FA] py-20 lg:py-28">
-          <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-            <div ref={formRef} className="opacity-0 translate-y-8 transition-all duration-1000 ease-out">
-              <div className="overflow-hidden rounded-2xl border border-[#E5EAF1] bg-white shadow-xl">
-                <div className="bg-[#102A56] px-8 py-8">
-                  <h2 className="font-heading text-2xl font-bold text-[#FAF9F6] sm:text-3xl">Request support</h2>
-                  <p className="mt-2 text-[#FAF9F6]/80">Complete the form below and a member of our team will be in touch to discuss your school or college's requirements.</p>
-                </div>
-                <div className="p-8 sm:p-12">
-                  <SchoolForm />
-                </div>
-              </div>
-            </div>
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div>
+                      <label htmlFor="email" className="block text-sm font-semibold text-primary mb-2">Email *</label>
+                      <input type="email" id="email" name="email" required value={formData.email} onChange={handleChange} className="w-full px-4 py-3 rounded-lg border border-surface-200 focus:border-secondary focus:ring-2 focus:ring-secondary/20 outline-none transition-all" />
+                    </div>
+                    <div>
+                      <label htmlFor="phone" className="block text-sm font-semibold text-primary mb-2">Telephone</label>
+                      <input type="tel" id="phone" name="phone" value={formData.phone} onChange={handleChange} className="w-full px-4 py-3 rounded-lg border border-surface-200 focus:border-secondary focus:ring-2 focus:ring-secondary/20 outline-none transition-all" />
+                    </div>
+                  </div>
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div>
+                      <label htmlFor="supportType" className="block text-sm font-semibold text-primary mb-2">Type of Support Required *</label>
+                      <select id="supportType" name="supportType" required value={formData.supportType} onChange={handleChange} className="w-full px-4 py-3 rounded-lg border border-surface-200 focus:border-secondary focus:ring-2 focus:ring-secondary/20 outline-none transition-all bg-white">
+                        <option value="">Please select</option>
+                        <option value="sen-support">SEN Support</option>
+                        <option value="tuition">Targeted Tuition</option>
+                        <option value="catch-up">Catch-Up Support</option>
+                        <option value="teaching-assistant">Teaching Assistant</option>
+                        <option value="cover-supervisor">Cover Supervisor</option>
+                        <option value="staffing">Flexible Staffing</option>
+                        <option value="other">Other</option>
+                      </select>
+                    </div>
+                    <div>
+                      <label htmlFor="timeframe" className="block text-sm font-semibold text-primary mb-2">Approximate Timeframe</label>
+                      <select id="timeframe" name="timeframe" value={formData.timeframe} onChange={handleChange} className="w-full px-4 py-3 rounded-lg border border-surface-200 focus:border-secondary focus:ring-2 focus:ring-secondary/20 outline-none transition-all bg-white">
+                        <option value="">Please select</option>
+                        <option value="immediate">As soon as possible</option>
+                        <option value="within-month">Within a month</option>
+                        <option value="term">Next term</option>
+                        <option value="future">Future planning</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div>
+                    <label htmlFor="message" className="block text-sm font-semibold text-primary mb-2">Message</label>
+                    <textarea id="message" name="message" rows={4} value={formData.message} onChange={handleChange} className="w-full px-4 py-3 rounded-lg border border-surface-200 focus:border-secondary focus:ring-2 focus:ring-secondary/20 outline-none transition-all resize-none" placeholder="Tell us about your requirements..."></textarea>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <input type="checkbox" id="consent" name="consent" required checked={formData.consent} onChange={handleChange} className="w-5 h-5 mt-0.5 rounded border-surface-300 text-secondary focus:ring-secondary" />
+                    <label htmlFor="consent" className="text-sm text-surface-600">
+                      I consent to Royale Crown Academy Ltd processing my information to respond to this enquiry. I have read the <Link to="/privacy-policy" className="text-secondary hover:underline">Privacy Policy</Link>.
+                    </label>
+                  </div>
+                  <button type="submit" className="w-full md:w-auto px-8 py-4 bg-primary text-primary-foreground font-semibold rounded-lg hover:bg-primary/90 transition-all">
+                    Request Support
+                  </button>
+                </form>
+              )}
+            </motion.div>
           </div>
         </section>
       </main>
       <Footer />
-    </div>);
-
+      <CookieConsent />
+    </div>
+  );
 }
