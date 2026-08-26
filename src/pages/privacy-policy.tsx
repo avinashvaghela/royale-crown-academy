@@ -80,6 +80,6 @@ export default function PrivacyPolicyPage() {
       <p>
         If you have any questions about this Privacy Policy or how we handle your data, please contact us at <a href="mailto:info@royalecrownacademy.co.uk" className="font-medium text-primary underline">info@royalecrownacademy.co.uk</a>.
       </p>
-    </LegalPageLayout>
-  );
+    </LegalPageLayout>);
+
 }

@@ -5,9 +5,9 @@ import Footer from '../components/Footer';
 import SkipToContent from '../components/SkipToContent';
 import LogoWatermark from '../components/LogoWatermark';
 
-const logoUrl = typeof window !== 'undefined' && window.serenities
-  ? window.serenities.files.url('6bc96ae7cd439802480ecbdbdc283e0b')
-  : '';
+const logoUrl = typeof window !== 'undefined' && window.serenities ?
+window.serenities.files.url('6bc96ae7cd439802480ecbdbdc283e0b') :
+'';
 
 function useReveal() {
   const ref = useRef(null);
@@ -80,19 +80,19 @@ export default function ForCouncils() {
               </div>
               <div className="mt-16 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
                 {[
-                  { title: 'Tuition Provision', desc: 'One-to-one and small-group tuition across key subjects and stages, tailored to individual learner requirements.' },
-                  { title: 'SEN Support', desc: 'Specialist educational support for learners with additional needs, delivered with sensitivity and clear communication.' },
-                  { title: 'Alternative Education Support', desc: 'Flexible provision for learners who require alternative or supplementary education arrangements where appropriate.' },
-                  { title: 'Educational Intervention', desc: 'Targeted catch-up programmes and academic intervention designed to support progress and confidence.' },
-                  { title: 'Education Staffing', desc: 'Supply of tutors, teaching assistants, SEN support staff and other education professionals as required.' },
-                  { title: 'Bespoke Programmes', desc: 'Programmes shaped around local priorities, learner cohorts and commissioning requirements.' },
-                ].map((item, i) => (
-                  <div key={i} className="group rounded-xl border border-[#E5EAF1] bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+                { title: 'Tuition Provision', desc: 'One-to-one and small-group tuition across key subjects and stages, tailored to individual learner requirements.' },
+                { title: 'SEN Support', desc: 'Specialist educational support for learners with additional needs, delivered with sensitivity and clear communication.' },
+                { title: 'Alternative Education Support', desc: 'Flexible provision for learners who require alternative or supplementary education arrangements where appropriate.' },
+                { title: 'Educational Intervention', desc: 'Targeted catch-up programmes and academic intervention designed to support progress and confidence.' },
+                { title: 'Education Staffing', desc: 'Supply of tutors, teaching assistants, SEN support staff and other education professionals as required.' },
+                { title: 'Bespoke Programmes', desc: 'Programmes shaped around local priorities, learner cohorts and commissioning requirements.' }].
+                map((item, i) =>
+                <div key={i} className="group rounded-xl border border-[#E5EAF1] bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
                     <div className="mb-5 h-1 w-12 rounded-full bg-[#C6A15B] transition-all group-hover:w-20" />
                     <h3 className="font-heading text-xl font-semibold text-[#102A56]">{item.title}</h3>
                     <p className="mt-3 text-[#243247]/75 leading-relaxed">{item.desc}</p>
                   </div>
-                ))}
+                )}
               </div>
             </div>
           </div>
@@ -109,16 +109,16 @@ export default function ForCouncils() {
                   </p>
                   <ul className="mt-8 space-y-4">
                     {[
-                      'Clear communication with commissioning teams',
-                      'Structured service agreements and reporting',
-                      'Safeguarding and safer recruitment processes',
-                      'Flexible delivery models to suit local needs',
-                    ].map((item, i) => (
-                      <li key={i} className="flex items-start gap-4">
+                    'Clear communication with commissioning teams',
+                    'Structured service agreements and reporting',
+                    'Safeguarding and safer recruitment processes',
+                    'Flexible delivery models to suit local needs'].
+                    map((item, i) =>
+                    <li key={i} className="flex items-start gap-4">
                         <span className="mt-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#C6A15B]/20 text-[#102A56]">✓</span>
                         <span className="text-[#243247]/80">{item}</span>
                       </li>
-                    ))}
+                    )}
                   </ul>
                 </div>
                 <div className="relative order-1 lg:order-2">
@@ -150,6 +150,6 @@ export default function ForCouncils() {
         </section>
       </main>
       <Footer />
-    </div>
-  );
+    </div>);
+
 }

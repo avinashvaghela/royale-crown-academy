@@ -7,9 +7,9 @@ import SchoolForm from '../components/SchoolForm';
 import LogoWatermark from '../components/LogoWatermark';
 import Icon from '../components/Icon';
 
-const logoUrl = typeof window !== 'undefined' && window.serenities
-  ? window.serenities.files.url('6bc96ae7cd439802480ecbdbdc283e0b')
-  : '';
+const logoUrl = typeof window !== 'undefined' && window.serenities ?
+window.serenities.files.url('6bc96ae7cd439802480ecbdbdc283e0b') :
+'';
 
 function useReveal() {
   const ref = useRef(null);
@@ -38,23 +38,23 @@ export default function ForSchoolsColleges() {
   const formRef = useReveal();
 
   const services = [
-    { title: 'SEN Tuition', desc: 'Specialist tuition and support for learners with identified additional needs.', icon: 'brain' },
-    { title: 'Targeted Tutoring', desc: 'Focused support in English, maths, science and study skills for individuals or small groups.', icon: 'bookOpen' },
-    { title: 'Catch-up Support', desc: 'Programmes designed to help learners close gaps and rebuild confidence.', icon: 'trendingUp' },
-    { title: 'One-to-one Learner Support', desc: 'Dedicated support for learners who need individual attention to thrive.', icon: 'user' },
-    { title: 'Small-group Programmes', desc: 'Structured group interventions for learners with similar needs or goals.', icon: 'users' },
-    { title: 'Teaching Assistants', desc: 'Classroom and learner support professionals matched to your setting.', icon: 'briefcase' },
-    { title: 'Cover Supervisors', desc: 'Reliable cover to maintain continuity in the absence of teaching staff.', icon: 'clipboardList' },
-    { title: 'Flexible Staffing Support', desc: 'Short-term, longer-term and ad-hoc staffing solutions.', icon: 'settings' },
-  ];
+  { title: 'SEN Tuition', desc: 'Specialist tuition and support for learners with identified additional needs.', icon: 'brain' },
+  { title: 'Targeted Tutoring', desc: 'Focused support in English, maths, science and study skills for individuals or small groups.', icon: 'bookOpen' },
+  { title: 'Catch-up Support', desc: 'Programmes designed to help learners close gaps and rebuild confidence.', icon: 'trendingUp' },
+  { title: 'One-to-one Learner Support', desc: 'Dedicated support for learners who need individual attention to thrive.', icon: 'user' },
+  { title: 'Small-group Programmes', desc: 'Structured group interventions for learners with similar needs or goals.', icon: 'users' },
+  { title: 'Teaching Assistants', desc: 'Classroom and learner support professionals matched to your setting.', icon: 'briefcase' },
+  { title: 'Cover Supervisors', desc: 'Reliable cover to maintain continuity in the absence of teaching staff.', icon: 'clipboardList' },
+  { title: 'Flexible Staffing Support', desc: 'Short-term, longer-term and ad-hoc staffing solutions.', icon: 'settings' }];
+
 
   const benefits = [
-    'Responsive, partnership-focused service',
-    'Support aligned to your school or college priorities',
-    'Clear communication and regular updates',
-    'Safeguarding-aware professionals and processes',
-    'Flexible arrangements to suit your budget and timetable',
-  ];
+  'Responsive, partnership-focused service',
+  'Support aligned to your school or college priorities',
+  'Clear communication and regular updates',
+  'Safeguarding-aware professionals and processes',
+  'Flexible arrangements to suit your budget and timetable'];
+
 
   return (
     <div className="min-h-screen bg-[#FAF9F6] font-body text-[#243247]">
@@ -109,15 +109,15 @@ export default function ForSchoolsColleges() {
                 <p className="mt-5 text-lg leading-relaxed text-[#243247]/80">A range of flexible support options designed around the needs of your learners and staff.</p>
               </div>
               <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-                {services.map((service, i) => (
-                  <div key={i} className="group rounded-xl border border-[#E5EAF1] bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md">
+                {services.map((service, i) =>
+                <div key={i} className="group rounded-xl border border-[#E5EAF1] bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md">
                     <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-[#EEF4FA] text-[#102A56] transition-colors group-hover:bg-[#102A56] group-hover:text-[#FAF9F6]">
                       <Icon name={service.icon} className="h-6 w-6" />
                     </div>
                     <h3 className="mt-4 font-heading text-lg font-semibold text-[#102A56]">{service.title}</h3>
                     <p className="mt-2 text-sm text-[#243247]/75 leading-relaxed">{service.desc}</p>
                   </div>
-                ))}
+                )}
               </div>
             </div>
           </div>
@@ -134,12 +134,12 @@ export default function ForSchoolsColleges() {
                   </p>
                 </div>
                 <ul className="space-y-4">
-                  {benefits.map((benefit, i) => (
-                    <li key={i} className="flex items-start gap-4">
+                  {benefits.map((benefit, i) =>
+                  <li key={i} className="flex items-start gap-4">
                       <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#FAF9F6]/20 text-[#FAF9F6]">✓</span>
                       <span className="text-[#FAF9F6]/80">{benefit}</span>
                     </li>
-                  ))}
+                  )}
                 </ul>
               </div>
             </div>
@@ -163,6 +163,6 @@ export default function ForSchoolsColleges() {
         </section>
       </main>
       <Footer />
-    </div>
-  );
+    </div>);
+
 }

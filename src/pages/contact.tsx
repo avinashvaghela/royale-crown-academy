@@ -16,8 +16,8 @@ export default function ContactPage() {
       <SEOHead
         title="Contact Us | Parents, Carers, Schools & Colleges"
         description="Contact Royale Crown Academy Ltd for personalised SEN support, tutoring or education staffing. Separate enquiry pathways for parents/carers and schools/colleges."
-        path="/contact"
-      />
+        path="/contact" />
+
 
       {/* Hero */}
       <section className="bg-surface-50 pt-20" aria-labelledby="contact-heading">
@@ -81,11 +81,11 @@ export default function ContactPage() {
                   id="parent-tab"
                   onClick={() => setActiveTab('parent')}
                   className={`flex-1 rounded-md px-5 py-3 text-base font-semibold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary ${
-                    activeTab === 'parent'
-                      ? 'bg-primary text-primary-foreground'
-                      : 'border border-surface-300 bg-background text-foreground hover:bg-surface-100'
-                  }`}
-                >
+                  activeTab === 'parent' ?
+                  'bg-primary text-primary-foreground' :
+                  'border border-surface-300 bg-background text-foreground hover:bg-surface-100'}`
+                  }>
+
                   I am a Parent/Carer
                 </button>
                 <button
@@ -96,11 +96,11 @@ export default function ContactPage() {
                   id="school-tab"
                   onClick={() => setActiveTab('school')}
                   className={`flex-1 rounded-md px-5 py-3 text-base font-semibold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary ${
-                    activeTab === 'school'
-                      ? 'bg-primary text-primary-foreground'
-                      : 'border border-surface-300 bg-background text-foreground hover:bg-surface-100'
-                  }`}
-                >
+                  activeTab === 'school' ?
+                  'bg-primary text-primary-foreground' :
+                  'border border-surface-300 bg-background text-foreground hover:bg-surface-100'}`
+                  }>
+
                   I am a School/College
                 </button>
               </div>
@@ -110,16 +110,16 @@ export default function ContactPage() {
                   id="parent-panel"
                   role="tabpanel"
                   aria-labelledby="parent-tab"
-                  hidden={activeTab !== 'parent'}
-                >
+                  hidden={activeTab !== 'parent'}>
+
                   {activeTab === 'parent' && <ContactForm audience="parent" />}
                 </div>
                 <div
                   id="school-panel"
                   role="tabpanel"
                   aria-labelledby="school-tab"
-                  hidden={activeTab !== 'school'}
-                >
+                  hidden={activeTab !== 'school'}>
+
                   {activeTab === 'school' && <SchoolContactForm />}
                 </div>
               </div>
@@ -146,6 +146,6 @@ export default function ContactPage() {
           </SectionReveal>
         </div>
       </section>
-    </PageLayout>
-  );
+    </PageLayout>);
+
 }

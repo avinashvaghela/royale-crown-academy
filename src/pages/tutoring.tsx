@@ -6,9 +6,9 @@ import SkipToContent from '../components/SkipToContent';
 import LogoWatermark from '../components/LogoWatermark';
 import Icon from '../components/Icon';
 
-const logoUrl = typeof window !== 'undefined' && window.serenities
-  ? window.serenities.files.url('6bc96ae7cd439802480ecbdbdc283e0b')
-  : '';
+const logoUrl = typeof window !== 'undefined' && window.serenities ?
+window.serenities.files.url('6bc96ae7cd439802480ecbdbdc283e0b') :
+'';
 
 function useReveal() {
   const ref = useRef(null);
@@ -38,20 +38,20 @@ export default function Tutoring() {
   const ctaRef = useReveal();
 
   const levels = [
-    { title: 'Primary Tuition', years: 'Key Stage 1 & 2', text: 'Building strong foundations in reading, writing, maths and confidence.' },
-    { title: 'Secondary Tuition', years: 'Key Stage 3', text: 'Subject support and study habits to help learners thrive through Years 7–9.' },
-    { title: 'GCSE Support', years: 'Key Stage 4', text: 'Focused support in English, maths, science and other GCSE subjects.' },
-    { title: 'A-Level & Further', years: 'Key Stage 5', text: 'Advanced subject support where offered and arranged.' },
-  ];
+  { title: 'Primary Tuition', years: 'Key Stage 1 & 2', text: 'Building strong foundations in reading, writing, maths and confidence.' },
+  { title: 'Secondary Tuition', years: 'Key Stage 3', text: 'Subject support and study habits to help learners thrive through Years 7–9.' },
+  { title: 'GCSE Support', years: 'Key Stage 4', text: 'Focused support in English, maths, science and other GCSE subjects.' },
+  { title: 'A-Level & Further', years: 'Key Stage 5', text: 'Advanced subject support where offered and arranged.' }];
+
 
   const subjects = [
-    { name: 'English', desc: 'Reading, writing, comprehension, spelling, grammar and communication confidence.' },
-    { name: 'Maths', desc: 'Number, calculation, algebra, geometry, statistics and problem-solving.' },
-    { name: 'Science', desc: 'Biology, chemistry, physics and combined science support.' },
-    { name: 'Study Skills', desc: 'Organisation, revision strategies, note-taking and independent learning.' },
-    { name: 'Exam Preparation', desc: 'Structured preparation for tests and exams without unrealistic grade promises.' },
-    { name: 'Catch-up Support', desc: 'Targeted help to close gaps and rebuild confidence after disruption.' },
-  ];
+  { name: 'English', desc: 'Reading, writing, comprehension, spelling, grammar and communication confidence.' },
+  { name: 'Maths', desc: 'Number, calculation, algebra, geometry, statistics and problem-solving.' },
+  { name: 'Science', desc: 'Biology, chemistry, physics and combined science support.' },
+  { name: 'Study Skills', desc: 'Organisation, revision strategies, note-taking and independent learning.' },
+  { name: 'Exam Preparation', desc: 'Structured preparation for tests and exams without unrealistic grade promises.' },
+  { name: 'Catch-up Support', desc: 'Targeted help to close gaps and rebuild confidence after disruption.' }];
+
 
   return (
     <div className="min-h-screen bg-[#FAF9F6] font-body text-[#243247]">
@@ -106,14 +106,14 @@ export default function Tutoring() {
                 <p className="mt-5 text-lg leading-relaxed text-[#243247]/80">Support is tailored to the learner's age, stage and confidence.</p>
               </div>
               <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-                {levels.map((level, i) => (
-                  <div key={i} className="rounded-xl border border-[#E5EAF1] bg-white p-6 text-center shadow-sm transition-all hover:-translate-y-1 hover:shadow-md">
+                {levels.map((level, i) =>
+                <div key={i} className="rounded-xl border border-[#E5EAF1] bg-white p-6 text-center shadow-sm transition-all hover:-translate-y-1 hover:shadow-md">
                     <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-[#102A56] text-[#C6A15B] font-heading text-xl font-bold">{i + 1}</div>
                     <h3 className="font-heading text-xl font-semibold text-[#102A56]">{level.title}</h3>
                     <p className="mt-1 text-sm font-medium text-[#C6A15B]">{level.years}</p>
                     <p className="mt-3 text-sm text-[#243247]/70">{level.text}</p>
                   </div>
-                ))}
+                )}
               </div>
             </div>
           </div>
@@ -127,13 +127,13 @@ export default function Tutoring() {
                 <p className="mt-5 text-lg leading-relaxed text-[#243247]/80">Core subjects and learning skills delivered with patience, structure and encouragement.</p>
               </div>
               <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                {subjects.map((subject, i) => (
-                  <div key={i} className="group rounded-xl border border-[#E5EAF1] bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+                {subjects.map((subject, i) =>
+                <div key={i} className="group rounded-xl border border-[#E5EAF1] bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
                     <div className="mb-5 h-1 w-12 rounded-full bg-[#C6A15B] transition-all group-hover:w-20" />
                     <h3 className="font-heading text-xl font-semibold text-[#102A56]">{subject.name}</h3>
                     <p className="mt-3 text-[#243247]/75 leading-relaxed">{subject.desc}</p>
                   </div>
-                ))}
+                )}
               </div>
             </div>
           </div>
@@ -161,17 +161,17 @@ export default function Tutoring() {
                   </p>
                   <ul className="mt-8 space-y-4">
                     {[
-                      'One-to-one tutoring for focused, individual support',
-                      'Small-group tutoring for peer learning and collaboration',
-                      'Online tutoring where appropriate and agreed',
-                      'In-home or in-setting sessions where arranged',
-                      'Regular progress updates for parents and carers',
-                    ].map((item, i) => (
-                      <li key={i} className="flex items-start gap-4">
+                    'One-to-one tutoring for focused, individual support',
+                    'Small-group tutoring for peer learning and collaboration',
+                    'Online tutoring where appropriate and agreed',
+                    'In-home or in-setting sessions where arranged',
+                    'Regular progress updates for parents and carers'].
+                    map((item, i) =>
+                    <li key={i} className="flex items-start gap-4">
                         <span className="mt-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#C6A15B]/20 text-[#102A56]">✓</span>
                         <span className="text-[#243247]/80">{item}</span>
                       </li>
-                    ))}
+                    )}
                   </ul>
                 </div>
               </div>
@@ -192,6 +192,6 @@ export default function Tutoring() {
         </section>
       </main>
       <Footer />
-    </div>
-  );
+    </div>);
+
 }

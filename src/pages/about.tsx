@@ -6,9 +6,9 @@ import SkipToContent from '../components/SkipToContent';
 import LogoWatermark from '../components/LogoWatermark';
 import Icon from '../components/Icon';
 
-const logoUrl = typeof window !== 'undefined' && window.serenities
-  ? window.serenities.files.url('6bc96ae7cd439802480ecbdbdc283e0b')
-  : '';
+const logoUrl = typeof window !== 'undefined' && window.serenities ?
+window.serenities.files.url('6bc96ae7cd439802480ecbdbdc283e0b') :
+'';
 
 function useReveal() {
   const ref = useRef(null);
@@ -39,13 +39,13 @@ export default function About() {
   const ctaRef = useReveal();
 
   const values = [
-    { icon: 'heart', title: 'Learner-centred', text: 'Every decision starts with the learner: their strengths, needs, aspirations and wellbeing.' },
-    { icon: 'users', title: 'Inclusive', text: 'We believe every young person deserves the opportunity to learn, grow and feel valued.' },
-    { icon: 'shield', title: 'Safe and accountable', text: 'Safeguarding, transparency and professional integrity guide everything we do.' },
-    { icon: 'target', title: 'Purposeful', text: 'We focus on meaningful progress, not quick fixes, and celebrate steps forward of every size.' },
-    { icon: 'messageCircle', title: 'Collaborative', text: 'We work closely with parents, carers, schools, colleges and other professionals.' },
-    { icon: 'trendingUp', title: 'Ambitious', text: 'We set high expectations for ourselves and the support we provide, always looking to improve.' },
-  ];
+  { icon: 'heart', title: 'Learner-centred', text: 'Every decision starts with the learner: their strengths, needs, aspirations and wellbeing.' },
+  { icon: 'users', title: 'Inclusive', text: 'We believe every young person deserves the opportunity to learn, grow and feel valued.' },
+  { icon: 'shield', title: 'Safe and accountable', text: 'Safeguarding, transparency and professional integrity guide everything we do.' },
+  { icon: 'target', title: 'Purposeful', text: 'We focus on meaningful progress, not quick fixes, and celebrate steps forward of every size.' },
+  { icon: 'messageCircle', title: 'Collaborative', text: 'We work closely with parents, carers, schools, colleges and other professionals.' },
+  { icon: 'trendingUp', title: 'Ambitious', text: 'We set high expectations for ourselves and the support we provide, always looking to improve.' }];
+
 
   return (
     <div className="min-h-screen bg-[#FAF9F6] font-body text-[#243247]">
@@ -111,15 +111,15 @@ export default function About() {
                 <p className="mt-5 text-lg leading-relaxed text-[#243247]/80">These principles shape how we work with learners, families, schools and colleges.</p>
               </div>
               <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                {values.map((value, i) => (
-                  <div key={i} className="group rounded-xl border border-[#E5EAF1] bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md">
+                {values.map((value, i) =>
+                <div key={i} className="group rounded-xl border border-[#E5EAF1] bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md">
                     <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-[#EEF4FA] text-[#102A56] transition-colors group-hover:bg-[#102A56] group-hover:text-[#FAF9F6]">
                       <Icon name={value.icon} className="h-6 w-6" />
                     </div>
                     <h3 className="mt-4 font-heading text-lg font-semibold text-[#102A56]">{value.title}</h3>
                     <p className="mt-2 text-sm text-[#243247]/75 leading-relaxed">{value.text}</p>
                   </div>
-                ))}
+                )}
               </div>
             </div>
           </div>
@@ -147,12 +147,12 @@ export default function About() {
                   </p>
                   <div className="mt-8 space-y-5">
                     {[
-                      { title: 'Assess and understand', text: 'We gather information from families, settings and any relevant documentation to understand the learner\'s starting point.' },
-                      { title: 'Plan with purpose', text: 'We create a tailored plan focused on realistic goals, preferred learning styles and the learner\'s interests.' },
-                      { title: 'Deliver with care', text: 'Sessions are delivered by professionals who are matched to the learner\'s needs and supervised appropriately.' },
-                      { title: 'Review and adapt', text: 'Progress is reviewed regularly, and plans are adjusted as needs, confidence and circumstances change.' },
-                    ].map((item, i) => (
-                      <div key={i} className="flex gap-4">
+                    { title: 'Assess and understand', text: 'We gather information from families, settings and any relevant documentation to understand the learner\'s starting point.' },
+                    { title: 'Plan with purpose', text: 'We create a tailored plan focused on realistic goals, preferred learning styles and the learner\'s interests.' },
+                    { title: 'Deliver with care', text: 'Sessions are delivered by professionals who are matched to the learner\'s needs and supervised appropriately.' },
+                    { title: 'Review and adapt', text: 'Progress is reviewed regularly, and plans are adjusted as needs, confidence and circumstances change.' }].
+                    map((item, i) =>
+                    <div key={i} className="flex gap-4">
                         <div className="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#C6A15B]/20 text-[#102A56]">
                           <Icon name="check" className="h-4 w-4" />
                         </div>
@@ -161,7 +161,7 @@ export default function About() {
                           <p className="mt-1 text-sm text-[#243247]/75">{item.text}</p>
                         </div>
                       </div>
-                    ))}
+                    )}
                   </div>
                 </div>
               </div>
@@ -178,19 +178,19 @@ export default function About() {
               </div>
               <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
                 {[
-                  { title: 'Children and young people', text: 'Learners who need extra support to thrive academically, socially or emotionally.', icon: 'smile' },
-                  { title: 'Parents and carers', text: 'Families looking for trusted, personalised support and clear communication.', icon: 'heart' },
-                  { title: 'Schools', text: 'Primary, secondary and specialist schools seeking SEN support, tutoring or staffing.', icon: 'school' },
-                  { title: 'Colleges', text: 'Post-16 settings needing targeted learner support or education professionals.', icon: 'users' },
-                ].map((item, i) => (
-                  <div key={i} className="rounded-xl border border-[#FAF9F6]/10 bg-[#FAF9F6]/10 p-6 text-center backdrop-blur-sm transition-all hover:bg-[#FAF9F6]/15">
+                { title: 'Children and young people', text: 'Learners who need extra support to thrive academically, socially or emotionally.', icon: 'smile' },
+                { title: 'Parents and carers', text: 'Families looking for trusted, personalised support and clear communication.', icon: 'heart' },
+                { title: 'Schools', text: 'Primary, secondary and specialist schools seeking SEN support, tutoring or staffing.', icon: 'school' },
+                { title: 'Colleges', text: 'Post-16 settings needing targeted learner support or education professionals.', icon: 'users' }].
+                map((item, i) =>
+                <div key={i} className="rounded-xl border border-[#FAF9F6]/10 bg-[#FAF9F6]/10 p-6 text-center backdrop-blur-sm transition-all hover:bg-[#FAF9F6]/15">
                     <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-lg bg-[#FAF9F6]/20">
                       <Icon name={item.icon} className="h-6 w-6" />
                     </div>
                     <h3 className="mt-4 font-heading text-lg font-semibold">{item.title}</h3>
                     <p className="mt-2 text-sm text-[#FAF9F6]/80">{item.text}</p>
                   </div>
-                ))}
+                )}
               </div>
             </div>
           </div>
@@ -214,6 +214,6 @@ export default function About() {
         </section>
       </main>
       <Footer />
-    </div>
-  );
+    </div>);
+
 }

@@ -11,7 +11,7 @@ export default function SchoolContactForm() {
     postcode: '',
     supportType: '',
     requirement: '',
-    consent: false,
+    consent: false
   });
   const [errors, setErrors] = useState({});
   const [submitted, setSubmitted] = useState(false);
@@ -60,8 +60,8 @@ export default function SchoolContactForm() {
         <p className="mt-2 text-sm text-surface-600">
           We have received your request and will be in touch shortly to discuss how we can support your school or college.
         </p>
-      </div>
-    );
+      </div>);
+
   }
 
   return (
@@ -78,8 +78,8 @@ export default function SchoolContactForm() {
             className="mt-1.5 w-full rounded-md border border-surface-300 bg-background px-4 py-2.5 text-sm text-foreground placeholder:text-surface-400 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
             placeholder="Your name"
             aria-invalid={errors.contactName ? 'true' : 'false'}
-            aria-describedby={errors.contactName ? 'contactName-error' : undefined}
-          />
+            aria-describedby={errors.contactName ? 'contactName-error' : undefined} />
+
           {errors.contactName && <p id="contactName-error" className="mt-1.5 text-sm text-red-600">{errors.contactName}</p>}
         </div>
         <div>
@@ -91,8 +91,8 @@ export default function SchoolContactForm() {
             value={formData.role}
             onChange={handleChange}
             className="mt-1.5 w-full rounded-md border border-surface-300 bg-background px-4 py-2.5 text-sm text-foreground placeholder:text-surface-400 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
-            placeholder="e.g. SENCO, Headteacher"
-          />
+            placeholder="e.g. SENCO, Headteacher" />
+
         </div>
       </div>
 
@@ -107,8 +107,8 @@ export default function SchoolContactForm() {
           className="mt-1.5 w-full rounded-md border border-surface-300 bg-background px-4 py-2.5 text-sm text-foreground placeholder:text-surface-400 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
           placeholder="Name of setting"
           aria-invalid={errors.settingName ? 'true' : 'false'}
-          aria-describedby={errors.settingName ? 'settingName-error' : undefined}
-        />
+          aria-describedby={errors.settingName ? 'settingName-error' : undefined} />
+
         {errors.settingName && <p id="settingName-error" className="mt-1.5 text-sm text-red-600">{errors.settingName}</p>}
       </div>
 
@@ -124,8 +124,8 @@ export default function SchoolContactForm() {
             className="mt-1.5 w-full rounded-md border border-surface-300 bg-background px-4 py-2.5 text-sm text-foreground placeholder:text-surface-400 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
             placeholder="you@school.ac.uk"
             aria-invalid={errors.email ? 'true' : 'false'}
-            aria-describedby={errors.email ? 'email-error' : undefined}
-          />
+            aria-describedby={errors.email ? 'email-error' : undefined} />
+
           {errors.email && <p id="email-error" className="mt-1.5 text-sm text-red-600">{errors.email}</p>}
         </div>
         <div>
@@ -137,8 +137,8 @@ export default function SchoolContactForm() {
             value={formData.phone}
             onChange={handleChange}
             className="mt-1.5 w-full rounded-md border border-surface-300 bg-background px-4 py-2.5 text-sm text-foreground placeholder:text-surface-400 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
-            placeholder="Optional"
-          />
+            placeholder="Optional" />
+
         </div>
       </div>
 
@@ -152,8 +152,8 @@ export default function SchoolContactForm() {
             value={formData.postcode}
             onChange={handleChange}
             className="mt-1.5 w-full rounded-md border border-surface-300 bg-background px-4 py-2.5 text-sm text-foreground placeholder:text-surface-400 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
-            placeholder="Optional"
-          />
+            placeholder="Optional" />
+
         </div>
         <div>
           <label htmlFor="supportType" className="block text-sm font-medium text-foreground">Type of support required</label>
@@ -162,8 +162,8 @@ export default function SchoolContactForm() {
             name="supportType"
             value={formData.supportType}
             onChange={handleChange}
-            className="mt-1.5 w-full rounded-md border border-surface-300 bg-background px-4 py-2.5 text-sm text-foreground focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
-          >
+            className="mt-1.5 w-full rounded-md border border-surface-300 bg-background px-4 py-2.5 text-sm text-foreground focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20">
+
             <option value="">Please select</option>
             <option value="sen-tuition">SEN tuition</option>
             <option value="targeted-tutoring">Targeted tutoring</option>
@@ -186,8 +186,8 @@ export default function SchoolContactForm() {
           className="mt-1.5 w-full rounded-md border border-surface-300 bg-background px-4 py-2.5 text-sm text-foreground placeholder:text-surface-400 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
           placeholder="Number of learners, year groups, SEN needs, staffing role, start date, etc."
           aria-invalid={errors.requirement ? 'true' : 'false'}
-          aria-describedby={errors.requirement ? 'requirement-error' : undefined}
-        />
+          aria-describedby={errors.requirement ? 'requirement-error' : undefined} />
+
         {errors.requirement && <p id="requirement-error" className="mt-1.5 text-sm text-red-600">{errors.requirement}</p>}
       </div>
 
@@ -200,8 +200,8 @@ export default function SchoolContactForm() {
             onChange={handleChange}
             className="mt-1 h-4 w-4 rounded border-surface-300 text-primary focus:ring-primary"
             aria-invalid={errors.consent ? 'true' : 'false'}
-            aria-describedby={errors.consent ? 'consent-error' : undefined}
-          />
+            aria-describedby={errors.consent ? 'consent-error' : undefined} />
+
           <span className="text-sm text-surface-600">
             I agree to Royale Crown Academy Ltd processing the data above in line with the <a href="/privacy-policy" className="font-medium text-primary underline">Privacy Policy</a>. I confirm I am authorised to make this enquiry on behalf of the setting. <span className="text-red-500">*</span>
           </span>
@@ -212,10 +212,10 @@ export default function SchoolContactForm() {
       <button
         type="submit"
         disabled={submitting}
-        className="inline-flex w-full items-center justify-center rounded-md bg-primary px-6 py-3 text-base font-semibold text-primary-foreground shadow-sm transition-colors hover:bg-primary/90 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 disabled:opacity-60 sm:w-auto"
-      >
+        className="inline-flex w-full items-center justify-center rounded-md bg-primary px-6 py-3 text-base font-semibold text-primary-foreground shadow-sm transition-colors hover:bg-primary/90 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 disabled:opacity-60 sm:w-auto">
+
         {submitting ? 'Sending...' : 'Request Support'}
       </button>
-    </form>
-  );
+    </form>);
+
 }
