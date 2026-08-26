@@ -1,132 +1,209 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
+import { motion, useReducedMotion } from 'framer-motion';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import SkipToContent from '../components/SkipToContent';
-import LogoWatermark from '../components/LogoWatermark';
-import Icon from '../components/Icon';
+import CookieConsent from '../components/CookieConsent';
+import SEOHead from '../components/SEOHead';
+import { BookOpen, ArrowRight, Calendar, User, Tag } from 'lucide-react';
 
-function useReveal() {
-  const ref = useRef(null);
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          el.classList.add('opacity-100', 'translate-y-0');
-          el.classList.remove('opacity-0', 'translate-y-8');
-        }
-      },
-      { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
-    );
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, []);
-  return ref;
-}
+const fadeUp = {
+  hidden: { opacity: 0, y: 40 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] } }
+};
+
+const staggerContainer = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { staggerChildren: 0.12, delayChildren: 0.2 } }
+};
 
 export default function Resources() {
-  const heroRef = useReveal();
-  const categoriesRef = useReveal();
-  const resourcesRef = useReveal();
+  const prefersReducedMotion = useReducedMotion();
+  const heroImageUrl = serenities.files.url('a2078dfe9c07ced21d031bfe2ea9a313');
 
-  const categories = ['SEN Support', 'Tutoring', 'Parent Guides', 'School Resources', 'Learning Strategies', 'Exam Preparation', 'Education Insights'];
+  const categories = [
+    "SEN Support",
+    "Tutoring",
+    "Parent Guides",
+    "School Resources",
+    "Learning Strategies",
+    "Exam Preparation",
+    "Education Insights"
+  ];
 
-  const resources = [
-    { title: '[Article title placeholder: SEN support topic]', excerpt: '[Short excerpt placeholder. Replace with a summary of the article content.]', category: 'SEN Support', date: '[Date to be inserted]' },
-    { title: '[Article title placeholder: Tutoring topic]', excerpt: '[Short excerpt placeholder. Replace with a summary of the article content.]', category: 'Tutoring', date: '[Date to be inserted]' },
-    { title: '[Article title placeholder: Parent guide topic]', excerpt: '[Short excerpt placeholder. Replace with a summary of the article content.]', category: 'Parent Guides', date: '[Date to be inserted]' },
-    { title: '[Article title placeholder: School resource topic]', excerpt: '[Short excerpt placeholder. Replace with a summary of the article content.]', category: 'School Resources', date: '[Date to be inserted]' },
-    { title: '[Article title placeholder: Learning strategy topic]', excerpt: '[Short excerpt placeholder. Replace with a summary of the article content.]', category: 'Learning Strategies', date: '[Date to be inserted]' },
-    { title: '[Article title placeholder: Exam preparation topic]', excerpt: '[Short excerpt placeholder. Replace with a summary of the article content.]', category: 'Exam Preparation', date: '[Date to be inserted]' },
+  const articles = [
+    {
+      title: "Understanding SEN Support: A Guide for Parents",
+      category: "SEN Support",
+      excerpt: "An introduction to SEN support, person-centred planning and how to choose the right provision for your child.",
+      author: "[Author placeholder]",
+      date: "[Date placeholder]",
+      updated: "[Updated placeholder]"
+    },
+    {
+      title: "How to Support Your Child with GCSE Maths",
+      category: "Tutoring",
+      excerpt: "Practical strategies for building confidence and understanding in GCSE maths without adding pressure.",
+      author: "[Author placeholder]",
+      date: "[Date placeholder]",
+      updated: "[Updated placeholder]"
+    },
+    {
+      title: "What Schools Should Know About Education Staffing",
+      category: "School Resources",
+      excerpt: "Key considerations for schools when requesting teaching assistants, cover supervisors and SEN support staff.",
+      author: "[Author placeholder]",
+      date: "[Date placeholder]",
+      updated: "[Updated placeholder]"
+    },
+    {
+      title: "Effective Revision Techniques for Exam Success",
+      category: "Exam Preparation",
+      excerpt: "Research-informed revision strategies to help learners prepare more effectively for exams.",
+      author: "[Author placeholder]",
+      date: "[Date placeholder]",
+      updated: "[Updated placeholder]"
+    },
+    {
+      title: "Building Confidence in Learners with Additional Needs",
+      category: "Learning Strategies",
+      excerpt: "Approaches that help learners with additional needs feel capable, motivated and engaged.",
+      author: "[Author placeholder]",
+      date: "[Date placeholder]",
+      updated: "[Updated placeholder]"
+    },
+    {
+      title: "A Parent's Guide to Choosing a Tutor",
+      category: "Parent Guides",
+      excerpt: "What to look for, what to ask and how to find a tutor who is right for your child.",
+      author: "[Author placeholder]",
+      date: "[Date placeholder]",
+      updated: "[Updated placeholder]"
+    }
   ];
 
   return (
-    <div className="min-h-screen bg-[#FAF9F6] font-body text-[#243247]">
-      <SkipToContent />
+    <div className="min-h-screen bg-background font-body text-foreground">
+      <SEOHead
+        title="Resources | Education Insights, Guides & Articles"
+        description="Explore our UK education resource centre for SEN support, tutoring tips, parent guides, school resources and exam preparation."
+        canonical="https://royalecrown.serenitiesai.com/resources"
+      />
       <Header />
       <main id="main-content">
-        <section className="relative overflow-hidden bg-[#102A56] pt-32 pb-20 lg:pt-44 lg:pb-28">
-          <div className="absolute inset-0 opacity-10">
-            <LogoWatermark className="h-[140%] w-[140%] -translate-x-1/4 -translate-y-1/4 text-[#FAF9F6]" />
+        {/* Hero */}
+        <section className="relative py-32 lg:py-40 bg-primary overflow-hidden">
+          <div className="absolute inset-0">
+            <img src={heroImageUrl} alt="" className="w-full h-full object-cover opacity-30" />
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/95 to-[#0B1D3A]/90" />
           </div>
-          <div className="absolute inset-0 bg-gradient-to-br from-[#102A56] via-[#102A56]/95 to-[#0B1D3A]" />
-          <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div ref={heroRef} className="opacity-0 translate-y-8 transition-all duration-1000 ease-out">
-              <div className="mx-auto max-w-3xl text-center">
-                <div className="flex items-center justify-center gap-3 mb-6">
-                  <span className="h-px w-12 bg-[#C6A15B]" />
-                  <span className="text-sm font-semibold uppercase tracking-widest text-[#E8D7B2]">Resource Centre</span>
-                  <span className="h-px w-12 bg-[#C6A15B]" />
-                </div>
-                <h1 className="font-heading text-4xl font-bold leading-tight text-[#FAF9F6] sm:text-5xl lg:text-6xl">
-                  Resources
-                </h1>
-                <p className="mt-6 text-lg leading-relaxed text-[#FAF9F6]/85">
-                  A growing collection of articles, guides and insights for parents, carers, schools and colleges. The articles below are SEO-friendly templates ready to be replaced with original content.
-                </p>
-              </div>
-            </div>
+          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={staggerContainer}
+            >
+              <motion.span variants={fadeUp} className="text-secondary font-semibold tracking-wider uppercase text-sm">Resources</motion.span>
+              <motion.h1 variants={fadeUp} className="font-heading text-5xl md:text-6xl lg:text-7xl font-bold text-primary-foreground mt-6 mb-6">Education Insights & Guides</motion.h1>
+              <motion.p variants={fadeUp} className="text-xl text-primary-foreground/80 max-w-3xl mx-auto leading-relaxed">
+                Practical resources for parents, learners, schools and education professionals.
+              </motion.p>
+            </motion.div>
           </div>
         </section>
 
-        <section className="bg-[#EEF4FA] py-12">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div ref={categoriesRef} className="opacity-0 translate-y-8 transition-all duration-1000 ease-out">
-              <div className="flex flex-wrap justify-center gap-3">
-                {categories.map((category) => (
-                  <button
-                    key={category}
-                    type="button"
-                    className="rounded-full border border-[#E5EAF1] bg-white px-5 py-2.5 text-sm font-medium text-[#102A56] transition-all hover:border-[#C6A15B]/40 hover:bg-[#FAF9F6]"
-                  >
-                    {category}
-                  </button>
-                ))}
-              </div>
-            </div>
+        {/* Categories */}
+        <section className="py-16 bg-surface-50">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={staggerContainer}
+              className="flex flex-wrap justify-center gap-3"
+            >
+              {categories.map((category) => (
+                <motion.button
+                  key={category}
+                  variants={fadeUp}
+                  className="px-5 py-2.5 rounded-full bg-white border border-surface-200 text-surface-700 font-medium hover:border-secondary hover:text-secondary transition-colors"
+                >
+                  {category}
+                </motion.button>
+              ))}
+            </motion.div>
           </div>
         </section>
 
-        <section className="py-20 lg:py-28">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div ref={resourcesRef} className="opacity-0 translate-y-8 transition-all duration-1000 ease-out">
-              <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                {resources.map((resource, i) => (
-                  <div key={i} className="group flex h-full flex-col rounded-2xl border border-[#E5EAF1] bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
-                    <div className="flex items-center gap-2">
-                      <span className="h-px w-6 bg-[#C6A15B]" />
-                      <span className="text-xs font-semibold uppercase tracking-wider text-[#C6A15B]">{resource.category}</span>
+        {/* Articles */}
+        <section className="py-24 bg-background">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={staggerContainer}
+              className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+            >
+              {articles.map((article, index) => (
+                <motion.article key={index} variants={fadeUp} className="bg-white rounded-xl overflow-hidden shadow-sm border border-surface-100 hover:shadow-lg transition-shadow group">
+                  <div className="h-48 bg-gradient-to-br from-primary/5 to-secondary/10 flex items-center justify-center">
+                    <BookOpen className="w-12 h-12 text-primary/30" />
+                  </div>
+                  <div className="p-8">
+                    <div className="flex items-center gap-2 mb-3">
+                      <Tag className="w-4 h-4 text-secondary" />
+                      <span className="text-sm font-semibold text-secondary">{article.category}</span>
                     </div>
-                    <h3 className="mt-4 font-heading text-xl font-semibold text-[#102A56]">{resource.title}</h3>
-                    <p className="mt-3 flex-1 text-[#243247]/75 leading-relaxed">{resource.excerpt}</p>
-                    <p className="mt-4 text-xs text-[#243247]/50">{resource.date}</p>
-                    <Link to="#" className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-[#102A56] hover:text-[#C6A15B]">
-                      Read more <Icon name="arrowRight" className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                    <h2 className="font-heading text-xl font-bold text-primary mb-3 group-hover:text-secondary transition-colors">
+                      {article.title}
+                    </h2>
+                    <p className="text-surface-600 mb-4 leading-relaxed">{article.excerpt}</p>
+                    <div className="flex items-center gap-4 text-sm text-surface-500 mb-4">
+                      <div className="flex items-center gap-1">
+                        <User className="w-4 h-4" />
+                        <span>{article.author}</span>
+                      </div>
+                      <div className="flex items-center gap-1">
+                        <Calendar className="w-4 h-4" />
+                        <span>{article.date}</span>
+                      </div>
+                    </div>
+                    <Link to="#" className="inline-flex items-center gap-2 text-primary font-semibold hover:text-secondary transition-colors">
+                      Read more <ArrowRight className="w-4 h-4" />
                     </Link>
                   </div>
-                ))}
-              </div>
-            </div>
+                </motion.article>
+              ))}
+            </motion.div>
           </div>
         </section>
 
-        <section className="bg-[#EEF4FA] py-16 lg:py-20">
-          <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-            <div className="rounded-2xl border border-[#E5EAF1] bg-white p-8 shadow-sm">
-              <div className="flex items-start gap-4">
-                <Icon name="info" className="mt-0.5 h-6 w-6 shrink-0 text-[#C6A15B]" />
-                <div>
-                  <h2 className="font-heading text-xl font-semibold text-[#102A56]">Article template structure</h2>
-                  <p className="mt-3 text-[#243247]/80 leading-relaxed">Each article should include: a clear title, author name, publication date, updated date, category tags, an introduction, structured headings, practical guidance, a conclusion and links to related articles. Replace the placeholders above with original, accurate content.</p>
-                </div>
-              </div>
-            </div>
+        {/* CTA */}
+        <section className="py-24 bg-surface-50">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={staggerContainer}
+            >
+              <motion.h2 variants={fadeUp} className="font-heading text-4xl md:text-5xl font-bold text-primary mb-6">Can't find what you are looking for?</motion.h2>
+              <motion.p variants={fadeUp} className="text-lg text-surface-600 mb-10 leading-relaxed">
+                Our team is happy to answer questions and point you towards the right support.
+              </motion.p>
+              <motion.div variants={fadeUp}>
+                <Link to="/contact" className="group inline-flex items-center gap-2 px-8 py-4 bg-primary text-primary-foreground font-semibold rounded-lg hover:bg-primary/90 transition-all">
+                  Ask a Question <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </motion.div>
+            </motion.div>
           </div>
         </section>
       </main>
       <Footer />
+      <CookieConsent />
     </div>
   );
 }
