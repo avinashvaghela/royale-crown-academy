@@ -33,13 +33,13 @@ export default function Safeguarding() {
   const reportingRef = useReveal();
 
   const commitments = [
-  { icon: 'shield', title: 'Safeguarding-first culture', desc: 'The welfare of children and young people is central to every decision we make, from recruitment to delivery.' },
-  { icon: 'users', title: 'Safer recruitment', desc: 'We follow robust recruitment and verification procedures for all education professionals.' },
-  { icon: 'bookOpen', title: 'Safeguarding training', desc: 'Relevant staff and professionals receive safeguarding training appropriate to their role.' },
-  { icon: 'alertTriangle', title: 'Clear reporting', desc: 'Concerns are escalated promptly through the appropriate channels, including the Designated Safeguarding Lead.' },
-  { icon: 'monitor', title: 'Online safety', desc: 'Online sessions are delivered using secure arrangements and appropriate supervision.' },
-  { icon: 'messageCircle', title: 'Open communication', desc: 'We encourage parents, carers, schools and learners to raise questions or concerns at any time.' }];
-
+    { icon: 'shield', title: 'Safeguarding-first culture', desc: 'The welfare of children and young people is central to every decision we make, from recruitment to delivery.' },
+    { icon: 'users', title: 'Safer recruitment', desc: 'We follow robust recruitment and verification procedures for all education professionals.' },
+    { icon: 'bookOpen', title: 'Safeguarding training', desc: 'Relevant staff and professionals receive safeguarding training appropriate to their role.' },
+    { icon: 'alertTriangle', title: 'Clear reporting', desc: 'Concerns are escalated promptly through the appropriate channels, including the Designated Safeguarding Lead.' },
+    { icon: 'monitor', title: 'Online safety', desc: 'Online sessions are delivered using secure arrangements and appropriate supervision.' },
+    { icon: 'messageCircle', title: 'Open communication', desc: 'We encourage parents, carers, schools and learners to raise questions or concerns at any time.' },
+  ];
 
   return (
     <div className="min-h-screen bg-[#FAF9F6] font-body text-[#243247]">
@@ -77,15 +77,15 @@ export default function Safeguarding() {
                 <h2 className="font-heading text-3xl font-bold text-[#102A56] sm:text-4xl">What safeguarding means to us</h2>
               </div>
               <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                {commitments.map((item, i) =>
-                <div key={i} className="group rounded-xl border border-[#E5EAF1] bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md">
+                {commitments.map((item, i) => (
+                  <div key={i} className="group rounded-xl border border-[#E5EAF1] bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md">
                     <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-[#EEF4FA] text-[#102A56] transition-colors group-hover:bg-[#102A56] group-hover:text-[#FAF9F6]">
                       <Icon name={item.icon} className="h-6 w-6" />
                     </div>
                     <h3 className="mt-4 font-heading text-lg font-semibold text-[#102A56]">{item.title}</h3>
                     <p className="mt-2 text-sm text-[#243247]/75 leading-relaxed">{item.desc}</p>
                   </div>
-                )}
+                ))}
               </div>
             </div>
           </div>
@@ -124,15 +124,15 @@ export default function Safeguarding() {
                   <h3 className="font-heading text-xl font-semibold text-[#102A56]">Useful contacts</h3>
                   <ul className="mt-5 space-y-4">
                     {[
-                    { icon: 'phone', text: 'In an emergency, always dial 999.' },
-                    { icon: 'phone', text: 'NSPCC Helpline: 0808 800 5000' },
-                    { icon: 'externalLink', text: 'Contact your local authority children\'s services team for advice and guidance.' }].
-                    map((item, i) =>
-                    <li key={i} className="flex items-start gap-3">
+                      { icon: 'phone', text: 'In an emergency, always dial 999.' },
+                      { icon: 'phone', text: 'NSPCC Helpline: 0808 800 5000' },
+                      { icon: 'externalLink', text: 'Contact your local authority children\'s services team for advice and guidance.' },
+                    ].map((item, i) => (
+                      <li key={i} className="flex items-start gap-3">
                         <Icon name={item.icon} className="mt-0.5 h-5 w-5 shrink-0 text-[#C6A15B]" />
                         <span className="text-[#243247]/80">{item.text}</span>
                       </li>
-                    )}
+                    ))}
                   </ul>
                 </div>
               </div>
@@ -146,24 +146,24 @@ export default function Safeguarding() {
               <h3 className="font-heading text-lg font-semibold text-[#FAF9F6]">Related policies</h3>
               <ul className="mt-4 grid gap-3 sm:grid-cols-2">
                 {[
-                { label: 'Safeguarding Policy', path: '/safeguarding-policy' },
-                { label: 'Privacy Policy', path: '/privacy-policy' },
-                { label: 'Complaints Policy', path: '/complaints-policy' },
-                { label: 'Data Protection', path: '/data-protection' }].
-                map((link) =>
-                <li key={link.path}>
+                  { label: 'Safeguarding Policy', path: '/safeguarding-policy' },
+                  { label: 'Privacy Policy', path: '/privacy-policy' },
+                  { label: 'Complaints Policy', path: '/complaints-policy' },
+                  { label: 'Data Protection', path: '/data-protection' },
+                ].map((link) => (
+                  <li key={link.path}>
                     <Link to={link.path} className="inline-flex items-center gap-2 text-sm font-medium text-[#FAF9F6]/80 hover:text-[#C6A15B]">
                       <Icon name="fileText" className="h-4 w-4" />
                       {link.label}
                     </Link>
                   </li>
-                )}
+                ))}
               </ul>
             </div>
           </div>
         </section>
       </main>
       <Footer />
-    </div>);
-
+    </div>
+  );
 }

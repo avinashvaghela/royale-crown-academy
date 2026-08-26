@@ -55,6 +55,6 @@ export default function ComplaintsPolicyPage() {
       <p>
         To make a complaint or request further information, please contact us at <a href="mailto:info@royalecrownacademy.co.uk" className="font-medium text-primary underline">info@royalecrownacademy.co.uk</a>.
       </p>
-    </LegalPageLayout>);
-
+    </LegalPageLayout>
+  );
 }

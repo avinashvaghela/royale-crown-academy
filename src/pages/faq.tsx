@@ -34,28 +34,28 @@ export default function FAQ() {
   const ctaRef = useReveal();
 
   const parentFAQs = [
-  { question: 'What age groups do you support?', answer: 'We work with children and young people across primary, secondary and college settings. Please contact us to discuss the specific age group and needs you have in mind.' },
-  { question: 'Do you only work with learners who have SEN?', answer: 'No. While SEN support is a core part of our work, we also provide personalised tutoring, catch-up support and other services for a wide range of learners.' },
-  { question: 'Can sessions take place online?', answer: 'Yes, where appropriate and agreed, we offer online tutoring and support. We also provide face-to-face sessions depending on location, availability and the learner\'s needs.' },
-  { question: 'How do I know if my child needs extra support?', answer: 'Signs can include struggling to keep up, losing confidence, finding certain subjects difficult, or needing a different approach. We are happy to discuss your concerns in a confidential consultation.' },
-  { question: 'What information do I need to provide?', answer: 'It helps to know your child\'s age or year group, the areas they find difficult, any relevant reports or diagnoses, and your goals for support. You do not need a formal diagnosis to start a conversation.' },
-  { question: 'How are tutors and specialists matched to my child?', answer: 'We match based on the learner\'s needs, personality, goals and the specialist\'s experience. We aim for a good fit from the start and review regularly.' }];
-
+    { question: 'What age groups do you support?', answer: 'We work with children and young people across primary, secondary and college settings. Please contact us to discuss the specific age group and needs you have in mind.' },
+    { question: 'Do you only work with learners who have SEN?', answer: 'No. While SEN support is a core part of our work, we also provide personalised tutoring, catch-up support and other services for a wide range of learners.' },
+    { question: 'Can sessions take place online?', answer: 'Yes, where appropriate and agreed, we offer online tutoring and support. We also provide face-to-face sessions depending on location, availability and the learner\'s needs.' },
+    { question: 'How do I know if my child needs extra support?', answer: 'Signs can include struggling to keep up, losing confidence, finding certain subjects difficult, or needing a different approach. We are happy to discuss your concerns in a confidential consultation.' },
+    { question: 'What information do I need to provide?', answer: 'It helps to know your child\'s age or year group, the areas they find difficult, any relevant reports or diagnoses, and your goals for support. You do not need a formal diagnosis to start a conversation.' },
+    { question: 'How are tutors and specialists matched to my child?', answer: 'We match based on the learner\'s needs, personality, goals and the specialist\'s experience. We aim for a good fit from the start and review regularly.' },
+  ];
 
   const schoolFAQs = [
-  { question: 'How do schools request support?', answer: 'Schools and colleges can complete our request form, email or call us. We will arrange a consultation to understand your requirements and propose a suitable plan.' },
-  { question: 'What types of staffing do you provide?', answer: 'We provide Teaching Assistants, SEN Teaching Assistants, Cover Supervisors, tutors and other education support professionals, depending on your needs.' },
-  { question: 'Can you support learners in our school or college?', answer: 'Yes. We provide in-setting support, one-to-one tuition, small-group programmes and staffing solutions, depending on the arrangement agreed.' },
-  { question: 'What areas do you cover?', answer: 'We support families, schools and colleges across the UK. Coverage for specific services may vary by location; please contact us to confirm availability in your area.' },
-  { question: 'How quickly can support begin?', answer: 'Timescales depend on the type of support, location and availability. After an initial consultation, we aim to propose a plan promptly and keep you informed throughout.' }];
-
+    { question: 'How do schools request support?', answer: 'Schools and colleges can complete our request form, email or call us. We will arrange a consultation to understand your requirements and propose a suitable plan.' },
+    { question: 'What types of staffing do you provide?', answer: 'We provide Teaching Assistants, SEN Teaching Assistants, Cover Supervisors, tutors and other education support professionals, depending on your needs.' },
+    { question: 'Can you support learners in our school or college?', answer: 'Yes. We provide in-setting support, one-to-one tuition, small-group programmes and staffing solutions, depending on the arrangement agreed.' },
+    { question: 'What areas do you cover?', answer: 'We support families, schools and colleges across the UK. Coverage for specific services may vary by location; please contact us to confirm availability in your area.' },
+    { question: 'How quickly can support begin?', answer: 'Timescales depend on the type of support, location and availability. After an initial consultation, we aim to propose a plan promptly and keep you informed throughout.' },
+  ];
 
   const generalFAQs = [
-  { question: 'How much does support cost?', answer: 'Costs depend on the type of support, frequency, location and specialist required. We provide clear information after understanding your needs, with no hidden fees.' },
-  { question: 'What is your cancellation policy?', answer: 'Our cancellation and refund policy is available on our Refund & Cancellation Policy page. We ask for reasonable notice where possible.' },
-  { question: 'How do you keep learners safe?', answer: 'Safeguarding is central to our work. We follow safer recruitment, safeguarding training, clear reporting procedures and online safety measures. Read more on our Safeguarding page.' },
-  { question: 'How is my data used?', answer: 'We process personal data in line with UK GDPR and the Data Protection Act 2018. You can read more in our Privacy Policy.' }];
-
+    { question: 'How much does support cost?', answer: 'Costs depend on the type of support, frequency, location and specialist required. We provide clear information after understanding your needs, with no hidden fees.' },
+    { question: 'What is your cancellation policy?', answer: 'Our cancellation and refund policy is available on our Refund & Cancellation Policy page. We ask for reasonable notice where possible.' },
+    { question: 'How do you keep learners safe?', answer: 'Safeguarding is central to our work. We follow safer recruitment, safeguarding training, clear reporting procedures and online safety measures. Read more on our Safeguarding page.' },
+    { question: 'How is my data used?', answer: 'We process personal data in line with UK GDPR and the Data Protection Act 2018. You can read more in our Privacy Policy.' },
+  ];
 
   return (
     <div className="min-h-screen bg-[#FAF9F6] font-body text-[#243247]">
@@ -137,6 +137,6 @@ export default function FAQ() {
         </section>
       </main>
       <Footer />
-    </div>);
-
+    </div>
+  );
 }

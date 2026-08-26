@@ -52,6 +52,6 @@ export default function TutoringTermsPage() {
       <p>
         If you have any questions about these Tutoring Terms, please contact us at <a href="mailto:info@royalecrownacademy.co.uk" className="font-medium text-primary underline">info@royalecrownacademy.co.uk</a>.
       </p>
-    </LegalPageLayout>);
-
+    </LegalPageLayout>
+  );
 }

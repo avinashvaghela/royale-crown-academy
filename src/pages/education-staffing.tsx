@@ -6,9 +6,9 @@ import SkipToContent from '../components/SkipToContent';
 import LogoWatermark from '../components/LogoWatermark';
 import Icon from '../components/Icon';
 
-const logoUrl = typeof window !== 'undefined' && window.serenities ?
-window.serenities.files.url('6bc96ae7cd439802480ecbdbdc283e0b') :
-'';
+const logoUrl = typeof window !== 'undefined' && window.serenities
+  ? window.serenities.files.url('6bc96ae7cd439802480ecbdbdc283e0b')
+  : '';
 
 function useReveal() {
   const ref = useRef(null);
@@ -38,21 +38,21 @@ export default function EducationStaffing() {
   const ctaRef = useReveal();
 
   const roles = [
-  { title: 'Teaching Assistants', desc: 'General classroom and learning support professionals for primary, secondary and specialist settings.' },
-  { title: 'SEN Teaching Assistants', desc: 'Support staff with experience and understanding of autism, ADHD, dyslexia, SEMH and additional needs.' },
-  { title: 'Cover Supervisors', desc: 'Reliable cover professionals to maintain continuity and behaviour expectations in the classroom.' },
-  { title: 'Tutors', desc: 'Subject specialists and intervention tutors for one-to-one and small-group support.' },
-  { title: 'Education Support Professionals', desc: 'A range of professionals to complement your existing team and provision.' },
-  { title: 'Flexible Arrangements', desc: 'Day-to-day cover, short-term contracts and longer-term placements to suit your needs.' }];
-
+    { title: 'Teaching Assistants', desc: 'General classroom and learning support professionals for primary, secondary and specialist settings.' },
+    { title: 'SEN Teaching Assistants', desc: 'Support staff with experience and understanding of autism, ADHD, dyslexia, SEMH and additional needs.' },
+    { title: 'Cover Supervisors', desc: 'Reliable cover professionals to maintain continuity and behaviour expectations in the classroom.' },
+    { title: 'Tutors', desc: 'Subject specialists and intervention tutors for one-to-one and small-group support.' },
+    { title: 'Education Support Professionals', desc: 'A range of professionals to complement your existing team and provision.' },
+    { title: 'Flexible Arrangements', desc: 'Day-to-day cover, short-term contracts and longer-term placements to suit your needs.' },
+  ];
 
   const process = [
-  { number: '01', title: 'Understand requirement', desc: 'We listen to your needs, culture, timescales and any specific learner or safeguarding considerations.' },
-  { number: '02', title: 'Identify suitable professionals', desc: 'We search our network and recruitment processes for candidates whose skills and values align with your setting.' },
-  { number: '03', title: 'Checks and verification', desc: 'We follow our safer recruitment and verification procedures before any introduction or placement.' },
-  { number: '04', title: 'Introduce and arrange placement', desc: 'We facilitate introductions, agree terms and support a smooth start in your setting.' },
-  { number: '05', title: 'Ongoing communication', desc: 'We stay in touch, gather feedback and address any questions throughout the placement.' }];
-
+    { number: '01', title: 'Understand requirement', desc: 'We listen to your needs, culture, timescales and any specific learner or safeguarding considerations.' },
+    { number: '02', title: 'Identify suitable professionals', desc: 'We search our network and recruitment processes for candidates whose skills and values align with your setting.' },
+    { number: '03', title: 'Checks and verification', desc: 'We follow our safer recruitment and verification procedures before any introduction or placement.' },
+    { number: '04', title: 'Introduce and arrange placement', desc: 'We facilitate introductions, agree terms and support a smooth start in your setting.' },
+    { number: '05', title: 'Ongoing communication', desc: 'We stay in touch, gather feedback and address any questions throughout the placement.' },
+  ];
 
   return (
     <div className="min-h-screen bg-[#FAF9F6] font-body text-[#243247]">
@@ -107,13 +107,13 @@ export default function EducationStaffing() {
                 <p className="mt-5 text-lg leading-relaxed text-[#243247]/80">Staffing solutions to support classrooms, learners with SEN and day-to-day cover requirements.</p>
               </div>
               <div className="mt-14 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-                {roles.map((role, i) =>
-                <div key={i} className="group rounded-xl border border-[#E5EAF1] bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+                {roles.map((role, i) => (
+                  <div key={i} className="group rounded-xl border border-[#E5EAF1] bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
                     <div className="mb-5 h-1 w-12 rounded-full bg-[#C6A15B] transition-all group-hover:w-20" />
                     <h3 className="font-heading text-xl font-semibold text-[#102A56]">{role.title}</h3>
                     <p className="mt-3 text-[#243247]/75 leading-relaxed">{role.desc}</p>
                   </div>
-                )}
+                ))}
               </div>
             </div>
           </div>
@@ -127,13 +127,13 @@ export default function EducationStaffing() {
                 <p className="mt-5 text-lg leading-relaxed text-[#243247]/80">A careful, five-step process designed to match the right professional to your setting.</p>
               </div>
               <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-5">
-                {process.map((step, i) =>
-                <div key={i} className="relative rounded-xl border border-[#E5EAF1] bg-white p-6 shadow-sm transition-all hover:-translate-y-1 hover:shadow-md">
+                {process.map((step, i) => (
+                  <div key={i} className="relative rounded-xl border border-[#E5EAF1] bg-white p-6 shadow-sm transition-all hover:-translate-y-1 hover:shadow-md">
                     <span className="font-heading text-3xl font-bold text-[#C6A15B]/40">{step.number}</span>
                     <h3 className="mt-3 font-heading text-base font-semibold text-[#102A56]">{step.title}</h3>
                     <p className="mt-2 text-sm text-[#243247]/70 leading-relaxed">{step.desc}</p>
                   </div>
-                )}
+                ))}
               </div>
             </div>
           </div>
@@ -156,18 +156,18 @@ export default function EducationStaffing() {
                   <h3 className="font-heading text-xl font-semibold text-[#102A56]">What we consider</h3>
                   <ul className="mt-6 space-y-4">
                     {[
-                    'Relevant experience and qualifications where required',
-                    'Identity and right-to-work verification',
-                    'Reference checks',
-                    'Disclosure and barring checks in line with role requirements',
-                    'Safeguarding awareness and training',
-                    'Suitability for the specific setting and learners'].
-                    map((item, i) =>
-                    <li key={i} className="flex items-start gap-4">
+                      'Relevant experience and qualifications where required',
+                      'Identity and right-to-work verification',
+                      'Reference checks',
+                      'Disclosure and barring checks in line with role requirements',
+                      'Safeguarding awareness and training',
+                      'Suitability for the specific setting and learners',
+                    ].map((item, i) => (
+                      <li key={i} className="flex items-start gap-4">
                         <span className="mt-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#C6A15B]/20 text-[#102A56]">✓</span>
                         <span className="text-[#243247]/80">{item}</span>
                       </li>
-                    )}
+                    ))}
                   </ul>
                 </div>
               </div>
@@ -188,6 +188,6 @@ export default function EducationStaffing() {
         </section>
       </main>
       <Footer />
-    </div>);
-
+    </div>
+  );
 }

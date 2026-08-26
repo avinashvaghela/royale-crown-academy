@@ -11,22 +11,22 @@ export default function SchoolForm() {
     supportNeeded: [],
     urgency: '',
     message: '',
-    consent: false
+    consent: false,
   });
   const [errors, setErrors] = useState({});
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
 
   const supportOptions = [
-  'SEN tuition',
-  'Targeted tutoring',
-  'Catch-up support',
-  'One-to-one learner support',
-  'Small-group programmes',
-  'Teaching Assistants',
-  'Cover Supervisors',
-  'Flexible staffing support'];
-
+    'SEN tuition',
+    'Targeted tutoring',
+    'Catch-up support',
+    'One-to-one learner support',
+    'Small-group programmes',
+    'Teaching Assistants',
+    'Cover Supervisors',
+    'Flexible staffing support',
+  ];
 
   const validate = () => {
     const nextErrors = {};
@@ -52,9 +52,9 @@ export default function SchoolForm() {
   const handleSupportChange = (option) => {
     setFormData((prev) => ({
       ...prev,
-      supportNeeded: prev.supportNeeded.includes(option) ?
-      prev.supportNeeded.filter((o) => o !== option) :
-      [...prev.supportNeeded, option]
+      supportNeeded: prev.supportNeeded.includes(option)
+        ? prev.supportNeeded.filter((o) => o !== option)
+        : [...prev.supportNeeded, option],
     }));
   };
 
@@ -81,8 +81,8 @@ export default function SchoolForm() {
         <p className="mt-2 text-sm text-surface-600">
           Thank you. A member of our team will contact you shortly to discuss your school's requirements.
         </p>
-      </div>);
-
+      </div>
+    );
   }
 
   return (
@@ -97,8 +97,8 @@ export default function SchoolForm() {
           onChange={handleChange}
           className="mt-1.5 w-full rounded-md border border-surface-300 bg-background px-4 py-2.5 text-sm text-foreground placeholder:text-surface-400 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
           aria-invalid={errors.schoolName ? 'true' : 'false'}
-          aria-describedby={errors.schoolName ? 'schoolName-error' : undefined} />
-
+          aria-describedby={errors.schoolName ? 'schoolName-error' : undefined}
+        />
         {errors.schoolName && <p id="schoolName-error" className="mt-1.5 text-sm text-red-600">{errors.schoolName}</p>}
       </div>
 
@@ -113,8 +113,8 @@ export default function SchoolForm() {
             onChange={handleChange}
             className="mt-1.5 w-full rounded-md border border-surface-300 bg-background px-4 py-2.5 text-sm text-foreground placeholder:text-surface-400 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
             aria-invalid={errors.contactName ? 'true' : 'false'}
-            aria-describedby={errors.contactName ? 'contactName-error' : undefined} />
-
+            aria-describedby={errors.contactName ? 'contactName-error' : undefined}
+          />
           {errors.contactName && <p id="contactName-error" className="mt-1.5 text-sm text-red-600">{errors.contactName}</p>}
         </div>
         <div>
@@ -128,8 +128,8 @@ export default function SchoolForm() {
             className="mt-1.5 w-full rounded-md border border-surface-300 bg-background px-4 py-2.5 text-sm text-foreground placeholder:text-surface-400 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
             placeholder="e.g. SENCO"
             aria-invalid={errors.role ? 'true' : 'false'}
-            aria-describedby={errors.role ? 'role-error' : undefined} />
-
+            aria-describedby={errors.role ? 'role-error' : undefined}
+          />
           {errors.role && <p id="role-error" className="mt-1.5 text-sm text-red-600">{errors.role}</p>}
         </div>
       </div>
@@ -145,8 +145,8 @@ export default function SchoolForm() {
             onChange={handleChange}
             className="mt-1.5 w-full rounded-md border border-surface-300 bg-background px-4 py-2.5 text-sm text-foreground placeholder:text-surface-400 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
             aria-invalid={errors.email ? 'true' : 'false'}
-            aria-describedby={errors.email ? 'email-error' : undefined} />
-
+            aria-describedby={errors.email ? 'email-error' : undefined}
+          />
           {errors.email && <p id="email-error" className="mt-1.5 text-sm text-red-600">{errors.email}</p>}
         </div>
         <div>
@@ -158,25 +158,25 @@ export default function SchoolForm() {
             value={formData.phone}
             onChange={handleChange}
             className="mt-1.5 w-full rounded-md border border-surface-300 bg-background px-4 py-2.5 text-sm text-foreground placeholder:text-surface-400 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
-            placeholder="Optional" />
-
+            placeholder="Optional"
+          />
         </div>
       </div>
 
       <fieldset>
         <legend className="block text-sm font-medium text-foreground">Support needed</legend>
         <div className="mt-3 grid gap-3 sm:grid-cols-2">
-          {supportOptions.map((option) =>
-          <label key={option} className="flex items-center gap-2.5 rounded-md border border-surface-200 p-3 hover:bg-surface-50">
+          {supportOptions.map((option) => (
+            <label key={option} className="flex items-center gap-2.5 rounded-md border border-surface-200 p-3 hover:bg-surface-50">
               <input
-              type="checkbox"
-              checked={formData.supportNeeded.includes(option)}
-              onChange={() => handleSupportChange(option)}
-              className="h-4 w-4 rounded border-surface-300 text-primary focus:ring-primary" />
-
+                type="checkbox"
+                checked={formData.supportNeeded.includes(option)}
+                onChange={() => handleSupportChange(option)}
+                className="h-4 w-4 rounded border-surface-300 text-primary focus:ring-primary"
+              />
               <span className="text-sm text-foreground">{option}</span>
             </label>
-          )}
+          ))}
         </div>
       </fieldset>
 
@@ -187,8 +187,8 @@ export default function SchoolForm() {
           name="urgency"
           value={formData.urgency}
           onChange={handleChange}
-          className="mt-1.5 w-full rounded-md border border-surface-300 bg-background px-4 py-2.5 text-sm text-foreground focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20">
-
+          className="mt-1.5 w-full rounded-md border border-surface-300 bg-background px-4 py-2.5 text-sm text-foreground focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
+        >
           <option value="">Please select</option>
           <option value="immediate">As soon as possible</option>
           <option value="this-term">This term</option>
@@ -208,8 +208,8 @@ export default function SchoolForm() {
           className="mt-1.5 w-full rounded-md border border-surface-300 bg-background px-4 py-2.5 text-sm text-foreground placeholder:text-surface-400 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
           placeholder="Number of learners, year groups, specific needs and any timescales."
           aria-invalid={errors.message ? 'true' : 'false'}
-          aria-describedby={errors.message ? 'message-error' : undefined} />
-
+          aria-describedby={errors.message ? 'message-error' : undefined}
+        />
         {errors.message && <p id="message-error" className="mt-1.5 text-sm text-red-600">{errors.message}</p>}
       </div>
 
@@ -222,8 +222,8 @@ export default function SchoolForm() {
             onChange={handleChange}
             className="mt-1 h-4 w-4 rounded border-surface-300 text-primary focus:ring-primary"
             aria-invalid={errors.consent ? 'true' : 'false'}
-            aria-describedby={errors.consent ? 'consent-error' : undefined} />
-
+            aria-describedby={errors.consent ? 'consent-error' : undefined}
+          />
           <span className="text-sm text-surface-600">
             I confirm I am authorised to make this enquiry and agree to Royale Crown Academy Ltd processing these details in line with the <a href="/privacy-policy" className="font-medium text-primary underline">Privacy Policy</a>. <span className="text-red-500">*</span>
           </span>
@@ -234,10 +234,10 @@ export default function SchoolForm() {
       <button
         type="submit"
         disabled={submitting}
-        className="inline-flex w-full items-center justify-center rounded-md bg-primary px-6 py-3 text-base font-semibold text-primary-foreground shadow-sm transition-colors hover:bg-primary/90 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 disabled:opacity-60 sm:w-auto">
-
+        className="inline-flex w-full items-center justify-center rounded-md bg-primary px-6 py-3 text-base font-semibold text-primary-foreground shadow-sm transition-colors hover:bg-primary/90 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 disabled:opacity-60 sm:w-auto"
+      >
         {submitting ? 'Sending...' : 'Request Support'}
       </button>
-    </form>);
-
+    </form>
+  );
 }
