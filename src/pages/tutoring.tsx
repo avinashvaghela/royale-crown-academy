@@ -1,237 +1,197 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import PageLayout from '../components/PageLayout';
-import SEOHead from '../components/SEOHead';
-import SectionReveal from '../components/SectionReveal';
-import ServiceCard from '../components/ServiceCard';
-import StepCard from '../components/StepCard';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+import SkipToContent from '../components/SkipToContent';
 import LogoWatermark from '../components/LogoWatermark';
 import Icon from '../components/Icon';
-
-const subjects = [
-  { icon: 'penTool', title: 'English', text: 'Reading, writing, comprehension, spelling, grammar and confidence in communication.' },
-  { icon: 'target', title: 'Maths', text: 'Number, calculation, problem-solving, reasoning and exam technique.' },
-  { icon: 'lightbulb', title: 'Science', text: 'Biology, chemistry and physics support for Key Stage 3 and GCSE.' },
-  { icon: 'clipboardList', title: 'Study skills', text: 'Organisation, revision strategies, note-taking and independent learning habits.' },
-  { icon: 'calendar', title: 'Exam preparation', text: 'Structured preparation for tests, mocks and GCSEs without unrealistic grade promises.' },
-  { icon: 'bookOpen', title: 'Catch-up support', text: 'Targeted help to close gaps and rebuild confidence after disruption or absence.' },
-];
-
-const levels = [
-  { title: 'Primary tuition', text: 'Support in core subjects for Key Stage 1 and Key Stage 2, building strong foundations and a love of learning.', icon: 'smile' },
-  { title: 'Secondary tuition', text: 'Subject support across Key Stage 3, helping learners adjust to new demands and stay on track.', icon: 'bookOpen' },
-  { title: 'GCSE support', text: 'Focused support in English, maths and science as learners prepare for GCSE examinations.', icon: 'award' },
-];
 
 const logoUrl = typeof window !== 'undefined' && window.serenities
   ? window.serenities.files.url('6bc96ae7cd439802480ecbdbdc283e0b')
   : '';
 
-export default function TutoringPage() {
+function useReveal() {
+  const ref = useRef(null);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          el.classList.add('opacity-100', 'translate-y-0');
+          el.classList.remove('opacity-0', 'translate-y-8');
+        }
+      },
+      { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+  return ref;
+}
+
+export default function Tutoring() {
+  const heroRef = useReveal();
+  const levelsRef = useReveal();
+  const subjectsRef = useReveal();
+  const deliveryRef = useReveal();
+  const ctaRef = useReveal();
+
+  const levels = [
+    { title: 'Primary Tuition', years: 'Key Stage 1 & 2', text: 'Building strong foundations in reading, writing, maths and confidence.' },
+    { title: 'Secondary Tuition', years: 'Key Stage 3', text: 'Subject support and study habits to help learners thrive through Years 7–9.' },
+    { title: 'GCSE Support', years: 'Key Stage 4', text: 'Focused support in English, maths, science and other GCSE subjects.' },
+    { title: 'A-Level & Further', years: 'Key Stage 5', text: 'Advanced subject support where offered and arranged.' },
+  ];
+
+  const subjects = [
+    { name: 'English', desc: 'Reading, writing, comprehension, spelling, grammar and communication confidence.' },
+    { name: 'Maths', desc: 'Number, calculation, algebra, geometry, statistics and problem-solving.' },
+    { name: 'Science', desc: 'Biology, chemistry, physics and combined science support.' },
+    { name: 'Study Skills', desc: 'Organisation, revision strategies, note-taking and independent learning.' },
+    { name: 'Exam Preparation', desc: 'Structured preparation for tests and exams without unrealistic grade promises.' },
+    { name: 'Catch-up Support', desc: 'Targeted help to close gaps and rebuild confidence after disruption.' },
+  ];
+
   return (
-    <PageLayout>
-      <SEOHead
-        title="Personalised Tutoring | Primary, Secondary & GCSE Support"
-        description="One-to-one and small-group tutoring in English, maths, science, study skills and GCSE preparation for learners across the UK."
-        path="/tutoring"
-      />
-
-      {/* Hero */}
-      <section className="relative overflow-hidden bg-surface-50 pt-16 sm:pt-20">
-        <div className="absolute -right-20 top-20 h-96 w-96 rounded-full bg-accent/5 blur-3xl" />
-        <div className="absolute -left-20 bottom-0 h-72 w-72 rounded-full bg-primary/5 blur-3xl" />
-        <LogoWatermark opacity={0.04} size={400} />
-        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
-          <div className="grid items-center gap-12 lg:grid-cols-2">
-            <SectionReveal>
-              <div>
-                <h1 className="font-heading text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
-                  Personalised Tutoring
-                </h1>
-                <p className="mt-6 text-lg leading-relaxed text-surface-600">
-                  One-to-one and small-group tuition designed around the learner. We support primary, secondary and GCSE learners in English, maths, science and study skills.
-                </p>
-                <div className="mt-8 flex flex-wrap gap-4">
-                  <Link to="/contact" className="inline-flex items-center gap-2 rounded-md bg-primary px-6 py-3.5 text-base font-semibold text-primary-foreground shadow-sm transition-colors hover:bg-primary/90">
-                    Find a Tutor
-                    <Icon name="arrowRight" className="h-5 w-5" />
-                  </Link>
-                  <Link to="/how-it-works" className="inline-flex items-center gap-2 rounded-md border border-surface-300 bg-background px-6 py-3.5 text-base font-semibold text-foreground transition-colors hover:bg-surface-100">
-                    How tutoring works
-                  </Link>
-                </div>
-              </div>
-            </SectionReveal>
-            <SectionReveal delay={150}>
-              <div className="relative overflow-hidden rounded-md bg-gradient-to-br from-primary/10 via-surface-100 to-accent/10 p-10 shadow-md">
-                <img
-                  src={logoUrl}
-                  alt="Royale Crown Academy Ltd"
-                  className="mx-auto h-32 w-auto object-contain opacity-90 sm:h-40"
-                />
-                <p className="mt-6 text-center text-sm font-medium text-surface-600">
-                  Personalised tutoring in English, maths, science and study skills for learners across the UK.
-                </p>
-              </div>
-            </SectionReveal>
+    <div className="min-h-screen bg-[#FAF9F6] font-body text-[#243247]">
+      <SkipToContent />
+      <Header />
+      <main id="main-content">
+        <section className="relative overflow-hidden bg-[#102A56] pt-32 pb-20 lg:pt-44 lg:pb-28">
+          <div className="absolute inset-0 opacity-10">
+            <LogoWatermark className="h-[140%] w-[140%] -translate-x-1/4 -translate-y-1/4 text-[#FAF9F6]" />
           </div>
-        </div>
-      </section>
-
-      {/* Levels */}
-      <section className="relative bg-background py-16 sm:py-24">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <SectionReveal>
-            <div className="mx-auto max-w-3xl text-center">
-              <h2 className="font-heading text-3xl font-bold tracking-tight text-foreground sm:text-4xl">Tuition for every stage</h2>
-              <p className="mt-4 text-lg text-surface-600">
-                Support is tailored to the learner's age, stage and goals.
-              </p>
-            </div>
-          </SectionReveal>
-          <div className="mt-14 grid gap-6 sm:grid-cols-3">
-            {levels.map((level, index) => (
-              <SectionReveal key={level.title} delay={index * 75}>
-                <div className="flex h-full flex-col rounded-md border border-surface-200 bg-surface-50 p-6 shadow-sm transition-shadow hover:shadow-md">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-md bg-primary/10 text-primary">
-                    <Icon name={level.icon} className="h-6 w-6" />
+          <div className="absolute inset-0 bg-gradient-to-br from-[#102A56] via-[#102A56]/95 to-[#0B1D3A]" />
+          <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div ref={heroRef} className="opacity-0 translate-y-8 transition-all duration-1000 ease-out">
+              <div className="grid items-center gap-12 lg:grid-cols-2">
+                <div>
+                  <div className="flex items-center gap-3 mb-6">
+                    <span className="h-px w-12 bg-[#C6A15B]" />
+                    <span className="text-sm font-semibold uppercase tracking-widest text-[#E8D7B2]">Personalised Tuition</span>
                   </div>
-                  <h3 className="mt-4 font-heading text-xl font-semibold text-foreground">{level.title}</h3>
-                  <p className="mt-3 flex-1 text-surface-600 leading-relaxed">{level.text}</p>
+                  <h1 className="font-heading text-4xl font-bold leading-tight text-[#FAF9F6] sm:text-5xl lg:text-6xl">
+                    Personalised tutoring for every learner.
+                  </h1>
+                  <p className="mt-6 max-w-xl text-lg leading-relaxed text-[#FAF9F6]/85">
+                    One-to-one and small-group tuition across primary, secondary and GCSE subjects. Support is tailored to the learner's level, confidence and goals.
+                  </p>
+                  <div className="mt-10 flex flex-wrap gap-4">
+                    <Link to="/contact" className="inline-flex items-center rounded-md bg-[#C6A15B] px-6 py-3 text-base font-semibold text-[#0B1D3A] shadow-sm transition-all hover:bg-[#E8D7B2] hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C6A15B]">
+                      Find a Tutor
+                    </Link>
+                    <Link to="/subjects" className="inline-flex items-center rounded-md border border-[#FAF9F6]/30 bg-transparent px-6 py-3 text-base font-semibold text-[#FAF9F6] transition-all hover:bg-[#FAF9F6]/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C6A15B]">
+                      View Subjects
+                    </Link>
+                  </div>
                 </div>
-              </SectionReveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Subjects */}
-      <section className="relative bg-surface-50 py-16 sm:py-24">
-        <LogoWatermark opacity={0.04} size={360} />
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <SectionReveal>
-            <div className="mx-auto max-w-3xl text-center">
-              <h2 className="font-heading text-3xl font-bold tracking-tight text-foreground sm:text-4xl">Subjects we support</h2>
-              <p className="mt-4 text-lg text-surface-600">
-                Core subjects and learning skills delivered with patience, structure and encouragement.
-              </p>
+                <div className="relative hidden lg:block">
+                  <div className="aspect-square overflow-hidden rounded-2xl border border-[#FAF9F6]/10 bg-gradient-to-br from-[#0B1D3A] to-[#102A56] shadow-2xl">
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <img src={logoUrl} alt="Royale Crown Academy crest" className="h-48 w-auto opacity-90" />
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-          </SectionReveal>
-          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {subjects.map((subject, index) => (
-              <SectionReveal key={subject.title} delay={index * 75}>
-                <ServiceCard icon={subject.icon} title={subject.title} description={subject.text} />
-              </SectionReveal>
-            ))}
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Delivery */}
-      <section className="relative bg-background py-16 sm:py-24">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-12 lg:grid-cols-2">
-            <SectionReveal>
-              <h2 className="font-heading text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-                How tutoring is delivered
-              </h2>
-              <p className="mt-4 text-lg text-surface-600 leading-relaxed">
-                We offer flexible delivery options to suit the learner, family and circumstances. Each arrangement is agreed in advance and reviewed regularly.
-              </p>
-              <ul className="mt-8 space-y-4">
-                {[
-                  'One-to-one tutoring for focused, individual support',
-                  'Small-group tutoring for peer learning and collaboration',
-                  'Online tutoring where appropriate and agreed',
-                  'In-home or in-setting sessions where arranged',
-                  'Regular progress updates for parents and carers',
-                ].map((item) => (
-                  <li key={item} className="flex items-start gap-3">
-                    <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
-                      <Icon name="check" className="h-4 w-4" />
-                    </span>
-                    <span className="text-surface-700">{item}</span>
-                  </li>
+        <section className="py-20 lg:py-28">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div ref={levelsRef} className="opacity-0 translate-y-8 transition-all duration-1000 ease-out">
+              <div className="mx-auto max-w-3xl text-center">
+                <h2 className="font-heading text-3xl font-bold text-[#102A56] sm:text-4xl">Tuition for every stage</h2>
+                <p className="mt-5 text-lg leading-relaxed text-[#243247]/80">Support is tailored to the learner's age, stage and confidence.</p>
+              </div>
+              <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+                {levels.map((level, i) => (
+                  <div key={i} className="rounded-xl border border-[#E5EAF1] bg-white p-6 text-center shadow-sm transition-all hover:-translate-y-1 hover:shadow-md">
+                    <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-[#102A56] text-[#C6A15B] font-heading text-xl font-bold">{i + 1}</div>
+                    <h3 className="font-heading text-xl font-semibold text-[#102A56]">{level.title}</h3>
+                    <p className="mt-1 text-sm font-medium text-[#C6A15B]">{level.years}</p>
+                    <p className="mt-3 text-sm text-[#243247]/70">{level.text}</p>
+                  </div>
                 ))}
-              </ul>
-            </SectionReveal>
-            <SectionReveal delay={150}>
-              <div className="relative overflow-hidden rounded-md border border-surface-200 bg-surface-50 p-8 shadow-sm">
-                <div className="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-accent/10" />
-                <div className="relative">
-                  <h3 className="font-heading text-xl font-semibold text-foreground">Our tutoring philosophy</h3>
-                  <div className="mt-5 space-y-4 text-surface-600 leading-relaxed">
-                    <p>
-                      We believe tutoring is most effective when it builds confidence as well as knowledge. Our tutors take time to understand how each learner thinks, where their gaps are and what motivates them.
-                    </p>
-                    <p>
-                      We do not promise specific grades or outcomes. Instead, we focus on clear goals, consistent effort and measurable progress over time.
-                    </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-[#EEF4FA] py-20 lg:py-28">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div ref={subjectsRef} className="opacity-0 translate-y-8 transition-all duration-1000 ease-out">
+              <div className="mx-auto max-w-3xl text-center">
+                <h2 className="font-heading text-3xl font-bold text-[#102A56] sm:text-4xl">Subjects we support</h2>
+                <p className="mt-5 text-lg leading-relaxed text-[#243247]/80">Core subjects and learning skills delivered with patience, structure and encouragement.</p>
+              </div>
+              <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                {subjects.map((subject, i) => (
+                  <div key={i} className="group rounded-xl border border-[#E5EAF1] bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+                    <div className="mb-5 h-1 w-12 rounded-full bg-[#C6A15B] transition-all group-hover:w-20" />
+                    <h3 className="font-heading text-xl font-semibold text-[#102A56]">{subject.name}</h3>
+                    <p className="mt-3 text-[#243247]/75 leading-relaxed">{subject.desc}</p>
                   </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="py-20 lg:py-28">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div ref={deliveryRef} className="opacity-0 translate-y-8 transition-all duration-1000 ease-out">
+              <div className="grid items-center gap-12 lg:grid-cols-2">
+                <div className="relative order-2 lg:order-1">
+                  <div className="aspect-[4/3] overflow-hidden rounded-2xl bg-gradient-to-br from-[#102A56] to-[#0B1D3A] shadow-xl">
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <img src={logoUrl} alt="Royale Crown Academy crest" className="h-32 w-32 opacity-20" />
+                    </div>
+                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[#0B1D3A]/90 to-transparent p-8">
+                      <p className="font-heading text-2xl font-bold text-[#FAF9F6]">Flexible support that fits your family.</p>
+                    </div>
+                  </div>
+                  <div className="absolute -bottom-6 -right-6 hidden h-32 w-32 rounded-full border-2 border-[#C6A15B]/30 lg:block" />
+                </div>
+                <div className="order-1 lg:order-2">
+                  <h2 className="font-heading text-3xl font-bold text-[#102A56] sm:text-4xl">How tutoring is delivered</h2>
+                  <p className="mt-5 text-lg leading-relaxed text-[#243247]/80">
+                    We offer flexible delivery options to suit the learner, family and circumstances. Each arrangement is agreed in advance and reviewed regularly.
+                  </p>
+                  <ul className="mt-8 space-y-4">
+                    {[
+                      'One-to-one tutoring for focused, individual support',
+                      'Small-group tutoring for peer learning and collaboration',
+                      'Online tutoring where appropriate and agreed',
+                      'In-home or in-setting sessions where arranged',
+                      'Regular progress updates for parents and carers',
+                    ].map((item, i) => (
+                      <li key={i} className="flex items-start gap-4">
+                        <span className="mt-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#C6A15B]/20 text-[#102A56]">✓</span>
+                        <span className="text-[#243247]/80">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </div>
-            </SectionReveal>
-          </div>
-        </div>
-      </section>
-
-      {/* Process */}
-      <section className="relative bg-primary py-16 text-primary-foreground sm:py-24">
-        <LogoWatermark opacity={0.06} size={420} />
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <SectionReveal>
-            <div className="mx-auto max-w-3xl text-center">
-              <h2 className="font-heading text-3xl font-bold tracking-tight sm:text-4xl">The tutoring journey</h2>
-              <p className="mt-4 text-lg opacity-90">
-                A simple, structured path from enquiry to ongoing support.
-              </p>
             </div>
-          </SectionReveal>
-          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            <SectionReveal delay={0}>
-              <StepCard number="1" icon="messageCircle" title="Enquiry" description="Tell us about the learner, their subjects and what you hope to achieve." />
-            </SectionReveal>
-            <SectionReveal delay={75}>
-              <StepCard number="2" icon="users" title="Assessment" description="We discuss strengths, gaps and learning preferences to plan the right approach." />
-            </SectionReveal>
-            <SectionReveal delay={150}>
-              <StepCard number="3" icon="clipboardList" title="Tutor match" description="We match a tutor whose skills and approach fit the learner's needs." />
-            </SectionReveal>
-            <SectionReveal delay={225}>
-              <StepCard number="4" icon="trendingUp" title="Review" description="Progress is tracked, shared and used to adjust the plan as needed." />
-            </SectionReveal>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* CTA */}
-      <section className="relative bg-surface-50 py-16 sm:py-24">
-        <div className="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
-          <SectionReveal>
-            <h2 className="font-heading text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-              Find the right tutor
-            </h2>
-            <p className="mx-auto mt-4 max-w-2xl text-lg text-surface-600">
-              Tell us about your learner and we will help you explore whether one-to-one or small-group tutoring is the right fit.
-            </p>
-            <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-              <Link
-                to="/contact"
-                className="inline-flex items-center gap-2 rounded-md bg-primary px-8 py-4 text-lg font-semibold text-primary-foreground shadow-sm transition-colors hover:bg-primary/90"
-              >
+        <section className="bg-[#102A56] py-20 lg:py-28">
+          <div className="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
+            <div ref={ctaRef} className="opacity-0 translate-y-8 transition-all duration-1000 ease-out">
+              <h2 className="font-heading text-3xl font-bold text-[#FAF9F6] sm:text-4xl">Find the right tutor</h2>
+              <p className="mt-5 text-lg text-[#FAF9F6]/80">Tell us about your learner and we will help you explore whether one-to-one or small-group tutoring is the right fit.</p>
+              <Link to="/contact" className="mt-10 inline-flex items-center rounded-md bg-[#C6A15B] px-8 py-4 text-base font-semibold text-[#0B1D3A] shadow-lg transition-all hover:bg-[#E8D7B2] hover:shadow-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C6A15B]">
                 Find a Tutor
-                <Icon name="arrowRight" className="h-5 w-5" />
-              </Link>
-              <Link
-                to="/how-it-works"
-                className="inline-flex items-center gap-2 rounded-md border border-surface-300 bg-background px-8 py-4 text-lg font-semibold text-foreground transition-colors hover:bg-surface-100"
-              >
-                How It Works
               </Link>
             </div>
-          </SectionReveal>
-        </div>
-      </section>
-    </PageLayout>
+          </div>
+        </section>
+      </main>
+      <Footer />
+    </div>
   );
 }
