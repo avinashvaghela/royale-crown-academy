@@ -91,7 +91,7 @@ export default function Safeguarding() {
               variants={staggerContainer}
               className="text-center mb-16"
             >
-              <motion.span variants={fadeUp} className="text-secondary font-semibold tracking-wider uppercase text-sm">Safeguarding Principles</motion.Span>
+              <motion.span variants={fadeUp} className="text-secondary font-semibold tracking-wider uppercase text-sm">Safeguarding Principles</motion.span>
               <motion.h2 variants={fadeUp} className="font-heading text-4xl md:text-5xl font-bold text-primary mt-4 mb-6">How we keep learners safe</motion.h2>
             </motion.div>
             <motion.div
