@@ -5,9 +5,9 @@ import Footer from '../components/Footer';
 import SkipToContent from '../components/SkipToContent';
 import LogoWatermark from '../components/LogoWatermark';
 
-const logoUrl = typeof window !== 'undefined' && window.serenities ?
-window.serenities.files.url('6bc96ae7cd439802480ecbdbdc283e0b') :
-'';
+const logoUrl = typeof window !== 'undefined' && window.serenities
+  ? window.serenities.files.url('6bc96ae7cd439802480ecbdbdc283e0b')
+  : '';
 
 function useReveal() {
   const ref = useRef(null);
@@ -45,7 +45,7 @@ export default function JoinUs() {
     senExperience: '',
     availability: '',
     message: '',
-    consent: false
+    consent: false,
   });
   const [submitted, setSubmitted] = useState(false);
   const [errors, setErrors] = useState({});
@@ -117,19 +117,19 @@ export default function JoinUs() {
               </div>
               <div className="mt-16 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
                 {[
-                { title: 'Tutors', desc: 'Subject specialists across primary, secondary, GCSE and A-Level subjects, able to deliver personalised tuition online or in person.' },
-                { title: 'Teaching Assistants', desc: 'Classroom support professionals who work confidently alongside learners and teachers in a range of settings.' },
-                { title: 'SEN Teaching Assistants', desc: 'Support professionals with experience of working with learners with additional needs, including autism, ADHD and dyslexia.' },
-                { title: 'Cover Supervisors', desc: 'Reliable education professionals able to supervise classes and maintain a positive learning environment.' },
-                { title: 'Learning Support Assistants', desc: 'Professionals who provide targeted support to help learners access the curriculum and build confidence.' },
-                { title: 'Education Support Professionals', desc: 'Other suitable education professionals with skills and experience that complement our services.' }].
-                map((item, i) =>
-                <div key={i} className="group rounded-xl border border-[#E5EAF1] bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+                  { title: 'Tutors', desc: 'Subject specialists across primary, secondary, GCSE and A-Level subjects, able to deliver personalised tuition online or in person.' },
+                  { title: 'Teaching Assistants', desc: 'Classroom support professionals who work confidently alongside learners and teachers in a range of settings.' },
+                  { title: 'SEN Teaching Assistants', desc: 'Support professionals with experience of working with learners with additional needs, including autism, ADHD and dyslexia.' },
+                  { title: 'Cover Supervisors', desc: 'Reliable education professionals able to supervise classes and maintain a positive learning environment.' },
+                  { title: 'Learning Support Assistants', desc: 'Professionals who provide targeted support to help learners access the curriculum and build confidence.' },
+                  { title: 'Education Support Professionals', desc: 'Other suitable education professionals with skills and experience that complement our services.' },
+                ].map((item, i) => (
+                  <div key={i} className="group rounded-xl border border-[#E5EAF1] bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
                     <div className="mb-5 h-1 w-12 rounded-full bg-[#C6A15B] transition-all group-hover:w-20" />
                     <h3 className="font-heading text-xl font-semibold text-[#102A56]">{item.title}</h3>
                     <p className="mt-3 text-[#243247]/75 leading-relaxed">{item.desc}</p>
                   </div>
-                )}
+                ))}
               </div>
             </div>
           </div>
@@ -144,16 +144,16 @@ export default function JoinUs() {
                   <p className="mt-2 text-[#FAF9F6]/80">Tell us about your experience and the role you are interested in.</p>
                 </div>
                 <div className="p-8">
-                  {submitted ?
-                  <div className="rounded-xl bg-[#E8D7B2]/20 p-8 text-center">
+                  {submitted ? (
+                    <div className="rounded-xl bg-[#E8D7B2]/20 p-8 text-center">
                       <h3 className="font-heading text-xl font-semibold text-[#102A56]">Thank you for your application</h3>
                       <p className="mt-3 text-[#243247]/80">We have received your details and will be in touch shortly to discuss the next steps.</p>
                       <Link to="/" className="mt-6 inline-flex items-center rounded-md bg-[#102A56] px-6 py-3 text-sm font-semibold text-[#FAF9F6] transition-colors hover:bg-[#0B1D3A]">
                         Return to Home
                       </Link>
-                    </div> :
-
-                  <form onSubmit={handleSubmit} className="space-y-6" noValidate>
+                    </div>
+                  ) : (
+                    <form onSubmit={handleSubmit} className="space-y-6" noValidate>
                       <div className="grid gap-6 md:grid-cols-2">
                         <div>
                           <label htmlFor="fullName" className="block text-sm font-semibold text-[#102A56]">Full name <span className="text-[#C6A15B]">*</span></label>
@@ -222,7 +222,7 @@ export default function JoinUs() {
                         Submit Application
                       </button>
                     </form>
-                  }
+                  )}
                 </div>
               </div>
             </div>
@@ -230,6 +230,6 @@ export default function JoinUs() {
         </section>
       </main>
       <Footer />
-    </div>);
-
+    </div>
+  );
 }
