@@ -1,197 +1,247 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
+import { motion, useReducedMotion } from 'framer-motion';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import SkipToContent from '../components/SkipToContent';
-import LogoWatermark from '../components/LogoWatermark';
-import Icon from '../components/Icon';
+import CookieConsent from '../components/CookieConsent';
+import SEOHead from '../components/SEOHead';
+import { BookOpen, Calculator, FlaskConical, PenTool, GraduationCap, Users, Monitor, ArrowRight, Sparkles } from 'lucide-react';
 
-const logoUrl = typeof window !== 'undefined' && window.serenities
-  ? window.serenities.files.url('6bc96ae7cd439802480ecbdbdc283e0b')
-  : '';
+const fadeUp = {
+  hidden: { opacity: 0, y: 40 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] } }
+};
 
-function useReveal() {
-  const ref = useRef(null);
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          el.classList.add('opacity-100', 'translate-y-0');
-          el.classList.remove('opacity-0', 'translate-y-8');
-        }
-      },
-      { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
-    );
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, []);
-  return ref;
-}
+const staggerContainer = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { staggerChildren: 0.12, delayChildren: 0.2 } }
+};
 
 export default function Tutoring() {
-  const heroRef = useReveal();
-  const levelsRef = useReveal();
-  const subjectsRef = useReveal();
-  const deliveryRef = useReveal();
-  const ctaRef = useReveal();
-
-  const levels = [
-    { title: 'Primary Tuition', years: 'Key Stage 1 & 2', text: 'Building strong foundations in reading, writing, maths and confidence.' },
-    { title: 'Secondary Tuition', years: 'Key Stage 3', text: 'Subject support and study habits to help learners thrive through Years 7–9.' },
-    { title: 'GCSE Support', years: 'Key Stage 4', text: 'Focused support in English, maths, science and other GCSE subjects.' },
-    { title: 'A-Level & Further', years: 'Key Stage 5', text: 'Advanced subject support where offered and arranged.' },
-  ];
-
-  const subjects = [
-    { name: 'English', desc: 'Reading, writing, comprehension, spelling, grammar and communication confidence.' },
-    { name: 'Maths', desc: 'Number, calculation, algebra, geometry, statistics and problem-solving.' },
-    { name: 'Science', desc: 'Biology, chemistry, physics and combined science support.' },
-    { name: 'Study Skills', desc: 'Organisation, revision strategies, note-taking and independent learning.' },
-    { name: 'Exam Preparation', desc: 'Structured preparation for tests and exams without unrealistic grade promises.' },
-    { name: 'Catch-up Support', desc: 'Targeted help to close gaps and rebuild confidence after disruption.' },
-  ];
+  const prefersReducedMotion = useReducedMotion();
+  const tutoringImageUrl = serenities.files.url('9d4afc54e4fe0660f8d55bba1f7f3634');
+  const studyImageUrl = serenities.files.url('a2078dfe9c07ced21d031bfe2ea9a313');
 
   return (
-    <div className="min-h-screen bg-[#FAF9F6] font-body text-[#243247]">
-      <SkipToContent />
+    <div className="min-h-screen bg-background font-body text-foreground">
+      <SEOHead
+        title="Private Tuition | Personalised Tutoring Across the UK"
+        description="One-to-one and small-group tuition for primary, secondary, GCSE, English, maths, science and study skills."
+        canonical="https://royalecrown.serenitiesai.com/tutoring"
+      />
       <Header />
       <main id="main-content">
-        <section className="relative overflow-hidden bg-[#102A56] pt-32 pb-20 lg:pt-44 lg:pb-28">
-          <div className="absolute inset-0 opacity-10">
-            <LogoWatermark className="h-[140%] w-[140%] -translate-x-1/4 -translate-y-1/4 text-[#FAF9F6]" />
+        {/* Hero */}
+        <section className="relative py-32 lg:py-40 bg-primary overflow-hidden">
+          <div className="absolute inset-0">
+            <img src={tutoringImageUrl} alt="" className="w-full h-full object-cover opacity-30" />
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/95 to-[#0B1D3A]/90" />
           </div>
-          <div className="absolute inset-0 bg-gradient-to-br from-[#102A56] via-[#102A56]/95 to-[#0B1D3A]" />
-          <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div ref={heroRef} className="opacity-0 translate-y-8 transition-all duration-1000 ease-out">
-              <div className="grid items-center gap-12 lg:grid-cols-2">
-                <div>
-                  <div className="flex items-center gap-3 mb-6">
-                    <span className="h-px w-12 bg-[#C6A15B]" />
-                    <span className="text-sm font-semibold uppercase tracking-widest text-[#E8D7B2]">Personalised Tuition</span>
+          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={staggerContainer}
+            >
+              <motion.span variants={fadeUp} className="text-secondary font-semibold tracking-wider uppercase text-sm">Private Tuition</motion.span>
+              <motion.h1 variants={fadeUp} className="font-heading text-5xl md:text-6xl lg:text-7xl font-bold text-primary-foreground mt-6 mb-6">Personalised Tutoring for Every Stage</motion.h1>
+              <motion.p variants={fadeUp} className="text-xl text-primary-foreground/80 max-w-3xl mx-auto leading-relaxed">
+                One-to-one and small-group tuition across primary, secondary and GCSE subjects — tailored to the way your child learns best.
+              </motion.p>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Levels */}
+        <section className="py-24 bg-background">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={staggerContainer}
+              className="text-center mb-16"
+            >
+              <motion.span variants={fadeUp} className="text-secondary font-semibold tracking-wider uppercase text-sm">Levels We Cover</motion.span>
+              <motion.h2 variants={fadeUp} className="font-heading text-4xl md:text-5xl font-bold text-primary mt-4 mb-6">Support at every stage of learning</motion.h2>
+            </motion.div>
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={staggerContainer}
+              className="grid md:grid-cols-2 lg:grid-cols-4 gap-6"
+            >
+              {[
+                { title: "Primary Tuition", desc: "Building strong foundations in literacy, numeracy and confidence." },
+                { title: "Secondary Tuition", desc: "Subject support across Key Stage 3 to help learners stay on track." },
+                { title: "GCSE Support", desc: "Focused support for GCSE preparation without promising specific grades." },
+                { title: "A-Level & Further Education", desc: "Subject support for post-16 learners where offered." }
+              ].map((level) => (
+                <motion.div key={level.title} variants={fadeUp} className="bg-white rounded-xl p-8 shadow-sm border border-surface-100 hover:shadow-lg transition-shadow">
+                  <div className="w-12 h-12 rounded-lg bg-primary/5 flex items-center justify-center mb-5">
+                    <GraduationCap className="w-6 h-6 text-secondary" />
                   </div>
-                  <h1 className="font-heading text-4xl font-bold leading-tight text-[#FAF9F6] sm:text-5xl lg:text-6xl">
-                    Personalised tutoring for every learner.
-                  </h1>
-                  <p className="mt-6 max-w-xl text-lg leading-relaxed text-[#FAF9F6]/85">
-                    One-to-one and small-group tuition across primary, secondary and GCSE subjects. Support is tailored to the learner's level, confidence and goals.
+                  <h3 className="font-heading text-xl font-bold text-primary mb-3">{level.title}</h3>
+                  <p className="text-surface-600 leading-relaxed">{level.desc}</p>
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Subjects */}
+        <section className="py-24 bg-surface-50">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid lg:grid-cols-2 gap-16 items-center">
+              <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={staggerContainer}
+              >
+                <motion.span variants={fadeUp} className="text-secondary font-semibold tracking-wider uppercase text-sm">Subjects</motion.span>
+                <motion.h2 variants={fadeUp} className="font-heading text-4xl md:text-5xl font-bold text-primary mt-4 mb-6">Core subjects and beyond</motion.h2>
+                <motion.p variants={fadeUp} className="text-lg text-surface-600 mb-8 leading-relaxed">
+                  We offer tuition across a wide range of subjects. If you cannot see what you need, please ask — we may still be able to help.
+                </motion.p>
+                <motion.div variants={fadeUp} className="grid sm:grid-cols-2 gap-4">
+                  {[
+                    { icon: BookOpen, title: "English", desc: "Reading, writing, comprehension and literacy skills." },
+                    { icon: Calculator, title: "Maths", desc: "Number, algebra, geometry, statistics and problem-solving." },
+                    { icon: FlaskConical, title: "Science", desc: "Biology, chemistry, physics and combined science." },
+                    { icon: PenTool, title: "Study Skills", desc: "Revision strategies, organisation and exam technique." }
+                  ].map((subject) => (
+                    <div key={subject.title} className="bg-white rounded-lg p-5 border border-surface-100 hover:border-secondary/30 transition-colors group">
+                      <div className="flex items-center gap-3 mb-2">
+                        <div className="w-10 h-10 rounded-lg bg-primary/5 flex items-center justify-center group-hover:bg-secondary/20 transition-colors">
+                          <subject.icon className="w-5 h-5 text-primary" />
+                        </div>
+                        <h3 className="font-heading text-lg font-bold text-primary">{subject.title}</h3>
+                      </div>
+                      <p className="text-surface-600 text-sm">{subject.desc}</p>
+                    </div>
+                  ))}
+                </motion.div>
+              </motion.div>
+              <motion.div
+                initial={prefersReducedMotion ? {} : { opacity: 0, x: 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+                className="relative"
+              >
+                <img src={studyImageUrl} alt="Student studying with books" className="rounded-2xl shadow-2xl w-full" />
+                <div className="absolute -bottom-6 -left-6 w-32 h-32 border-2 border-secondary rounded-2xl -z-10" />
+              </motion.div>
+            </div>
+          </div>
+        </section>
+
+        {/* Tuition Formats */}
+        <section className="py-24 bg-background">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={staggerContainer}
+              className="text-center mb-16"
+            >
+              <motion.span variants={fadeUp} className="text-secondary font-semibold tracking-wider uppercase text-sm">Tuition Formats</motion.span>
+              <motion.h2 variants={fadeUp} className="font-heading text-4xl md:text-5xl font-bold text-primary mt-4 mb-6">Choose the approach that suits you</motion.h2>
+            </motion.div>
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={staggerContainer}
+              className="grid md:grid-cols-3 gap-8"
+            >
+              {[
+                { icon: Users, title: "One-to-One Tuition", desc: "Fully personalised sessions focused on your child's specific needs and goals." },
+                { icon: BookOpen, title: "Small-Group Tuition", desc: "Supportive group sessions with focused learning and peer interaction." },
+                { icon: Monitor, title: "Online Tuition", desc: "Flexible remote sessions delivered through accessible online platforms." }
+              ].map((format) => (
+                <motion.div key={format.title} variants={fadeUp} className="bg-white rounded-xl p-8 shadow-sm border border-surface-100 hover:shadow-lg transition-shadow text-center">
+                  <div className="w-16 h-16 mx-auto rounded-full bg-primary/5 flex items-center justify-center mb-6 group-hover:bg-secondary/20 transition-colors">
+                    <format.icon className="w-8 h-8 text-secondary" />
+                  </div>
+                  <h3 className="font-heading text-2xl font-bold text-primary mb-3">{format.title}</h3>
+                  <p className="text-surface-600 leading-relaxed">{format.desc}</p>
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Exam Prep */}
+        <section className="py-24 bg-primary text-primary-foreground">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid lg:grid-cols-2 gap-16 items-center">
+              <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={staggerContainer}
+              >
+                <motion.span variants={fadeUp} className="text-secondary font-semibold tracking-wider uppercase text-sm">Exam Preparation</motion.span>
+                <motion.h2 variants={fadeUp} className="font-heading text-4xl md:text-5xl font-bold mt-4 mb-6">Building confidence for exams</motion.h2>
+                <motion.div variants={fadeUp} className="space-y-5 text-lg text-primary-foreground/80 leading-relaxed">
+                  <p>
+                    Our exam preparation support focuses on understanding subject content, developing effective revision habits and building the confidence to perform well.
                   </p>
-                  <div className="mt-10 flex flex-wrap gap-4">
-                    <Link to="/contact" className="inline-flex items-center rounded-md bg-[#C6A15B] px-6 py-3 text-base font-semibold text-[#0B1D3A] shadow-sm transition-all hover:bg-[#E8D7B2] hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C6A15B]">
-                      Find a Tutor
-                    </Link>
-                    <Link to="/subjects" className="inline-flex items-center rounded-md border border-[#FAF9F6]/30 bg-transparent px-6 py-3 text-base font-semibold text-[#FAF9F6] transition-all hover:bg-[#FAF9F6]/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C6A15B]">
-                      View Subjects
-                    </Link>
-                  </div>
-                </div>
-                <div className="relative hidden lg:block">
-                  <div className="aspect-square overflow-hidden rounded-2xl border border-[#FAF9F6]/10 bg-gradient-to-br from-[#0B1D3A] to-[#102A56] shadow-2xl">
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <img src={logoUrl} alt="Royale Crown Academy crest" className="h-48 w-auto opacity-90" />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="py-20 lg:py-28">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div ref={levelsRef} className="opacity-0 translate-y-8 transition-all duration-1000 ease-out">
-              <div className="mx-auto max-w-3xl text-center">
-                <h2 className="font-heading text-3xl font-bold text-[#102A56] sm:text-4xl">Tuition for every stage</h2>
-                <p className="mt-5 text-lg leading-relaxed text-[#243247]/80">Support is tailored to the learner's age, stage and confidence.</p>
-              </div>
-              <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-                {levels.map((level, i) => (
-                  <div key={i} className="rounded-xl border border-[#E5EAF1] bg-white p-6 text-center shadow-sm transition-all hover:-translate-y-1 hover:shadow-md">
-                    <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-[#102A56] text-[#C6A15B] font-heading text-xl font-bold">{i + 1}</div>
-                    <h3 className="font-heading text-xl font-semibold text-[#102A56]">{level.title}</h3>
-                    <p className="mt-1 text-sm font-medium text-[#C6A15B]">{level.years}</p>
-                    <p className="mt-3 text-sm text-[#243247]/70">{level.text}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="bg-[#EEF4FA] py-20 lg:py-28">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div ref={subjectsRef} className="opacity-0 translate-y-8 transition-all duration-1000 ease-out">
-              <div className="mx-auto max-w-3xl text-center">
-                <h2 className="font-heading text-3xl font-bold text-[#102A56] sm:text-4xl">Subjects we support</h2>
-                <p className="mt-5 text-lg leading-relaxed text-[#243247]/80">Core subjects and learning skills delivered with patience, structure and encouragement.</p>
-              </div>
-              <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                {subjects.map((subject, i) => (
-                  <div key={i} className="group rounded-xl border border-[#E5EAF1] bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
-                    <div className="mb-5 h-1 w-12 rounded-full bg-[#C6A15B] transition-all group-hover:w-20" />
-                    <h3 className="font-heading text-xl font-semibold text-[#102A56]">{subject.name}</h3>
-                    <p className="mt-3 text-[#243247]/75 leading-relaxed">{subject.desc}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="py-20 lg:py-28">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div ref={deliveryRef} className="opacity-0 translate-y-8 transition-all duration-1000 ease-out">
-              <div className="grid items-center gap-12 lg:grid-cols-2">
-                <div className="relative order-2 lg:order-1">
-                  <div className="aspect-[4/3] overflow-hidden rounded-2xl bg-gradient-to-br from-[#102A56] to-[#0B1D3A] shadow-xl">
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <img src={logoUrl} alt="Royale Crown Academy crest" className="h-32 w-32 opacity-20" />
-                    </div>
-                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[#0B1D3A]/90 to-transparent p-8">
-                      <p className="font-heading text-2xl font-bold text-[#FAF9F6]">Flexible support that fits your family.</p>
-                    </div>
-                  </div>
-                  <div className="absolute -bottom-6 -right-6 hidden h-32 w-32 rounded-full border-2 border-[#C6A15B]/30 lg:block" />
-                </div>
-                <div className="order-1 lg:order-2">
-                  <h2 className="font-heading text-3xl font-bold text-[#102A56] sm:text-4xl">How tutoring is delivered</h2>
-                  <p className="mt-5 text-lg leading-relaxed text-[#243247]/80">
-                    We offer flexible delivery options to suit the learner, family and circumstances. Each arrangement is agreed in advance and reviewed regularly.
+                  <p>
+                    We do not promise specific grades or outcomes. Every learner progresses at their own pace, and our role is to provide structured, supportive tuition that helps them do their best.
                   </p>
-                  <ul className="mt-8 space-y-4">
-                    {[
-                      'One-to-one tutoring for focused, individual support',
-                      'Small-group tutoring for peer learning and collaboration',
-                      'Online tutoring where appropriate and agreed',
-                      'In-home or in-setting sessions where arranged',
-                      'Regular progress updates for parents and carers',
-                    ].map((item, i) => (
-                      <li key={i} className="flex items-start gap-4">
-                        <span className="mt-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#C6A15B]/20 text-[#102A56]">✓</span>
-                        <span className="text-[#243247]/80">{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
+                </motion.div>
+                <motion.div variants={fadeUp} className="mt-8 space-y-3">
+                  {["Revision planning", "Past paper practice", "Exam technique", "Managing exam anxiety"].map((item) => (
+                    <div key={item} className="flex items-center gap-3">
+                      <Sparkles className="w-5 h-5 text-secondary" />
+                      <span>{item}</span>
+                    </div>
+                  ))}
+                </motion.div>
+              </motion.div>
+              <motion.div
+                initial={prefersReducedMotion ? {} : { opacity: 0, x: 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+                className="relative"
+              >
+                <img src={tutoringImageUrl} alt="Exam preparation tutoring" className="rounded-2xl shadow-2xl w-full" />
+              </motion.div>
             </div>
           </div>
         </section>
 
-        <section className="bg-[#102A56] py-20 lg:py-28">
-          <div className="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
-            <div ref={ctaRef} className="opacity-0 translate-y-8 transition-all duration-1000 ease-out">
-              <h2 className="font-heading text-3xl font-bold text-[#FAF9F6] sm:text-4xl">Find the right tutor</h2>
-              <p className="mt-5 text-lg text-[#FAF9F6]/80">Tell us about your learner and we will help you explore whether one-to-one or small-group tutoring is the right fit.</p>
-              <Link to="/contact" className="mt-10 inline-flex items-center rounded-md bg-[#C6A15B] px-8 py-4 text-base font-semibold text-[#0B1D3A] shadow-lg transition-all hover:bg-[#E8D7B2] hover:shadow-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C6A15B]">
-                Find a Tutor
-              </Link>
-            </div>
+        {/* CTA */}
+        <section className="py-24 bg-surface-50">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={staggerContainer}
+            >
+              <motion.h2 variants={fadeUp} className="font-heading text-4xl md:text-5xl font-bold text-primary mb-6">Find the right tuition for your child</motion.h2>
+              <motion.p variants={fadeUp} className="text-lg text-surface-600 mb-10 leading-relaxed">
+                Tell us about your child's stage, subjects and learning needs. We will recommend a suitable approach.
+              </motion.p>
+              <motion.div variants={fadeUp}>
+                <Link to="/contact" className="group inline-flex items-center gap-2 px-8 py-4 bg-primary text-primary-foreground font-semibold rounded-lg hover:bg-primary/90 transition-all">
+                  Discuss Tuition <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </motion.div>
+            </motion.div>
           </div>
         </section>
       </main>
       <Footer />
+      <CookieConsent />
     </div>
   );
 }
