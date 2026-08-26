@@ -1,256 +1,235 @@
-import React, { useState } from 'react';
-import PageLayout from '../components/PageLayout';
-import SEOHead from '../components/SEOHead';
-import SectionReveal from '../components/SectionReveal';
+import React, { useEffect, useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+import SkipToContent from '../components/SkipToContent';
 import LogoWatermark from '../components/LogoWatermark';
-import Icon from '../components/Icon';
-
-const roles = [
-  { icon: 'bookOpen', title: 'Tutors', text: 'Subject specialists for one-to-one and small-group tuition across primary, secondary and GCSE.' },
-  { icon: 'heart', title: 'SEN Support Professionals', text: 'Experienced professionals who understand autism, ADHD, dyslexia, SEMH and additional learning needs.' },
-  { icon: 'users', title: 'Teaching Assistants', text: 'Classroom and learner support professionals for schools, colleges and specialist settings.' },
-  { icon: 'briefcase', title: 'Cover Supervisors', text: 'Reliable cover professionals to maintain continuity and expectations in the classroom.' },
-];
 
 const logoUrl = typeof window !== 'undefined' && window.serenities
   ? window.serenities.files.url('6bc96ae7cd439802480ecbdbdc283e0b')
   : '';
 
-export default function JoinUsPage() {
+function useReveal() {
+  const ref = useRef(null);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          el.classList.add('opacity-100', 'translate-y-0');
+          el.classList.remove('opacity-0', 'translate-y-8');
+        }
+      },
+      { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+  return ref;
+}
+
+export default function JoinUs() {
+  const heroRef = useReveal();
+  const section1Ref = useReveal();
+  const formRef = useReveal();
+
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
-    phone: '',
+    telephone: '',
     location: '',
     role: '',
     subjects: '',
-    ageGroups: '',
     experience: '',
-    qualifications: '',
     senExperience: '',
     availability: '',
     message: '',
     consent: false,
   });
-  const [errors, setErrors] = useState({});
   const [submitted, setSubmitted] = useState(false);
-  const [submitting, setSubmitting] = useState(false);
-
-  const validate = () => {
-    const nextErrors = {};
-    if (!formData.fullName.trim()) nextErrors.fullName = 'Please enter your full name';
-    if (!formData.email.trim()) {
-      nextErrors.email = 'Please enter your email address';
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      nextErrors.email = 'Please enter a valid email address';
-    }
-    if (!formData.role.trim()) nextErrors.role = 'Please select or enter a role';
-    if (!formData.consent) nextErrors.consent = 'Please confirm you agree to our privacy notice';
-    return nextErrors;
-  };
+  const [errors, setErrors] = useState({});
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
     setFormData((prev) => ({ ...prev, [name]: type === 'checkbox' ? checked : value }));
-    if (errors[name]) setErrors((prev) => ({ ...prev, [name]: undefined }));
+    setErrors((prev) => ({ ...prev, [name]: '' }));
   };
 
-  const handleSubmit = async (e) => {
+  const validate = () => {
+    const nextErrors = {};
+    if (!formData.fullName.trim()) nextErrors.fullName = 'Please enter your full name';
+    if (!formData.email.trim() || !/\S+@\S+\.\S+/.test(formData.email)) nextErrors.email = 'Please enter a valid email address';
+    if (!formData.role) nextErrors.role = 'Please select a role';
+    if (!formData.consent) nextErrors.consent = 'Please confirm you agree to our privacy notice';
+    setErrors(nextErrors);
+    return Object.keys(nextErrors).length === 0;
+  };
+
+  const handleSubmit = (e) => {
     e.preventDefault();
-    const nextErrors = validate();
-    if (Object.keys(nextErrors).length > 0) {
-      setErrors(nextErrors);
-      return;
-    }
-    setSubmitting(true);
-    await new Promise((resolve) => setTimeout(resolve, 1200));
-    setSubmitting(false);
+    if (!validate()) return;
     setSubmitted(true);
   };
 
   return (
-    <PageLayout>
-      <SEOHead
-        title="Join Our Team | Education Professionals"
-        description="Join Royale Crown Academy Ltd as a tutor, teaching assistant, SEN support professional or education specialist. Apply online today."
-        path="/join-us"
-      />
+    <div className="min-h-screen bg-[#FAF9F6] font-body text-[#243247]">
+      <SkipToContent />
+      <Header />
+      <main id="main-content">
+        <section className="relative overflow-hidden bg-[#102A56] pt-32 pb-20 lg:pt-44 lg:pb-28">
+          <div className="absolute inset-0 opacity-10">
+            <LogoWatermark className="h-[140%] w-[140%] -translate-x-1/4 -translate-y-1/4 text-[#FAF9F6]" />
+          </div>
+          <div className="absolute inset-0 bg-gradient-to-br from-[#102A56] via-[#102A56]/95 to-[#0B1D3A]" />
+          <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div ref={heroRef} className="opacity-0 translate-y-8 transition-all duration-1000 ease-out">
+              <div className="flex items-center gap-3 mb-6">
+                <span className="h-px w-12 bg-[#C6A15B]" />
+                <span className="text-sm font-semibold uppercase tracking-widest text-[#E8D7B2]">Careers</span>
+              </div>
+              <h1 className="font-heading text-4xl font-bold leading-tight text-[#FAF9F6] sm:text-5xl lg:text-6xl max-w-4xl">
+                Build your education career with us.
+              </h1>
+              <p className="mt-6 max-w-2xl text-lg leading-relaxed text-[#FAF9F6]/85">
+                Join a growing UK education organisation committed to personalised learning, inclusion and professional standards. We welcome applications from tutors, teaching assistants, SEN professionals and other education specialists.
+              </p>
+              <div className="mt-10 flex flex-wrap gap-4">
+                <a href="#application-form" className="inline-flex items-center rounded-md bg-[#C6A15B] px-6 py-3 text-base font-semibold text-[#0B1D3A] shadow-sm transition-all hover:bg-[#E8D7B2] hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C6A15B]">
+                  Apply Now
+                </a>
+                <Link to="/education-staffing" className="inline-flex items-center rounded-md border border-[#FAF9F6]/30 bg-transparent px-6 py-3 text-base font-semibold text-[#FAF9F6] transition-all hover:bg-[#FAF9F6]/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C6A15B]">
+                  Learn About Staffing
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
 
-      {/* Hero */}
-      <section className="relative overflow-hidden bg-[#EEF4FA]/50 pt-20">
-        <div className="absolute -right-20 top-20 h-96 w-96 rounded-full bg-[#E8D7B2]/20 blur-3xl" />
-        <div className="absolute -left-20 bottom-0 h-72 w-72 rounded-full bg-[#102A56]/5 blur-3xl" />
-        <LogoWatermark opacity={0.03} size={400} />
-        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
-          <div className="grid items-center gap-12 lg:grid-cols-2">
-            <SectionReveal>
-              <div>
-                <span className="inline-flex items-center gap-2 rounded-full bg-[#FAF9F6] px-4 py-1.5 text-sm font-medium text-[#102A56] border border-[#102A56]/10">
-                  <Icon name="briefcase" className="h-4 w-4 text-[#C6A15B]" />
-                  Careers
-                </span>
-                <h1 className="mt-6 font-heading text-4xl font-bold tracking-tight text-[#102A56] sm:text-5xl lg:text-6xl">
-                  Join Royale Crown Academy
-                </h1>
-                <p className="mt-6 text-lg leading-relaxed text-[#243247] sm:text-xl">
-                  We are building a network of dedicated education professionals who share our commitment to personalised support, safeguarding and meaningful progress.
+        <section className="py-20 lg:py-28">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div ref={section1Ref} className="opacity-0 translate-y-8 transition-all duration-1000 ease-out">
+              <div className="mx-auto max-w-3xl text-center">
+                <h2 className="font-heading text-3xl font-bold text-[#102A56] sm:text-4xl">Who we are looking for</h2>
+                <p className="mt-5 text-lg leading-relaxed text-[#243247]/80">
+                  We are interested in hearing from education professionals who share our commitment to high-quality, learner-centred support.
                 </p>
-                <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                  <a href="#apply" className="inline-flex items-center justify-center gap-2 rounded-md bg-[#102A56] px-6 py-3.5 text-base font-semibold text-[#FAF9F6] shadow-sm transition-all hover:bg-[#0B1D3A] hover:shadow-md">
-                    Apply Now <Icon name="arrowRight" className="h-5 w-5" />
-                  </a>
-                  <a href="#roles" className="inline-flex items-center justify-center gap-2 rounded-md border border-[#102A56] bg-[#FAF9F6] px-6 py-3.5 text-base font-semibold text-[#102A56] transition-all hover:bg-[#102A56] hover:text-[#FAF9F6]">
-                    View Roles
-                  </a>
-                </div>
               </div>
-            </SectionReveal>
-            <SectionReveal delay={150}>
-              <div className="relative overflow-hidden rounded-lg bg-gradient-to-br from-[#EEF4FA] via-[#FAF9F6] to-[#E8D7B2]/30 p-10 shadow-md">
-                <img src={logoUrl} alt="Royale Crown Academy Ltd" className="mx-auto h-36 w-auto object-contain opacity-95 sm:h-44" />
-                <p className="mt-6 text-center text-sm font-medium text-[#243247]">Build your education career with a growing UK education organisation.</p>
+              <div className="mt-16 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+                {[
+                  { title: 'Tutors', desc: 'Subject specialists across primary, secondary, GCSE and A-Level subjects, able to deliver personalised tuition online or in person.' },
+                  { title: 'Teaching Assistants', desc: 'Classroom support professionals who work confidently alongside learners and teachers in a range of settings.' },
+                  { title: 'SEN Teaching Assistants', desc: 'Support professionals with experience of working with learners with additional needs, including autism, ADHD and dyslexia.' },
+                  { title: 'Cover Supervisors', desc: 'Reliable education professionals able to supervise classes and maintain a positive learning environment.' },
+                  { title: 'Learning Support Assistants', desc: 'Professionals who provide targeted support to help learners access the curriculum and build confidence.' },
+                  { title: 'Education Support Professionals', desc: 'Other suitable education professionals with skills and experience that complement our services.' },
+                ].map((item, i) => (
+                  <div key={i} className="group rounded-xl border border-[#E5EAF1] bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+                    <div className="mb-5 h-1 w-12 rounded-full bg-[#C6A15B] transition-all group-hover:w-20" />
+                    <h3 className="font-heading text-xl font-semibold text-[#102A56]">{item.title}</h3>
+                    <p className="mt-3 text-[#243247]/75 leading-relaxed">{item.desc}</p>
+                  </div>
+                ))}
               </div>
-            </SectionReveal>
-          </div>
-        </div>
-      </section>
-
-      {/* Roles */}
-      <section id="roles" className="relative bg-[#FAF9F6] py-16 sm:py-24">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <SectionReveal>
-            <div className="mx-auto max-w-3xl text-center">
-              <p className="text-sm font-semibold uppercase tracking-wider text-[#C6A15B]">Opportunities</p>
-              <h2 className="mt-3 font-heading text-3xl font-bold tracking-tight text-[#102A56] sm:text-4xl">Roles we recruit</h2>
             </div>
-          </SectionReveal>
-          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {roles.map((role, index) => (
-              <SectionReveal key={role.title} delay={index * 75}>
-                <div className="flex h-full flex-col rounded-lg border border-[#E2E8F0] bg-[#EEF4FA]/50 p-6 shadow-sm transition-all hover:-translate-y-1 hover:shadow-md">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-[#102A56]/10 text-[#102A56]">
-                    <Icon name={role.icon} className="h-6 w-6" />
-                  </div>
-                  <h3 className="mt-4 font-heading text-xl font-semibold text-[#102A56]">{role.title}</h3>
-                  <p className="mt-2 flex-1 text-[#243247]">{role.text}</p>
-                </div>
-              </SectionReveal>
-            ))}
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Application */}
-      <section id="apply" className="relative bg-[#EEF4FA]/50 py-16 sm:py-24">
-        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-          <SectionReveal>
-            <div className="rounded-lg border border-[#E2E8F0] bg-[#FAF9F6] p-8 shadow-sm sm:p-12">
-              <div className="text-center">
-                <h2 className="font-heading text-3xl font-bold tracking-tight text-[#102A56] sm:text-4xl">Apply to work with us</h2>
-                <p className="mt-4 text-lg text-[#243247]">Complete the form below and we will be in touch about suitable opportunities.</p>
-              </div>
-
-              {submitted ? (
-                <div className="mt-10 rounded-md border border-green-200 bg-green-50 p-6 text-center">
-                  <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-green-100 text-green-700">
-                    <Icon name="check" className="h-6 w-6" />
-                  </div>
-                  <h3 className="mt-4 font-heading text-lg font-semibold text-[#102A56]">Thank you for your application</h3>
-                  <p className="mt-2 text-sm text-[#243247]">We have received your details and will contact you if a suitable opportunity arises.</p>
+        <section id="application-form" className="bg-[#EEF4FA] py-20 lg:py-28">
+          <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+            <div ref={formRef} className="opacity-0 translate-y-8 transition-all duration-1000 ease-out">
+              <div className="overflow-hidden rounded-2xl bg-white shadow-xl">
+                <div className="bg-[#102A56] px-8 py-8">
+                  <h2 className="font-heading text-2xl font-bold text-[#FAF9F6] sm:text-3xl">Application Form</h2>
+                  <p className="mt-2 text-[#FAF9F6]/80">Tell us about your experience and the role you are interested in.</p>
                 </div>
-              ) : (
-                <form onSubmit={handleSubmit} className="mt-10 space-y-5" noValidate>
-                  <div className="grid gap-5 sm:grid-cols-2">
-                    <div>
-                      <label htmlFor="fullName" className="block text-sm font-medium text-[#243247]">Full name <span className="text-red-500">*</span></label>
-                      <input type="text" id="fullName" name="fullName" value={formData.fullName} onChange={handleChange} className="mt-1.5 w-full rounded-md border border-[#E2E8F0] bg-[#FAF9F6] px-4 py-2.5 text-sm text-[#243247] placeholder:text-[#243247]/50 focus:border-[#102A56] focus:outline-none focus:ring-2 focus:ring-[#102A56]/20" />
-                      {errors.fullName && <p className="mt-1.5 text-sm text-red-600">{errors.fullName}</p>}
+                <div className="p-8">
+                  {submitted ? (
+                    <div className="rounded-xl bg-[#E8D7B2]/20 p-8 text-center">
+                      <h3 className="font-heading text-xl font-semibold text-[#102A56]">Thank you for your application</h3>
+                      <p className="mt-3 text-[#243247]/80">We have received your details and will be in touch shortly to discuss the next steps.</p>
+                      <Link to="/" className="mt-6 inline-flex items-center rounded-md bg-[#102A56] px-6 py-3 text-sm font-semibold text-[#FAF9F6] transition-colors hover:bg-[#0B1D3A]">
+                        Return to Home
+                      </Link>
                     </div>
-                    <div>
-                      <label htmlFor="email" className="block text-sm font-medium text-[#243247]">Email address <span className="text-red-500">*</span></label>
-                      <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} className="mt-1.5 w-full rounded-md border border-[#E2E8F0] bg-[#FAF9F6] px-4 py-2.5 text-sm text-[#243247] placeholder:text-[#243247]/50 focus:border-[#102A56] focus:outline-none focus:ring-2 focus:ring-[#102A56]/20" />
-                      {errors.email && <p className="mt-1.5 text-sm text-red-600">{errors.email}</p>}
-                    </div>
-                  </div>
-
-                  <div className="grid gap-5 sm:grid-cols-2">
-                    <div>
-                      <label htmlFor="phone" className="block text-sm font-medium text-[#243247]">Phone number</label>
-                      <input type="tel" id="phone" name="phone" value={formData.phone} onChange={handleChange} className="mt-1.5 w-full rounded-md border border-[#E2E8F0] bg-[#FAF9F6] px-4 py-2.5 text-sm text-[#243247] placeholder:text-[#243247]/50 focus:border-[#102A56] focus:outline-none focus:ring-2 focus:ring-[#102A56]/20" />
-                    </div>
-                    <div>
-                      <label htmlFor="location" className="block text-sm font-medium text-[#243247]">Location / postcode</label>
-                      <input type="text" id="location" name="location" value={formData.location} onChange={handleChange} className="mt-1.5 w-full rounded-md border border-[#E2E8F0] bg-[#FAF9F6] px-4 py-2.5 text-sm text-[#243247] placeholder:text-[#243247]/50 focus:border-[#102A56] focus:outline-none focus:ring-2 focus:ring-[#102A56]/20" />
-                    </div>
-                  </div>
-
-                  <div>
-                    <label htmlFor="role" className="block text-sm font-medium text-[#243247]">Role you are interested in <span className="text-red-500">*</span></label>
-                    <select id="role" name="role" value={formData.role} onChange={handleChange} className="mt-1.5 w-full rounded-md border border-[#E2E8F0] bg-[#FAF9F6] px-4 py-2.5 text-sm text-[#243247] focus:border-[#102A56] focus:outline-none focus:ring-2 focus:ring-[#102A56]/20">
-                      <option value="">Please select</option>
-                      <option value="tutor">Tutor</option>
-                      <option value="sen-support">SEN Support Professional</option>
-                      <option value="teaching-assistant">Teaching Assistant</option>
-                      <option value="sen-teaching-assistant">SEN Teaching Assistant</option>
-                      <option value="cover-supervisor">Cover Supervisor</option>
-                      <option value="other">Other</option>
-                    </select>
-                    {errors.role && <p className="mt-1.5 text-sm text-red-600">{errors.role}</p>}
-                  </div>
-
-                  <div className="grid gap-5 sm:grid-cols-2">
-                    <div>
-                      <label htmlFor="subjects" className="block text-sm font-medium text-[#243247]">Subjects / specialisms</label>
-                      <input type="text" id="subjects" name="subjects" value={formData.subjects} onChange={handleChange} className="mt-1.5 w-full rounded-md border border-[#E2E8F0] bg-[#FAF9F6] px-4 py-2.5 text-sm text-[#243247] placeholder:text-[#243247]/50 focus:border-[#102A56] focus:outline-none focus:ring-2 focus:ring-[#102A56]/20" />
-                    </div>
-                    <div>
-                      <label htmlFor="ageGroups" className="block text-sm font-medium text-[#243247]">Age groups</label>
-                      <input type="text" id="ageGroups" name="ageGroups" value={formData.ageGroups} onChange={handleChange} className="mt-1.5 w-full rounded-md border border-[#E2E8F0] bg-[#FAF9F6] px-4 py-2.5 text-sm text-[#243247] placeholder:text-[#243247]/50 focus:border-[#102A56] focus:outline-none focus:ring-2 focus:ring-[#102A56]/20" />
-                    </div>
-                  </div>
-
-                  <div>
-                    <label htmlFor="experience" className="block text-sm font-medium text-[#243247]">Relevant experience</label>
-                    <textarea id="experience" name="experience" rows={3} value={formData.experience} onChange={handleChange} className="mt-1.5 w-full rounded-md border border-[#E2E8F0] bg-[#FAF9F6] px-4 py-2.5 text-sm text-[#243247] placeholder:text-[#243247]/50 focus:border-[#102A56] focus:outline-none focus:ring-2 focus:ring-[#102A56]/20" />
-                  </div>
-
-                  <div>
-                    <label htmlFor="qualifications" className="block text-sm font-medium text-[#243247]">Qualifications</label>
-                    <textarea id="qualifications" name="qualifications" rows={2} value={formData.qualifications} onChange={handleChange} className="mt-1.5 w-full rounded-md border border-[#E2E8F0] bg-[#FAF9F6] px-4 py-2.5 text-sm text-[#243247] placeholder:text-[#243247]/50 focus:border-[#102A56] focus:outline-none focus:ring-2 focus:ring-[#102A56]/20" />
-                  </div>
-
-                  <div>
-                    <label htmlFor="senExperience" className="block text-sm font-medium text-[#243247]">SEN experience</label>
-                    <textarea id="senExperience" name="senExperience" rows={2} value={formData.senExperience} onChange={handleChange} className="mt-1.5 w-full rounded-md border border-[#E2E8F0] bg-[#FAF9F6] px-4 py-2.5 text-sm text-[#243247] placeholder:text-[#243247]/50 focus:border-[#102A56] focus:outline-none focus:ring-2 focus:ring-[#102A56]/20" />
-                  </div>
-
-                  <div>
-                    <label htmlFor="availability" className="block text-sm font-medium text-[#243247]">Availability</label>
-                    <input type="text" id="availability" name="availability" value={formData.availability} onChange={handleChange} className="mt-1.5 w-full rounded-md border border-[#E2E8F0] bg-[#FAF9F6] px-4 py-2.5 text-sm text-[#243247] placeholder:text-[#243247]/50 focus:border-[#102A56] focus:outline-none focus:ring-2 focus:ring-[#102A56]/20" />
-                  </div>
-
-                  <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-[#243247]">Additional information</label>
-                    <textarea id="message" name="message" rows={3} value={formData.message} onChange={handleChange} className="mt-1.5 w-full rounded-md border border-[#E2E8F0] bg-[#FAF9F6] px-4 py-2.5 text-sm text-[#243247] placeholder:text-[#243247]/50 focus:border-[#102A56] focus:outline-none focus:ring-2 focus:ring-[#102A56]/20" />
-                  </div>
-
-                  <div>
-                    <label className="flex items-start gap-3">
-                      <input type="checkbox" name="consent" checked={formData.consent} onChange={handleChange} className="mt-1 h-4 w-4 rounded border-[#E2E8F0] text-[#102A56] focus:ring-[#102A56]" />
-                      <span className="text-sm text-[#243247]">I agree to Royale Crown Academy Ltd processing my personal data in line with the <a href="/privacy-policy" className="font-medium text-[#102A56] underline">Privacy Policy</a>. I understand I can withdraw consent at any time. <span className="text-red-500">*</span></span>
-                    </label>
-                    {errors.consent && <p className="mt-1.5 text-sm text-red-600">{errors.consent}</p>}
-                  </div>
-
-                  <button type="submit" disabled={submitting} className="inline-flex w-full items-center justify-center rounded-md bg-[#102A56] px-6 py-3 text-base font-semibold text-[#FAF9F6] shadow-sm transition-all hover:bg-[#0B1D3A] disabled:opacity-60 sm:w-auto">
-                    {submitting ? 'Sending...' : 'Submit Application'}
-                  </button>
-                </form>
-              )}
+                  ) : (
+                    <form onSubmit={handleSubmit} className="space-y-6" noValidate>
+                      <div className="grid gap-6 md:grid-cols-2">
+                        <div>
+                          <label htmlFor="fullName" className="block text-sm font-semibold text-[#102A56]">Full name <span className="text-[#C6A15B]">*</span></label>
+                          <input id="fullName" name="fullName" type="text" value={formData.fullName} onChange={handleChange} className="mt-2 block w-full rounded-md border border-[#E5EAF1] bg-[#FAF9F6] px-4 py-3 text-[#243247] focus:border-[#C6A15B] focus:outline-none focus:ring-2 focus:ring-[#C6A15B]/20" />
+                          {errors.fullName && <p className="mt-1 text-sm text-red-600">{errors.fullName}</p>}
+                        </div>
+                        <div>
+                          <label htmlFor="email" className="block text-sm font-semibold text-[#102A56]">Email <span className="text-[#C6A15B]">*</span></label>
+                          <input id="email" name="email" type="email" value={formData.email} onChange={handleChange} className="mt-2 block w-full rounded-md border border-[#E5EAF1] bg-[#FAF9F6] px-4 py-3 text-[#243247] focus:border-[#C6A15B] focus:outline-none focus:ring-2 focus:ring-[#C6A15B]/20" />
+                          {errors.email && <p className="mt-1 text-sm text-red-600">{errors.email}</p>}
+                        </div>
+                      </div>
+                      <div className="grid gap-6 md:grid-cols-2">
+                        <div>
+                          <label htmlFor="telephone" className="block text-sm font-semibold text-[#102A56]">Telephone</label>
+                          <input id="telephone" name="telephone" type="tel" value={formData.telephone} onChange={handleChange} className="mt-2 block w-full rounded-md border border-[#E5EAF1] bg-[#FAF9F6] px-4 py-3 text-[#243247] focus:border-[#C6A15B] focus:outline-none focus:ring-2 focus:ring-[#C6A15B]/20" />
+                        </div>
+                        <div>
+                          <label htmlFor="location" className="block text-sm font-semibold text-[#102A56]">Location</label>
+                          <input id="location" name="location" type="text" value={formData.location} onChange={handleChange} className="mt-2 block w-full rounded-md border border-[#E5EAF1] bg-[#FAF9F6] px-4 py-3 text-[#243247] focus:border-[#C6A15B] focus:outline-none focus:ring-2 focus:ring-[#C6A15B]/20" />
+                        </div>
+                      </div>
+                      <div>
+                        <label htmlFor="role" className="block text-sm font-semibold text-[#102A56]">Role you are applying for <span className="text-[#C6A15B]">*</span></label>
+                        <select id="role" name="role" value={formData.role} onChange={handleChange} className="mt-2 block w-full rounded-md border border-[#E5EAF1] bg-[#FAF9F6] px-4 py-3 text-[#243247] focus:border-[#C6A15B] focus:outline-none focus:ring-2 focus:ring-[#C6A15B]/20">
+                          <option value="">Select a role</option>
+                          <option value="tutor">Tutor</option>
+                          <option value="teaching-assistant">Teaching Assistant</option>
+                          <option value="sen-teaching-assistant">SEN Teaching Assistant</option>
+                          <option value="cover-supervisor">Cover Supervisor</option>
+                          <option value="learning-support-assistant">Learning Support Assistant</option>
+                          <option value="other">Other Education Professional</option>
+                        </select>
+                        {errors.role && <p className="mt-1 text-sm text-red-600">{errors.role}</p>}
+                      </div>
+                      <div>
+                        <label htmlFor="subjects" className="block text-sm font-semibold text-[#102A56]">Subjects / specialisms</label>
+                        <input id="subjects" name="subjects" type="text" value={formData.subjects} onChange={handleChange} className="mt-2 block w-full rounded-md border border-[#E5EAF1] bg-[#FAF9F6] px-4 py-3 text-[#243247] focus:border-[#C6A15B] focus:outline-none focus:ring-2 focus:ring-[#C6A15B]/20" />
+                      </div>
+                      <div className="grid gap-6 md:grid-cols-2">
+                        <div>
+                          <label htmlFor="experience" className="block text-sm font-semibold text-[#102A56]">Relevant experience</label>
+                          <textarea id="experience" name="experience" rows={3} value={formData.experience} onChange={handleChange} className="mt-2 block w-full rounded-md border border-[#E5EAF1] bg-[#FAF9F6] px-4 py-3 text-[#243247] focus:border-[#C6A15B] focus:outline-none focus:ring-2 focus:ring-[#C6A15B]/20" />
+                        </div>
+                        <div>
+                          <label htmlFor="senExperience" className="block text-sm font-semibold text-[#102A56]">SEN experience</label>
+                          <textarea id="senExperience" name="senExperience" rows={3} value={formData.senExperience} onChange={handleChange} className="mt-2 block w-full rounded-md border border-[#E5EAF1] bg-[#FAF9F6] px-4 py-3 text-[#243247] focus:border-[#C6A15B] focus:outline-none focus:ring-2 focus:ring-[#C6A15B]/20" />
+                        </div>
+                      </div>
+                      <div>
+                        <label htmlFor="availability" className="block text-sm font-semibold text-[#102A56]">Availability</label>
+                        <input id="availability" name="availability" type="text" value={formData.availability} onChange={handleChange} placeholder="e.g. weekdays after 3pm" className="mt-2 block w-full rounded-md border border-[#E5EAF1] bg-[#FAF9F6] px-4 py-3 text-[#243247] focus:border-[#C6A15B] focus:outline-none focus:ring-2 focus:ring-[#C6A15B]/20" />
+                      </div>
+                      <div>
+                        <label htmlFor="message" className="block text-sm font-semibold text-[#102A56]">Additional information</label>
+                        <textarea id="message" name="message" rows={4} value={formData.message} onChange={handleChange} className="mt-2 block w-full rounded-md border border-[#E5EAF1] bg-[#FAF9F6] px-4 py-3 text-[#243247] focus:border-[#C6A15B] focus:outline-none focus:ring-2 focus:ring-[#C6A15B]/20" />
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <input id="consent" name="consent" type="checkbox" checked={formData.consent} onChange={handleChange} className="mt-1 h-5 w-5 rounded border-[#E5EAF1] text-[#102A56] focus:ring-[#C6A15B]" />
+                        <label htmlFor="consent" className="text-sm text-[#243247]/80">
+                          I agree to Royale Crown Academy Ltd processing my personal data in accordance with the <Link to="/privacy-policy" className="text-[#102A56] underline hover:text-[#C6A15B]">Privacy Policy</Link>. <span className="text-[#C6A15B]">*</span>
+                        </label>
+                      </div>
+                      {errors.consent && <p className="text-sm text-red-600">{errors.consent}</p>}
+                      <button type="submit" className="w-full rounded-md bg-[#102A56] px-6 py-4 text-base font-semibold text-[#FAF9F6] shadow-sm transition-all hover:bg-[#0B1D3A] hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C6A15B]">
+                        Submit Application
+                      </button>
+                    </form>
+                  )}
+                </div>
+              </div>
             </div>
-          </SectionReveal>
-        </div>
-      </section>
-    </PageLayout>
+          </div>
+        </section>
+      </main>
+      <Footer />
+    </div>
   );
 }
