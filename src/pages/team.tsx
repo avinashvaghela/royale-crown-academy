@@ -7,35 +7,35 @@ import TeamMemberCard from '../components/TeamMemberCard';
 import Icon from '../components/Icon';
 
 const teamMembers = [
-{
-  name: '[Name to be inserted]',
-  role: '[Role to be inserted, e.g. Director / SEN Lead]',
-  specialisms: '[Specialisms to be inserted]',
-  experience: '[Relevant experience to be inserted]',
-  approach: '[Teaching or leadership approach to be inserted]'
-},
-{
-  name: '[Name to be inserted]',
-  role: '[Role to be inserted, e.g. SEN Specialist]',
-  specialisms: '[Specialisms to be inserted]',
-  experience: '[Relevant experience to be inserted]',
-  approach: '[Teaching approach to be inserted]'
-},
-{
-  name: '[Name to be inserted]',
-  role: '[Role to be inserted, e.g. Lead Tutor]',
-  specialisms: '[Subjects/specialisms to be inserted]',
-  experience: '[Relevant experience to be inserted]',
-  approach: '[Teaching approach to be inserted]'
-},
-{
-  name: '[Name to be inserted]',
-  role: '[Role to be inserted, e.g. Education Staffing Coordinator]',
-  specialisms: '[Specialisms to be inserted]',
-  experience: '[Relevant experience to be inserted]',
-  approach: '[Approach to be inserted]'
-}];
-
+  {
+    name: '[Name to be inserted]',
+    role: '[Role to be inserted, e.g. Director / SEN Lead]',
+    specialisms: '[Specialisms to be inserted]',
+    experience: '[Relevant experience to be inserted]',
+    approach: '[Teaching or leadership approach to be inserted]',
+  },
+  {
+    name: '[Name to be inserted]',
+    role: '[Role to be inserted, e.g. SEN Specialist]',
+    specialisms: '[Specialisms to be inserted]',
+    experience: '[Relevant experience to be inserted]',
+    approach: '[Teaching approach to be inserted]',
+  },
+  {
+    name: '[Name to be inserted]',
+    role: '[Role to be inserted, e.g. Lead Tutor]',
+    specialisms: '[Subjects/specialisms to be inserted]',
+    experience: '[Relevant experience to be inserted]',
+    approach: '[Teaching approach to be inserted]',
+  },
+  {
+    name: '[Name to be inserted]',
+    role: '[Role to be inserted, e.g. Education Staffing Coordinator]',
+    specialisms: '[Specialisms to be inserted]',
+    experience: '[Relevant experience to be inserted]',
+    approach: '[Approach to be inserted]',
+  },
+];
 
 export default function TeamPage() {
   return (
@@ -43,8 +43,8 @@ export default function TeamPage() {
       <SEOHead
         title="Our Team | Royale Crown Academy Ltd"
         description="Meet the team behind Royale Crown Academy Ltd. Editable team profiles for tutors, SEN specialists and education professionals."
-        path="/team" />
-
+        path="/team"
+      />
 
       {/* Hero */}
       <section className="bg-surface-50 pt-16 sm:pt-20">
@@ -66,17 +66,17 @@ export default function TeamPage() {
       <section className="bg-background py-16 sm:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {teamMembers.map((member, index) =>
-            <SectionReveal key={index} delay={index * 75}>
+            {teamMembers.map((member, index) => (
+              <SectionReveal key={index} delay={index * 75}>
                 <TeamMemberCard
-                name={member.name}
-                role={member.role}
-                specialisms={member.specialisms}
-                experience={member.experience}
-                approach={member.approach} />
-
+                  name={member.name}
+                  role={member.role}
+                  specialisms={member.specialisms}
+                  experience={member.experience}
+                  approach={member.approach}
+                />
               </SectionReveal>
-            )}
+            ))}
           </div>
         </div>
       </section>
@@ -96,6 +96,6 @@ export default function TeamPage() {
           </SectionReveal>
         </div>
       </section>
-    </PageLayout>);
-
+    </PageLayout>
+  );
 }

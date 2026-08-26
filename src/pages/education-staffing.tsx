@@ -9,25 +9,25 @@ import LogoWatermark from '../components/LogoWatermark';
 import Icon from '../components/Icon';
 
 const roles = [
-{ icon: 'users', title: 'Teaching Assistants', text: 'General classroom and learning support professionals for primary, secondary and specialist settings.' },
-{ icon: 'heart', title: 'SEN Teaching Assistants', text: 'Support staff with experience and understanding of autism, ADHD, dyslexia, SEMH and additional needs.' },
-{ icon: 'briefcase', title: 'Cover Supervisors', text: 'Reliable cover professionals to maintain continuity and behaviour expectations in the classroom.' },
-{ icon: 'bookOpen', title: 'Tutors', text: 'Subject specialists and intervention tutors for one-to-one and small-group support.' },
-{ icon: 'school', title: 'Education support professionals', text: 'A range of professionals to complement your existing team and provision.' },
-{ icon: 'clipboardList', title: 'Flexible arrangements', text: 'Day-to-day cover, short-term contracts and longer-term placements to suit your needs.' }];
-
+  { icon: 'users', title: 'Teaching Assistants', text: 'General classroom and learning support professionals for primary, secondary and specialist settings.' },
+  { icon: 'heart', title: 'SEN Teaching Assistants', text: 'Support staff with experience and understanding of autism, ADHD, dyslexia, SEMH and additional needs.' },
+  { icon: 'briefcase', title: 'Cover Supervisors', text: 'Reliable cover professionals to maintain continuity and behaviour expectations in the classroom.' },
+  { icon: 'bookOpen', title: 'Tutors', text: 'Subject specialists and intervention tutors for one-to-one and small-group support.' },
+  { icon: 'school', title: 'Education support professionals', text: 'A range of professionals to complement your existing team and provision.' },
+  { icon: 'clipboardList', title: 'Flexible arrangements', text: 'Day-to-day cover, short-term contracts and longer-term placements to suit your needs.' },
+];
 
 const process = [
-{ number: '1', icon: 'messageCircle', title: 'Understand requirement', text: 'We listen to your needs, culture, timescales and any specific learner or safeguarding considerations.' },
-{ number: '2', icon: 'search', title: 'Identify suitable professionals', text: 'We search our network and recruitment processes for candidates whose skills and values align with your setting.' },
-{ number: '3', icon: 'shield', title: 'Checks and verification', text: 'We follow our safer recruitment and verification procedures before any introduction or placement.' },
-{ number: '4', icon: 'users', title: 'Introduce and arrange placement', text: 'We facilitate introductions, agree terms and support a smooth start in your setting.' },
-{ number: '5', icon: 'messageCircle', title: 'Ongoing communication and support', text: 'We stay in touch, gather feedback and address any questions throughout the placement.' }];
+  { number: '1', icon: 'messageCircle', title: 'Understand requirement', text: 'We listen to your needs, culture, timescales and any specific learner or safeguarding considerations.' },
+  { number: '2', icon: 'search', title: 'Identify suitable professionals', text: 'We search our network and recruitment processes for candidates whose skills and values align with your setting.' },
+  { number: '3', icon: 'shield', title: 'Checks and verification', text: 'We follow our safer recruitment and verification procedures before any introduction or placement.' },
+  { number: '4', icon: 'users', title: 'Introduce and arrange placement', text: 'We facilitate introductions, agree terms and support a smooth start in your setting.' },
+  { number: '5', icon: 'messageCircle', title: 'Ongoing communication and support', text: 'We stay in touch, gather feedback and address any questions throughout the placement.' },
+];
 
-
-const logoUrl = typeof window !== 'undefined' && window.serenities ?
-window.serenities.files.url('05671f06d089b1211807c8bfa3200a3c') :
-'';
+const logoUrl = typeof window !== 'undefined' && window.serenities
+  ? window.serenities.files.url('05671f06d089b1211807c8bfa3200a3c')
+  : '';
 
 export default function EducationStaffingPage() {
   return (
@@ -35,8 +35,8 @@ export default function EducationStaffingPage() {
       <SEOHead
         title="Education Staffing | Teaching Assistants, SEN Support & Cover"
         description="Professional education staffing services for UK schools and colleges, including Teaching Assistants, SEN support staff, Cover Supervisors and tutors."
-        path="/education-staffing" />
-
+        path="/education-staffing"
+      />
 
       {/* Hero */}
       <section className="relative overflow-hidden bg-surface-50 pt-16 sm:pt-20">
@@ -69,8 +69,8 @@ export default function EducationStaffingPage() {
                 <img
                   src={logoUrl}
                   alt="Royale Crown Academy Ltd"
-                  className="mx-auto h-32 w-auto object-contain opacity-90 sm:h-40" />
-
+                  className="mx-auto h-32 w-auto object-contain opacity-90 sm:h-40"
+                />
                 <p className="mt-6 text-center text-sm font-medium text-surface-600">
                   Professional staffing solutions for schools and colleges across the UK.
                 </p>
@@ -92,11 +92,11 @@ export default function EducationStaffingPage() {
             </div>
           </SectionReveal>
           <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {roles.map((role, index) =>
-            <SectionReveal key={role.title} delay={index * 75}>
+            {roles.map((role, index) => (
+              <SectionReveal key={role.title} delay={index * 75}>
                 <ServiceCard icon={role.icon} title={role.title} description={role.text} />
               </SectionReveal>
-            )}
+            ))}
           </div>
         </div>
       </section>
@@ -114,11 +114,11 @@ export default function EducationStaffingPage() {
             </div>
           </SectionReveal>
           <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-5">
-            {process.map((step, index) =>
-            <SectionReveal key={step.title} delay={index * 75}>
+            {process.map((step, index) => (
+              <SectionReveal key={step.title} delay={index * 75}>
                 <StepCard number={step.number} icon={step.icon} title={step.title} description={step.text} />
               </SectionReveal>
-            )}
+            ))}
           </div>
         </div>
       </section>
@@ -145,20 +145,20 @@ export default function EducationStaffingPage() {
                   <h3 className="font-heading text-xl font-semibold text-foreground">What we consider</h3>
                   <ul className="mt-5 space-y-4">
                     {[
-                    'Relevant experience and qualifications where required',
-                    'Identity and right-to-work verification',
-                    'Reference checks',
-                    'Disclosure and barring checks in line with role requirements',
-                    'Safeguarding awareness and training',
-                    'Suitability for the specific setting and learners'].
-                    map((item) =>
-                    <li key={item} className="flex items-start gap-3">
+                      'Relevant experience and qualifications where required',
+                      'Identity and right-to-work verification',
+                      'Reference checks',
+                      'Disclosure and barring checks in line with role requirements',
+                      'Safeguarding awareness and training',
+                      'Suitability for the specific setting and learners',
+                    ].map((item) => (
+                      <li key={item} className="flex items-start gap-3">
                         <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
                           <Icon name="check" className="h-4 w-4" />
                         </span>
                         <span className="text-surface-700">{item}</span>
                       </li>
-                    )}
+                    ))}
                   </ul>
                 </div>
               </div>
@@ -181,21 +181,21 @@ export default function EducationStaffingPage() {
             <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <Link
                 to="/contact"
-                className="inline-flex items-center gap-2 rounded-md bg-primary-foreground px-8 py-4 text-lg font-semibold text-primary shadow-sm transition-colors hover:bg-white">
-
+                className="inline-flex items-center gap-2 rounded-md bg-primary-foreground px-8 py-4 text-lg font-semibold text-primary shadow-sm transition-colors hover:bg-white"
+              >
                 Request Staff
                 <Icon name="arrowRight" className="h-5 w-5" />
               </Link>
               <Link
                 to="/safeguarding"
-                className="inline-flex items-center gap-2 rounded-md border border-primary-foreground/30 px-8 py-4 text-lg font-semibold text-primary-foreground transition-colors hover:bg-primary-foreground/10">
-
+                className="inline-flex items-center gap-2 rounded-md border border-primary-foreground/30 px-8 py-4 text-lg font-semibold text-primary-foreground transition-colors hover:bg-primary-foreground/10"
+              >
                 Safeguarding
               </Link>
             </div>
           </SectionReveal>
         </div>
       </section>
-    </PageLayout>);
-
+    </PageLayout>
+  );
 }

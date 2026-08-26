@@ -8,27 +8,27 @@ import LogoWatermark from '../components/LogoWatermark';
 import Icon from '../components/Icon';
 
 const services = [
-{ title: 'SEN tuition', description: 'Specialist tuition and support for learners with identified additional needs.', icon: 'brain' },
-{ title: 'Targeted tutoring', description: 'Focused support in English, maths, science and study skills for individuals or small groups.', icon: 'bookOpen' },
-{ title: 'Catch-up support', description: 'Programmes designed to help learners close gaps and rebuild confidence.', icon: 'trendingUp' },
-{ title: 'One-to-one learner support', description: 'Dedicated support for learners who need individual attention to thrive.', icon: 'user' },
-{ title: 'Small-group programmes', description: 'Structured group interventions for learners with similar needs or goals.', icon: 'users' },
-{ title: 'Teaching Assistants', description: 'Classroom and learner support professionals matched to your setting.', icon: 'briefcase' },
-{ title: 'Cover Supervisors', description: 'Reliable cover to maintain continuity in the absence of teaching staff.', icon: 'clipboardList' },
-{ title: 'Flexible staffing support', description: 'Short-term, longer-term and ad-hoc staffing solutions.', icon: 'settings' }];
-
+  { title: 'SEN tuition', description: 'Specialist tuition and support for learners with identified additional needs.', icon: 'brain' },
+  { title: 'Targeted tutoring', description: 'Focused support in English, maths, science and study skills for individuals or small groups.', icon: 'bookOpen' },
+  { title: 'Catch-up support', description: 'Programmes designed to help learners close gaps and rebuild confidence.', icon: 'trendingUp' },
+  { title: 'One-to-one learner support', description: 'Dedicated support for learners who need individual attention to thrive.', icon: 'user' },
+  { title: 'Small-group programmes', description: 'Structured group interventions for learners with similar needs or goals.', icon: 'users' },
+  { title: 'Teaching Assistants', description: 'Classroom and learner support professionals matched to your setting.', icon: 'briefcase' },
+  { title: 'Cover Supervisors', description: 'Reliable cover to maintain continuity in the absence of teaching staff.', icon: 'clipboardList' },
+  { title: 'Flexible staffing support', description: 'Short-term, longer-term and ad-hoc staffing solutions.', icon: 'settings' },
+];
 
 const benefits = [
-'Responsive, partnership-focused service',
-'Support aligned to your school or college priorities',
-'Clear communication and regular updates',
-'Safeguarding-aware professionals and processes',
-'Flexible arrangements to suit your budget and timetable'];
+  'Responsive, partnership-focused service',
+  'Support aligned to your school or college priorities',
+  'Clear communication and regular updates',
+  'Safeguarding-aware professionals and processes',
+  'Flexible arrangements to suit your budget and timetable',
+];
 
-
-const logoUrl = typeof window !== 'undefined' && window.serenities ?
-window.serenities.files.url('05671f06d089b1211807c8bfa3200a3c') :
-'';
+const logoUrl = typeof window !== 'undefined' && window.serenities
+  ? window.serenities.files.url('05671f06d089b1211807c8bfa3200a3c')
+  : '';
 
 export default function ForSchoolsCollegesPage() {
   return (
@@ -36,8 +36,8 @@ export default function ForSchoolsCollegesPage() {
       <SEOHead
         title="For Schools & Colleges | Royale Crown Academy Ltd"
         description="SEN tuition, targeted tutoring, catch-up support, staffing and flexible education support for schools and colleges across the UK."
-        path="/for-schools-colleges" />
-
+        path="/for-schools-colleges"
+      />
 
       {/* Hero */}
       <section className="relative overflow-hidden bg-surface-50 pt-16 sm:pt-20">
@@ -70,8 +70,8 @@ export default function ForSchoolsCollegesPage() {
                 <img
                   src={logoUrl}
                   alt="Royale Crown Academy Ltd"
-                  className="mx-auto h-32 w-auto object-contain opacity-90 sm:h-40" />
-
+                  className="mx-auto h-32 w-auto object-contain opacity-90 sm:h-40"
+                />
                 <p className="mt-6 text-center text-sm font-medium text-surface-600">
                   A trusted partner for schools and colleges seeking flexible, high-quality education support.
                 </p>
@@ -91,8 +91,8 @@ export default function ForSchoolsCollegesPage() {
             </div>
           </SectionReveal>
           <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {services.map((service, index) =>
-            <SectionReveal key={service.title} delay={index * 60}>
+            {services.map((service, index) => (
+              <SectionReveal key={service.title} delay={index * 60}>
                 <div className="flex h-full flex-col rounded-md border border-surface-200 bg-surface-50 p-6 shadow-sm transition-shadow hover:shadow-md">
                   <div className="flex h-11 w-11 items-center justify-center rounded-md bg-primary/10 text-primary">
                     <Icon name={service.icon} className="h-5 w-5" />
@@ -101,7 +101,7 @@ export default function ForSchoolsCollegesPage() {
                   <p className="mt-2 flex-1 text-sm text-surface-600 leading-relaxed">{service.description}</p>
                 </div>
               </SectionReveal>
-            )}
+            ))}
           </div>
         </div>
       </section>
@@ -119,14 +119,14 @@ export default function ForSchoolsCollegesPage() {
             </SectionReveal>
             <SectionReveal delay={150}>
               <ul className="space-y-4">
-                {benefits.map((benefit) =>
-                <li key={benefit} className="flex items-start gap-3">
+                {benefits.map((benefit) => (
+                  <li key={benefit} className="flex items-start gap-3">
                     <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary-foreground/20">
                       <Icon name="check" className="h-4 w-4" />
                     </span>
                     <span className="opacity-90">{benefit}</span>
                   </li>
-                )}
+                ))}
               </ul>
             </SectionReveal>
           </div>
@@ -152,6 +152,6 @@ export default function ForSchoolsCollegesPage() {
           </SectionReveal>
         </div>
       </section>
-    </PageLayout>);
-
+    </PageLayout>
+  );
 }

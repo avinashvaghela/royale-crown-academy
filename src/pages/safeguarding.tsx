@@ -6,37 +6,37 @@ import SEOHead from '../components/SEOHead';
 import Icon from '../components/Icon';
 
 const commitments = [
-{
-  icon: 'shield',
-  title: 'Safeguarding-first culture',
-  description: 'The welfare of children and young people is central to every decision we make, from recruitment to delivery.'
-},
-{
-  icon: 'users',
-  title: 'Safer recruitment',
-  description: 'We follow robust recruitment and verification procedures for all education professionals.'
-},
-{
-  icon: 'bookOpen',
-  title: 'Safeguarding training',
-  description: 'Relevant staff and professionals receive safeguarding training appropriate to their role.'
-},
-{
-  icon: 'alertTriangle',
-  title: 'Clear reporting',
-  description: 'Concerns are escalated promptly through the appropriate channels, including the Designated Safeguarding Lead.'
-},
-{
-  icon: 'monitor',
-  title: 'Online safety',
-  description: 'Online sessions are delivered using secure arrangements and appropriate supervision.'
-},
-{
-  icon: 'messageCircle',
-  title: 'Open communication',
-  description: 'We encourage parents, carers, schools and learners to raise questions or concerns at any time.'
-}];
-
+  {
+    icon: 'shield',
+    title: 'Safeguarding-first culture',
+    description: 'The welfare of children and young people is central to every decision we make, from recruitment to delivery.',
+  },
+  {
+    icon: 'users',
+    title: 'Safer recruitment',
+    description: 'We follow robust recruitment and verification procedures for all education professionals.',
+  },
+  {
+    icon: 'bookOpen',
+    title: 'Safeguarding training',
+    description: 'Relevant staff and professionals receive safeguarding training appropriate to their role.',
+  },
+  {
+    icon: 'alertTriangle',
+    title: 'Clear reporting',
+    description: 'Concerns are escalated promptly through the appropriate channels, including the Designated Safeguarding Lead.',
+  },
+  {
+    icon: 'monitor',
+    title: 'Online safety',
+    description: 'Online sessions are delivered using secure arrangements and appropriate supervision.',
+  },
+  {
+    icon: 'messageCircle',
+    title: 'Open communication',
+    description: 'We encourage parents, carers, schools and learners to raise questions or concerns at any time.',
+  },
+];
 
 export default function SafeguardingPage() {
   return (
@@ -44,8 +44,8 @@ export default function SafeguardingPage() {
       <SEOHead
         title="Safeguarding | Our Commitment to Children & Young People"
         description="Royale Crown Academy Ltd's safeguarding commitment, safer recruitment principles, reporting concerns, online safety and contact information for schools, families and professionals."
-        path="/safeguarding" />
-
+        path="/safeguarding"
+      />
 
       {/* Hero */}
       <section className="bg-primary pt-20 text-primary-foreground" aria-labelledby="safeguarding-heading">
@@ -76,8 +76,8 @@ export default function SafeguardingPage() {
             </div>
           </SectionReveal>
           <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {commitments.map((item, i) =>
-            <SectionReveal key={item.title} delay={i * 80}>
+            {commitments.map((item, i) => (
+              <SectionReveal key={item.title} delay={i * 80}>
                 <div className="h-full rounded-md border border-surface-200 bg-surface-50 p-6 shadow-sm">
                   <div className="flex h-12 w-12 items-center justify-center rounded-md bg-primary/10 text-primary">
                     <Icon name={item.icon} className="h-6 w-6" />
@@ -86,7 +86,7 @@ export default function SafeguardingPage() {
                   <p className="mt-2 text-sm leading-relaxed text-surface-600">{item.description}</p>
                 </div>
               </SectionReveal>
-            )}
+            ))}
           </div>
         </div>
       </section>
@@ -166,23 +166,23 @@ export default function SafeguardingPage() {
               <h3 className="font-heading text-lg font-semibold text-foreground">Related policies</h3>
               <ul className="mt-4 grid gap-3 sm:grid-cols-2">
                 {[
-                { label: 'Safeguarding Policy', path: '/safeguarding-policy' },
-                { label: 'Privacy Policy', path: '/privacy-policy' },
-                { label: 'Complaints Policy', path: '/complaints-policy' },
-                { label: 'Data Protection', path: '/data-protection' }].
-                map((link) =>
-                <li key={link.path}>
+                  { label: 'Safeguarding Policy', path: '/safeguarding-policy' },
+                  { label: 'Privacy Policy', path: '/privacy-policy' },
+                  { label: 'Complaints Policy', path: '/complaints-policy' },
+                  { label: 'Data Protection', path: '/data-protection' },
+                ].map((link) => (
+                  <li key={link.path}>
                     <Link to={link.path} className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline">
                       <Icon name="fileText" className="h-4 w-4" />
                       {link.label}
                     </Link>
                   </li>
-                )}
+                ))}
               </ul>
             </div>
           </SectionReveal>
         </div>
       </section>
-    </PageLayout>);
-
+    </PageLayout>
+  );
 }
