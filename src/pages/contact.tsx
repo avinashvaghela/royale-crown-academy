@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import PageLayout from '../components/PageLayout';
 import SectionReveal from '../components/SectionReveal';
 import SEOHead from '../components/SEOHead';
@@ -52,8 +52,8 @@ export default function ContactPage() {
               <div className="rounded-md border border-surface-200 bg-surface-50 p-6 text-center shadow-sm">
                 <Icon name="phone" className="mx-auto h-6 w-6 text-primary" />
                 <p className="mt-3 text-sm font-semibold text-foreground">Phone</p>
-                <a href="tel:+440000000000" className="mt-1 text-sm text-surface-600 hover:text-foreground">
-                  [Phone number to be inserted]
+                <a href="tel:07553539869" className="mt-1 text-sm text-surface-600 hover:text-foreground">
+                  07553 539869
                 </a>
               </div>
               <div className="rounded-md border border-surface-200 bg-surface-50 p-6 text-center shadow-sm">

@@ -26,7 +26,7 @@ const process = [
 ];
 
 const logoUrl = typeof window !== 'undefined' && window.serenities
-  ? window.serenities.files.url('05671f06d089b1211807c8bfa3200a3c')
+  ? window.serenities.files.url('6bc96ae7cd439802480ecbdbdc283e0b')
   : '';
 
 export default function EducationStaffingPage() {
