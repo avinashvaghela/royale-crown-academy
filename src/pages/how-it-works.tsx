@@ -7,18 +7,18 @@ import StepCard from '../components/StepCard';
 import Icon from '../components/Icon';
 
 const parentSteps = [
-  { number: '1', icon: 'messageCircle', title: 'Tell us what you need', description: 'Share a little about your child, their needs and the support you are looking for.' },
-  { number: '2', icon: 'users', title: 'Consultation and understanding', description: 'We listen, ask questions and build a clear picture of your child’s strengths, goals and preferences.' },
-  { number: '3', icon: 'clipboardList', title: 'Personalised support plan', description: 'We propose a tailored plan, matching the right tutor or SEN support approach for your child.' },
-  { number: '4', icon: 'trendingUp', title: 'Ongoing support and review', description: 'Regular updates, progress reflection and adjustments keep support relevant and effective.' },
-];
+{ number: '1', icon: 'messageCircle', title: 'Tell us what you need', description: 'Share a little about your child, their needs and the support you are looking for.' },
+{ number: '2', icon: 'users', title: 'Consultation and understanding', description: 'We listen, ask questions and build a clear picture of your child’s strengths, goals and preferences.' },
+{ number: '3', icon: 'clipboardList', title: 'Personalised support plan', description: 'We propose a tailored plan, matching the right tutor or SEN support approach for your child.' },
+{ number: '4', icon: 'trendingUp', title: 'Ongoing support and review', description: 'Regular updates, progress reflection and adjustments keep support relevant and effective.' }];
+
 
 const schoolSteps = [
-  { number: '1', icon: 'messageCircle', title: 'Tell us what you need', description: 'Share your setting’s requirements, whether staffing, tuition or a targeted intervention.' },
-  { number: '2', icon: 'users', title: 'Consultation and understanding', description: 'We discuss your learners, timetable, priorities and any specific SEN or safeguarding considerations.' },
-  { number: '3', icon: 'clipboardList', title: 'Personalised support plan', description: 'We propose a plan and match the right professionals or tutors to your setting.' },
-  { number: '4', icon: 'trendingUp', title: 'Ongoing support and review', description: 'We maintain regular communication, review progress and adapt as your needs evolve.' },
-];
+{ number: '1', icon: 'messageCircle', title: 'Tell us what you need', description: 'Share your setting’s requirements, whether staffing, tuition or a targeted intervention.' },
+{ number: '2', icon: 'users', title: 'Consultation and understanding', description: 'We discuss your learners, timetable, priorities and any specific SEN or safeguarding considerations.' },
+{ number: '3', icon: 'clipboardList', title: 'Personalised support plan', description: 'We propose a plan and match the right professionals or tutors to your setting.' },
+{ number: '4', icon: 'trendingUp', title: 'Ongoing support and review', description: 'We maintain regular communication, review progress and adapt as your needs evolve.' }];
+
 
 export default function HowItWorksPage() {
   return (
@@ -26,8 +26,8 @@ export default function HowItWorksPage() {
       <SEOHead
         title="How It Works | Royale Crown Academy Ltd"
         description="A simple four-step journey to personalised SEN support, tutoring and education staffing for parents, carers, schools and colleges."
-        path="/how-it-works"
-      />
+        path="/how-it-works" />
+
 
       {/* Hero */}
       <section className="bg-surface-50 pt-16 sm:pt-20">
@@ -55,11 +55,11 @@ export default function HowItWorksPage() {
             </div>
           </SectionReveal>
           <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {parentSteps.map((step, index) => (
-              <SectionReveal key={step.title} delay={index * 75}>
+            {parentSteps.map((step, index) =>
+            <SectionReveal key={step.title} delay={index * 75}>
                 <StepCard number={step.number} icon={step.icon} title={step.title} description={step.description} />
               </SectionReveal>
-            ))}
+            )}
           </div>
           <SectionReveal delay={300}>
             <div className="mt-12 text-center">
@@ -82,11 +82,11 @@ export default function HowItWorksPage() {
             </div>
           </SectionReveal>
           <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {schoolSteps.map((step, index) => (
-              <SectionReveal key={step.title} delay={index * 75}>
+            {schoolSteps.map((step, index) =>
+            <SectionReveal key={step.title} delay={index * 75}>
                 <StepCard number={step.number} icon={step.icon} title={step.title} description={step.description} />
               </SectionReveal>
-            ))}
+            )}
           </div>
           <SectionReveal delay={300}>
             <div className="mt-12 text-center">
@@ -112,12 +112,12 @@ export default function HowItWorksPage() {
             <SectionReveal delay={150}>
               <div className="space-y-5">
                 {[
-                  { title: 'A prompt response', text: 'We aim to acknowledge enquiries quickly and arrange an initial conversation at a convenient time.' },
-                  { title: 'Honest conversations', text: 'We will be open about what we can offer, timescales and any limitations.' },
-                  { title: 'Tailored plans', text: 'Support is designed around the learner or setting, not a fixed template.' },
-                  { title: 'Regular review', text: 'We check in, gather feedback and adjust support as circumstances change.' },
-                ].map((item) => (
-                  <div key={item.title} className="flex gap-4">
+                { title: 'A prompt response', text: 'We aim to acknowledge enquiries quickly and arrange an initial conversation at a convenient time.' },
+                { title: 'Honest conversations', text: 'We will be open about what we can offer, timescales and any limitations.' },
+                { title: 'Tailored plans', text: 'Support is designed around the learner or setting, not a fixed template.' },
+                { title: 'Regular review', text: 'We check in, gather feedback and adjust support as circumstances change.' }].
+                map((item) =>
+                <div key={item.title} className="flex gap-4">
                     <div className="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
                       <Icon name="check" className="h-4 w-4" />
                     </div>
@@ -126,7 +126,7 @@ export default function HowItWorksPage() {
                       <p className="mt-1 text-sm text-surface-600">{item.text}</p>
                     </div>
                   </div>
-                ))}
+                )}
               </div>
             </SectionReveal>
           </div>
@@ -153,6 +153,6 @@ export default function HowItWorksPage() {
           </SectionReveal>
         </div>
       </section>
-    </PageLayout>
-  );
+    </PageLayout>);
+
 }

@@ -8,19 +8,19 @@ import LogoWatermark from '../components/LogoWatermark';
 import Icon from '../components/Icon';
 
 const senAreas = [
-  { icon: 'puzzle', title: 'Autism / ASC', text: 'Structured, predictable support that respects sensory preferences, builds communication skills and reduces anxiety.' },
-  { icon: 'zap', title: 'ADHD', text: 'Engaging, movement-friendly sessions that harness strengths, build focus and support self-regulation strategies.' },
-  { icon: 'bookOpen', title: 'Dyslexia', text: 'Targeted literacy support that builds phonological awareness, reading fluency, spelling confidence and comprehension.' },
-  { icon: 'target', title: 'Dyscalculia', text: 'Practical, visual maths support that strengthens number sense, reasoning and problem-solving confidence.' },
-  { icon: 'heart', title: 'SEMH', text: 'Nurturing support for social, emotional and mental health needs, focusing on relationships, resilience and readiness to learn.' },
-  { icon: 'lightbulb', title: 'Learning difficulties', text: 'Patient, multi-sensory approaches that break learning into manageable steps and celebrate progress.' },
-  { icon: 'users', title: 'Additional learning needs', text: 'Support for learners who need a different pace, format or approach, with or without a formal diagnosis.' },
-  { icon: 'home', title: 'School reintegration', text: 'Gentle, structured support for learners returning to education after absence, illness or placement change.' },
-];
+{ icon: 'puzzle', title: 'Autism / ASC', text: 'Structured, predictable support that respects sensory preferences, builds communication skills and reduces anxiety.' },
+{ icon: 'zap', title: 'ADHD', text: 'Engaging, movement-friendly sessions that harness strengths, build focus and support self-regulation strategies.' },
+{ icon: 'bookOpen', title: 'Dyslexia', text: 'Targeted literacy support that builds phonological awareness, reading fluency, spelling confidence and comprehension.' },
+{ icon: 'target', title: 'Dyscalculia', text: 'Practical, visual maths support that strengthens number sense, reasoning and problem-solving confidence.' },
+{ icon: 'heart', title: 'SEMH', text: 'Nurturing support for social, emotional and mental health needs, focusing on relationships, resilience and readiness to learn.' },
+{ icon: 'lightbulb', title: 'Learning difficulties', text: 'Patient, multi-sensory approaches that break learning into manageable steps and celebrate progress.' },
+{ icon: 'users', title: 'Additional learning needs', text: 'Support for learners who need a different pace, format or approach, with or without a formal diagnosis.' },
+{ icon: 'home', title: 'School reintegration', text: 'Gentle, structured support for learners returning to education after absence, illness or placement change.' }];
 
-const logoUrl = typeof window !== 'undefined' && window.serenities
-  ? window.serenities.files.url('6bc96ae7cd439802480ecbdbdc283e0b')
-  : '';
+
+const logoUrl = typeof window !== 'undefined' && window.serenities ?
+window.serenities.files.url('6bc96ae7cd439802480ecbdbdc283e0b') :
+'';
 
 export default function SENSupportPage() {
   return (
@@ -28,8 +28,8 @@ export default function SENSupportPage() {
       <SEOHead
         title="SEN & SEND Support | Personalised Special Educational Needs Support"
         description="Personalised SEN and SEND support for learners with autism, ADHD, dyslexia, dyscalculia, SEMH and additional learning needs across the UK."
-        path="/sen-support"
-      />
+        path="/sen-support" />
+
 
       {/* Hero */}
       <section className="relative overflow-hidden bg-[#EEF4FA]/50 pt-20">
@@ -63,14 +63,14 @@ export default function SENSupportPage() {
                 <div className="relative">
                   <h3 className="font-heading text-xl font-semibold text-[#102A56]">How support is delivered</h3>
                   <ul className="mt-5 space-y-4">
-                    {['One-to-one SEN support', 'Small-group sessions', 'In-home, in-school or college-based support', 'Online support where appropriate', 'Targeted intervention programmes', 'Transition and reintegration support'].map((item) => (
-                      <li key={item} className="flex items-start gap-3">
+                    {['One-to-one SEN support', 'Small-group sessions', 'In-home, in-school or college-based support', 'Online support where appropriate', 'Targeted intervention programmes', 'Transition and reintegration support'].map((item) =>
+                    <li key={item} className="flex items-start gap-3">
                         <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#E8D7B2]/30 text-[#102A56]">
                           <Icon name="check" className="h-4 w-4" />
                         </span>
                         <span className="text-[#243247]">{item}</span>
                       </li>
-                    ))}
+                    )}
                   </ul>
                 </div>
               </div>
@@ -91,11 +91,11 @@ export default function SENSupportPage() {
             </div>
           </SectionReveal>
           <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {senAreas.map((area, index) => (
-              <SectionReveal key={area.title} delay={index * 75}>
+            {senAreas.map((area, index) =>
+            <SectionReveal key={area.title} delay={index * 75}>
                 <ServiceCard icon={area.icon} title={area.title} description={area.text} />
               </SectionReveal>
-            ))}
+            )}
           </div>
         </div>
       </section>
@@ -158,6 +158,6 @@ export default function SENSupportPage() {
           </SectionReveal>
         </div>
       </section>
-    </PageLayout>
-  );
+    </PageLayout>);
+
 }

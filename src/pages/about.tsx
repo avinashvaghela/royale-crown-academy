@@ -7,17 +7,17 @@ import LogoWatermark from '../components/LogoWatermark';
 import Icon from '../components/Icon';
 
 const values = [
-  { icon: 'heart', title: 'Learner-centred', text: 'Every decision starts with the learner: their strengths, needs, aspirations and wellbeing.' },
-  { icon: 'users', title: 'Inclusive', text: 'We believe every young person deserves the opportunity to learn, grow and feel valued.' },
-  { icon: 'shield', title: 'Safe and accountable', text: 'Safeguarding, transparency and professional integrity guide everything we do.' },
-  { icon: 'target', title: 'Purposeful', text: 'We focus on meaningful progress, not quick fixes, and celebrate steps forward of every size.' },
-  { icon: 'messageCircle', title: 'Collaborative', text: 'We work closely with parents, carers, schools, colleges and other professionals.' },
-  { icon: 'trendingUp', title: 'Ambitious', text: 'We set high expectations for ourselves and the support we provide, always looking to improve.' },
-];
+{ icon: 'heart', title: 'Learner-centred', text: 'Every decision starts with the learner: their strengths, needs, aspirations and wellbeing.' },
+{ icon: 'users', title: 'Inclusive', text: 'We believe every young person deserves the opportunity to learn, grow and feel valued.' },
+{ icon: 'shield', title: 'Safe and accountable', text: 'Safeguarding, transparency and professional integrity guide everything we do.' },
+{ icon: 'target', title: 'Purposeful', text: 'We focus on meaningful progress, not quick fixes, and celebrate steps forward of every size.' },
+{ icon: 'messageCircle', title: 'Collaborative', text: 'We work closely with parents, carers, schools, colleges and other professionals.' },
+{ icon: 'trendingUp', title: 'Ambitious', text: 'We set high expectations for ourselves and the support we provide, always looking to improve.' }];
 
-const logoUrl = typeof window !== 'undefined' && window.serenities
-  ? window.serenities.files.url('6bc96ae7cd439802480ecbdbdc283e0b')
-  : '';
+
+const logoUrl = typeof window !== 'undefined' && window.serenities ?
+window.serenities.files.url('6bc96ae7cd439802480ecbdbdc283e0b') :
+'';
 
 export default function AboutPage() {
   return (
@@ -25,8 +25,8 @@ export default function AboutPage() {
       <SEOHead
         title="About Us | Our Mission, Values & Approach"
         description="Learn about Royale Crown Academy Ltd's mission to provide personalised SEN support, tutoring and education staffing that builds confidence, inclusion and progress across the UK."
-        path="/about"
-      />
+        path="/about" />
+
 
       {/* Hero */}
       <section className="relative overflow-hidden bg-[#EEF4FA]/50 pt-20">
@@ -119,8 +119,8 @@ export default function AboutPage() {
             </div>
           </SectionReveal>
           <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {values.map((value, index) => (
-              <SectionReveal key={value.title} delay={index * 75}>
+            {values.map((value, index) =>
+            <SectionReveal key={value.title} delay={index * 75}>
                 <div className="flex h-full flex-col rounded-lg border border-[#E2E8F0] bg-[#EEF4FA]/50 p-6 shadow-sm transition-all hover:-translate-y-1 hover:shadow-md">
                   <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-[#102A56]/10 text-[#102A56]">
                     <Icon name={value.icon} className="h-6 w-6" />
@@ -129,7 +129,7 @@ export default function AboutPage() {
                   <p className="mt-2 flex-1 text-sm leading-relaxed text-[#243247]">{value.text}</p>
                 </div>
               </SectionReveal>
-            ))}
+            )}
           </div>
         </div>
       </section>
@@ -147,12 +147,12 @@ export default function AboutPage() {
             <SectionReveal delay={150}>
               <div className="space-y-6">
                 {[
-                  { title: 'Assess and understand', text: 'We gather information from families, settings and any relevant documentation to understand the learner\'s starting point.' },
-                  { title: 'Plan with purpose', text: 'We create a tailored plan focused on realistic goals, preferred learning styles and the learner\'s interests.' },
-                  { title: 'Deliver with care', text: 'Sessions are delivered by professionals who are matched to the learner\'s needs and supervised appropriately.' },
-                  { title: 'Review and adapt', text: 'Progress is reviewed regularly, and plans are adjusted as needs, confidence and circumstances change.' },
-                ].map((item) => (
-                  <div key={item.title} className="flex gap-4">
+                { title: 'Assess and understand', text: 'We gather information from families, settings and any relevant documentation to understand the learner\'s starting point.' },
+                { title: 'Plan with purpose', text: 'We create a tailored plan focused on realistic goals, preferred learning styles and the learner\'s interests.' },
+                { title: 'Deliver with care', text: 'Sessions are delivered by professionals who are matched to the learner\'s needs and supervised appropriately.' },
+                { title: 'Review and adapt', text: 'Progress is reviewed regularly, and plans are adjusted as needs, confidence and circumstances change.' }].
+                map((item) =>
+                <div key={item.title} className="flex gap-4">
                     <div className="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#FAF9F6]/20">
                       <Icon name="check" className="h-4 w-4" />
                     </div>
@@ -161,7 +161,7 @@ export default function AboutPage() {
                       <p className="mt-1 text-[#FAF9F6]/80">{item.text}</p>
                     </div>
                   </div>
-                ))}
+                )}
               </div>
             </SectionReveal>
           </div>
@@ -180,19 +180,19 @@ export default function AboutPage() {
           </SectionReveal>
           <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {[
-              { title: 'Children and young people', text: 'Learners who need extra support to thrive academically, socially or emotionally.', icon: 'smile' },
-              { title: 'Parents and carers', text: 'Families looking for trusted, personalised support and clear communication.', icon: 'heart' },
-              { title: 'Schools', text: 'Primary, secondary and specialist schools seeking SEN support, tutoring or staffing.', icon: 'school' },
-              { title: 'Colleges', text: 'Post-16 settings needing targeted learner support or education professionals.', icon: 'users' },
-            ].map((item) => (
-              <div key={item.title} className="rounded-lg border border-[#E2E8F0] bg-[#EEF4FA]/50 p-6 text-center shadow-sm transition-all hover:-translate-y-1 hover:shadow-md">
+            { title: 'Children and young people', text: 'Learners who need extra support to thrive academically, socially or emotionally.', icon: 'smile' },
+            { title: 'Parents and carers', text: 'Families looking for trusted, personalised support and clear communication.', icon: 'heart' },
+            { title: 'Schools', text: 'Primary, secondary and specialist schools seeking SEN support, tutoring or staffing.', icon: 'school' },
+            { title: 'Colleges', text: 'Post-16 settings needing targeted learner support or education professionals.', icon: 'users' }].
+            map((item) =>
+            <div key={item.title} className="rounded-lg border border-[#E2E8F0] bg-[#EEF4FA]/50 p-6 text-center shadow-sm transition-all hover:-translate-y-1 hover:shadow-md">
                 <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-lg bg-[#102A56]/10 text-[#102A56]">
                   <Icon name={item.icon} className="h-6 w-6" />
                 </div>
                 <h3 className="mt-4 font-heading text-lg font-semibold text-[#102A56]">{item.title}</h3>
                 <p className="mt-2 text-sm text-[#243247]">{item.text}</p>
               </div>
-            ))}
+            )}
           </div>
         </div>
       </section>
@@ -215,6 +215,6 @@ export default function AboutPage() {
           </SectionReveal>
         </div>
       </section>
-    </PageLayout>
-  );
+    </PageLayout>);
+
 }

@@ -7,59 +7,59 @@ import ResourceCard from '../components/ResourceCard';
 import Icon from '../components/Icon';
 
 const categories = [
-  'SEN Support',
-  'Tutoring',
-  'Parent Guides',
-  'School Resources',
-  'Learning Strategies',
-  'Exam Preparation',
-  'Education Insights',
-];
+'SEN Support',
+'Tutoring',
+'Parent Guides',
+'School Resources',
+'Learning Strategies',
+'Exam Preparation',
+'Education Insights'];
+
 
 const resources = [
-  {
-    title: '[Article title placeholder: SEN support topic]',
-    excerpt: '[Short excerpt placeholder. Replace with a summary of the article content.]',
-    category: 'SEN Support',
-    date: '[Date to be inserted]',
-    href: '#',
-  },
-  {
-    title: '[Article title placeholder: Tutoring topic]',
-    excerpt: '[Short excerpt placeholder. Replace with a summary of the article content.]',
-    category: 'Tutoring',
-    date: '[Date to be inserted]',
-    href: '#',
-  },
-  {
-    title: '[Article title placeholder: Parent guide topic]',
-    excerpt: '[Short excerpt placeholder. Replace with a summary of the article content.]',
-    category: 'Parent Guides',
-    date: '[Date to be inserted]',
-    href: '#',
-  },
-  {
-    title: '[Article title placeholder: School resource topic]',
-    excerpt: '[Short excerpt placeholder. Replace with a summary of the article content.]',
-    category: 'School Resources',
-    date: '[Date to be inserted]',
-    href: '#',
-  },
-  {
-    title: '[Article title placeholder: Learning strategy topic]',
-    excerpt: '[Short excerpt placeholder. Replace with a summary of the article content.]',
-    category: 'Learning Strategies',
-    date: '[Date to be inserted]',
-    href: '#',
-  },
-  {
-    title: '[Article title placeholder: Exam preparation topic]',
-    excerpt: '[Short excerpt placeholder. Replace with a summary of the article content.]',
-    category: 'Exam Preparation',
-    date: '[Date to be inserted]',
-    href: '#',
-  },
-];
+{
+  title: '[Article title placeholder: SEN support topic]',
+  excerpt: '[Short excerpt placeholder. Replace with a summary of the article content.]',
+  category: 'SEN Support',
+  date: '[Date to be inserted]',
+  href: '#'
+},
+{
+  title: '[Article title placeholder: Tutoring topic]',
+  excerpt: '[Short excerpt placeholder. Replace with a summary of the article content.]',
+  category: 'Tutoring',
+  date: '[Date to be inserted]',
+  href: '#'
+},
+{
+  title: '[Article title placeholder: Parent guide topic]',
+  excerpt: '[Short excerpt placeholder. Replace with a summary of the article content.]',
+  category: 'Parent Guides',
+  date: '[Date to be inserted]',
+  href: '#'
+},
+{
+  title: '[Article title placeholder: School resource topic]',
+  excerpt: '[Short excerpt placeholder. Replace with a summary of the article content.]',
+  category: 'School Resources',
+  date: '[Date to be inserted]',
+  href: '#'
+},
+{
+  title: '[Article title placeholder: Learning strategy topic]',
+  excerpt: '[Short excerpt placeholder. Replace with a summary of the article content.]',
+  category: 'Learning Strategies',
+  date: '[Date to be inserted]',
+  href: '#'
+},
+{
+  title: '[Article title placeholder: Exam preparation topic]',
+  excerpt: '[Short excerpt placeholder. Replace with a summary of the article content.]',
+  category: 'Exam Preparation',
+  date: '[Date to be inserted]',
+  href: '#'
+}];
+
 
 export default function ResourcesPage() {
   return (
@@ -67,8 +67,8 @@ export default function ResourcesPage() {
       <SEOHead
         title="Resources | Royale Crown Academy Ltd"
         description="Explore our education resource hub: SEN support, tutoring, parent guides, school resources, learning strategies, exam preparation and education insights."
-        path="/resources"
-      />
+        path="/resources" />
+
 
       {/* Hero */}
       <section className="bg-surface-50 pt-16 sm:pt-20">
@@ -91,15 +91,15 @@ export default function ResourcesPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <SectionReveal>
             <div className="flex flex-wrap justify-center gap-3">
-              {categories.map((category) => (
-                <button
-                  key={category}
-                  type="button"
-                  className="rounded-full border border-surface-300 bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-surface-100"
-                >
+              {categories.map((category) =>
+              <button
+                key={category}
+                type="button"
+                className="rounded-full border border-surface-300 bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-surface-100">
+
                   {category}
                 </button>
-              ))}
+              )}
             </div>
           </SectionReveal>
         </div>
@@ -109,17 +109,17 @@ export default function ResourcesPage() {
       <section className="bg-background py-16 sm:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {resources.map((resource, index) => (
-              <SectionReveal key={index} delay={index * 75}>
+            {resources.map((resource, index) =>
+            <SectionReveal key={index} delay={index * 75}>
                 <ResourceCard
-                  title={resource.title}
-                  excerpt={resource.excerpt}
-                  category={resource.category}
-                  date={resource.date}
-                  href={resource.href}
-                />
+                title={resource.title}
+                excerpt={resource.excerpt}
+                category={resource.category}
+                date={resource.date}
+                href={resource.href} />
+
               </SectionReveal>
-            ))}
+            )}
           </div>
         </div>
       </section>
@@ -142,6 +142,6 @@ export default function ResourcesPage() {
           </SectionReveal>
         </div>
       </section>
-    </PageLayout>
-  );
+    </PageLayout>);
+
 }

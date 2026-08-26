@@ -11,27 +11,27 @@ import LogoWatermark from '../components/LogoWatermark';
 import Icon from '../components/Icon';
 
 const homeFAQs = [
-  {
-    question: 'What age groups do you support?',
-    answer: 'We work with children and young people across primary, secondary and college settings. Support is tailored to the individual, regardless of age or key stage.',
-  },
-  {
-    question: 'Do you only work with learners who have a diagnosis?',
-    answer: 'No. We support learners with identified needs, those awaiting assessment, and learners who simply need a little extra help to make progress. A formal diagnosis is not required to begin a conversation.',
-  },
-  {
-    question: 'Can you support learners in school or college?',
-    answer: 'Yes. We provide in-setting support, one-to-one tuition, small-group programmes and staffing solutions for schools and colleges, depending on the arrangement agreed.',
-  },
-  {
-    question: 'How quickly can support begin?',
-    answer: 'Timescales depend on the type of support, location and availability. After an initial consultation, we aim to propose a plan promptly and keep you informed throughout.',
-  },
-];
+{
+  question: 'What age groups do you support?',
+  answer: 'We work with children and young people across primary, secondary and college settings. Support is tailored to the individual, regardless of age or key stage.'
+},
+{
+  question: 'Do you only work with learners who have a diagnosis?',
+  answer: 'No. We support learners with identified needs, those awaiting assessment, and learners who simply need a little extra help to make progress. A formal diagnosis is not required to begin a conversation.'
+},
+{
+  question: 'Can you support learners in school or college?',
+  answer: 'Yes. We provide in-setting support, one-to-one tuition, small-group programmes and staffing solutions for schools and colleges, depending on the arrangement agreed.'
+},
+{
+  question: 'How quickly can support begin?',
+  answer: 'Timescales depend on the type of support, location and availability. After an initial consultation, we aim to propose a plan promptly and keep you informed throughout.'
+}];
 
-const logoUrl = typeof window !== 'undefined' && window.serenities
-  ? window.serenities.files.url('6bc96ae7cd439802480ecbdbdc283e0b')
-  : '';
+
+const logoUrl = typeof window !== 'undefined' && window.serenities ?
+window.serenities.files.url('6bc96ae7cd439802480ecbdbdc283e0b') :
+'';
 
 export default function HomePage() {
   return (
@@ -39,8 +39,8 @@ export default function HomePage() {
       <SEOHead
         title="Personalised Education & SEN Support Across the UK"
         description="Royale Crown Academy Ltd provides personalised SEN support, tutoring and education staffing services for learners, families, schools and colleges across the UK."
-        path="/"
-      />
+        path="/" />
+
 
       {/* Hero */}
       <section className="relative overflow-hidden bg-[#FAF9F6] pt-20">
@@ -65,15 +65,15 @@ export default function HomePage() {
                 <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                   <Link
                     to="/contact"
-                    className="inline-flex items-center justify-center gap-2 rounded-md bg-[#102A56] px-6 py-3.5 text-base font-semibold text-[#FAF9F6] shadow-sm transition-all hover:bg-[#0B1D3A] hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-[#102A56] focus-visible:ring-offset-2"
-                  >
+                    className="inline-flex items-center justify-center gap-2 rounded-md bg-[#102A56] px-6 py-3.5 text-base font-semibold text-[#FAF9F6] shadow-sm transition-all hover:bg-[#0B1D3A] hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-[#102A56] focus-visible:ring-offset-2">
+
                     Talk to Us
                     <Icon name="arrowRight" className="h-5 w-5" />
                   </Link>
                   <Link
                     to="/how-it-works"
-                    className="inline-flex items-center justify-center gap-2 rounded-md border border-[#102A56] bg-[#FAF9F6] px-6 py-3.5 text-base font-semibold text-[#102A56] transition-all hover:bg-[#102A56] hover:text-[#FAF9F6] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#102A56] focus-visible:ring-offset-2"
-                  >
+                    className="inline-flex items-center justify-center gap-2 rounded-md border border-[#102A56] bg-[#FAF9F6] px-6 py-3.5 text-base font-semibold text-[#102A56] transition-all hover:bg-[#102A56] hover:text-[#FAF9F6] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#102A56] focus-visible:ring-offset-2">
+
                     Explore Our Services
                   </Link>
                 </div>
@@ -86,8 +86,8 @@ export default function HomePage() {
                     <img
                       src={logoUrl}
                       alt="Royale Crown Academy Ltd"
-                      className="h-36 w-auto object-contain opacity-95 drop-shadow-sm sm:h-44"
-                    />
+                      className="h-36 w-auto object-contain opacity-95 drop-shadow-sm sm:h-44" />
+
                     <p className="mt-6 max-w-xs text-sm font-medium text-[#243247]">
                       Specialist SEN support, personalised tutoring and education staffing for families and schools across the UK.
                     </p>
@@ -206,8 +206,8 @@ export default function HomePage() {
                 title="SEN Support"
                 description="Personalised support for learners with autism, ADHD, dyslexia, dyscalculia, SEMH and additional learning needs."
                 href="/sen-support"
-                linkText="Explore SEN support"
-              />
+                linkText="Explore SEN support" />
+
             </SectionReveal>
             <SectionReveal delay={75}>
               <ServiceCard
@@ -215,8 +215,8 @@ export default function HomePage() {
                 title="Personalised Tutoring"
                 description="One-to-one and small-group tuition in English, maths, science, study skills and exam preparation."
                 href="/tutoring"
-                linkText="Explore tutoring"
-              />
+                linkText="Explore tutoring" />
+
             </SectionReveal>
             <SectionReveal delay={150}>
               <ServiceCard
@@ -224,8 +224,8 @@ export default function HomePage() {
                 title="Education Staffing"
                 description="Teaching Assistants, SEN support staff, Cover Supervisors and education professionals for schools and colleges."
                 href="/education-staffing"
-                linkText="Explore staffing"
-              />
+                linkText="Explore staffing" />
+
             </SectionReveal>
             <SectionReveal delay={225}>
               <ServiceCard
@@ -233,8 +233,8 @@ export default function HomePage() {
                 title="For Schools & Colleges"
                 description="Flexible SEN tuition, catch-up support, targeted tutoring and staffing solutions for educational settings."
                 href="/for-schools-colleges"
-                linkText="School support"
-              />
+                linkText="School support" />
+
             </SectionReveal>
           </div>
         </div>
@@ -288,19 +288,19 @@ export default function HomePage() {
                 </p>
                 <ul className="mt-8 space-y-4">
                   {[
-                    'Support tailored to the individual learner',
-                    'Clear communication with parents and carers',
-                    'Flexible one-to-one, small-group and online options',
-                    'A focus on confidence, independence and wellbeing',
-                    'Transparent processes and honest expectations',
-                  ].map((item) => (
-                    <li key={item} className="flex items-start gap-3">
+                  'Support tailored to the individual learner',
+                  'Clear communication with parents and carers',
+                  'Flexible one-to-one, small-group and online options',
+                  'A focus on confidence, independence and wellbeing',
+                  'Transparent processes and honest expectations'].
+                  map((item) =>
+                  <li key={item} className="flex items-start gap-3">
                       <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#E8D7B2]/30 text-[#102A56]">
                         <Icon name="check" className="h-4 w-4" />
                       </span>
                       <span className="text-[#243247]">{item}</span>
                     </li>
-                  ))}
+                  )}
                 </ul>
                 <div className="mt-10">
                   <Link to="/contact" className="inline-flex items-center gap-2 rounded-md bg-[#102A56] px-6 py-3 text-base font-semibold text-[#FAF9F6] shadow-sm transition-all hover:bg-[#0B1D3A] hover:shadow-md">
@@ -341,19 +341,19 @@ export default function HomePage() {
                 </p>
                 <ul className="mt-8 space-y-4">
                   {[
-                    'Flexible SEN tuition and targeted catch-up support',
-                    'Professional Teaching Assistants and Cover Supervisors',
-                    'Clear reporting and ongoing communication',
-                    'Safeguarding-aware professionals and processes',
-                    'Bespoke programmes aligned to your setting',
-                  ].map((item) => (
-                    <li key={item} className="flex items-start gap-3">
+                  'Flexible SEN tuition and targeted catch-up support',
+                  'Professional Teaching Assistants and Cover Supervisors',
+                  'Clear reporting and ongoing communication',
+                  'Safeguarding-aware professionals and processes',
+                  'Bespoke programmes aligned to your setting'].
+                  map((item) =>
+                  <li key={item} className="flex items-start gap-3">
                       <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#FAF9F6]/20">
                         <Icon name="check" className="h-4 w-4" />
                       </span>
                       <span className="text-[#FAF9F6]/80">{item}</span>
                     </li>
-                  ))}
+                  )}
                 </ul>
                 <div className="mt-10">
                   <Link to="/for-schools-colleges" className="inline-flex items-center gap-2 rounded-md bg-[#FAF9F6] px-6 py-3 text-base font-semibold text-[#102A56] shadow-sm transition-all hover:bg-white hover:shadow-md">
@@ -399,16 +399,16 @@ export default function HomePage() {
               <SectionReveal delay={150}>
                 <div className="space-y-5">
                   {[
-                    { title: 'Safer recruitment', text: 'We follow robust recruitment and verification procedures for all education professionals.' },
-                    { title: 'Safeguarding training', text: 'Relevant staff and professionals receive safeguarding training appropriate to their role.' },
-                    { title: 'Clear reporting', text: 'Concerns are escalated promptly through the appropriate channels, including the Designated Safeguarding Lead.' },
-                    { title: 'Online safety', text: 'Online sessions are delivered using secure arrangements and appropriate supervision.' },
-                  ].map((item) => (
-                    <div key={item.title} className="rounded-lg border border-[#E2E8F0] bg-[#FAF9F6] p-5">
+                  { title: 'Safer recruitment', text: 'We follow robust recruitment and verification procedures for all education professionals.' },
+                  { title: 'Safeguarding training', text: 'Relevant staff and professionals receive safeguarding training appropriate to their role.' },
+                  { title: 'Clear reporting', text: 'Concerns are escalated promptly through the appropriate channels, including the Designated Safeguarding Lead.' },
+                  { title: 'Online safety', text: 'Online sessions are delivered using secure arrangements and appropriate supervision.' }].
+                  map((item) =>
+                  <div key={item.title} className="rounded-lg border border-[#E2E8F0] bg-[#FAF9F6] p-5">
                       <h3 className="font-heading text-base font-semibold text-[#102A56]">{item.title}</h3>
                       <p className="mt-1 text-sm text-[#243247]">{item.text}</p>
                     </div>
-                  ))}
+                  )}
                 </div>
               </SectionReveal>
             </div>
@@ -486,6 +486,6 @@ export default function HomePage() {
           </SectionReveal>
         </div>
       </section>
-    </PageLayout>
-  );
+    </PageLayout>);
+
 }
