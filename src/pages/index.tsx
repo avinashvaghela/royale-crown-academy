@@ -59,7 +59,7 @@ export default function Home() {
             >
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-secondary/30 mb-8">
                 <Star className="w-4 h-4 text-secondary" />
-                <span className="text-sm font-medium text-white/90 tracking-wide">Premium UK Education Services</span>
+                <span className="text-sm font-medium text-primary-foreground/90 tracking-wide">Premium UK Education Services</span>
               </div>
             </motion.div>
             
@@ -78,7 +78,7 @@ export default function Home() {
               initial={prefersReducedMotion ? {} : { opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
-              className="text-lg sm:text-xl md:text-2xl text-white/80 max-w-3xl mx-auto mb-12 leading-relaxed font-light"
+              className="text-lg sm:text-xl md:text-2xl text-primary-foreground/80 max-w-3xl mx-auto mb-12 leading-relaxed font-light"
             >
               Specialist SEN support, personalised tutoring and education services designed around the individual needs of learners, families and educational settings.
             </motion.p>
@@ -98,7 +98,7 @@ export default function Home() {
               </Link>
               <Link
                 to="/tutoring"
-                className="inline-flex items-center gap-2 px-8 py-4 border-2 border-white/30 text-white font-semibold rounded-lg hover:bg-white/10 transition-all duration-300"
+                className="inline-flex items-center gap-2 px-8 py-4 border-2 border-white/30 text-primary-foreground font-semibold rounded-lg hover:bg-white/10 transition-all duration-300"
               >
                 Explore Our Services
               </Link>
@@ -190,7 +190,7 @@ export default function Home() {
                   From specialist SEN support to premium private tuition and professional education staffing, we provide integrated services that put the learner first.
                 </motion.p>
                 <motion.div variants={fadeUp}>
-                  <Link to="/tutoring" className="group inline-flex items-center gap-2 px-6 py-3 bg-primary text-white font-semibold rounded-lg hover:bg-primary/90 transition-all">
+                  <Link to="/tutoring" className="group inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground font-semibold rounded-lg hover:bg-primary/90 transition-all">
                     Explore Services <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </Link>
                 </motion.div>
@@ -293,7 +293,7 @@ export default function Home() {
         </section>
 
         {/* How It Works */}
-        <section className="py-24 bg-primary text-white relative overflow-hidden">
+        <section className="py-24 bg-primary text-primary-foreground relative overflow-hidden">
           <div className="absolute inset-0 opacity-10">
             <div className="absolute top-0 left-0 w-full h-full" style={{ backgroundImage: 'radial-gradient(circle at 20% 50%, #C6A15B 0%, transparent 50%), radial-gradient(circle at 80% 80%, #C6A15B 0%, transparent 40%)' }} />
           </div>
@@ -327,7 +327,7 @@ export default function Home() {
                     <span className="font-heading text-2xl font-bold text-secondary">{item.step}</span>
                   </div>
                   <h3 className="font-heading text-xl font-bold mb-3">{item.title}</h3>
-                  <p className="text-white/70 leading-relaxed">{item.desc}</p>
+                  <p className="text-primary-foreground/70 leading-relaxed">{item.desc}</p>
                   {index < 3 && (
                     <div className="hidden md:block absolute top-10 left-[60%] w-[80%] h-0.5 bg-gradient-to-r from-secondary/50 to-transparent" />
                   )}
@@ -420,7 +420,7 @@ export default function Home() {
         </section>
 
         {/* Final CTA */}
-        <section className="py-24 bg-primary text-white relative overflow-hidden">
+        <section className="py-24 bg-primary text-primary-foreground relative overflow-hidden">
           <div className="absolute inset-0 opacity-20">
             <img src={heroImageUrl} alt="" className="w-full h-full object-cover" />
           </div>
@@ -433,14 +433,14 @@ export default function Home() {
               variants={staggerContainer}
             >
               <motion.h2 variants={fadeUp} className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold mb-6">Ready to discuss your requirements?</motion.h2>
-              <motion.p variants={fadeUp} className="text-xl text-white/80 mb-10 leading-relaxed">
+              <motion.p variants={fadeUp} className="text-xl text-primary-foreground/80 mb-10 leading-relaxed">
                 Whether you are a parent, school leader or education professional, we would be pleased to hear from you.
               </motion.p>
               <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link to="/contact" className="group inline-flex items-center gap-2 px-8 py-4 bg-secondary text-primary font-semibold rounded-lg hover:bg-secondary/90 transition-all shadow-lg shadow-secondary/20">
                   Talk to Us <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </Link>
-                <Link to="/book-consultation" className="inline-flex items-center gap-2 px-8 py-4 border-2 border-white/30 text-white font-semibold rounded-lg hover:bg-white/10 transition-all">
+                <Link to="/book-consultation" className="inline-flex items-center gap-2 px-8 py-4 border-2 border-white/30 text-primary-foreground font-semibold rounded-lg hover:bg-white/10 transition-all">
                   Book a Consultation
                 </Link>
               </motion.div>
