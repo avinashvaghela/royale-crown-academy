@@ -1,157 +1,168 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import PageLayout from '../components/PageLayout';
-import SEOHead from '../components/SEOHead';
-import SectionReveal from '../components/SectionReveal';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+import SkipToContent from '../components/SkipToContent';
 import SchoolForm from '../components/SchoolForm';
 import LogoWatermark from '../components/LogoWatermark';
 import Icon from '../components/Icon';
-
-const services = [
-  { title: 'SEN tuition', description: 'Specialist tuition and support for learners with identified additional needs.', icon: 'brain' },
-  { title: 'Targeted tutoring', description: 'Focused support in English, maths, science and study skills for individuals or small groups.', icon: 'bookOpen' },
-  { title: 'Catch-up support', description: 'Programmes designed to help learners close gaps and rebuild confidence.', icon: 'trendingUp' },
-  { title: 'One-to-one learner support', description: 'Dedicated support for learners who need individual attention to thrive.', icon: 'user' },
-  { title: 'Small-group programmes', description: 'Structured group interventions for learners with similar needs or goals.', icon: 'users' },
-  { title: 'Teaching Assistants', description: 'Classroom and learner support professionals matched to your setting.', icon: 'briefcase' },
-  { title: 'Cover Supervisors', description: 'Reliable cover to maintain continuity in the absence of teaching staff.', icon: 'clipboardList' },
-  { title: 'Flexible staffing support', description: 'Short-term, longer-term and ad-hoc staffing solutions.', icon: 'settings' },
-];
-
-const benefits = [
-  'Responsive, partnership-focused service',
-  'Support aligned to your school or college priorities',
-  'Clear communication and regular updates',
-  'Safeguarding-aware professionals and processes',
-  'Flexible arrangements to suit your budget and timetable',
-];
 
 const logoUrl = typeof window !== 'undefined' && window.serenities
   ? window.serenities.files.url('6bc96ae7cd439802480ecbdbdc283e0b')
   : '';
 
-export default function ForSchoolsCollegesPage() {
+function useReveal() {
+  const ref = useRef(null);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          el.classList.add('opacity-100', 'translate-y-0');
+          el.classList.remove('opacity-0', 'translate-y-8');
+        }
+      },
+      { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+  return ref;
+}
+
+export default function ForSchoolsColleges() {
+  const heroRef = useReveal();
+  const servicesRef = useReveal();
+  const benefitsRef = useReveal();
+  const formRef = useReveal();
+
+  const services = [
+    { title: 'SEN Tuition', desc: 'Specialist tuition and support for learners with identified additional needs.', icon: 'brain' },
+    { title: 'Targeted Tutoring', desc: 'Focused support in English, maths, science and study skills for individuals or small groups.', icon: 'bookOpen' },
+    { title: 'Catch-up Support', desc: 'Programmes designed to help learners close gaps and rebuild confidence.', icon: 'trendingUp' },
+    { title: 'One-to-one Learner Support', desc: 'Dedicated support for learners who need individual attention to thrive.', icon: 'user' },
+    { title: 'Small-group Programmes', desc: 'Structured group interventions for learners with similar needs or goals.', icon: 'users' },
+    { title: 'Teaching Assistants', desc: 'Classroom and learner support professionals matched to your setting.', icon: 'briefcase' },
+    { title: 'Cover Supervisors', desc: 'Reliable cover to maintain continuity in the absence of teaching staff.', icon: 'clipboardList' },
+    { title: 'Flexible Staffing Support', desc: 'Short-term, longer-term and ad-hoc staffing solutions.', icon: 'settings' },
+  ];
+
+  const benefits = [
+    'Responsive, partnership-focused service',
+    'Support aligned to your school or college priorities',
+    'Clear communication and regular updates',
+    'Safeguarding-aware professionals and processes',
+    'Flexible arrangements to suit your budget and timetable',
+  ];
+
   return (
-    <PageLayout>
-      <SEOHead
-        title="For Schools & Colleges | Royale Crown Academy Ltd"
-        description="SEN tuition, targeted tutoring, catch-up support, staffing and flexible education support for schools and colleges across the UK."
-        path="/for-schools-colleges"
-      />
-
-      {/* Hero */}
-      <section className="relative overflow-hidden bg-surface-50 pt-16 sm:pt-20">
-        <div className="absolute -right-20 top-20 h-96 w-96 rounded-full bg-accent/5 blur-3xl" />
-        <div className="absolute -left-20 bottom-0 h-72 w-72 rounded-full bg-primary/5 blur-3xl" />
-        <LogoWatermark opacity={0.04} size={400} />
-        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
-          <div className="grid items-center gap-12 lg:grid-cols-2">
-            <SectionReveal>
-              <div>
-                <h1 className="font-heading text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
-                  Support for schools and colleges
-                </h1>
-                <p className="mt-6 text-lg leading-relaxed text-surface-600">
-                  We partner with headteachers, SENCOs, DSLs, school business managers and college leaders to deliver SEN tuition, targeted tutoring, catch-up support and flexible staffing that complements your existing provision.
-                </p>
-                <div className="mt-8 flex flex-wrap gap-4">
-                  <Link to="#request-support" className="inline-flex items-center gap-2 rounded-md bg-primary px-6 py-3.5 text-base font-semibold text-primary-foreground shadow-sm transition-colors hover:bg-primary/90">
-                    Request Support
-                    <Icon name="arrowRight" className="h-5 w-5" />
-                  </Link>
-                  <Link to="/education-staffing" className="inline-flex items-center gap-2 rounded-md border border-surface-300 px-6 py-3.5 text-base font-semibold text-foreground transition-colors hover:bg-background">
-                    Explore Staffing
-                  </Link>
-                </div>
-              </div>
-            </SectionReveal>
-            <SectionReveal delay={150}>
-              <div className="relative overflow-hidden rounded-md bg-gradient-to-br from-primary/10 via-surface-100 to-accent/10 p-10 shadow-md">
-                <img
-                  src={logoUrl}
-                  alt="Royale Crown Academy Ltd"
-                  className="mx-auto h-32 w-auto object-contain opacity-90 sm:h-40"
-                />
-                <p className="mt-6 text-center text-sm font-medium text-surface-600">
-                  A trusted partner for schools and colleges seeking flexible, high-quality education support.
-                </p>
-              </div>
-            </SectionReveal>
+    <div className="min-h-screen bg-[#FAF9F6] font-body text-[#243247]">
+      <SkipToContent />
+      <Header />
+      <main id="main-content">
+        <section className="relative overflow-hidden bg-[#102A56] pt-32 pb-20 lg:pt-44 lg:pb-28">
+          <div className="absolute inset-0 opacity-10">
+            <LogoWatermark className="h-[140%] w-[140%] -translate-x-1/4 -translate-y-1/4 text-[#FAF9F6]" />
           </div>
-        </div>
-      </section>
-
-      {/* Services */}
-      <section className="relative bg-background py-16 sm:py-24">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <SectionReveal>
-            <div className="mx-auto max-w-3xl text-center">
-              <h2 className="font-heading text-3xl font-bold tracking-tight text-foreground sm:text-4xl">Services for educational settings</h2>
-              <p className="mt-4 text-lg text-surface-600">A range of flexible support options designed around the needs of your learners and staff.</p>
-            </div>
-          </SectionReveal>
-          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {services.map((service, index) => (
-              <SectionReveal key={service.title} delay={index * 60}>
-                <div className="flex h-full flex-col rounded-md border border-surface-200 bg-surface-50 p-6 shadow-sm transition-shadow hover:shadow-md">
-                  <div className="flex h-11 w-11 items-center justify-center rounded-md bg-primary/10 text-primary">
-                    <Icon name={service.icon} className="h-5 w-5" />
+          <div className="absolute inset-0 bg-gradient-to-br from-[#102A56] via-[#102A56]/95 to-[#0B1D3A]" />
+          <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div ref={heroRef} className="opacity-0 translate-y-8 transition-all duration-1000 ease-out">
+              <div className="grid items-center gap-12 lg:grid-cols-2">
+                <div>
+                  <div className="flex items-center gap-3 mb-6">
+                    <span className="h-px w-12 bg-[#C6A15B]" />
+                    <span className="text-sm font-semibold uppercase tracking-widest text-[#E8D7B2]">For Schools & Colleges</span>
                   </div>
-                  <h3 className="mt-4 font-heading text-lg font-semibold text-foreground">{service.title}</h3>
-                  <p className="mt-2 flex-1 text-sm text-surface-600 leading-relaxed">{service.description}</p>
+                  <h1 className="font-heading text-4xl font-bold leading-tight text-[#FAF9F6] sm:text-5xl lg:text-6xl">
+                    Education support that works around your setting.
+                  </h1>
+                  <p className="mt-6 max-w-xl text-lg leading-relaxed text-[#FAF9F6]/85">
+                    We partner with headteachers, SENCOs, DSLs, school business managers and college leaders to deliver SEN tuition, targeted tutoring, catch-up support and flexible staffing.
+                  </p>
+                  <div className="mt-10 flex flex-wrap gap-4">
+                    <a href="#request-support" className="inline-flex items-center rounded-md bg-[#C6A15B] px-6 py-3 text-base font-semibold text-[#0B1D3A] shadow-sm transition-all hover:bg-[#E8D7B2] hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C6A15B]">
+                      Request Support
+                    </a>
+                    <Link to="/education-staffing" className="inline-flex items-center rounded-md border border-[#FAF9F6]/30 bg-transparent px-6 py-3 text-base font-semibold text-[#FAF9F6] transition-all hover:bg-[#FAF9F6]/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C6A15B]">
+                      Explore Staffing
+                    </Link>
+                  </div>
                 </div>
-              </SectionReveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Benefits */}
-      <section className="relative bg-primary py-16 text-primary-foreground sm:py-24">
-        <LogoWatermark opacity={0.06} size={420} />
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-12 lg:grid-cols-2">
-            <SectionReveal>
-              <h2 className="font-heading text-3xl font-bold tracking-tight sm:text-4xl">Why partner with us?</h2>
-              <p className="mt-4 text-lg opacity-90">
-                We understand the pressures schools and colleges face. Our aim is to make it easier to access high-quality, reliable support when you need it.
-              </p>
-            </SectionReveal>
-            <SectionReveal delay={150}>
-              <ul className="space-y-4">
-                {benefits.map((benefit) => (
-                  <li key={benefit} className="flex items-start gap-3">
-                    <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary-foreground/20">
-                      <Icon name="check" className="h-4 w-4" />
-                    </span>
-                    <span className="opacity-90">{benefit}</span>
-                  </li>
-                ))}
-              </ul>
-            </SectionReveal>
-          </div>
-        </div>
-      </section>
-
-      {/* Form */}
-      <section id="request-support" className="relative bg-surface-50 py-16 sm:py-24">
-        <LogoWatermark opacity={0.04} size={360} />
-        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-          <SectionReveal>
-            <div className="rounded-md border border-surface-200 bg-background p-8 shadow-sm sm:p-12">
-              <div className="text-center">
-                <h2 className="font-heading text-3xl font-bold tracking-tight text-foreground sm:text-4xl">Request support</h2>
-                <p className="mt-4 text-lg text-surface-600">
-                  Complete the form below and a member of our team will be in touch to discuss your school or college's requirements.
-                </p>
-              </div>
-              <div className="mt-10">
-                <SchoolForm />
+                <div className="relative hidden lg:block">
+                  <div className="aspect-square overflow-hidden rounded-2xl border border-[#FAF9F6]/10 bg-gradient-to-br from-[#0B1D3A] to-[#102A56] shadow-2xl">
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <img src={logoUrl} alt="Royale Crown Academy crest" className="h-48 w-auto opacity-90" />
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-          </SectionReveal>
-        </div>
-      </section>
-    </PageLayout>
+          </div>
+        </section>
+
+        <section className="py-20 lg:py-28">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div ref={servicesRef} className="opacity-0 translate-y-8 transition-all duration-1000 ease-out">
+              <div className="mx-auto max-w-3xl text-center">
+                <h2 className="font-heading text-3xl font-bold text-[#102A56] sm:text-4xl">Services for educational settings</h2>
+                <p className="mt-5 text-lg leading-relaxed text-[#243247]/80">A range of flexible support options designed around the needs of your learners and staff.</p>
+              </div>
+              <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+                {services.map((service, i) => (
+                  <div key={i} className="group rounded-xl border border-[#E5EAF1] bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-[#EEF4FA] text-[#102A56] transition-colors group-hover:bg-[#102A56] group-hover:text-[#FAF9F6]">
+                      <Icon name={service.icon} className="h-6 w-6" />
+                    </div>
+                    <h3 className="mt-4 font-heading text-lg font-semibold text-[#102A56]">{service.title}</h3>
+                    <p className="mt-2 text-sm text-[#243247]/75 leading-relaxed">{service.desc}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-[#102A56] py-20 text-[#FAF9F6] lg:py-28">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div ref={benefitsRef} className="opacity-0 translate-y-8 transition-all duration-1000 ease-out">
+              <div className="grid items-center gap-12 lg:grid-cols-2">
+                <div>
+                  <h2 className="font-heading text-3xl font-bold sm:text-4xl">Why partner with us?</h2>
+                  <p className="mt-5 text-lg text-[#FAF9F6]/80 leading-relaxed">
+                    We understand the pressures schools and colleges face. Our aim is to make it easier to access high-quality, reliable support when you need it.
+                  </p>
+                </div>
+                <ul className="space-y-4">
+                  {benefits.map((benefit, i) => (
+                    <li key={i} className="flex items-start gap-4">
+                      <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#FAF9F6]/20 text-[#FAF9F6]">✓</span>
+                      <span className="text-[#FAF9F6]/80">{benefit}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="request-support" className="bg-[#EEF4FA] py-20 lg:py-28">
+          <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+            <div ref={formRef} className="opacity-0 translate-y-8 transition-all duration-1000 ease-out">
+              <div className="overflow-hidden rounded-2xl border border-[#E5EAF1] bg-white shadow-xl">
+                <div className="bg-[#102A56] px-8 py-8">
+                  <h2 className="font-heading text-2xl font-bold text-[#FAF9F6] sm:text-3xl">Request support</h2>
+                  <p className="mt-2 text-[#FAF9F6]/80">Complete the form below and a member of our team will be in touch to discuss your school or college's requirements.</p>
+                </div>
+                <div className="p-8 sm:p-12">
+                  <SchoolForm />
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+      <Footer />
+    </div>
   );
 }
