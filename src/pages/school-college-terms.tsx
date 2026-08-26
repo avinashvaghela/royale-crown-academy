@@ -58,6 +58,6 @@ export default function SchoolCollegeTermsPage() {
       <p>
         If you have any questions about these School & College Terms, please contact us at <a href="mailto:info@royalecrownacademy.co.uk" className="font-medium text-primary underline">info@royalecrownacademy.co.uk</a>.
       </p>
-    </LegalPageLayout>
-  );
+    </LegalPageLayout>);
+
 }
