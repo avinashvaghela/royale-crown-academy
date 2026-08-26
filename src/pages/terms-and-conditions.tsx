@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import LegalPageLayout from '../components/LegalPageLayout';
 
 export default function TermsPage() {
@@ -52,6 +53,6 @@ export default function TermsPage() {
       <p>
         If you have any questions about these Terms & Conditions, please contact us at <a href="mailto:info@royalecrownacademy.co.uk" className="font-medium text-primary underline">info@royalecrownacademy.co.uk</a>.
       </p>
-    </LegalPageLayout>
-  );
+    </LegalPageLayout>);
+
 }

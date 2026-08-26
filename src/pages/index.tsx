@@ -38,8 +38,8 @@ export default function Home() {
       <SEOHead
         title="Royale Crown Academy | Personalised Education. Meaningful Progress."
         description="Specialist SEN support, personalised tutoring and education staffing services for learners, families, schools and colleges across the UK."
-        canonical="https://royalecrown.serenitiesai.com/"
-      />
+        canonical="https://royalecrown.serenitiesai.com/" />
+
       <Header />
       <main id="main-content">
         {/* Hero Section */}
@@ -56,8 +56,8 @@ export default function Home() {
               initial={prefersReducedMotion ? {} : { opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-              className="mb-8"
-            >
+              className="mb-8">
+
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-secondary/30 mb-8">
                 <Star className="w-4 h-4 text-secondary" />
                 <span className="text-sm font-medium text-primary-foreground/90 tracking-wide">Premium UK Education Services</span>
@@ -68,8 +68,8 @@ export default function Home() {
               initial={prefersReducedMotion ? {} : { opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-              className="font-heading text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-primary-foreground leading-[1.05] mb-8"
-            >
+              className="font-heading text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-primary-foreground leading-[1.05] mb-8">
+
               Personalised Education.
               <br />
               <span className="text-secondary">Meaningful Progress.</span>
@@ -79,8 +79,8 @@ export default function Home() {
               initial={prefersReducedMotion ? {} : { opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
-              className="text-lg sm:text-xl md:text-2xl text-primary-foreground/80 max-w-3xl mx-auto mb-12 leading-relaxed font-light"
-            >
+              className="text-lg sm:text-xl md:text-2xl text-primary-foreground/80 max-w-3xl mx-auto mb-12 leading-relaxed font-light">
+
               Specialist SEN support, personalised tutoring and education services designed around the individual needs of learners, families and educational settings.
             </motion.p>
             
@@ -88,19 +88,19 @@ export default function Home() {
               initial={prefersReducedMotion ? {} : { opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
-              className="flex flex-col sm:flex-row gap-4 justify-center items-center"
-            >
+              className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+
               <Link
                 to="/contact"
-                className="group inline-flex items-center gap-2 px-8 py-4 bg-secondary text-primary font-semibold rounded-lg hover:bg-secondary/90 transition-all duration-300 shadow-lg shadow-secondary/20 hover:shadow-xl hover:shadow-secondary/30"
-              >
+                className="group inline-flex items-center gap-2 px-8 py-4 bg-secondary text-primary font-semibold rounded-lg hover:bg-secondary/90 transition-all duration-300 shadow-lg shadow-secondary/20 hover:shadow-xl hover:shadow-secondary/30">
+
                 Talk to Us
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Link>
               <Link
                 to="/tutoring"
-                className="inline-flex items-center gap-2 px-8 py-4 border-2 border-white/30 text-primary-foreground font-semibold rounded-lg hover:bg-white/10 transition-all duration-300"
-              >
+                className="inline-flex items-center gap-2 px-8 py-4 border-2 border-white/30 text-primary-foreground font-semibold rounded-lg hover:bg-white/10 transition-all duration-300">
+
                 Explore Our Services
               </Link>
             </motion.div>
@@ -110,14 +110,14 @@ export default function Home() {
             initial={prefersReducedMotion ? {} : { opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1.5, delay: 1 }}
-            className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
-          >
+            className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10">
+
             <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center pt-2">
               <motion.div
                 animate={{ y: [0, 12, 0] }}
                 transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-                className="w-1.5 h-1.5 bg-secondary rounded-full"
-              />
+                className="w-1.5 h-1.5 bg-secondary rounded-full" />
+
             </div>
           </motion.div>
         </section>
@@ -131,8 +131,8 @@ export default function Home() {
               whileInView="visible"
               viewport={{ once: true, margin: "-100px" }}
               variants={staggerContainer}
-              className="text-center mb-16"
-            >
+              className="text-center mb-16">
+
               <motion.span variants={fadeUp} className="text-secondary font-semibold tracking-wider uppercase text-sm">How Can We Help?</motion.span>
               <motion.h2 variants={fadeUp} className="font-heading text-4xl md:text-5xl font-bold text-primary mt-4 mb-6">Support designed around you</motion.h2>
               <motion.p variants={fadeUp} className="text-lg text-surface-600 max-w-2xl mx-auto">Whether you are a parent, school leader or education professional, we have a pathway for you.</motion.p>
@@ -143,18 +143,18 @@ export default function Home() {
               whileInView="visible"
               viewport={{ once: true, margin: "-50px" }}
               variants={staggerContainer}
-              className="grid md:grid-cols-3 gap-8"
-            >
+              className="grid md:grid-cols-3 gap-8">
+
               {[
-                { icon: Heart, title: "For Families", desc: "Personalised tuition and SEN support for children and young people.", cta: "Find Support", link: "/for-parents", image: parentImageUrl },
-                { icon: School, title: "For Schools & Colleges", desc: "Flexible education support and staffing solutions for your setting.", cta: "Work With Us", link: "/for-schools-colleges", image: schoolImageUrl },
-                { icon: Briefcase, title: "For Education Professionals", desc: "Opportunities to work with a growing UK education organisation.", cta: "Get in Touch", link: "/join-us", image: professionalImageUrl }
-              ].map((pathway, index) => (
-                <motion.div
-                  key={pathway.title}
-                  variants={fadeUp}
-                  className="group relative bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 border border-surface-100"
-                >
+              { icon: Heart, title: "For Families", desc: "Personalised tuition and SEN support for children and young people.", cta: "Find Support", link: "/for-parents", image: parentImageUrl },
+              { icon: School, title: "For Schools & Colleges", desc: "Flexible education support and staffing solutions for your setting.", cta: "Work With Us", link: "/for-schools-colleges", image: schoolImageUrl },
+              { icon: Briefcase, title: "For Education Professionals", desc: "Opportunities to work with a growing UK education organisation.", cta: "Get in Touch", link: "/join-us", image: professionalImageUrl }].
+              map((pathway, index) =>
+              <motion.div
+                key={pathway.title}
+                variants={fadeUp}
+                className="group relative bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 border border-surface-100">
+
                   <div className="h-48 overflow-hidden">
                     <img src={pathway.image} alt="" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
                   </div>
@@ -169,7 +169,7 @@ export default function Home() {
                     </Link>
                   </div>
                 </motion.div>
-              ))}
+              )}
             </motion.div>
           </div>
         </section>
@@ -183,8 +183,8 @@ export default function Home() {
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
-                variants={staggerContainer}
-              >
+                variants={staggerContainer}>
+
                 <motion.span variants={fadeUp} className="text-secondary font-semibold tracking-wider uppercase text-sm">Our Services</motion.span>
                 <motion.h2 variants={fadeUp} className="font-heading text-4xl md:text-5xl font-bold text-primary mt-4 mb-6">A complete education support ecosystem</motion.h2>
                 <motion.p variants={fadeUp} className="text-lg text-surface-600 mb-8 leading-relaxed">
@@ -201,8 +201,8 @@ export default function Home() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-                className="relative"
-              >
+                className="relative">
+
                 <img src={tutoringImageUrl} alt="Personalised tutoring session" className="rounded-2xl shadow-2xl w-full" />
                 <div className="absolute -bottom-6 -left-6 w-32 h-32 border-2 border-secondary rounded-2xl -z-10" />
               </motion.div>
@@ -213,18 +213,18 @@ export default function Home() {
               whileInView="visible"
               viewport={{ once: true, margin: "-50px" }}
               variants={staggerContainer}
-              className="grid md:grid-cols-3 gap-8"
-            >
+              className="grid md:grid-cols-3 gap-8">
+
               {[
-                { icon: Heart, title: "SEN Support", desc: "Individualised support designed around learning needs, confidence and educational goals.", link: "/sen-support", image: senImageUrl },
-                { icon: BookOpen, title: "Personalised Tutoring", desc: "One-to-one and small-group tuition across key subjects and academic stages.", link: "/tutoring", image: studyImageUrl },
-                { icon: Users, title: "Education Staffing", desc: "Teaching Assistants, SEN support professionals, Cover Supervisors and education professionals.", link: "/education-staffing", image: professionalImageUrl }
-              ].map((service) => (
-                <motion.div
-                  key={service.title}
-                  variants={fadeUp}
-                  className="group bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 border border-surface-100"
-                >
+              { icon: Heart, title: "SEN Support", desc: "Individualised support designed around learning needs, confidence and educational goals.", link: "/sen-support", image: senImageUrl },
+              { icon: BookOpen, title: "Personalised Tutoring", desc: "One-to-one and small-group tuition across key subjects and academic stages.", link: "/tutoring", image: studyImageUrl },
+              { icon: Users, title: "Education Staffing", desc: "Teaching Assistants, SEN support professionals, Cover Supervisors and education professionals.", link: "/education-staffing", image: professionalImageUrl }].
+              map((service) =>
+              <motion.div
+                key={service.title}
+                variants={fadeUp}
+                className="group bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 border border-surface-100">
+
                   <div className="h-56 overflow-hidden">
                     <img src={service.image} alt="" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
                   </div>
@@ -239,7 +239,7 @@ export default function Home() {
                     </Link>
                   </div>
                 </motion.div>
-              ))}
+              )}
             </motion.div>
           </div>
         </section>
@@ -253,8 +253,8 @@ export default function Home() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-                className="relative order-2 lg:order-1"
-              >
+                className="relative order-2 lg:order-1">
+
                 <img src={schoolImageUrl} alt="Professional school environment" className="rounded-2xl shadow-2xl w-full" />
                 <div className="absolute -top-6 -right-6 w-32 h-32 border-2 border-secondary rounded-2xl -z-10" />
               </motion.div>
@@ -263,8 +263,8 @@ export default function Home() {
                 whileInView="visible"
                 viewport={{ once: true }}
                 variants={staggerContainer}
-                className="order-1 lg:order-2"
-              >
+                className="order-1 lg:order-2">
+
                 <motion.span variants={fadeUp} className="text-secondary font-semibold tracking-wider uppercase text-sm">Why Royale Crown Academy</motion.span>
                 <motion.h2 variants={fadeUp} className="font-heading text-4xl md:text-5xl font-bold text-primary mt-4 mb-6">Built on trust, personalisation and professional standards</motion.h2>
                 <motion.p variants={fadeUp} className="text-lg text-surface-600 mb-10 leading-relaxed">
@@ -272,12 +272,12 @@ export default function Home() {
                 </motion.p>
                 <div className="space-y-6">
                   {[
-                    { icon: Heart, title: "Learner-centred approach", desc: "Every plan starts with understanding the individual." },
-                    { icon: Shield, title: "Safeguarding-first mindset", desc: "We take safeguarding, safer recruitment and online safety seriously." },
-                    { icon: Award, title: "Professional quality", desc: "Clear communication, structured support and ongoing review." },
-                    { icon: Users, title: "Partnership with families and settings", desc: "We work closely with parents, schools and colleges." }
-                  ].map((item, index) => (
-                    <motion.div key={item.title} variants={fadeUp} className="flex gap-5 group">
+                  { icon: Heart, title: "Learner-centred approach", desc: "Every plan starts with understanding the individual." },
+                  { icon: Shield, title: "Safeguarding-first mindset", desc: "We take safeguarding, safer recruitment and online safety seriously." },
+                  { icon: Award, title: "Professional quality", desc: "Clear communication, structured support and ongoing review." },
+                  { icon: Users, title: "Partnership with families and settings", desc: "We work closely with parents, schools and colleges." }].
+                  map((item, index) =>
+                  <motion.div key={item.title} variants={fadeUp} className="flex gap-5 group">
                       <div className="w-12 h-12 rounded-lg bg-primary/5 flex items-center justify-center flex-shrink-0 group-hover:bg-secondary/20 transition-colors">
                         <item.icon className="w-6 h-6 text-primary" />
                       </div>
@@ -286,7 +286,7 @@ export default function Home() {
                         <p className="text-surface-600">{item.desc}</p>
                       </div>
                     </motion.div>
-                  ))}
+                  )}
                 </div>
               </motion.div>
             </div>
@@ -304,8 +304,8 @@ export default function Home() {
               whileInView="visible"
               viewport={{ once: true }}
               variants={staggerContainer}
-              className="text-center mb-16"
-            >
+              className="text-center mb-16">
+
               <motion.span variants={fadeUp} className="text-secondary font-semibold tracking-wider uppercase text-sm">How It Works</motion.span>
               <motion.h2 variants={fadeUp} className="font-heading text-4xl md:text-5xl font-bold mt-4 mb-6">Four simple steps to personalised support</motion.h2>
             </motion.div>
@@ -315,25 +315,25 @@ export default function Home() {
               whileInView="visible"
               viewport={{ once: true }}
               variants={staggerContainer}
-              className="grid md:grid-cols-4 gap-8"
-            >
+              className="grid md:grid-cols-4 gap-8">
+
               {[
-                { step: "01", title: "Tell us what you need", desc: "Share your requirements through our simple enquiry form or by phone." },
-                { step: "02", title: "Consultation", desc: "We listen, ask questions and understand the learner or setting." },
-                { step: "03", title: "Personalised plan", desc: "We propose a tailored approach matched to your goals." },
-                { step: "04", title: "Ongoing support", desc: "Regular communication, review and adjustment as needed." }
-              ].map((item, index) => (
-                <motion.div key={item.step} variants={fadeUp} className="relative text-center group">
+              { step: "01", title: "Tell us what you need", desc: "Share your requirements through our simple enquiry form or by phone." },
+              { step: "02", title: "Consultation", desc: "We listen, ask questions and understand the learner or setting." },
+              { step: "03", title: "Personalised plan", desc: "We propose a tailored approach matched to your goals." },
+              { step: "04", title: "Ongoing support", desc: "Regular communication, review and adjustment as needed." }].
+              map((item, index) =>
+              <motion.div key={item.step} variants={fadeUp} className="relative text-center group">
                   <div className="w-20 h-20 mx-auto rounded-full bg-white/10 border-2 border-secondary/50 flex items-center justify-center mb-6 group-hover:bg-secondary/20 transition-colors">
                     <span className="font-heading text-2xl font-bold text-secondary">{item.step}</span>
                   </div>
                   <h3 className="font-heading text-xl font-bold mb-3">{item.title}</h3>
                   <p className="text-primary-foreground/70 leading-relaxed">{item.desc}</p>
-                  {index < 3 && (
-                    <div className="hidden md:block absolute top-10 left-[60%] w-[80%] h-0.5 bg-gradient-to-r from-secondary/50 to-transparent" />
-                  )}
+                  {index < 3 &&
+                <div className="hidden md:block absolute top-10 left-[60%] w-[80%] h-0.5 bg-gradient-to-r from-secondary/50 to-transparent" />
+                }
                 </motion.div>
-              ))}
+              )}
             </motion.div>
             
             <motion.div
@@ -341,8 +341,8 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-center mt-16"
-            >
+              className="text-center mt-16">
+
               <Link to="/how-it-works" className="inline-flex items-center gap-2 px-8 py-4 bg-secondary text-primary font-semibold rounded-lg hover:bg-secondary/90 transition-all">
                 See Full Process <ArrowRight className="w-5 h-5" />
               </Link>
@@ -357,8 +357,8 @@ export default function Home() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              variants={staggerContainer}
-            >
+              variants={staggerContainer}>
+
               <motion.span variants={fadeUp} className="text-secondary font-semibold tracking-wider uppercase text-sm">Testimonials</motion.span>
               <motion.h2 variants={fadeUp} className="font-heading text-4xl md:text-5xl font-bold text-primary mt-4 mb-8">What families and schools say</motion.h2>
               <motion.div variants={fadeUp} className="bg-white rounded-2xl p-10 md:p-16 shadow-sm border border-surface-100">
@@ -383,8 +383,8 @@ export default function Home() {
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
-                variants={staggerContainer}
-              >
+                variants={staggerContainer}>
+
                 <motion.span variants={fadeUp} className="text-secondary font-semibold tracking-wider uppercase text-sm">FAQ</motion.span>
                 <motion.h2 variants={fadeUp} className="font-heading text-4xl md:text-5xl font-bold text-primary mt-4 mb-6">Questions we are often asked</motion.h2>
                 <motion.p variants={fadeUp} className="text-lg text-surface-600 mb-8 leading-relaxed">
@@ -402,19 +402,19 @@ export default function Home() {
                 whileInView="visible"
                 viewport={{ once: true }}
                 variants={staggerContainer}
-                className="space-y-4"
-              >
+                className="space-y-4">
+
                 {[
-                  { q: "How do I arrange tuition for my child?", a: "Complete our parent enquiry form or call us. We will arrange a consultation to discuss your child's needs and recommend a suitable approach." },
-                  { q: "Do you work directly with schools?", a: "Yes. We partner with schools and colleges to provide tuition, SEN support and education staffing solutions." },
-                  { q: "What areas of SEN support do you offer?", a: "We provide personalised learning support tailored to individual needs, including support for learners with autism, ADHD, dyslexia, dyscalculia, SEMH and additional learning needs." },
-                  { q: "How does education staffing work?", a: "We discuss your requirements, identify suitable professionals, complete appropriate verification processes and support the arrangement on an ongoing basis." }
-                ].map((faq, index) => (
-                  <motion.div key={index} variants={fadeUp} className="bg-white rounded-xl p-6 shadow-sm border border-surface-100">
+                { q: "How do I arrange tuition for my child?", a: "Complete our parent enquiry form or call us. We will arrange a consultation to discuss your child's needs and recommend a suitable approach." },
+                { q: "Do you work directly with schools?", a: "Yes. We partner with schools and colleges to provide tuition, SEN support and education staffing solutions." },
+                { q: "What areas of SEN support do you offer?", a: "We provide personalised learning support tailored to individual needs, including support for learners with autism, ADHD, dyslexia, dyscalculia, SEMH and additional learning needs." },
+                { q: "How does education staffing work?", a: "We discuss your requirements, identify suitable professionals, complete appropriate verification processes and support the arrangement on an ongoing basis." }].
+                map((faq, index) =>
+                <motion.div key={index} variants={fadeUp} className="bg-white rounded-xl p-6 shadow-sm border border-surface-100">
                     <h3 className="font-heading text-lg font-bold text-primary mb-2">{faq.q}</h3>
                     <p className="text-surface-600 leading-relaxed">{faq.a}</p>
                   </motion.div>
-                ))}
+                )}
               </motion.div>
             </div>
           </div>
@@ -431,8 +431,8 @@ export default function Home() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              variants={staggerContainer}
-            >
+              variants={staggerContainer}>
+
               <motion.h2 variants={fadeUp} className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold mb-6">Ready to discuss your requirements?</motion.h2>
               <motion.p variants={fadeUp} className="text-xl text-primary-foreground/80 mb-10 leading-relaxed">
                 Whether you are a parent, school leader or education professional, we would be pleased to hear from you.
@@ -451,6 +451,6 @@ export default function Home() {
       </main>
       <Footer />
       <CookieConsent />
-    </div>
-  );
+    </div>);
+
 }

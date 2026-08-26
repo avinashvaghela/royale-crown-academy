@@ -5,9 +5,9 @@ import Footer from '../components/Footer';
 import SkipToContent from '../components/SkipToContent';
 import LogoWatermark from '../components/LogoWatermark';
 
-const logoUrl = typeof window !== 'undefined' && window.serenities
-  ? window.serenities.files.url('6bc96ae7cd439802480ecbdbdc283e0b')
-  : '';
+const logoUrl = typeof window !== 'undefined' && window.serenities ?
+window.serenities.files.url('6bc96ae7cd439802480ecbdbdc283e0b') :
+'';
 
 function useReveal() {
   const ref = useRef(null);
@@ -81,19 +81,19 @@ export default function ForParents() {
               </div>
               <div className="mt-16 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
                 {[
-                  { title: 'Private Tuition', desc: 'One-to-one and small-group tuition across primary, secondary and GCSE subjects, tailored to your child\'s level and confidence.' },
-                  { title: 'SEN Support', desc: 'Personalised learning support for learners with autism, ADHD, dyslexia, dyscalculia, SEMH and additional learning needs.' },
-                  { title: 'Academic Confidence', desc: 'Study skills, exam preparation and learning strategies that help learners feel prepared, capable and less anxious.' },
-                  { title: 'Online Tuition', desc: 'Flexible online sessions where appropriate, delivered with the same care and structure as in-person support.' },
-                  { title: 'In-Person Support', desc: 'Face-to-face tuition and learning support arranged where available and suitable for your family.' },
-                  { title: 'Regular Communication', desc: 'Clear updates and ongoing dialogue with parents and carers so you remain informed about progress.' },
-                ].map((item, i) => (
-                  <div key={i} className="group rounded-xl border border-[#E5EAF1] bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+                { title: 'Private Tuition', desc: 'One-to-one and small-group tuition across primary, secondary and GCSE subjects, tailored to your child\'s level and confidence.' },
+                { title: 'SEN Support', desc: 'Personalised learning support for learners with autism, ADHD, dyslexia, dyscalculia, SEMH and additional learning needs.' },
+                { title: 'Academic Confidence', desc: 'Study skills, exam preparation and learning strategies that help learners feel prepared, capable and less anxious.' },
+                { title: 'Online Tuition', desc: 'Flexible online sessions where appropriate, delivered with the same care and structure as in-person support.' },
+                { title: 'In-Person Support', desc: 'Face-to-face tuition and learning support arranged where available and suitable for your family.' },
+                { title: 'Regular Communication', desc: 'Clear updates and ongoing dialogue with parents and carers so you remain informed about progress.' }].
+                map((item, i) =>
+                <div key={i} className="group rounded-xl border border-[#E5EAF1] bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
                     <div className="mb-5 h-1 w-12 rounded-full bg-[#C6A15B] transition-all group-hover:w-20" />
                     <h3 className="font-heading text-xl font-semibold text-[#102A56]">{item.title}</h3>
                     <p className="mt-3 text-[#243247]/75 leading-relaxed">{item.desc}</p>
                   </div>
-                ))}
+                )}
               </div>
             </div>
           </div>
@@ -121,16 +121,16 @@ export default function ForParents() {
                   </p>
                   <ul className="mt-8 space-y-4">
                     {[
-                      'Initial consultation to understand your child\'s needs',
-                      'Bespoke learning plan based on strengths and goals',
-                      'Matched support from suitable education professionals',
-                      'Regular review and adjustment as your child progresses',
-                    ].map((item, i) => (
-                      <li key={i} className="flex items-start gap-4">
+                    'Initial consultation to understand your child\'s needs',
+                    'Bespoke learning plan based on strengths and goals',
+                    'Matched support from suitable education professionals',
+                    'Regular review and adjustment as your child progresses'].
+                    map((item, i) =>
+                    <li key={i} className="flex items-start gap-4">
                         <span className="mt-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#C6A15B]/20 text-[#102A56]">✓</span>
                         <span className="text-[#243247]/80">{item}</span>
                       </li>
-                    ))}
+                    )}
                   </ul>
                   <Link to="/how-it-works" className="mt-10 inline-flex items-center font-semibold text-[#102A56] hover:text-[#C6A15B]">
                     See our parent journey <span className="ml-2">→</span>
@@ -147,18 +147,18 @@ export default function ForParents() {
               <h2 className="font-heading text-3xl font-bold text-[#102A56] sm:text-4xl text-center">Levels we support</h2>
               <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
                 {[
-                  { level: 'Primary', years: 'Key Stage 1 & Key Stage 2', focus: 'Foundations, confidence and core skills' },
-                  { level: 'Secondary', years: 'Key Stage 3', focus: 'Subject support and learning habits' },
-                  { level: 'GCSE', years: 'Key Stage 4', focus: 'Exam preparation and targeted tuition' },
-                  { level: 'A-Level & Further', years: 'Key Stage 5', focus: 'Advanced subject support where offered' },
-                ].map((item, i) => (
-                  <div key={i} className="rounded-xl border border-[#E5EAF1] bg-white p-6 text-center transition-all hover:border-[#C6A15B]/40 hover:shadow-md">
+                { level: 'Primary', years: 'Key Stage 1 & Key Stage 2', focus: 'Foundations, confidence and core skills' },
+                { level: 'Secondary', years: 'Key Stage 3', focus: 'Subject support and learning habits' },
+                { level: 'GCSE', years: 'Key Stage 4', focus: 'Exam preparation and targeted tuition' },
+                { level: 'A-Level & Further', years: 'Key Stage 5', focus: 'Advanced subject support where offered' }].
+                map((item, i) =>
+                <div key={i} className="rounded-xl border border-[#E5EAF1] bg-white p-6 text-center transition-all hover:border-[#C6A15B]/40 hover:shadow-md">
                     <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-[#102A56] text-[#C6A15B] font-heading text-xl font-bold">{i + 1}</div>
                     <h3 className="font-heading text-xl font-semibold text-[#102A56]">{item.level}</h3>
                     <p className="mt-1 text-sm font-medium text-[#C6A15B]">{item.years}</p>
                     <p className="mt-3 text-sm text-[#243247]/70">{item.focus}</p>
                   </div>
-                ))}
+                )}
               </div>
             </div>
           </div>
@@ -177,6 +177,6 @@ export default function ForParents() {
         </section>
       </main>
       <Footer />
-    </div>
-  );
+    </div>);
+
 }
