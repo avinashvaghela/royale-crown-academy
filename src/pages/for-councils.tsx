@@ -1,153 +1,155 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import PageLayout from '../components/PageLayout';
-import SEOHead from '../components/SEOHead';
-import SectionReveal from '../components/SectionReveal';
-import ServiceCard from '../components/ServiceCard';
-import StepCard from '../components/StepCard';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+import SkipToContent from '../components/SkipToContent';
 import LogoWatermark from '../components/LogoWatermark';
-import Icon from '../components/Icon';
-
-const councilServices = [
-  { icon: 'users', title: 'SEN tuition & support', text: 'Targeted SEN tuition, learning support and intervention for learners with identified or emerging needs.', href: '/sen-support', linkText: 'Explore SEN support' },
-  { icon: 'bookOpen', title: 'Specialist tutoring', text: 'One-to-one and small-group tuition across core subjects, catch-up programmes and exam preparation.', href: '/tutoring', linkText: 'Explore tutoring' },
-  { icon: 'briefcase', title: 'Education staffing', text: 'Teaching Assistants, SEN support staff, Cover Supervisors and other education professionals.', href: '/education-staffing', linkText: 'Explore staffing' },
-  { icon: 'target', title: 'Bespoke programmes', text: 'Flexible provision designed around local requirements, cohort needs and commissioning frameworks.', href: '/contact', linkText: 'Discuss a requirement' },
-];
-
-const councilSteps = [
-  { number: '1', icon: 'messageCircle', title: 'Tell us your requirements', description: 'Share the provision, cohort details, timescales and any specific safeguarding considerations.' },
-  { number: '2', icon: 'users', title: 'Discuss the provision', description: 'We explore your local context, priorities and how best to align support with your objectives.' },
-  { number: '3', icon: 'clipboardList', title: 'Identify appropriate support', description: 'We propose a tailored plan, matching the right professionals, tutors or programmes to your needs.' },
-  { number: '4', icon: 'trendingUp', title: 'Arrange delivery & review', description: 'We support a smooth start, maintain communication and review progress as the provision develops.' },
-];
 
 const logoUrl = typeof window !== 'undefined' && window.serenities
   ? window.serenities.files.url('6bc96ae7cd439802480ecbdbdc283e0b')
   : '';
 
-export default function ForCouncilsPage() {
+function useReveal() {
+  const ref = useRef(null);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          el.classList.add('opacity-100', 'translate-y-0');
+          el.classList.remove('opacity-0', 'translate-y-8');
+        }
+      },
+      { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+  return ref;
+}
+
+export default function ForCouncils() {
+  const heroRef = useReveal();
+  const section1Ref = useReveal();
+  const section2Ref = useReveal();
+  const ctaRef = useReveal();
+
   return (
-    <PageLayout>
-      <SEOHead
-        title="Councils & Local Authorities | Education Services"
-        description="Professional education services for UK councils and local authorities, including SEN support, specialist tuition, intervention and education staffing."
-        path="/for-councils"
-      />
+    <div className="min-h-screen bg-[#FAF9F6] font-body text-[#243247]">
+      <SkipToContent />
+      <Header />
+      <main id="main-content">
+        <section className="relative overflow-hidden bg-[#102A56] pt-32 pb-20 lg:pt-44 lg:pb-28">
+          <div className="absolute inset-0 opacity-10">
+            <LogoWatermark className="h-[140%] w-[140%] -translate-x-1/4 -translate-y-1/4 text-[#FAF9F6]" />
+          </div>
+          <div className="absolute inset-0 bg-gradient-to-br from-[#102A56] via-[#102A56]/95 to-[#0B1D3A]" />
+          <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div ref={heroRef} className="opacity-0 translate-y-8 transition-all duration-1000 ease-out">
+              <div className="flex items-center gap-3 mb-6">
+                <span className="h-px w-12 bg-[#C6A15B]" />
+                <span className="text-sm font-semibold uppercase tracking-widest text-[#E8D7B2]">For Public Sector</span>
+              </div>
+              <h1 className="font-heading text-4xl font-bold leading-tight text-[#FAF9F6] sm:text-5xl lg:text-6xl max-w-4xl">
+                Education services designed around local authority requirements.
+              </h1>
+              <p className="mt-6 max-w-2xl text-lg leading-relaxed text-[#FAF9F6]/85">
+                Royale Crown Academy works with councils and local authorities to provide flexible, personalised education support, tuition and staffing solutions that respond to local needs.
+              </p>
+              <div className="mt-10 flex flex-wrap gap-4">
+                <Link to="/contact" className="inline-flex items-center rounded-md bg-[#C6A15B] px-6 py-3 text-base font-semibold text-[#0B1D3A] shadow-sm transition-all hover:bg-[#E8D7B2] hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C6A15B]">
+                  Discuss a Council Requirement
+                </Link>
+                <Link to="/contact" className="inline-flex items-center rounded-md border border-[#FAF9F6]/30 bg-transparent px-6 py-3 text-base font-semibold text-[#FAF9F6] transition-all hover:bg-[#FAF9F6]/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C6A15B]">
+                  Submit an Enquiry
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
 
-      {/* Hero */}
-      <section className="relative overflow-hidden bg-[#EEF4FA]/50 pt-20">
-        <div className="absolute -right-20 top-20 h-96 w-96 rounded-full bg-[#E8D7B2]/20 blur-3xl" />
-        <div className="absolute -left-20 bottom-0 h-72 w-72 rounded-full bg-[#102A56]/5 blur-3xl" />
-        <LogoWatermark opacity={0.03} size={400} />
-        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
-          <div className="grid items-center gap-12 lg:grid-cols-2">
-            <SectionReveal>
-              <div>
-                <span className="inline-flex items-center gap-2 rounded-full bg-[#FAF9F6] px-4 py-1.5 text-sm font-medium text-[#102A56] border border-[#102A56]/10">
-                  <Icon name="globe" className="h-4 w-4 text-[#C6A15B]" />
-                  For local authorities
-                </span>
-                <h1 className="mt-6 font-heading text-4xl font-bold tracking-tight text-[#102A56] sm:text-5xl lg:text-6xl">
-                  Education services designed around local requirements
-                </h1>
-                <p className="mt-6 text-lg leading-relaxed text-[#243247] sm:text-xl">
-                  We work with councils and local authorities to provide flexible SEN support, specialist tuition, educational intervention and staffing solutions that respond to local need.
+        <section className="py-20 lg:py-28">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div ref={section1Ref} className="opacity-0 translate-y-8 transition-all duration-1000 ease-out">
+              <div className="mx-auto max-w-3xl text-center">
+                <h2 className="font-heading text-3xl font-bold text-[#102A56] sm:text-4xl">How we support councils and local authorities</h2>
+                <p className="mt-5 text-lg leading-relaxed text-[#243247]/80">
+                  We understand that local authority education provision must be flexible, accountable and responsive. Our services are designed to complement existing provision and support learners with a range of needs.
                 </p>
-                <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                  <Link to="/contact" className="inline-flex items-center justify-center gap-2 rounded-md bg-[#102A56] px-6 py-3.5 text-base font-semibold text-[#FAF9F6] shadow-sm transition-all hover:bg-[#0B1D3A] hover:shadow-md">
-                    Discuss a Council Requirement <Icon name="arrowRight" className="h-5 w-5" />
-                  </Link>
-                  <Link to="/education-staffing" className="inline-flex items-center justify-center gap-2 rounded-md border border-[#102A56] bg-[#FAF9F6] px-6 py-3.5 text-base font-semibold text-[#102A56] transition-all hover:bg-[#102A56] hover:text-[#FAF9F6]">
-                    Explore Staffing
-                  </Link>
+              </div>
+              <div className="mt-16 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+                {[
+                  { title: 'Tuition Provision', desc: 'One-to-one and small-group tuition across key subjects and stages, tailored to individual learner requirements.' },
+                  { title: 'SEN Support', desc: 'Specialist educational support for learners with additional needs, delivered with sensitivity and clear communication.' },
+                  { title: 'Alternative Education Support', desc: 'Flexible provision for learners who require alternative or supplementary education arrangements where appropriate.' },
+                  { title: 'Educational Intervention', desc: 'Targeted catch-up programmes and academic intervention designed to support progress and confidence.' },
+                  { title: 'Education Staffing', desc: 'Supply of tutors, teaching assistants, SEN support staff and other education professionals as required.' },
+                  { title: 'Bespoke Programmes', desc: 'Programmes shaped around local priorities, learner cohorts and commissioning requirements.' },
+                ].map((item, i) => (
+                  <div key={i} className="group rounded-xl border border-[#E5EAF1] bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+                    <div className="mb-5 h-1 w-12 rounded-full bg-[#C6A15B] transition-all group-hover:w-20" />
+                    <h3 className="font-heading text-xl font-semibold text-[#102A56]">{item.title}</h3>
+                    <p className="mt-3 text-[#243247]/75 leading-relaxed">{item.desc}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-[#EEF4FA] py-20 lg:py-28">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div ref={section2Ref} className="opacity-0 translate-y-8 transition-all duration-1000 ease-out">
+              <div className="grid items-center gap-12 lg:grid-cols-2">
+                <div className="order-2 lg:order-1">
+                  <h2 className="font-heading text-3xl font-bold text-[#102A56] sm:text-4xl">Professional, accountable partnership</h2>
+                  <p className="mt-5 text-lg leading-relaxed text-[#243247]/80">
+                    We approach every local authority engagement with professionalism, transparency and a clear focus on learner outcomes. Our team is happy to discuss service-level arrangements, reporting requirements and safeguarding expectations.
+                  </p>
+                  <ul className="mt-8 space-y-4">
+                    {[
+                      'Clear communication with commissioning teams',
+                      'Structured service agreements and reporting',
+                      'Safeguarding and safer recruitment processes',
+                      'Flexible delivery models to suit local needs',
+                    ].map((item, i) => (
+                      <li key={i} className="flex items-start gap-4">
+                        <span className="mt-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#C6A15B]/20 text-[#102A56]">✓</span>
+                        <span className="text-[#243247]/80">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-              </div>
-            </SectionReveal>
-            <SectionReveal delay={150}>
-              <div className="relative overflow-hidden rounded-lg bg-gradient-to-br from-[#EEF4FA] via-[#FAF9F6] to-[#E8D7B2]/30 p-10 shadow-md">
-                <img src={logoUrl} alt="Royale Crown Academy Ltd" className="mx-auto h-36 w-auto object-contain opacity-95 sm:h-44" />
-                <p className="mt-6 text-center text-sm font-medium text-[#243247]">Professional, flexible education support for local authority teams across the UK.</p>
-              </div>
-            </SectionReveal>
-          </div>
-        </div>
-      </section>
-
-      {/* Services */}
-      <section className="relative bg-[#FAF9F6] py-16 sm:py-24">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <SectionReveal>
-            <div className="mx-auto max-w-3xl text-center">
-              <p className="text-sm font-semibold uppercase tracking-wider text-[#C6A15B]">Services</p>
-              <h2 className="mt-3 font-heading text-3xl font-bold tracking-tight text-[#102A56] sm:text-4xl">How we support local authorities</h2>
-              <p className="mt-4 text-lg text-[#243247]">Provision that can be shaped around commissioning requirements, learner cohorts and local priorities.</p>
-            </div>
-          </SectionReveal>
-          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {councilServices.map((service, index) => (
-              <SectionReveal key={service.title} delay={index * 75}>
-                <ServiceCard icon={service.icon} title={service.title} description={service.text} href={service.href} linkText={service.linkText} />
-              </SectionReveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Process */}
-      <section className="relative bg-[#102A56] py-16 text-[#FAF9F6] sm:py-24">
-        <LogoWatermark opacity={0.04} size={420} />
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <SectionReveal>
-            <div className="mx-auto max-w-3xl text-center">
-              <p className="text-sm font-semibold uppercase tracking-wider text-[#C6A15B]">Our approach</p>
-              <h2 className="mt-3 font-heading text-3xl font-bold tracking-tight sm:text-4xl">A professional partnership</h2>
-            </div>
-          </SectionReveal>
-          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {councilSteps.map((step, index) => (
-              <SectionReveal key={step.title} delay={index * 75}>
-                <StepCard number={step.number} icon={step.icon} title={step.title} description={step.description} />
-              </SectionReveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Note */}
-      <section className="bg-[#FAF9F6] py-12">
-        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-          <SectionReveal>
-            <div className="rounded-lg border-l-4 border-[#C6A15B] bg-[#E8D7B2]/10 p-6">
-              <div className="flex items-start gap-4">
-                <Icon name="info" className="mt-0.5 h-6 w-6 shrink-0 text-[#C6A15B]" />
-                <div>
-                  <h3 className="font-heading text-lg font-semibold text-[#102A56]">Transparent and accurate</h3>
-                  <p className="mt-2 leading-relaxed text-[#243247]">We do not claim existing council contracts, framework memberships or approved-provider status unless explicitly verified. We are happy to discuss your requirements, procurement processes and how we might become a trusted partner.</p>
+                <div className="relative order-1 lg:order-2">
+                  <div className="aspect-[4/3] overflow-hidden rounded-2xl bg-gradient-to-br from-[#102A56] to-[#0B1D3A] shadow-xl">
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <img src={logoUrl} alt="Royale Crown Academy crest" className="h-32 w-32 opacity-20" />
+                    </div>
+                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[#0B1D3A]/90 to-transparent p-8">
+                      <p className="font-heading text-2xl font-bold text-[#FAF9F6]">Reliable education support for local communities.</p>
+                    </div>
+                  </div>
+                  <div className="absolute -bottom-6 -left-6 hidden h-32 w-32 rounded-full border-2 border-[#C6A15B]/30 lg:block" />
                 </div>
               </div>
             </div>
-          </SectionReveal>
-        </div>
-      </section>
+          </div>
+        </section>
 
-      {/* CTA */}
-      <section className="relative bg-[#EEF4FA]/50 py-16 sm:py-24">
-        <div className="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
-          <SectionReveal>
-            <h2 className="font-heading text-3xl font-bold tracking-tight text-[#102A56] sm:text-4xl">Discuss a local authority requirement</h2>
-            <p className="mx-auto mt-4 max-w-2xl text-lg text-[#243247]">Tell us about the provision you are considering and we will arrange a confidential conversation with your team.</p>
-            <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-              <Link to="/contact" className="inline-flex items-center gap-2 rounded-md bg-[#102A56] px-8 py-4 text-lg font-semibold text-[#FAF9F6] shadow-sm transition-all hover:bg-[#0B1D3A] hover:shadow-md">
-                Submit an Enquiry <Icon name="arrowRight" className="h-5 w-5" />
-              </Link>
-              <Link to="/how-it-works" className="inline-flex items-center gap-2 rounded-md border border-[#102A56] bg-[#FAF9F6] px-8 py-4 text-lg font-semibold text-[#102A56] transition-all hover:bg-[#102A56] hover:text-[#FAF9F6]">
-                How It Works
+        <section className="bg-[#102A56] py-20 lg:py-28">
+          <div className="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
+            <div ref={ctaRef} className="opacity-0 translate-y-8 transition-all duration-1000 ease-out">
+              <h2 className="font-heading text-3xl font-bold text-[#FAF9F6] sm:text-4xl">Discuss a council or local authority requirement</h2>
+              <p className="mt-5 text-lg text-[#FAF9F6]/80">Our team is ready to explore how Royale Crown Academy can support your local education provision.</p>
+              <Link to="/contact" className="mt-10 inline-flex items-center rounded-md bg-[#C6A15B] px-8 py-4 text-base font-semibold text-[#0B1D3A] shadow-lg transition-all hover:bg-[#E8D7B2] hover:shadow-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C6A15B]">
+                Discuss a Council Requirement
               </Link>
             </div>
-          </SectionReveal>
-        </div>
-      </section>
-    </PageLayout>
+          </div>
+        </section>
+      </main>
+      <Footer />
+    </div>
   );
 }
