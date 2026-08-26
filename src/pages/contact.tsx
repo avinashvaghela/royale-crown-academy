@@ -138,7 +138,7 @@ export default function ContactPage() {
                 <div>
                   <h3 className="font-heading text-lg font-semibold text-foreground">Your data</h3>
                   <p className="mt-2 text-sm leading-relaxed text-surface-600">
-                    We only collect the information we need to respond to your enquiry. Your data is processed in line with UK GDPR and the Data Protection Act 2018. Read our <a href="/privacy-policy" className="font-medium text-primary underline">Privacy Policy</a> for more information. You can withdraw consent at any time by contacting us.
+                    We only collect the information we need to respond to your enquiry. Your data is processed in line with UK GDPR and the Data Protection Act 2018. Read our <Link to="/privacy-policy" className="font-medium text-primary underline">Privacy Policy</Link> for more information. You can withdraw consent at any time by contacting us.
                   </p>
                 </div>
               </div>
