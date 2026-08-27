@@ -6,7 +6,7 @@ export default function CookiePolicyPage() {
   return (
     <LegalPageLayout title="Cookie Policy" lastUpdated="[Date to be inserted]">
       <p>
-        This Cookie Policy explains how Royale Crown Academy Ltd uses cookies and similar technologies on our website. It should be read alongside our <a href="/privacy-policy" className="font-medium text-primary underline">Privacy Policy</a>.
+        This Cookie Policy explains how Royale Crown Academy Ltd uses cookies and similar technologies on our website. It should be read alongside our <Link to="/privacy-policy" className="font-medium text-primary underline">Privacy Policy</Link>.
       </p>
 
       <h2 className="font-heading text-xl font-semibold text-foreground">1. What are cookies?</h2>
