@@ -136,7 +136,7 @@ Specialist SEN support, personalised tuition and education services for learners
 
               <motion.span variants={fadeUp} className="text-secondary font-semibold tracking-wider uppercase text-sm" data-oid="/#o30">How Can We Help?</motion.span>
               <motion.h2 variants={fadeUp} className="font-heading text-4xl md:text-5xl font-bold text-primary mt-4 mb-6" data-oid="/#o31">Education support designed around you</motion.h2>
-              <motion.p variants={fadeUp} className="text-lg text-surface-600 max-w-2xl mx-auto" data-oid="/#o32">Whether you are a parent, school leader, council professional or education professional, we have a pathway for you.</motion.p>
+              <motion.p variants={fadeUp} className="text-lg text-surface-600 max-w-2xl mx-auto" data-oid="/#o32">We work with parents, schools, colleges, councils and education professionals to provide the right support for each situation.</motion.p>
             </motion.div>
             
             <motion.div
@@ -144,12 +144,13 @@ Specialist SEN support, personalised tuition and education services for learners
               whileInView="visible"
               viewport={{ once: true, margin: "-50px" }}
               variants={staggerContainer}
-              className="grid md:grid-cols-3 gap-8" data-oid="/#o33">
+              className="grid md:grid-cols-2 lg:grid-cols-4 gap-8" data-oid="/#o33">
 
               {[
               { icon: Heart, title: "Parents & Carers", desc: "Personalised tuition and learning support designed around each learner.", cta: "For Parents", link: "/for-parents", image: parentImageUrl },
               { icon: School, title: "Schools & Colleges", desc: "Flexible education services, tuition and staffing support for education settings.", cta: "For Schools & Colleges", link: "/for-schools-colleges", image: schoolImageUrl },
-              { icon: Briefcase, title: "Education Professionals", desc: "Opportunities for tutors, teachers and education professionals to work with us.", cta: "Join Our Team", link: "/join-us", image: professionalImageUrl }].
+              { icon: Briefcase, title: "Councils & Local Authorities", desc: "Professional education and learner-support services for council requirements.", cta: "For Councils", link: "/for-councils", image: professionalImageUrl },
+              { icon: Users, title: "Education Professionals", desc: "Opportunities for tutors, teachers and education professionals to work with us.", cta: "Join Our Team", link: "/join-us", image: professionalImageUrl }].
               map((pathway, index) =>
               <motion.div
                 key={pathway.title}
