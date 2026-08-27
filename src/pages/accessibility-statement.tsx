@@ -40,6 +40,6 @@ export default function AccessibilityStatementPage() {
       <p>
         If you are not happy with our response, you can contact the Equality Advisory and Support Service (EASS) or, in Northern Ireland, the Equality Commission for Northern Ireland.
       </p>
-    </LegalPageLayout>
-  );
+    </LegalPageLayout>);
+
 }
