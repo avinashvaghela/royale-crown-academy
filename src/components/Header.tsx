@@ -252,14 +252,14 @@ export default function Header() {
               <Link
                 to="/book-consultation"
                 className="hidden sm:inline-flex items-center rounded-full bg-primary px-3 py-1.5 text-xs font-semibold text-primary-foreground transition-colors hover:bg-primary/90">
+                Book Consultation
 
-                Book
               </Link>
               <Link
                 to="/join-us"
                 className="hidden sm:inline-flex items-center rounded-full border border-primary px-3 py-1.5 text-xs font-semibold text-primary transition-colors hover:bg-primary hover:text-primary-foreground">
+                Join Us
 
-                Join
               </Link>
               <a
                 href="tel:07553539869"
