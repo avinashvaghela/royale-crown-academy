@@ -167,7 +167,7 @@ export default function Header() {
             <Link
               to="/"
               className="flex items-center focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded-md"
-              aria-label="Royale Crown Academy home">
+              aria-label="Royale Crown Academy home" style={{ fontSize: "19px", lineHeight: "24.1px", width: "175px", height: "60px" }}>
 
               <img
                 src={logoUrl}
