@@ -42,6 +42,6 @@ export default function ModernSlaveryStatementPage() {
       <p>
         This statement is reviewed annually and updated as necessary.
       </p>
-    </LegalPageLayout>
-  );
+    </LegalPageLayout>);
+
 }
