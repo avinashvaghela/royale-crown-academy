@@ -134,7 +134,7 @@ export default function Header() {
             <div className="flex items-center gap-3 sm:gap-4 ml-auto">
               <Link
                 to="/book-consultation"
-                className="hidden xs:inline-flex items-center rounded-full border border-primary-foreground/30 px-4 py-1.5 font-medium transition-colors hover:bg-primary-foreground hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+                className="hidden md:inline-flex items-center rounded-full border border-primary-foreground/30 px-4 py-1.5 font-medium transition-colors hover:bg-primary-foreground hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
               >
                 Book a Consultation
               </Link>
