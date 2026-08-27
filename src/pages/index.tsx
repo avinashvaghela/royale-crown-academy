@@ -245,6 +245,60 @@ export default function Home() {
           </div>
         </section>
 
+        {/* SEN Specialist Spotlight */}
+        <section className="py-24 bg-background relative overflow-hidden" data-oid="/#o69a">
+          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-primary/[0.03] to-transparent" data-oid="/#o69b" />
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative" data-oid="/#o69c">
+            <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center" data-oid="/#o69d">
+              <motion.div
+                initial={prefersReducedMotion ? {} : { opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+                className="relative order-2 lg:order-1" data-oid="/#o69e">
+
+                <div className="relative rounded-2xl overflow-hidden shadow-2xl" data-oid="/#o69f">
+                  <img src={senLearnerImageUrl} alt="Young learner receiving specialist SEN support" className="w-full h-auto object-cover" data-oid="/#o69g" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-primary/30 to-transparent" data-oid="/#o69h" />
+                </div>
+                <div className="absolute -bottom-5 -right-5 w-28 h-28 border-2 border-secondary rounded-2xl -z-10" data-oid="/#o69i" />
+                <div className="absolute -top-5 -left-5 w-20 h-20 bg-secondary/10 rounded-full blur-2xl" data-oid="/#o69j" />
+              </motion.div>
+              <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={staggerContainer}
+                className="order-1 lg:order-2" data-oid="/#o69k">
+
+                <motion.span variants={fadeUp} className="text-secondary font-semibold tracking-wider uppercase text-sm" data-oid="/#o69l">Specialist Support</motion.span>
+                <motion.h2 variants={fadeUp} className="font-heading text-4xl md:text-5xl font-bold text-primary mt-4 mb-6" data-oid="/#o69m">SEN specialists who put the learner first</motion.h2>
+                <motion.p variants={fadeUp} className="text-lg text-surface-600 mb-6 leading-relaxed" data-oid="/#o69n">
+                  Our specialist team works with learners who have autism, ADHD, dyslexia, dyscalculia, SEMH and a wide range of additional learning needs. Every session is shaped around the individual, building confidence, engagement and progress at the right pace.
+                </motion.p>
+                <motion.ul variants={fadeUp} className="space-y-3 mb-8" data-oid="/#o69o">
+                  {[
+                    "One-to-one and small-group SEN support",
+                    "Personalised learning plans matched to each learner",
+                    "Experienced, patient specialists who listen first",
+                    "Close partnership with families, schools and settings"
+                  ].map((point, index) => (
+                    <li key={index} className="flex items-start gap-3 text-surface-700" data-oid={`/#o69p-${index}`}>
+                      <Check className="w-5 h-5 text-secondary flex-shrink-0 mt-0.5" data-oid={`/#o69q-${index}`} />
+                      <span data-oid={`/#o69r-${index}`}>{point}</span>
+                    </li>
+                  ))}
+                </motion.ul>
+                <motion.div variants={fadeUp} data-oid="/#o69s">
+                  <Link to="/sen-support" className="group inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground font-semibold rounded-lg hover:bg-primary/90 transition-all" data-oid="/#o69t">
+                    Discover SEN Support <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" data-oid="/#o69u" />
+                  </Link>
+                </motion.div>
+              </motion.div>
+            </div>
+          </div>
+        </section>
+
         {/* Why Choose Us */}
         <section className="py-24 bg-background" data-oid="/#o69">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" data-oid="/#o70">
