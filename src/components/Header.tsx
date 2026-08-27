@@ -5,17 +5,17 @@ import Icon from '../components/Icon';
 const LOGO_FILE_ID = '6600755f5142dd22b970862dd49fc10d';
 
 const navLinks = [
-  { label: 'About', path: '/about' },
-  { label: 'Parents', path: '/for-parents' },
-  { label: 'Councils', path: '/for-councils' },
-  { label: 'Schools', path: '/for-schools-colleges' },
-  { label: 'Tutoring', path: '/tutoring' },
-  { label: 'Special Needs', path: '/sen-support' },
-  { label: 'Safeguarding', path: '/safeguarding' },
-  { label: 'Resources', path: '/resources' },
-  { label: 'FAQs', path: '/faq' },
-  { label: 'Contact', path: '/contact' }
-];
+{ label: 'About', path: '/about' },
+{ label: 'Parents', path: '/for-parents' },
+{ label: 'Councils', path: '/for-councils' },
+{ label: 'Schools', path: '/for-schools-colleges' },
+{ label: 'Tutoring', path: '/tutoring' },
+{ label: 'Special Needs', path: '/sen-support' },
+{ label: 'Safeguarding', path: '/safeguarding' },
+{ label: 'Resources', path: '/resources' },
+{ label: 'FAQs', path: '/faq' },
+{ label: 'Contact', path: '/contact' }];
+
 
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -51,55 +51,55 @@ export default function Header() {
   const isActive = (path) => location.pathname === path;
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50" role="banner" data-oid="/components/Header.tsx#o0">
+    <header className="fixed top-0 left-0 right-0 z-50" role="banner">
       {/* Top bar */}
-      <div className="bg-primary text-primary-foreground" data-oid="/components/Header.tsx#o1">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8" data-oid="/components/Header.tsx#o2">
-          <div className="flex h-12 items-center justify-between gap-4 text-sm" data-oid="/components/Header.tsx#o3">
+      <div className="bg-primary text-primary-foreground">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="flex h-12 items-center justify-between gap-4 text-sm">
             {/* Logo + tagline */}
             <Link
               to="/"
               className="flex items-center gap-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-md"
-              aria-label="Royale Crown Academy home"
-              data-oid="/components/Header.tsx#o4">
+              aria-label="Royale Crown Academy home">
+
               <img
                 src={logoUrl}
                 alt="Royale Crown Academy logo"
-                className="h-9 w-auto object-contain"
-                data-oid="/components/Header.tsx#o5" />
-              <div className="hidden sm:block leading-tight" data-oid="/components/Header.tsx#o6">
-                <div className="font-heading text-base font-bold text-primary-foreground" data-oid="/components/Header.tsx#o7">Royale Crown Academy</div>
-                <div className="text-xs text-primary-foreground/70" data-oid="/components/Header.tsx#o8">Premium UK Education Services</div>
+                className="h-9 w-auto object-contain" />
+
+              <div className="hidden sm:block leading-tight">
+                <div className="font-heading text-base font-bold text-primary-foreground">Royale Crown Academy</div>
+                <div className="text-xs text-primary-foreground/70">Premium UK Education Services</div>
               </div>
             </Link>
 
             {/* Phone */}
             <a
               href="tel:07553539869"
-              className="hidden md:flex items-center gap-2 text-primary-foreground hover:text-accent transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded"
-              data-oid="/components/Header.tsx#o9">
-              <Icon name="phone" className="h-4 w-4" data-oid="/components/Header.tsx#o10" />
-              <span className="font-medium" data-oid="/components/Header.tsx#o11">07553 539869</span>
+              className="hidden md:flex items-center gap-2 text-primary-foreground hover:text-accent transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded">
+
+              <Icon name="phone" className="h-4 w-4" />
+              <span className="font-medium">07553 539869</span>
             </a>
 
             {/* CTAs */}
-            <div className="flex items-center gap-2 sm:gap-3" data-oid="/components/Header.tsx#o12">
+            <div className="flex items-center gap-2 sm:gap-3">
               <Link
                 to="/tutoring"
-                className="hidden sm:inline-flex items-center rounded-full border border-primary-foreground/40 px-3 sm:px-4 py-1.5 text-xs sm:text-sm font-medium text-primary-foreground transition-colors hover:bg-primary-foreground hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
-                data-oid="/components/Header.tsx#o13">
+                className="hidden sm:inline-flex items-center rounded-full border border-primary-foreground/40 px-3 sm:px-4 py-1.5 text-xs sm:text-sm font-medium text-primary-foreground transition-colors hover:bg-primary-foreground hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-accent">
+
                 Get a Tutor
               </Link>
               <Link
                 to="/join-us"
-                className="hidden sm:inline-flex items-center rounded-full border border-primary-foreground/40 px-3 sm:px-4 py-1.5 text-xs sm:text-sm font-medium text-primary-foreground transition-colors hover:bg-primary-foreground hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
-                data-oid="/components/Header.tsx#o14">
+                className="hidden sm:inline-flex items-center rounded-full border border-primary-foreground/40 px-3 sm:px-4 py-1.5 text-xs sm:text-sm font-medium text-primary-foreground transition-colors hover:bg-primary-foreground hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-accent">
+
                 Tutor for Us
               </Link>
               <Link
                 to="/contact"
-                className="inline-flex items-center rounded-full border border-primary-foreground/40 px-3 sm:px-4 py-1.5 text-xs sm:text-sm font-medium text-primary-foreground transition-colors hover:bg-primary-foreground hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
-                data-oid="/components/Header.tsx#o15">
+                className="inline-flex items-center rounded-full border border-primary-foreground/40 px-3 sm:px-4 py-1.5 text-xs sm:text-sm font-medium text-primary-foreground transition-colors hover:bg-primary-foreground hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-accent">
+
                 Login
               </Link>
             </div>
@@ -110,49 +110,49 @@ export default function Header() {
       {/* Main nav */}
       <div
         className={`transition-all duration-300 border-b ${
-          scrolled ? 'bg-background/95 backdrop-blur-md border-neutral shadow-sm' : 'bg-background border-transparent'
-        }`}
-        data-oid="/components/Header.tsx#o16">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8" data-oid="/components/Header.tsx#o17">
-          <div className="flex h-16 items-center justify-between" data-oid="/components/Header.tsx#o18">
+        scrolled ? 'bg-background/95 backdrop-blur-md border-neutral shadow-sm' : 'bg-background border-transparent'}`
+        }>
+
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="flex h-16 items-center justify-between">
             <Link
               to="/"
               className="flex items-center focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded-md"
-              aria-label="Royale Crown Academy home"
-              data-oid="/components/Header.tsx#o19">
+              aria-label="Royale Crown Academy home">
+
               <img
                 src={logoUrl}
                 alt="Royale Crown Academy logo"
-                className="h-12 w-auto object-contain"
-                data-oid="/components/Header.tsx#o20" />
+                className="h-12 w-auto object-contain" />
+
             </Link>
 
-            <nav className="hidden lg:flex items-center gap-1" aria-label="Primary navigation" data-oid="/components/Header.tsx#o21">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.path}
-                  to={link.path}
-                  className={`relative rounded-md px-3 py-2 text-sm font-semibold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 ${
-                    isActive(link.path) ? 'text-primary' : 'text-foreground hover:text-primary'
-                  }`}
-                  aria-current={isActive(link.path) ? 'page' : undefined}
-                  data-oid="/components/Header.tsx#o22">
+            <nav className="hidden lg:flex items-center gap-1" aria-label="Primary navigation">
+              {navLinks.map((link) =>
+              <Link
+                key={link.path}
+                to={link.path}
+                className={`relative rounded-md px-3 py-2 text-sm font-semibold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 ${
+                isActive(link.path) ? 'text-primary' : 'text-foreground hover:text-primary'}`
+                }
+                aria-current={isActive(link.path) ? 'page' : undefined}>
+
                   {link.label}
-                  {isActive(link.path) && (
-                    <span className="absolute bottom-0 left-3 right-3 h-0.5 rounded-full bg-secondary" data-oid="/components/Header.tsx#o23" />
-                  )}
+                  {isActive(link.path) &&
+                <span className="absolute bottom-0 left-3 right-3 h-0.5 rounded-full bg-secondary" />
+                }
                 </Link>
-              ))}
+              )}
             </nav>
 
             {/* Mobile action bar */}
-            <div className="flex items-center gap-2.5 lg:hidden" data-oid="/components/Header.tsx#o24">
+            <div className="flex items-center gap-2.5 lg:hidden">
               <a
                 href="tel:07553539869"
                 className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-primary text-primary-foreground transition-colors hover:bg-primary/90"
-                aria-label="Call us"
-                data-oid="/components/Header.tsx#o25">
-                <Icon name="phone" className="h-5 w-5" data-oid="/components/Header.tsx#o26" />
+                aria-label="Call us">
+
+                <Icon name="phone" className="h-5 w-5" />
               </a>
               <button
                 type="button"
@@ -160,9 +160,9 @@ export default function Header() {
                 className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-neutral text-primary transition-colors hover:bg-surface-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
                 aria-expanded={mobileOpen}
                 aria-controls="mobile-menu"
-                aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
-                data-oid="/components/Header.tsx#o27">
-                <Icon name={mobileOpen ? 'close' : 'menu'} className="h-6 w-6" data-oid="/components/Header.tsx#o28" />
+                aria-label={mobileOpen ? 'Close menu' : 'Open menu'}>
+
+                <Icon name={mobileOpen ? 'close' : 'menu'} className="h-6 w-6" />
               </button>
             </div>
           </div>
@@ -170,51 +170,51 @@ export default function Header() {
       </div>
 
       {/* Mobile menu */}
-      {mobileOpen && (
-        <div
-          id="mobile-menu"
-          className="fixed inset-x-0 top-[7rem] z-50 h-[calc(100vh-7rem)] overflow-y-auto border-t border-neutral bg-background px-4 pb-8 pt-4 shadow-2xl lg:hidden"
-          role="dialog"
-          aria-modal="true"
-          aria-label="Mobile navigation"
-          data-oid="/components/Header.tsx#o29">
-          <nav className="flex flex-col" aria-label="Mobile navigation" data-oid="/components/Header.tsx#o30">
-            {navLinks.map((link) => (
-              <Link
-                key={link.path}
-                to={link.path}
-                className={`flex items-center justify-between border-b border-neutral py-3.5 text-base font-semibold ${
-                  isActive(link.path) ? 'text-primary' : 'text-foreground'
-                }`}
-                aria-current={isActive(link.path) ? 'page' : undefined}
-                data-oid="/components/Header.tsx#o31">
+      {mobileOpen &&
+      <div
+        id="mobile-menu"
+        className="fixed inset-x-0 top-[7rem] z-50 h-[calc(100vh-7rem)] overflow-y-auto border-t border-neutral bg-background px-4 pb-8 pt-4 shadow-2xl lg:hidden"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Mobile navigation">
+
+          <nav className="flex flex-col" aria-label="Mobile navigation">
+            {navLinks.map((link) =>
+          <Link
+            key={link.path}
+            to={link.path}
+            className={`flex items-center justify-between border-b border-neutral py-3.5 text-base font-semibold ${
+            isActive(link.path) ? 'text-primary' : 'text-foreground'}`
+            }
+            aria-current={isActive(link.path) ? 'page' : undefined}>
+
                 {link.label}
-                <Icon name="chevronRight" className="h-5 w-5 text-secondary" data-oid="/components/Header.tsx#o32" />
+                <Icon name="chevronRight" className="h-5 w-5 text-secondary" />
               </Link>
-            ))}
-            <div className="mt-6 flex flex-col gap-3" data-oid="/components/Header.tsx#o33">
+          )}
+            <div className="mt-6 flex flex-col gap-3">
               <Link
-                to="/tutoring"
-                className="inline-flex items-center justify-center rounded-full border border-primary px-5 py-3 text-base font-semibold text-primary transition-colors hover:bg-primary hover:text-primary-foreground"
-                data-oid="/components/Header.tsx#o34">
+              to="/tutoring"
+              className="inline-flex items-center justify-center rounded-full border border-primary px-5 py-3 text-base font-semibold text-primary transition-colors hover:bg-primary hover:text-primary-foreground">
+
                 Get a Tutor
               </Link>
               <Link
-                to="/join-us"
-                className="inline-flex items-center justify-center rounded-full border border-primary px-5 py-3 text-base font-semibold text-primary transition-colors hover:bg-primary hover:text-primary-foreground"
-                data-oid="/components/Header.tsx#o35">
+              to="/join-us"
+              className="inline-flex items-center justify-center rounded-full border border-primary px-5 py-3 text-base font-semibold text-primary transition-colors hover:bg-primary hover:text-primary-foreground">
+
                 Tutor for Us
               </Link>
               <Link
-                to="/contact"
-                className="inline-flex items-center justify-center rounded-full bg-primary px-5 py-3 text-base font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
-                data-oid="/components/Header.tsx#o36">
+              to="/contact"
+              className="inline-flex items-center justify-center rounded-full bg-primary px-5 py-3 text-base font-semibold text-primary-foreground transition-colors hover:bg-primary/90">
+
                 Login
               </Link>
             </div>
           </nav>
         </div>
-      )}
-    </header>
-  );
+      }
+    </header>);
+
 }
