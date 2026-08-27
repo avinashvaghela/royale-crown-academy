@@ -258,7 +258,7 @@ export default function Home() {
                 className="relative order-2 lg:order-1" data-oid="/#o69e">
 
                 <div className="relative rounded-2xl overflow-hidden shadow-2xl" data-oid="/#o69f">
-                  <img src={senLearnerImageUrl} alt="Young learner receiving specialist SEN support" className="w-full h-auto object-cover" data-oid="/#o69g" />
+                  <img src={senImageUrl} alt="Specialist SEN support session" className="w-full h-auto object-cover" data-oid="/#o69g" />
                   <div className="absolute inset-0 bg-gradient-to-t from-primary/30 to-transparent" data-oid="/#o69h" />
                 </div>
                 <div className="absolute -bottom-5 -right-5 w-28 h-28 border-2 border-secondary rounded-2xl -z-10" data-oid="/#o69i" />
@@ -281,7 +281,11 @@ export default function Home() {
                     "One-to-one and small-group SEN support",
                     "Personalised learning plans matched to each learner",
                     "Experienced, patient specialists who listen first",
-                    "Close partnership with families, schools and settings"
+                    "Close partnership with families, schools and settings",
+                    "Support for autism, ADHD, dyslexia, dyscalculia and SEMH",
+                    "Confidence-building and engagement-focused sessions",
+                    "Online and in-person SEN support options",
+                    "Regular progress review and plan adjustment"
                   ].map((point, index) => (
                     <li key={index} className="flex items-start gap-3 text-surface-700" data-oid={`/#o69p-${index}`}>
                       <Check className="w-5 h-5 text-secondary flex-shrink-0 mt-0.5" data-oid={`/#o69q-${index}`} />
