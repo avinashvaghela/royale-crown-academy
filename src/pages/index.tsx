@@ -32,6 +32,7 @@ export default function Home() {
   const professionalImageUrl = serenities.files.url('b1508abe1eb6618ff8eb1f79ee65e27f');
   const parentImageUrl = serenities.files.url('f34fc1b81df48676874b63a662a22911');
   const studyImageUrl = serenities.files.url('a2078dfe9c07ced21d031bfe2ea9a313');
+  const senLearnerImageUrl = serenities.files.url('e5fee8507681ccff4b3c2fdabe10a248');
 
   return (
     <div className="min-h-screen bg-background font-body text-foreground overflow-x-hidden" data-oid="/#o0">
