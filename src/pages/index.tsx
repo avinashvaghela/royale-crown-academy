@@ -190,7 +190,7 @@ Specialist SEN support, personalised tuition and education services for learners
                 <motion.span variants={fadeUp} className="text-secondary font-semibold tracking-wider uppercase text-sm" data-oid="/#o49">Our Services</motion.span>
                 <motion.h2 variants={fadeUp} className="font-heading text-4xl md:text-5xl font-bold text-primary mt-4 mb-6" data-oid="/#o50">Education support, built around the individual</motion.h2>
                 <motion.p variants={fadeUp} className="text-lg text-surface-600 mb-8 leading-relaxed" data-oid="/#o51">
-                  From specialist SEN support to private tuition and education staffing, our services are shaped around the people and organisations we support.
+                  Every learner, school and organisation is different. We take time to understand what is needed and shape our support accordingly, from private tuition and SEN support to education staffing and academic intervention.
                 </motion.p>
                 <motion.div variants={fadeUp} data-oid="/#o52">
                   <Link to="/tutoring" className="group inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground font-semibold rounded-lg hover:bg-primary/90 transition-all" data-oid="/#o53">
@@ -218,9 +218,9 @@ Specialist SEN support, personalised tuition and education services for learners
               className="grid md:grid-cols-3 gap-8" data-oid="/#o58">
 
               {[
-              { icon: Heart, title: "SEN Support", desc: "Individualised support shaped around learning needs, confidence and educational goals.", link: "/sen-support", image: senImageUrl },
-              { icon: BookOpen, title: "Private Tuition", desc: "One-to-one and small-group tuition across key subjects and academic stages.", link: "/tutoring", image: studyImageUrl },
-              { icon: Users, title: "Education Staffing", desc: "Teaching assistants, SEN support professionals, cover supervisors and education professionals.", link: "/education-staffing", image: professionalImageUrl }].
+              { icon: Heart, title: "SEN Support", desc: "Support shaped around each learner's needs, strengths and educational goals.", link: "/sen-support", image: senImageUrl },
+              { icon: BookOpen, title: "Private Tuition", desc: "One-to-one and small-group tuition across subjects and academic stages.", link: "/tutoring", image: studyImageUrl },
+              { icon: Users, title: "Education Staffing", desc: "Teaching assistants, SEN support professionals, cover supervisors and tutors for education settings.", link: "/education-staffing", image: professionalImageUrl }].
               map((service) =>
               <motion.div
                 key={service.title}
@@ -275,7 +275,7 @@ Specialist SEN support, personalised tuition and education services for learners
                 <motion.span variants={fadeUp} className="text-secondary font-semibold tracking-wider uppercase text-sm" data-oid="/#o69l">Specialist Support</motion.span>
                 <motion.h2 variants={fadeUp} className="font-heading text-4xl md:text-5xl font-bold text-primary mt-4 mb-6" data-oid="/#o69m">SEN support designed around the individual</motion.h2>
                 <motion.p variants={fadeUp} className="text-lg text-surface-600 mb-6 leading-relaxed" data-oid="/#o69n">
-                  We work with learners who have autism, ADHD, dyslexia, dyscalculia, SEMH and a wide range of additional learning needs. Every session is shaped around the individual, building confidence, engagement and progress at an appropriate pace.
+                  We work with learners with a wide range of additional needs, including autism, ADHD, dyslexia, dyscalculia and SEMH. Every session is shaped around the individual, taking time to understand their strengths, preferences and goals.
                 </motion.p>
                 <motion.ul variants={fadeUp} className="space-y-3 mb-8" data-oid="/#o69o">
                   {[
