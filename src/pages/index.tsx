@@ -82,7 +82,7 @@ export default function Home() {
               transition={{ duration: 1, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
               className="text-lg sm:text-xl md:text-2xl text-primary-foreground/80 max-w-3xl mx-auto mb-12 leading-relaxed font-light" data-oid="/#o18">
 
-              Specialist SEN support, personalised tuition and education services for learners, families, schools, colleges and local authorities across the UK.
+Specialist SEN support, personalised tuition and education services for learners, families, schools, colleges and local authorities across the UK.
             </motion.p>
             
             <motion.div
@@ -136,7 +136,7 @@ export default function Home() {
 
               <motion.span variants={fadeUp} className="text-secondary font-semibold tracking-wider uppercase text-sm" data-oid="/#o30">How Can We Help?</motion.span>
               <motion.h2 variants={fadeUp} className="font-heading text-4xl md:text-5xl font-bold text-primary mt-4 mb-6" data-oid="/#o31">Education support designed around you</motion.h2>
-              <motion.p variants={fadeUp} className="text-lg text-surface-600 max-w-2xl mx-auto" data-oid="/#o32">Whether you are a parent, school leader, council professional or education professional, we have a pathway for you.</motion.p>
+              <motion.p variants={fadeUp} className="text-lg text-surface-600 max-w-2xl mx-auto" data-oid="/#o32">We work with parents, schools, colleges, councils and education professionals to provide the right support for each situation.</motion.p>
             </motion.div>
             
             <motion.div
