@@ -124,7 +124,7 @@ export default function Footer() {
 
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-[#FAF9F6]/10 pt-8 sm:flex-row">
           <p className="text-xs text-[#FAF9F6]/60 text-center sm:text-left">
-            © {currentYear} Royale Crown Academy Ltd. All rights reserved. Company registration number: 17387038. Registered office: [To be inserted when provided].
+            © {currentYear} Royale Crown Academy Ltd. All rights reserved. Company registration number: 17387038.
           </p>
           <div className="flex items-center gap-5">
             <a href="#" className="text-[#FAF9F6]/60 transition-colors hover:text-[#C6A15B]" aria-label="LinkedIn">
