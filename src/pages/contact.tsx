@@ -28,7 +28,7 @@ export default function Contact() {
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
-    setFormData(prev => ({ ...prev, [name]: type === 'checkbox' ? checked : value }));
+    setFormData((prev) => ({ ...prev, [name]: type === 'checkbox' ? checked : value }));
   };
 
   const handleSubmit = (e) => {
@@ -41,8 +41,8 @@ export default function Contact() {
       <SEOHead
         title="Contact Us | Royale Crown Academy"
         description="Get in touch with Royale Crown Academy Ltd for SEN support, tutoring, education staffing and school enquiries."
-        canonical="https://royalecrown.serenitiesai.com/contact"
-      />
+        canonical="https://royalecrown.serenitiesai.com/contact" />
+
       <Header />
       <main id="main-content">
         {/* Hero */}
@@ -56,8 +56,8 @@ export default function Contact() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              variants={staggerContainer}
-            >
+              variants={staggerContainer}>
+
               <motion.span variants={fadeUp} className="text-secondary font-semibold tracking-wider uppercase text-sm">Contact</motion.span>
               <motion.h1 variants={fadeUp} className="font-heading text-5xl md:text-6xl lg:text-7xl font-bold text-primary-foreground mt-6 mb-6">We Would Love to Hear From You</motion.h1>
               <motion.p variants={fadeUp} className="text-xl text-primary-foreground/80 max-w-3xl mx-auto leading-relaxed">
@@ -75,8 +75,8 @@ export default function Contact() {
               whileInView="visible"
               viewport={{ once: true }}
               variants={staggerContainer}
-              className="grid md:grid-cols-3 gap-8 mb-16"
-            >
+              className="grid md:grid-cols-3 gap-8 mb-16">
+
               <motion.div variants={fadeUp} className="bg-white rounded-xl p-8 shadow-sm border border-surface-100 text-center hover:shadow-lg transition-shadow">
                 <div className="w-14 h-14 mx-auto rounded-full bg-primary/5 flex items-center justify-center mb-5">
                   <Phone className="w-7 h-7 text-secondary" />
@@ -107,8 +107,8 @@ export default function Contact() {
                 whileInView="visible"
                 viewport={{ once: true }}
                 variants={staggerContainer}
-                className="text-center mb-10"
-              >
+                className="text-center mb-10">
+
                 <motion.h2 variants={fadeUp} className="font-heading text-3xl md:text-4xl font-bold text-primary mb-4">How can we help you?</motion.h2>
                 <motion.p variants={fadeUp} className="text-surface-600">Select the option that best describes you.</motion.p>
               </motion.div>
@@ -118,28 +118,28 @@ export default function Contact() {
                 whileInView="visible"
                 viewport={{ once: true }}
                 variants={staggerContainer}
-                className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-12"
-              >
+                className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
+
                 {[
-                  { id: 'parent', label: 'Parent / Carer', icon: Heart },
-                  { id: 'school', label: 'School / College', icon: School },
-                  { id: 'council', label: 'Council / Local Authority', icon: MapPin },
-                  { id: 'professional', label: 'Education Professional', icon: Mail }
-                ].map((option) => (
-                  <motion.button
-                    key={option.id}
-                    variants={fadeUp}
-                    onClick={() => { setAudience(option.id); setSubmitted(false); }}
-                    className={`flex items-center gap-3 p-4 rounded-xl border-2 transition-all text-left ${
-                      audience === option.id
-                        ? 'border-secondary bg-secondary/5 text-primary'
-                        : 'border-surface-200 hover:border-secondary/50 text-surface-600'
-                    }`}
-                  >
+                { id: 'parent', label: 'Parent / Carer', icon: Heart },
+                { id: 'school', label: 'School / College', icon: School },
+                { id: 'council', label: 'Council / Local Authority', icon: MapPin },
+                { id: 'professional', label: 'Education Professional', icon: Mail }].
+                map((option) =>
+                <motion.button
+                  key={option.id}
+                  variants={fadeUp}
+                  onClick={() => {setAudience(option.id);setSubmitted(false);}}
+                  className={`flex items-center gap-3 p-4 rounded-xl border-2 transition-all text-left ${
+                  audience === option.id ?
+                  'border-secondary bg-secondary/5 text-primary' :
+                  'border-surface-200 hover:border-secondary/50 text-surface-600'}`
+                  }>
+
                     <option.icon className="w-5 h-5" />
                     <span className="font-semibold text-sm">{option.label}</span>
                   </motion.button>
-                ))}
+                )}
               </motion.div>
 
               {/* Form */}
@@ -148,18 +148,18 @@ export default function Contact() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8 }}
-                className="bg-white rounded-2xl p-8 md:p-12 shadow-lg border border-surface-100"
-              >
-                {submitted ? (
-                  <div className="text-center py-12">
+                className="bg-white rounded-2xl p-8 md:p-12 shadow-lg border border-surface-100">
+
+                {submitted ?
+                <div className="text-center py-12">
                     <div className="w-16 h-16 mx-auto rounded-full bg-green-100 flex items-center justify-center mb-6">
                       <CheckCircle className="w-8 h-8 text-green-600" />
                     </div>
                     <h3 className="font-heading text-2xl font-bold text-primary mb-3">Thank you for your enquiry</h3>
                     <p className="text-surface-600">We have received your message and will be in touch shortly.</p>
-                  </div>
-                ) : (
-                  <>
+                  </div> :
+
+                <>
                     <h3 className="font-heading text-2xl font-bold text-primary mb-2">
                       {audience === 'parent' && "I'm a Parent or Carer"}
                       {audience === 'school' && "I'm a School or College"}
@@ -188,20 +188,20 @@ export default function Contact() {
                           <label htmlFor="phone" className="block text-sm font-semibold text-primary mb-2">Telephone</label>
                           <input type="tel" id="phone" name="phone" value={formData.phone} onChange={handleChange} className="w-full px-4 py-3 rounded-lg border border-surface-200 focus:border-secondary focus:ring-2 focus:ring-secondary/20 outline-none transition-all" />
                         </div>
-                        {audience === 'parent' && (
-                          <div>
+                        {audience === 'parent' &&
+                      <div>
                             <label htmlFor="learnerName" className="block text-sm font-semibold text-primary mb-2">Learner's Name / Age</label>
                             <input type="text" id="learnerName" name="learnerName" value={formData.learnerName} onChange={handleChange} className="w-full px-4 py-3 rounded-lg border border-surface-200 focus:border-secondary focus:ring-2 focus:ring-secondary/20 outline-none transition-all" />
                           </div>
-                        )}
-                        {(audience === 'school' || audience === 'council') && (
-                          <div>
+                      }
+                        {(audience === 'school' || audience === 'council') &&
+                      <div>
                             <label htmlFor="school" className="block text-sm font-semibold text-primary mb-2">Organisation *</label>
                             <input type="text" id="school" name="school" required={audience === 'school' || audience === 'council'} value={formData.school} onChange={handleChange} className="w-full px-4 py-3 rounded-lg border border-surface-200 focus:border-secondary focus:ring-2 focus:ring-secondary/20 outline-none transition-all" />
                           </div>
-                        )}
-                        {audience === 'professional' && (
-                          <div>
+                      }
+                        {audience === 'professional' &&
+                      <div>
                             <label htmlFor="subject" className="block text-sm font-semibold text-primary mb-2">Role Interested In</label>
                             <select id="subject" name="subject" value={formData.subject} onChange={handleChange} className="w-full px-4 py-3 rounded-lg border border-surface-200 focus:border-secondary focus:ring-2 focus:ring-secondary/20 outline-none transition-all bg-white">
                               <option value="">Please select</option>
@@ -212,7 +212,7 @@ export default function Contact() {
                               <option value="other">Other</option>
                             </select>
                           </div>
-                        )}
+                      }
                       </div>
                       <div>
                         <label htmlFor="message" className="block text-sm font-semibold text-primary mb-2">Message *</label>
@@ -233,7 +233,7 @@ export default function Contact() {
                       </button>
                     </form>
                   </>
-                )}
+                }
               </motion.div>
             </div>
           </div>
@@ -241,6 +241,6 @@ export default function Contact() {
       </main>
       <Footer />
       <CookieConsent />
-    </div>
-  );
+    </div>);
+
 }
