@@ -12,9 +12,9 @@ export default function LegalPageLayout({ title, lastUpdated, children }) {
           <SectionReveal>
             <div className="rounded-md border border-surface-200 bg-background p-8 shadow-sm sm:p-12">
               <h1 className="font-heading text-3xl font-bold tracking-tight text-foreground sm:text-4xl">{title}</h1>
-              {lastUpdated &&
-              <p className="mt-2 text-sm text-surface-500">Last updated: {lastUpdated}</p>
-              }
+              {lastUpdated && (
+                <p className="mt-2 text-sm text-surface-500">Last updated: {lastUpdated}</p>
+              )}
               <div className="mt-8 space-y-5 text-surface-700 leading-relaxed">
                 {children}
               </div>
@@ -22,6 +22,6 @@ export default function LegalPageLayout({ title, lastUpdated, children }) {
           </SectionReveal>
         </div>
       </div>
-    </PageLayout>);
-
+    </PageLayout>
+  );
 }
