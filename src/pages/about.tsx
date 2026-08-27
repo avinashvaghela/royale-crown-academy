@@ -220,7 +220,7 @@ export default function AboutUs() {
               </motion.p>
               <motion.div variants={fadeUp}>
                 <Link to="/contact" className="group inline-flex items-center gap-2 px-8 py-4 bg-primary text-primary-foreground font-semibold rounded-lg hover:bg-primary/90 transition-all">
-                  Talk to Us <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  Make an Enquiry <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </motion.div>
             </motion.div>
