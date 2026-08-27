@@ -11,7 +11,7 @@ export default function TermsPage() {
 
       <h2 className="font-heading text-xl font-semibold text-foreground">1. About us</h2>
       <p>
-        Royale Crown Academy Ltd is a UK education company. Our registered office is [registered office address to be inserted] and our company registration number is [number to be inserted].
+        Royale Crown Academy Ltd is a UK education company. Our company registration number is 17387038.
       </p>
 
       <h2 className="font-heading text-xl font-semibold text-foreground">2. Use of the website</h2>

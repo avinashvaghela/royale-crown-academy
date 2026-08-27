@@ -69,7 +69,7 @@ export default function PrivacyPolicyPage() {
 
       <h2 className="font-heading text-xl font-semibold text-foreground">8. Cookies</h2>
       <p>
-        We use cookies in line with our <a href="/cookie-policy" className="font-medium text-primary underline">Cookie Policy</a>. You can manage your preferences at any time.
+        We use cookies in line with our <Link to="/cookie-policy" className="font-medium text-primary underline">Cookie Policy</Link>. You can manage your preferences at any time.
       </p>
 
       <h2 className="font-heading text-xl font-semibold text-foreground">9. Changes to this policy</h2>
