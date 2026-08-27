@@ -61,7 +61,7 @@ export default function Home() {
 
               <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/10 backdrop-blur-sm border border-secondary/30 mb-8 mt-4" data-oid="/#o12" style={{ paddingTop: "10px", marginTop: "40px", marginBottom: "7px" }}>
                 <Star className="w-4 h-4 text-secondary" data-oid="/#o13" />
-                <span className="text-sm font-medium text-primary-foreground/90 tracking-wide" data-oid="/#o14">Premium UK Education Services</span>
+                <span className="text-sm font-medium text-primary-foreground/90 tracking-wide" data-oid="/#o14">UK Education & Private Tuition</span>
               </div>
             </motion.div>
             
