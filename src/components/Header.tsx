@@ -2,9 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import Icon from '../components/Icon';
 
-const logoUrl = typeof window !== 'undefined' && window.serenities
-  ? window.serenities.files.url('c4a3356a0a5e90aa0baa98c6bd46d255')
-  : '';
+const LOGO_FILE_ID = 'c4a3356a0a5e90aa0baa98c6bd46d255';
 
 const navGroups = [
   {
