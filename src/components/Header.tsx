@@ -251,7 +251,7 @@ export default function Header() {
             <div className="flex items-center gap-2 lg:hidden" data-oid="/components/Header.tsx#o28">
               <Link
                 to="/book-consultation"
-                className="hidden xs:inline-flex items-center rounded-full bg-primary px-3 py-1.5 text-xs font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
+                className="hidden sm:inline-flex items-center rounded-full bg-primary px-3 py-1.5 text-xs font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
                 data-oid="/components/Header.tsx#o29">
                 Book
               </Link>
