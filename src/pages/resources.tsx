@@ -170,8 +170,8 @@ export default function Resources() {
                         <span>{article.date}</span>
                       </div>
                     </div>
-                    <Link to="#" className="inline-flex items-center gap-2 text-primary font-semibold hover:text-secondary transition-colors">
-                      Read more <ArrowRight className="w-4 h-4" />
+                    <Link to="/contact" className="inline-flex items-center gap-2 text-primary font-semibold hover:text-secondary transition-colors">
+                      Ask about this topic <ArrowRight className="w-4 h-4" />
                     </Link>
                   </div>
                 </motion.article>
