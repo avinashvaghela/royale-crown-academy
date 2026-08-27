@@ -36,49 +36,49 @@ export default function Resources() {
       title: "Understanding SEN Support: A Guide for Parents",
       category: "SEN Support",
       excerpt: "An introduction to SEN support, person-centred planning and how to choose the right provision for your child.",
-      author: "[Author placeholder]",
-      date: "[Date placeholder]",
-      updated: "[Updated placeholder]"
+      author: "Royale Crown Academy",
+      date: "Resource in development",
+      updated: ""
     },
     {
       title: "How to Support Your Child with GCSE Maths",
       category: "Tutoring",
       excerpt: "Practical strategies for building confidence and understanding in GCSE maths without adding pressure.",
-      author: "[Author placeholder]",
-      date: "[Date placeholder]",
-      updated: "[Updated placeholder]"
+      author: "Royale Crown Academy",
+      date: "Resource in development",
+      updated: ""
     },
     {
       title: "What Schools Should Know About Education Staffing",
       category: "School Resources",
       excerpt: "Key considerations for schools when requesting teaching assistants, cover supervisors and SEN support staff.",
-      author: "[Author placeholder]",
-      date: "[Date placeholder]",
-      updated: "[Updated placeholder]"
+      author: "Royale Crown Academy",
+      date: "Resource in development",
+      updated: ""
     },
     {
       title: "Effective Revision Techniques for Exam Success",
       category: "Exam Preparation",
       excerpt: "Research-informed revision strategies to help learners prepare more effectively for exams.",
-      author: "[Author placeholder]",
-      date: "[Date placeholder]",
-      updated: "[Updated placeholder]"
+      author: "Royale Crown Academy",
+      date: "Resource in development",
+      updated: ""
     },
     {
       title: "Building Confidence in Learners with Additional Needs",
       category: "Learning Strategies",
       excerpt: "Approaches that help learners with additional needs feel capable, motivated and engaged.",
-      author: "[Author placeholder]",
-      date: "[Date placeholder]",
-      updated: "[Updated placeholder]"
+      author: "Royale Crown Academy",
+      date: "Resource in development",
+      updated: ""
     },
     {
       title: "A Parent's Guide to Choosing a Tutor",
       category: "Parent Guides",
       excerpt: "What to look for, what to ask and how to find a tutor who is right for your child.",
-      author: "[Author placeholder]",
-      date: "[Date placeholder]",
-      updated: "[Updated placeholder]"
+      author: "Royale Crown Academy",
+      date: "Resource in development",
+      updated: ""
     }
   ];
 

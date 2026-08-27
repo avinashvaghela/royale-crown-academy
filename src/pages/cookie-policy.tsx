@@ -4,7 +4,7 @@ import LegalPageLayout from '../components/LegalPageLayout';
 
 export default function CookiePolicyPage() {
   return (
-    <LegalPageLayout title="Cookie Policy" lastUpdated="[Date to be inserted]">
+    <LegalPageLayout title="Cookie Policy" lastUpdated="[Date to be confirmed]">
       <p>
         This Cookie Policy explains how Royale Crown Academy Ltd uses cookies and similar technologies on our website. It should be read alongside our <Link to="/privacy-policy" className="font-medium text-primary underline">Privacy Policy</Link>.
       </p>

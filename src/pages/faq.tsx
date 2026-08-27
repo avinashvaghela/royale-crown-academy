@@ -72,6 +72,16 @@ export default function FAQ() {
       category: "Consultations",
       question: "Is the initial consultation free?",
       answer: "We offer an initial discussion to understand your needs and explain how we can help. Any charges for ongoing services will be clearly agreed in advance."
+    },
+    {
+      category: "Councils & Local Authorities",
+      question: "Do you work with councils and local authorities?",
+      answer: "Yes. We provide education and learner-support services for councils and local authorities, including tuition, SEN support, intervention and education staffing. Please contact us to discuss your requirements."
+    },
+    {
+      category: "Payments",
+      question: "Does the website accept payment?",
+      answer: "No. The website does not accept online payments. We will discuss fees and arrangements directly with you before any services begin."
     }
   ];
 

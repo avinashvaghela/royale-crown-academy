@@ -59,7 +59,7 @@ export default function Contact() {
               variants={staggerContainer}
             >
               <motion.span variants={fadeUp} className="text-secondary font-semibold tracking-wider uppercase text-sm">Contact</motion.span>
-              <motion.h1 variants={fadeUp} className="font-heading text-5xl md:text-6xl lg:text-7xl font-bold text-primary-foreground mt-6 mb-6">We Would Love to Hear From You</motion.h1>
+              <motion.h1 variants={fadeUp} className="font-heading text-5xl md:text-6xl lg:text-7xl font-bold text-primary-foreground mt-6 mb-6">We Would Be Pleased to Hear From You</motion.h1>
               <motion.p variants={fadeUp} className="text-xl text-primary-foreground/80 max-w-3xl mx-auto leading-relaxed">
                 Whether you are a parent, school leader, council professional or education professional, we are here to help.
               </motion.p>

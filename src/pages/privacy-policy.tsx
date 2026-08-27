@@ -4,7 +4,7 @@ import LegalPageLayout from '../components/LegalPageLayout';
 
 export default function PrivacyPolicyPage() {
   return (
-    <LegalPageLayout title="Privacy Policy" lastUpdated="[Date to be inserted]">
+    <LegalPageLayout title="Privacy Policy" lastUpdated="[Date to be confirmed]">
       <p>
         Royale Crown Academy Ltd is committed to protecting your privacy. This Privacy Policy explains how we collect, use, store and protect personal data when you use our website and services.
       </p>

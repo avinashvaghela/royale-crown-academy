@@ -4,7 +4,7 @@ import LegalPageLayout from '../components/LegalPageLayout';
 
 export default function TermsPage() {
   return (
-    <LegalPageLayout title="Terms & Conditions" lastUpdated="[Date to be inserted]">
+    <LegalPageLayout title="Terms & Conditions" lastUpdated="[Date to be confirmed]">
       <p>
         These Terms & Conditions govern your use of the Royale Crown Academy Ltd website and the services we provide. Please read them carefully.
       </p>

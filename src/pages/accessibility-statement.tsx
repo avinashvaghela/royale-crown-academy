@@ -3,7 +3,7 @@ import LegalPageLayout from '../components/LegalPageLayout';
 
 export default function AccessibilityStatementPage() {
   return (
-    <LegalPageLayout title="Accessibility Statement" lastUpdated="[Date to be inserted]">
+    <LegalPageLayout title="Accessibility Statement" lastUpdated="[Date to be confirmed]">
       <p>
         Royale Crown Academy Ltd is committed to making this website accessible to as many people as possible. We aim to follow the Web Content Accessibility Guidelines (WCAG) 2.2 Level AA principles.
       </p>
