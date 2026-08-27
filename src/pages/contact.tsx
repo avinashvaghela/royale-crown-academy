@@ -89,14 +89,14 @@ export default function Contact() {
                   <Mail className="w-7 h-7 text-secondary" />
                 </div>
                 <h2 className="font-heading text-xl font-bold text-primary mb-2">Email</h2>
-                <p className="text-surface-600">[Email placeholder]</p>
+                <p className="text-surface-600"><a href="mailto:info@royalecrownacademy.co.uk" className="hover:text-secondary transition-colors">info@royalecrownacademy.co.uk</a></p>
               </motion.div>
               <motion.div variants={fadeUp} className="bg-white rounded-xl p-8 shadow-sm border border-surface-100 text-center hover:shadow-lg transition-shadow">
                 <div className="w-14 h-14 mx-auto rounded-full bg-primary/5 flex items-center justify-center mb-5">
                   <MapPin className="w-7 h-7 text-secondary" />
                 </div>
-                <h2 className="font-heading text-xl font-bold text-primary mb-2">Office</h2>
-                <p className="text-surface-600">[Address placeholder — to be added if required]</p>
+                <h2 className="font-heading text-xl font-bold text-primary mb-2">Coverage</h2>
+                <p className="text-surface-600">Online support across the UK. In-person support subject to location and availability.</p>
               </motion.div>
             </motion.div>
 
