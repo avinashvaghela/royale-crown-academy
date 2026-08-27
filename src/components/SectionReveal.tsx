@@ -27,11 +27,11 @@ export default function SectionReveal({ children, className = '', delay = 0, as:
     <Component
       ref={ref}
       className={`transition-all duration-700 ease-out ${
-      isVisible ? 'translate-y-0 opacity-100' : 'translate-y-6 opacity-0'} ${
-      className}`}
-      style={{ transitionDelay: `${delay}ms` }}>
-
+        isVisible ? 'translate-y-0 opacity-100' : 'translate-y-6 opacity-0'
+      } ${className}`}
+      style={{ transitionDelay: `${delay}ms` }}
+    >
       {children}
-    </Component>);
-
+    </Component>
+  );
 }
