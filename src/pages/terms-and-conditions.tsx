@@ -21,7 +21,7 @@ export default function TermsPage() {
 
       <h2 className="font-heading text-xl font-semibold text-foreground">3. Services</h2>
       <p>
-        The services described on this website are subject to availability and may be changed or withdrawn at any time. Specific terms apply to tutoring and school/college services; please see our <a href="/tutoring-terms" className="font-medium text-primary underline">Tutoring Terms</a> and <a href="/school-college-terms" className="font-medium text-primary underline">School/College Terms</a>.
+        The services described on this website are subject to availability and may be changed or withdrawn at any time. Specific terms apply to tutoring and school/college services; please see our <Link to="/tutoring-terms" className="font-medium text-primary underline">Tutoring Terms</Link> and <Link to="/school-college-terms" className="font-medium text-primary underline">School/College Terms</Link>.
       </p>
 
       <h2 className="font-heading text-xl font-semibold text-foreground">4. Intellectual property</h2>

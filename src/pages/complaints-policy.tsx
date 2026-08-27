@@ -19,7 +19,7 @@ export default function ComplaintsPolicyPage() {
         In the first instance, please contact us by email or phone to explain your concern. Many issues can be resolved quickly through informal discussion.
       </p>
       <p>
-        If the matter is not resolved informally, you may make a formal complaint in writing to [complaints contact to be inserted] at <a href="mailto:info@royalecrownacademy.co.uk" className="font-medium text-primary underline">info@royalecrownacademy.co.uk</a>.
+        If the matter is not resolved informally, you may make a formal complaint in writing to us at <a href="mailto:info@royalecrownacademy.co.uk" className="font-medium text-primary underline">info@royalecrownacademy.co.uk</a>.
       </p>
 
       <h2 className="font-heading text-xl font-semibold text-foreground">3. What to include</h2>
@@ -39,7 +39,7 @@ export default function ComplaintsPolicyPage() {
 
       <h2 className="font-heading text-xl font-semibold text-foreground">5. Safeguarding concerns</h2>
       <p>
-        If your complaint relates to safeguarding, it will be handled in line with our <a href="/safeguarding-policy" className="font-medium text-primary underline">Safeguarding Policy</a> and may be escalated to the Designated Safeguarding Lead or relevant authorities.
+        If your complaint relates to safeguarding, it will be handled in line with our <Link to="/safeguarding-policy" className="font-medium text-primary underline">Safeguarding Policy</Link> and may be escalated to the Designated Safeguarding Lead or relevant authorities.
       </p>
 
       <h2 className="font-heading text-xl font-semibold text-foreground">6. Escalation</h2>

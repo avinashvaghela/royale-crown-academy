@@ -6,7 +6,7 @@ export default function SchoolCollegeTermsPage() {
   return (
     <LegalPageLayout title="School & College Terms" lastUpdated="[Date to be inserted]">
       <p>
-        These School & College Terms apply to staffing, SEN tuition, tutoring and other services provided by Royale Crown Academy Ltd to schools, colleges and other educational settings. They should be read alongside our main <a href="/terms-and-conditions" className="font-medium text-primary underline">Terms & Conditions</a> and <a href="/privacy-policy" className="font-medium text-primary underline">Privacy Policy</a>.
+        These School & College Terms apply to staffing, SEN tuition, tutoring and other services provided by Royale Crown Academy Ltd to schools, colleges and other educational settings. They should be read alongside our main <Link to="/terms-and-conditions" className="font-medium text-primary underline">Terms & Conditions</Link> and <Link to="/privacy-policy" className="font-medium text-primary underline">Privacy Policy</Link>.
       </p>
 
       <h2 className="font-heading text-xl font-semibold text-foreground">1. Enquiries and agreements</h2>
@@ -36,7 +36,7 @@ export default function SchoolCollegeTermsPage() {
 
       <h2 className="font-heading text-xl font-semibold text-foreground">6. Safeguarding</h2>
       <p>
-        All services are delivered in line with our <a href="/safeguarding-policy" className="font-medium text-primary underline">Safeguarding Policy</a>. Concerns should be reported immediately to the Designated Safeguarding Lead and, where appropriate, to the setting's safeguarding team.
+        All services are delivered in line with our <Link to="/safeguarding-policy" className="font-medium text-primary underline">Safeguarding Policy</Link>. Concerns should be reported immediately to the Designated Safeguarding Lead and, where appropriate, to the setting's safeguarding team.
       </p>
 
       <h2 className="font-heading text-xl font-semibold text-foreground">7. Confidentiality and data protection</h2>

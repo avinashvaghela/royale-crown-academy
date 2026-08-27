@@ -6,7 +6,7 @@ export default function TutoringTermsPage() {
   return (
     <LegalPageLayout title="Tutoring Terms" lastUpdated="[Date to be inserted]">
       <p>
-        These Tutoring Terms apply to tuition and individual learner support services provided by Royale Crown Academy Ltd. They should be read alongside our main <a href="/terms-and-conditions" className="font-medium text-primary underline">Terms & Conditions</a> and <a href="/privacy-policy" className="font-medium text-primary underline">Privacy Policy</a>.
+        These Tutoring Terms apply to tuition and individual learner support services provided by Royale Crown Academy Ltd. They should be read alongside our main <Link to="/terms-and-conditions" className="font-medium text-primary underline">Terms & Conditions</Link> and <Link to="/privacy-policy" className="font-medium text-primary underline">Privacy Policy</Link>.
       </p>
 
       <h2 className="font-heading text-xl font-semibold text-foreground">1. Booking and enquiries</h2>
@@ -36,7 +36,7 @@ export default function TutoringTermsPage() {
 
       <h2 className="font-heading text-xl font-semibold text-foreground">6. Safeguarding</h2>
       <p>
-        All tutoring is delivered in line with our safeguarding procedures. Online sessions use secure arrangements and appropriate supervision. Concerns should be reported in line with our <a href="/safeguarding-policy" className="font-medium text-primary underline">Safeguarding Policy</a>.
+        All tutoring is delivered in line with our safeguarding procedures. Online sessions use secure arrangements and appropriate supervision. Concerns should be reported in line with our <Link to="/safeguarding-policy" className="font-medium text-primary underline">Safeguarding Policy</Link>.
       </p>
 
       <h2 className="font-heading text-xl font-semibold text-foreground">7. Behaviour and attendance</h2>
