@@ -14,10 +14,10 @@ export default function PrivacyPolicyPage() {
 
       <h2 className="font-heading text-xl font-semibold text-foreground">1. Who we are</h2>
       <p>
-        Royale Crown Academy Ltd is a UK education company. Our registered office is [registered office address to be inserted]. Our company registration number is [number to be inserted].
+        Royale Crown Academy Ltd is a UK education company. Our company registration number is 17387038.
       </p>
       <p>
-        For data protection queries, please contact [Data Protection Officer / privacy contact to be inserted] at <a href="mailto:info@royalecrownacademy.co.uk" className="font-medium text-primary underline">info@royalecrownacademy.co.uk</a>.
+        For data protection queries, please contact us at <a href="mailto:info@royalecrownacademy.co.uk" className="font-medium text-primary underline">info@royalecrownacademy.co.uk</a>.
       </p>
 
       <h2 className="font-heading text-xl font-semibold text-foreground">2. What data we collect</h2>
