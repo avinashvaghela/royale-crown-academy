@@ -509,7 +509,7 @@ Specialist SEN support, personalised tuition and education services for learners
               </motion.p>
               <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-4 justify-center" data-oid="/#o136">
                 <Link to="/contact" className="group inline-flex items-center gap-2 px-8 py-4 bg-secondary text-primary font-semibold rounded-lg hover:bg-secondary/90 transition-all shadow-lg shadow-secondary/20" data-oid="/#o137">
-                  Talk to Us <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" data-oid="/#o138" />
+                  Make an Enquiry <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" data-oid="/#o138" />
                 </Link>
                 <Link to="/book-consultation" className="inline-flex items-center gap-2 px-8 py-4 border-2 border-white/30 text-primary-foreground font-semibold rounded-lg hover:bg-white/10 transition-all" data-oid="/#o139">
                   Book a Consultation
