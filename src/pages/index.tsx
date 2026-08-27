@@ -280,8 +280,8 @@ Specialist SEN support, personalised tuition and education services for learners
                 <motion.ul variants={fadeUp} className="space-y-3 mb-8" data-oid="/#o69o">
                   {[
                     "One-to-one and small-group SEN support",
-                    "Personalised learning plans matched to each learner",
-                    "Patient specialists who take time to understand",
+                    "Support shaped around each learner's strengths and needs",
+                    "Experienced specialists who take time to understand",
                     "Close partnership with families, schools and settings",
                     "Support for autism, ADHD, dyslexia, dyscalculia and SEMH",
                     "Confidence-building and engagement-focused sessions",
@@ -328,14 +328,14 @@ Specialist SEN support, personalised tuition and education services for learners
                 <motion.span variants={fadeUp} className="text-secondary font-semibold tracking-wider uppercase text-sm" data-oid="/#o76">Why Royale Crown Academy</motion.span>
                 <motion.h2 variants={fadeUp} className="font-heading text-4xl md:text-5xl font-bold text-primary mt-4 mb-6" data-oid="/#o77">A thoughtful approach to education support</motion.h2>
                 <motion.p variants={fadeUp} className="text-lg text-surface-600 mb-10 leading-relaxed" data-oid="/#o78">
-                  We combine educational expertise with a genuine commitment to the people we support. Our approach is collaborative, transparent and tailored to individual needs.
+                  We combine educational expertise with a genuine commitment to the people we work with. Our approach is collaborative, transparent and tailored to the needs of each learner or organisation.
                 </motion.p>
                 <div className="space-y-6" data-oid="/#o79">
                   {[
-                  { icon: Heart, title: "Learner-centred approach", desc: "Every plan starts with understanding the individual." },
+                  { icon: Heart, title: "Learner-centred approach", desc: "Every plan starts with understanding the individual and what they need." },
                   { icon: Shield, title: "Safeguarding-first mindset", desc: "We take safeguarding, safer recruitment and online safety seriously." },
                   { icon: Award, title: "Professional quality", desc: "Clear communication, structured support and ongoing review." },
-                  { icon: Users, title: "Partnership with families and settings", desc: "We work closely with parents, schools and colleges." }].
+                  { icon: Users, title: "Partnership with families and settings", desc: "We work closely with parents, schools, colleges and councils." }].
                   map((item, index) =>
                   <motion.div key={item.title} variants={fadeUp} className="flex gap-5 group" data-oid="/#o80">
                       <div className="w-12 h-12 rounded-lg bg-primary/5 flex items-center justify-center flex-shrink-0 group-hover:bg-secondary/20 transition-colors" data-oid="/#o81">
@@ -378,9 +378,9 @@ Specialist SEN support, personalised tuition and education services for learners
               className="grid md:grid-cols-4 gap-8" data-oid="/#o93">
 
               {[
-              { step: "01", title: "Tell us what you need", desc: "Share your learner, school or organisation's requirements." },
-              { step: "02", title: "Let's talk", desc: "We will discuss your circumstances and what support may be appropriate." },
-              { step: "03", title: "Build the right plan", desc: "We will identify an approach matched to your requirements." },
+              { step: "01", title: "Tell us what you need", desc: "Share your learner, school or organisation's requirements with us." },
+              { step: "02", title: "Let's talk", desc: "We'll discuss your circumstances and what support may be appropriate." },
+              { step: "03", title: "Build the right plan", desc: "We'll identify an approach matched to your requirements." },
               { step: "04", title: "Begin learning", desc: "Once arrangements are confirmed, support can begin." }].
               map((item, index) =>
               <motion.div key={item.step} variants={fadeUp} className="relative text-center group" data-oid="/#o94">
@@ -410,7 +410,7 @@ Specialist SEN support, personalised tuition and education services for learners
           </div>
         </section>
 
-        {/* Testimonials Placeholder */}
+        {/* Our Commitment to Quality */}
         <section className="py-24 bg-surface-50" data-oid="/#o103">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center" data-oid="/#o104">
             <motion.div
@@ -419,17 +419,27 @@ Specialist SEN support, personalised tuition and education services for learners
               viewport={{ once: true }}
               variants={staggerContainer} data-oid="/#o105">
 
-              <motion.span variants={fadeUp} className="text-secondary font-semibold tracking-wider uppercase text-sm" data-oid="/#o106">Testimonials</motion.span>
-              <motion.h2 variants={fadeUp} className="font-heading text-4xl md:text-5xl font-bold text-primary mt-4 mb-8" data-oid="/#o107">What families and schools say</motion.h2>
+              <motion.span variants={fadeUp} className="text-secondary font-semibold tracking-wider uppercase text-sm" data-oid="/#o106">Our Commitment to Quality</motion.span>
+              <motion.h2 variants={fadeUp} className="font-heading text-4xl md:text-5xl font-bold text-primary mt-4 mb-8" data-oid="/#o107">How we approach every learner and organisation</motion.h2>
               <motion.div variants={fadeUp} className="bg-white rounded-2xl p-10 md:p-16 shadow-sm border border-surface-100" data-oid="/#o108">
-                <div className="w-16 h-16 mx-auto rounded-full bg-primary/5 flex items-center justify-center mb-8" data-oid="/#o109">
-                  <Star className="w-8 h-8 text-secondary" data-oid="/#o110" />
+                <div className="grid sm:grid-cols-2 gap-8 text-left" data-oid="/#o111">
+                  {[
+                    { title: "Learner-centred support", desc: "Every plan starts with understanding the individual and what they need." },
+                    { title: "Professional service", desc: "Clear communication, structured support and reliable follow-through." },
+                    { title: "Clear communication", desc: "We keep parents, schools and settings informed at every stage." },
+                    { title: "Individualised approach", desc: "No two learners are the same, so our support is tailored accordingly." }
+                  ].map((item, index) => (
+                    <div key={index} className="flex gap-4" data-oid={`/#o112-${index}`}>
+                      <div className="w-10 h-10 rounded-full bg-primary/5 flex items-center justify-center flex-shrink-0" data-oid={`/#o113-${index}`}>
+                        <Star className="w-5 h-5 text-secondary" data-oid={`/#o114-${index}`} />
+                      </div>
+                      <div data-oid={`/#o115-${index}`}>
+                        <h3 className="font-heading text-lg font-bold text-primary mb-1" data-oid={`/#o116-${index}`}>{item.title}</h3>
+                        <p className="text-surface-600" data-oid={`/#o117-${index}`}>{item.desc}</p>
+                      </div>
+                    </div>
+                  ))}
                 </div>
-                <p className="text-xl md:text-2xl text-surface-600 italic leading-relaxed mb-8" data-oid="/#o111">
-                  "[Editable placeholder: A warm testimonial from a parent, school or education professional will appear here once verified feedback has been provided.]"
-                </p>
-                <div className="text-primary font-semibold" data-oid="/#o112">[Name placeholder]</div>
-                <div className="text-surface-500 text-sm" data-oid="/#o113">[Role / Relationship placeholder]</div>
               </motion.div>
             </motion.div>
           </div>
