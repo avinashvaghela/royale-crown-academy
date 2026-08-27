@@ -77,8 +77,15 @@ export default function Header() {
   const [openDropdown, setOpenDropdown] = useState(null);
   const [openMobileGroup, setOpenMobileGroup] = useState(null);
   const [scrolled, setScrolled] = useState(false);
+  const [logoUrl, setLogoUrl] = useState(`https://royalecrown.serenitiesai.com/api/files/public/${LOGO_FILE_ID}`);
   const location = useLocation();
   const dropdownRef = useRef(null);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined' && window.serenities) {
+      setLogoUrl(window.serenities.files.url(LOGO_FILE_ID));
+    }
+  }, []);
 
   useClickOutside(dropdownRef, () => setOpenDropdown(null));
 
