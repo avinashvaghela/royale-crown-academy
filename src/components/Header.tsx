@@ -117,7 +117,7 @@ export default function Header() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50" role="banner" data-oid="/components/Header.tsx#o0">
       {/* Top bar */}
-      <div className="bg-primary text-primary-foreground" data-oid="/components/Header.tsx#o1">
+      <div className="hidden lg:flex bg-primary text-primary-foreground" data-oid="/components/Header.tsx#o1">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8" data-oid="/components/Header.tsx#o2">
           <div className="flex h-10 items-center justify-between text-sm" data-oid="/components/Header.tsx#o3">
             <div className="hidden sm:flex items-center gap-6" data-oid="/components/Header.tsx#o4">
