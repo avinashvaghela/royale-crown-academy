@@ -27,8 +27,8 @@ export default function Tutoring() {
       <SEOHead
         title="Private Tuition | Personalised Tutoring Across the UK"
         description="One-to-one and small-group tuition for primary, secondary, GCSE, English, maths, science and study skills."
-        canonical="https://royalecrown.serenitiesai.com/tutoring"
-      />
+        canonical="https://royalecrown.serenitiesai.com/tutoring" />
+
       <Header />
       <main id="main-content">
         {/* Hero */}
@@ -42,8 +42,8 @@ export default function Tutoring() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              variants={staggerContainer}
-            >
+              variants={staggerContainer}>
+
               <motion.span variants={fadeUp} className="text-secondary font-semibold tracking-wider uppercase text-sm">Private Tuition</motion.span>
               <motion.h1 variants={fadeUp} className="font-heading text-5xl md:text-6xl lg:text-7xl font-bold text-primary-foreground mt-6 mb-6">Personalised Tutoring for Every Stage</motion.h1>
               <motion.p variants={fadeUp} className="text-xl text-primary-foreground/80 max-w-3xl mx-auto leading-relaxed">
@@ -61,8 +61,8 @@ export default function Tutoring() {
               whileInView="visible"
               viewport={{ once: true }}
               variants={staggerContainer}
-              className="text-center mb-16"
-            >
+              className="text-center mb-16">
+
               <motion.span variants={fadeUp} className="text-secondary font-semibold tracking-wider uppercase text-sm">Levels We Cover</motion.span>
               <motion.h2 variants={fadeUp} className="font-heading text-4xl md:text-5xl font-bold text-primary mt-4 mb-6">Support at every stage of learning</motion.h2>
             </motion.div>
@@ -71,22 +71,22 @@ export default function Tutoring() {
               whileInView="visible"
               viewport={{ once: true }}
               variants={staggerContainer}
-              className="grid md:grid-cols-2 lg:grid-cols-4 gap-6"
-            >
+              className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+
               {[
-                { title: "Primary Tuition", desc: "Building strong foundations in literacy, numeracy and confidence." },
-                { title: "Secondary Tuition", desc: "Subject support across Key Stage 3 to help learners stay on track." },
-                { title: "GCSE Support", desc: "Focused support for GCSE preparation without promising specific grades." },
-                { title: "A-Level & Further Education", desc: "Subject support for post-16 learners where offered." }
-              ].map((level) => (
-                <motion.div key={level.title} variants={fadeUp} className="bg-white rounded-xl p-8 shadow-sm border border-surface-100 hover:shadow-lg transition-shadow">
+              { title: "Primary Tuition", desc: "Building strong foundations in literacy, numeracy and confidence." },
+              { title: "Secondary Tuition", desc: "Subject support across Key Stage 3 to help learners stay on track." },
+              { title: "GCSE Support", desc: "Focused support for GCSE preparation without promising specific grades." },
+              { title: "A-Level & Further Education", desc: "Subject support for post-16 learners where offered." }].
+              map((level) =>
+              <motion.div key={level.title} variants={fadeUp} className="bg-white rounded-xl p-8 shadow-sm border border-surface-100 hover:shadow-lg transition-shadow">
                   <div className="w-12 h-12 rounded-lg bg-primary/5 flex items-center justify-center mb-5">
                     <GraduationCap className="w-6 h-6 text-secondary" />
                   </div>
                   <h3 className="font-heading text-xl font-bold text-primary mb-3">{level.title}</h3>
                   <p className="text-surface-600 leading-relaxed">{level.desc}</p>
                 </motion.div>
-              ))}
+              )}
             </motion.div>
           </div>
         </section>
@@ -99,8 +99,8 @@ export default function Tutoring() {
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
-                variants={staggerContainer}
-              >
+                variants={staggerContainer}>
+
                 <motion.span variants={fadeUp} className="text-secondary font-semibold tracking-wider uppercase text-sm">Subjects</motion.span>
                 <motion.h2 variants={fadeUp} className="font-heading text-4xl md:text-5xl font-bold text-primary mt-4 mb-6">Core subjects and beyond</motion.h2>
                 <motion.p variants={fadeUp} className="text-lg text-surface-600 mb-8 leading-relaxed">
@@ -108,12 +108,12 @@ export default function Tutoring() {
                 </motion.p>
                 <motion.div variants={fadeUp} className="grid sm:grid-cols-2 gap-4">
                   {[
-                    { icon: BookOpen, title: "English", desc: "Reading, writing, comprehension and literacy skills." },
-                    { icon: Calculator, title: "Maths", desc: "Number, algebra, geometry, statistics and problem-solving." },
-                    { icon: FlaskConical, title: "Science", desc: "Biology, chemistry, physics and combined science." },
-                    { icon: PenTool, title: "Study Skills", desc: "Revision strategies, organisation and exam technique." }
-                  ].map((subject) => (
-                    <div key={subject.title} className="bg-white rounded-lg p-5 border border-surface-100 hover:border-secondary/30 transition-colors group">
+                  { icon: BookOpen, title: "English", desc: "Reading, writing, comprehension and literacy skills." },
+                  { icon: Calculator, title: "Maths", desc: "Number, algebra, geometry, statistics and problem-solving." },
+                  { icon: FlaskConical, title: "Science", desc: "Biology, chemistry, physics and combined science." },
+                  { icon: PenTool, title: "Study Skills", desc: "Revision strategies, organisation and exam technique." }].
+                  map((subject) =>
+                  <div key={subject.title} className="bg-white rounded-lg p-5 border border-surface-100 hover:border-secondary/30 transition-colors group">
                       <div className="flex items-center gap-3 mb-2">
                         <div className="w-10 h-10 rounded-lg bg-primary/5 flex items-center justify-center group-hover:bg-secondary/20 transition-colors">
                           <subject.icon className="w-5 h-5 text-primary" />
@@ -122,7 +122,7 @@ export default function Tutoring() {
                       </div>
                       <p className="text-surface-600 text-sm">{subject.desc}</p>
                     </div>
-                  ))}
+                  )}
                 </motion.div>
               </motion.div>
               <motion.div
@@ -130,8 +130,8 @@ export default function Tutoring() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-                className="relative"
-              >
+                className="relative">
+
                 <img src={studyImageUrl} alt="Student studying with books" className="rounded-2xl shadow-2xl w-full" />
                 <div className="absolute -bottom-6 -left-6 w-32 h-32 border-2 border-secondary rounded-2xl -z-10" />
               </motion.div>
@@ -147,8 +147,8 @@ export default function Tutoring() {
               whileInView="visible"
               viewport={{ once: true }}
               variants={staggerContainer}
-              className="text-center mb-16"
-            >
+              className="text-center mb-16">
+
               <motion.span variants={fadeUp} className="text-secondary font-semibold tracking-wider uppercase text-sm">Tuition Formats</motion.span>
               <motion.h2 variants={fadeUp} className="font-heading text-4xl md:text-5xl font-bold text-primary mt-4 mb-6">Choose the approach that suits you</motion.h2>
             </motion.div>
@@ -157,21 +157,21 @@ export default function Tutoring() {
               whileInView="visible"
               viewport={{ once: true }}
               variants={staggerContainer}
-              className="grid md:grid-cols-3 gap-8"
-            >
+              className="grid md:grid-cols-3 gap-8">
+
               {[
-                { icon: Users, title: "One-to-One Tuition", desc: "Fully personalised sessions focused on your child's specific needs and goals." },
-                { icon: BookOpen, title: "Small-Group Tuition", desc: "Supportive group sessions with focused learning and peer interaction." },
-                { icon: Monitor, title: "Online Tuition", desc: "Flexible remote sessions delivered through accessible online platforms." }
-              ].map((format) => (
-                <motion.div key={format.title} variants={fadeUp} className="bg-white rounded-xl p-8 shadow-sm border border-surface-100 hover:shadow-lg transition-shadow text-center">
+              { icon: Users, title: "One-to-One Tuition", desc: "Fully personalised sessions focused on your child's specific needs and goals." },
+              { icon: BookOpen, title: "Small-Group Tuition", desc: "Supportive group sessions with focused learning and peer interaction." },
+              { icon: Monitor, title: "Online Tuition", desc: "Flexible remote sessions delivered through accessible online platforms." }].
+              map((format) =>
+              <motion.div key={format.title} variants={fadeUp} className="bg-white rounded-xl p-8 shadow-sm border border-surface-100 hover:shadow-lg transition-shadow text-center">
                   <div className="w-16 h-16 mx-auto rounded-full bg-primary/5 flex items-center justify-center mb-6 group-hover:bg-secondary/20 transition-colors">
                     <format.icon className="w-8 h-8 text-secondary" />
                   </div>
                   <h3 className="font-heading text-2xl font-bold text-primary mb-3">{format.title}</h3>
                   <p className="text-surface-600 leading-relaxed">{format.desc}</p>
                 </motion.div>
-              ))}
+              )}
             </motion.div>
           </div>
         </section>
@@ -184,8 +184,8 @@ export default function Tutoring() {
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
-                variants={staggerContainer}
-              >
+                variants={staggerContainer}>
+
                 <motion.span variants={fadeUp} className="text-secondary font-semibold tracking-wider uppercase text-sm">Exam Preparation</motion.span>
                 <motion.h2 variants={fadeUp} className="font-heading text-4xl md:text-5xl font-bold mt-4 mb-6">Building confidence for exams</motion.h2>
                 <motion.div variants={fadeUp} className="space-y-5 text-lg text-primary-foreground/80 leading-relaxed">
@@ -197,12 +197,12 @@ export default function Tutoring() {
                   </p>
                 </motion.div>
                 <motion.div variants={fadeUp} className="mt-8 space-y-3">
-                  {["Revision planning", "Past paper practice", "Exam technique", "Managing exam anxiety"].map((item) => (
-                    <div key={item} className="flex items-center gap-3">
+                  {["Revision planning", "Past paper practice", "Exam technique", "Managing exam anxiety"].map((item) =>
+                  <div key={item} className="flex items-center gap-3">
                       <Sparkles className="w-5 h-5 text-secondary" />
                       <span>{item}</span>
                     </div>
-                  ))}
+                  )}
                 </motion.div>
               </motion.div>
               <motion.div
@@ -210,8 +210,8 @@ export default function Tutoring() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-                className="relative"
-              >
+                className="relative">
+
                 <img src={tutoringImageUrl} alt="Exam preparation tutoring" className="rounded-2xl shadow-2xl w-full" />
               </motion.div>
             </div>
@@ -225,8 +225,8 @@ export default function Tutoring() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              variants={staggerContainer}
-            >
+              variants={staggerContainer}>
+
               <motion.h2 variants={fadeUp} className="font-heading text-4xl md:text-5xl font-bold text-primary mb-6">Find the right tuition for your child</motion.h2>
               <motion.p variants={fadeUp} className="text-lg text-surface-600 mb-10 leading-relaxed">
                 Tell us about your child's stage, subjects and learning needs. We will recommend a suitable approach.
@@ -242,6 +242,6 @@ export default function Tutoring() {
       </main>
       <Footer />
       <CookieConsent />
-    </div>
-  );
+    </div>);
+
 }
