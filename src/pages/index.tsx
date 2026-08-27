@@ -58,7 +58,7 @@ export default function Home() {
               transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
               className="mb-8" data-oid="/#o11">
 
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-secondary/30 mb-8" data-oid="/#o12">
+              <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/10 backdrop-blur-sm border border-secondary/30 mb-8 mt-4" data-oid="/#o12">
                 <Star className="w-4 h-4 text-secondary" data-oid="/#o13" />
                 <span className="text-sm font-medium text-primary-foreground/90 tracking-wide" data-oid="/#o14">Premium UK Education Services</span>
               </div>
