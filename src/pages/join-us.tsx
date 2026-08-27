@@ -1,59 +1,36 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { motion, useReducedMotion } from 'framer-motion';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import SkipToContent from '../components/SkipToContent';
-import LogoWatermark from '../components/LogoWatermark';
+import CookieConsent from '../components/CookieConsent';
+import SEOHead from '../components/SEOHead';
+import { Briefcase, Users, Heart, UserCheck, BookOpen, ArrowRight, CheckCircle } from 'lucide-react';
 
-const logoUrl = typeof window !== 'undefined' && window.serenities
-  ? window.serenities.files.url('6bc96ae7cd439802480ecbdbdc283e0b')
-  : '';
+const fadeUp = {
+  hidden: { opacity: 0, y: 40 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] } }
+};
 
-function useReveal() {
-  const ref = useRef(null);
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          el.classList.add('opacity-100', 'translate-y-0');
-          el.classList.remove('opacity-0', 'translate-y-8');
-        }
-      },
-      { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
-    );
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, []);
-  return ref;
-}
+const staggerContainer = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { staggerChildren: 0.12, delayChildren: 0.2 } }
+};
 
 export default function JoinUs() {
-  const heroRef = useReveal();
-  const section1Ref = useReveal();
-  const formRef = useReveal();
+  const prefersReducedMotion = useReducedMotion();
+  const professionalImageUrl = serenities.files.url('b1508abe1eb6618ff8eb1f79ee65e27f');
 
   const [formData, setFormData] = useState({
-    fullName: '',
-    email: '',
-    telephone: '',
-    location: '',
-    role: '',
-    subjects: '',
-    experience: '',
-    senExperience: '',
-    availability: '',
-    message: '',
-    consent: false,
+    fullName: '', email: '', telephone: '', location: '', role: '', subjects: '', experience: '', senExperience: '', availability: '', message: '', consent: false
   });
   const [submitted, setSubmitted] = useState(false);
   const [errors, setErrors] = useState({});
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: type === 'checkbox' ? checked : value }));
-    setErrors((prev) => ({ ...prev, [name]: '' }));
+    setFormData(prev => ({ ...prev, [name]: type === 'checkbox' ? checked : value }));
+    setErrors(prev => ({ ...prev, [name]: '' }));
   };
 
   const validate = () => {
@@ -73,112 +50,123 @@ export default function JoinUs() {
   };
 
   return (
-    <div className="min-h-screen bg-[#FAF9F6] font-body text-[#243247]">
-      <SkipToContent />
+    <div className="min-h-screen bg-background font-body text-foreground">
+      <SEOHead
+        title="Join Our Team | Education Professionals"
+        description="Join Royale Crown Academy Ltd as a tutor, teaching assistant, SEN support professional or education specialist."
+        canonical="https://royalecrown.serenitiesai.com/join-us"
+      />
       <Header />
       <main id="main-content">
-        <section className="relative overflow-hidden bg-[#102A56] pt-32 pb-20 lg:pt-44 lg:pb-28">
-          <div className="absolute inset-0 opacity-10">
-            <LogoWatermark className="h-[140%] w-[140%] -translate-x-1/4 -translate-y-1/4 text-[#FAF9F6]" />
+        <section className="relative py-32 lg:py-40 bg-primary overflow-hidden">
+          <div className="absolute inset-0">
+            <img src={professionalImageUrl} alt="" className="w-full h-full object-cover opacity-30" />
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/95 to-[#0B1D3A]/90" />
           </div>
-          <div className="absolute inset-0 bg-gradient-to-br from-[#102A56] via-[#102A56]/95 to-[#0B1D3A]" />
-          <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div ref={heroRef} className="opacity-0 translate-y-8 transition-all duration-1000 ease-out">
-              <div className="flex items-center gap-3 mb-6">
-                <span className="h-px w-12 bg-[#C6A15B]" />
-                <span className="text-sm font-semibold uppercase tracking-widest text-[#E8D7B2]">Careers</span>
-              </div>
-              <h1 className="font-heading text-4xl font-bold leading-tight text-[#FAF9F6] sm:text-5xl lg:text-6xl max-w-4xl">
-                Build your education career with us.
-              </h1>
-              <p className="mt-6 max-w-2xl text-lg leading-relaxed text-[#FAF9F6]/85">
-                Join a growing UK education organisation committed to personalised learning, inclusion and professional standards. We welcome applications from tutors, teaching assistants, SEN professionals and other education specialists.
-              </p>
-              <div className="mt-10 flex flex-wrap gap-4">
-                <a href="#application-form" className="inline-flex items-center rounded-md bg-[#C6A15B] px-6 py-3 text-base font-semibold text-[#0B1D3A] shadow-sm transition-all hover:bg-[#E8D7B2] hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C6A15B]">
-                  Apply Now
-                </a>
-                <Link to="/education-staffing" className="inline-flex items-center rounded-md border border-[#FAF9F6]/30 bg-transparent px-6 py-3 text-base font-semibold text-[#FAF9F6] transition-all hover:bg-[#FAF9F6]/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C6A15B]">
-                  Learn About Staffing
-                </Link>
-              </div>
-            </div>
+          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={staggerContainer}
+            >
+              <motion.span variants={fadeUp} className="text-secondary font-semibold tracking-wider uppercase text-sm">Careers</motion.span>
+              <motion.h1 variants={fadeUp} className="font-heading text-5xl md:text-6xl lg:text-7xl font-bold text-primary-foreground mt-6 mb-6">Build Your Education Career With Us</motion.h1>
+              <motion.p variants={fadeUp} className="text-xl text-primary-foreground/80 max-w-3xl mx-auto leading-relaxed">
+                Join a growing UK education organisation committed to personalised learning, inclusion and professional standards.
+              </motion.p>
+            </motion.div>
           </div>
         </section>
 
-        <section className="py-20 lg:py-28">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div ref={section1Ref} className="opacity-0 translate-y-8 transition-all duration-1000 ease-out">
-              <div className="mx-auto max-w-3xl text-center">
-                <h2 className="font-heading text-3xl font-bold text-[#102A56] sm:text-4xl">Who we are looking for</h2>
-                <p className="mt-5 text-lg leading-relaxed text-[#243247]/80">
-                  We are interested in hearing from education professionals who share our commitment to high-quality, learner-centred support.
-                </p>
-              </div>
-              <div className="mt-16 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-                {[
-                  { title: 'Tutors', desc: 'Subject specialists across primary, secondary, GCSE and A-Level subjects, able to deliver personalised tuition online or in person.' },
-                  { title: 'Teaching Assistants', desc: 'Classroom support professionals who work confidently alongside learners and teachers in a range of settings.' },
-                  { title: 'SEN Teaching Assistants', desc: 'Support professionals with experience of working with learners with additional needs, including autism, ADHD and dyslexia.' },
-                  { title: 'Cover Supervisors', desc: 'Reliable education professionals able to supervise classes and maintain a positive learning environment.' },
-                  { title: 'Learning Support Assistants', desc: 'Professionals who provide targeted support to help learners access the curriculum and build confidence.' },
-                  { title: 'Education Support Professionals', desc: 'Other suitable education professionals with skills and experience that complement our services.' },
-                ].map((item, i) => (
-                  <div key={i} className="group rounded-xl border border-[#E5EAF1] bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
-                    <div className="mb-5 h-1 w-12 rounded-full bg-[#C6A15B] transition-all group-hover:w-20" />
-                    <h3 className="font-heading text-xl font-semibold text-[#102A56]">{item.title}</h3>
-                    <p className="mt-3 text-[#243247]/75 leading-relaxed">{item.desc}</p>
+        <section className="py-24 bg-background">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={staggerContainer}
+              className="text-center mb-16"
+            >
+              <motion.span variants={fadeUp} className="text-secondary font-semibold tracking-wider uppercase text-sm">Opportunities</motion.span>
+              <motion.h2 variants={fadeUp} className="font-heading text-4xl md:text-5xl font-bold text-primary mt-4 mb-6">Who we are looking for</motion.h2>
+            </motion.div>
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={staggerContainer}
+              className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+            >
+              {[
+                { icon: BookOpen, title: "Tutors", desc: "Subject specialists across primary, secondary, GCSE and A-Level subjects." },
+                { icon: Users, title: "Teaching Assistants", desc: "Classroom support professionals who work confidently alongside learners." },
+                { icon: Heart, title: "SEN Teaching Assistants", desc: "Support professionals with experience of working with learners with additional needs." },
+                { icon: UserCheck, title: "Cover Supervisors", desc: "Reliable education professionals able to supervise classes." },
+                { icon: Users, title: "Learning Support Assistants", desc: "Professionals who provide targeted support to help learners access the curriculum." },
+                { icon: Briefcase, title: "Education Support Professionals", desc: "Other suitable education professionals with complementary skills." }
+              ].map((role) => (
+                <motion.div key={role.title} variants={fadeUp} className="bg-white rounded-xl p-8 shadow-sm border border-surface-100 hover:shadow-lg transition-shadow group">
+                  <div className="w-12 h-12 rounded-lg bg-primary/5 flex items-center justify-center mb-5 group-hover:bg-secondary/20 transition-colors">
+                    <role.icon className="w-6 h-6 text-primary" />
                   </div>
-                ))}
-              </div>
-            </div>
+                  <h3 className="font-heading text-xl font-bold text-primary mb-3">{role.title}</h3>
+                  <p className="text-surface-600 leading-relaxed">{role.desc}</p>
+                </motion.div>
+              ))}
+            </motion.div>
           </div>
         </section>
 
-        <section id="application-form" className="bg-[#EEF4FA] py-20 lg:py-28">
-          <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-            <div ref={formRef} className="opacity-0 translate-y-8 transition-all duration-1000 ease-out">
-              <div className="overflow-hidden rounded-2xl bg-white shadow-xl">
-                <div className="bg-[#102A56] px-8 py-8">
-                  <h2 className="font-heading text-2xl font-bold text-[#FAF9F6] sm:text-3xl">Application Form</h2>
-                  <p className="mt-2 text-[#FAF9F6]/80">Tell us about your experience and the role you are interested in.</p>
+        <section id="application-form" className="py-24 bg-surface-50">
+          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={staggerContainer}
+            >
+              <motion.div variants={fadeUp} className="bg-white rounded-2xl shadow-xl border border-surface-100 overflow-hidden">
+                <div className="bg-primary px-8 py-8">
+                  <h2 className="font-heading text-2xl font-bold text-primary-foreground sm:text-3xl">Application Form</h2>
+                  <p className="mt-2 text-primary-foreground/80">Tell us about your experience and the role you are interested in.</p>
                 </div>
                 <div className="p-8">
                   {submitted ? (
-                    <div className="rounded-xl bg-[#E8D7B2]/20 p-8 text-center">
-                      <h3 className="font-heading text-xl font-semibold text-[#102A56]">Thank you for your application</h3>
-                      <p className="mt-3 text-[#243247]/80">We have received your details and will be in touch shortly to discuss the next steps.</p>
-                      <Link to="/" className="mt-6 inline-flex items-center rounded-md bg-[#102A56] px-6 py-3 text-sm font-semibold text-[#FAF9F6] transition-colors hover:bg-[#0B1D3A]">
-                        Return to Home
-                      </Link>
+                    <div className="text-center py-12">
+                      <div className="w-16 h-16 mx-auto rounded-full bg-green-100 flex items-center justify-center mb-6">
+                        <CheckCircle className="w-8 h-8 text-green-600" />
+                      </div>
+                      <h3 className="font-heading text-2xl font-bold text-primary mb-3">Thank you for your application</h3>
+                      <p className="text-surface-600">We have received your details and will be in touch shortly.</p>
                     </div>
                   ) : (
                     <form onSubmit={handleSubmit} className="space-y-6" noValidate>
-                      <div className="grid gap-6 md:grid-cols-2">
+                      <div className="grid md:grid-cols-2 gap-6">
                         <div>
-                          <label htmlFor="fullName" className="block text-sm font-semibold text-[#102A56]">Full name <span className="text-[#C6A15B]">*</span></label>
-                          <input id="fullName" name="fullName" type="text" value={formData.fullName} onChange={handleChange} className="mt-2 block w-full rounded-md border border-[#E5EAF1] bg-[#FAF9F6] px-4 py-3 text-[#243247] focus:border-[#C6A15B] focus:outline-none focus:ring-2 focus:ring-[#C6A15B]/20" />
+                          <label htmlFor="fullName" className="block text-sm font-semibold text-primary mb-2">Full name *</label>
+                          <input id="fullName" name="fullName" type="text" value={formData.fullName} onChange={handleChange} className="w-full px-4 py-3 rounded-lg border border-surface-200 focus:border-secondary focus:ring-2 focus:ring-secondary/20 outline-none transition-all" />
                           {errors.fullName && <p className="mt-1 text-sm text-red-600">{errors.fullName}</p>}
                         </div>
                         <div>
-                          <label htmlFor="email" className="block text-sm font-semibold text-[#102A56]">Email <span className="text-[#C6A15B]">*</span></label>
-                          <input id="email" name="email" type="email" value={formData.email} onChange={handleChange} className="mt-2 block w-full rounded-md border border-[#E5EAF1] bg-[#FAF9F6] px-4 py-3 text-[#243247] focus:border-[#C6A15B] focus:outline-none focus:ring-2 focus:ring-[#C6A15B]/20" />
+                          <label htmlFor="email" className="block text-sm font-semibold text-primary mb-2">Email *</label>
+                          <input id="email" name="email" type="email" value={formData.email} onChange={handleChange} className="w-full px-4 py-3 rounded-lg border border-surface-200 focus:border-secondary focus:ring-2 focus:ring-secondary/20 outline-none transition-all" />
                           {errors.email && <p className="mt-1 text-sm text-red-600">{errors.email}</p>}
                         </div>
                       </div>
-                      <div className="grid gap-6 md:grid-cols-2">
+                      <div className="grid md:grid-cols-2 gap-6">
                         <div>
-                          <label htmlFor="telephone" className="block text-sm font-semibold text-[#102A56]">Telephone</label>
-                          <input id="telephone" name="telephone" type="tel" value={formData.telephone} onChange={handleChange} className="mt-2 block w-full rounded-md border border-[#E5EAF1] bg-[#FAF9F6] px-4 py-3 text-[#243247] focus:border-[#C6A15B] focus:outline-none focus:ring-2 focus:ring-[#C6A15B]/20" />
+                          <label htmlFor="telephone" className="block text-sm font-semibold text-primary mb-2">Telephone</label>
+                          <input id="telephone" name="telephone" type="tel" value={formData.telephone} onChange={handleChange} className="w-full px-4 py-3 rounded-lg border border-surface-200 focus:border-secondary focus:ring-2 focus:ring-secondary/20 outline-none transition-all" />
                         </div>
                         <div>
-                          <label htmlFor="location" className="block text-sm font-semibold text-[#102A56]">Location</label>
-                          <input id="location" name="location" type="text" value={formData.location} onChange={handleChange} className="mt-2 block w-full rounded-md border border-[#E5EAF1] bg-[#FAF9F6] px-4 py-3 text-[#243247] focus:border-[#C6A15B] focus:outline-none focus:ring-2 focus:ring-[#C6A15B]/20" />
+                          <label htmlFor="location" className="block text-sm font-semibold text-primary mb-2">Location</label>
+                          <input id="location" name="location" type="text" value={formData.location} onChange={handleChange} className="w-full px-4 py-3 rounded-lg border border-surface-200 focus:border-secondary focus:ring-2 focus:ring-secondary/20 outline-none transition-all" />
                         </div>
                       </div>
                       <div>
-                        <label htmlFor="role" className="block text-sm font-semibold text-[#102A56]">Role you are applying for <span className="text-[#C6A15B]">*</span></label>
-                        <select id="role" name="role" value={formData.role} onChange={handleChange} className="mt-2 block w-full rounded-md border border-[#E5EAF1] bg-[#FAF9F6] px-4 py-3 text-[#243247] focus:border-[#C6A15B] focus:outline-none focus:ring-2 focus:ring-[#C6A15B]/20">
+                        <label htmlFor="role" className="block text-sm font-semibold text-primary mb-2">Role you are applying for *</label>
+                        <select id="role" name="role" value={formData.role} onChange={handleChange} className="w-full px-4 py-3 rounded-lg border border-surface-200 focus:border-secondary focus:ring-2 focus:ring-secondary/20 outline-none transition-all bg-white">
                           <option value="">Select a role</option>
                           <option value="tutor">Tutor</option>
                           <option value="teaching-assistant">Teaching Assistant</option>
@@ -190,46 +178,47 @@ export default function JoinUs() {
                         {errors.role && <p className="mt-1 text-sm text-red-600">{errors.role}</p>}
                       </div>
                       <div>
-                        <label htmlFor="subjects" className="block text-sm font-semibold text-[#102A56]">Subjects / specialisms</label>
-                        <input id="subjects" name="subjects" type="text" value={formData.subjects} onChange={handleChange} className="mt-2 block w-full rounded-md border border-[#E5EAF1] bg-[#FAF9F6] px-4 py-3 text-[#243247] focus:border-[#C6A15B] focus:outline-none focus:ring-2 focus:ring-[#C6A15B]/20" />
+                        <label htmlFor="subjects" className="block text-sm font-semibold text-primary mb-2">Subjects / specialisms</label>
+                        <input id="subjects" name="subjects" type="text" value={formData.subjects} onChange={handleChange} className="w-full px-4 py-3 rounded-lg border border-surface-200 focus:border-secondary focus:ring-2 focus:ring-secondary/20 outline-none transition-all" />
                       </div>
-                      <div className="grid gap-6 md:grid-cols-2">
+                      <div className="grid md:grid-cols-2 gap-6">
                         <div>
-                          <label htmlFor="experience" className="block text-sm font-semibold text-[#102A56]">Relevant experience</label>
-                          <textarea id="experience" name="experience" rows={3} value={formData.experience} onChange={handleChange} className="mt-2 block w-full rounded-md border border-[#E5EAF1] bg-[#FAF9F6] px-4 py-3 text-[#243247] focus:border-[#C6A15B] focus:outline-none focus:ring-2 focus:ring-[#C6A15B]/20" />
+                          <label htmlFor="experience" className="block text-sm font-semibold text-primary mb-2">Relevant experience</label>
+                          <textarea id="experience" name="experience" rows={3} value={formData.experience} onChange={handleChange} className="w-full px-4 py-3 rounded-lg border border-surface-200 focus:border-secondary focus:ring-2 focus:ring-secondary/20 outline-none transition-all resize-none" />
                         </div>
                         <div>
-                          <label htmlFor="senExperience" className="block text-sm font-semibold text-[#102A56]">SEN experience</label>
-                          <textarea id="senExperience" name="senExperience" rows={3} value={formData.senExperience} onChange={handleChange} className="mt-2 block w-full rounded-md border border-[#E5EAF1] bg-[#FAF9F6] px-4 py-3 text-[#243247] focus:border-[#C6A15B] focus:outline-none focus:ring-2 focus:ring-[#C6A15B]/20" />
+                          <label htmlFor="senExperience" className="block text-sm font-semibold text-primary mb-2">SEN experience</label>
+                          <textarea id="senExperience" name="senExperience" rows={3} value={formData.senExperience} onChange={handleChange} className="w-full px-4 py-3 rounded-lg border border-surface-200 focus:border-secondary focus:ring-2 focus:ring-secondary/20 outline-none transition-all resize-none" />
                         </div>
                       </div>
                       <div>
-                        <label htmlFor="availability" className="block text-sm font-semibold text-[#102A56]">Availability</label>
-                        <input id="availability" name="availability" type="text" value={formData.availability} onChange={handleChange} placeholder="e.g. weekdays after 3pm" className="mt-2 block w-full rounded-md border border-[#E5EAF1] bg-[#FAF9F6] px-4 py-3 text-[#243247] focus:border-[#C6A15B] focus:outline-none focus:ring-2 focus:ring-[#C6A15B]/20" />
+                        <label htmlFor="availability" className="block text-sm font-semibold text-primary mb-2">Availability</label>
+                        <input id="availability" name="availability" type="text" value={formData.availability} onChange={handleChange} placeholder="e.g. weekdays after 3pm" className="w-full px-4 py-3 rounded-lg border border-surface-200 focus:border-secondary focus:ring-2 focus:ring-secondary/20 outline-none transition-all" />
                       </div>
                       <div>
-                        <label htmlFor="message" className="block text-sm font-semibold text-[#102A56]">Additional information</label>
-                        <textarea id="message" name="message" rows={4} value={formData.message} onChange={handleChange} className="mt-2 block w-full rounded-md border border-[#E5EAF1] bg-[#FAF9F6] px-4 py-3 text-[#243247] focus:border-[#C6A15B] focus:outline-none focus:ring-2 focus:ring-[#C6A15B]/20" />
+                        <label htmlFor="message" className="block text-sm font-semibold text-primary mb-2">Additional information</label>
+                        <textarea id="message" name="message" rows={4} value={formData.message} onChange={handleChange} className="w-full px-4 py-3 rounded-lg border border-surface-200 focus:border-secondary focus:ring-2 focus:ring-secondary/20 outline-none transition-all resize-none" />
                       </div>
                       <div className="flex items-start gap-3">
-                        <input id="consent" name="consent" type="checkbox" checked={formData.consent} onChange={handleChange} className="mt-1 h-5 w-5 rounded border-[#E5EAF1] text-[#102A56] focus:ring-[#C6A15B]" />
-                        <label htmlFor="consent" className="text-sm text-[#243247]/80">
-                          I agree to Royale Crown Academy Ltd processing my personal data in accordance with the <Link to="/privacy-policy" className="text-[#102A56] underline hover:text-[#C6A15B]">Privacy Policy</Link>. <span className="text-[#C6A15B]">*</span>
+                        <input id="consent" name="consent" type="checkbox" checked={formData.consent} onChange={handleChange} className="w-5 h-5 mt-0.5 rounded border-surface-300 text-secondary focus:ring-secondary" />
+                        <label htmlFor="consent" className="text-sm text-surface-600">
+                          I agree to Royale Crown Academy Ltd processing my personal data in accordance with the <Link to="/privacy-policy" className="text-secondary hover:underline">Privacy Policy</Link>. *
                         </label>
                       </div>
                       {errors.consent && <p className="text-sm text-red-600">{errors.consent}</p>}
-                      <button type="submit" className="w-full rounded-md bg-[#102A56] px-6 py-4 text-base font-semibold text-[#FAF9F6] shadow-sm transition-all hover:bg-[#0B1D3A] hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C6A15B]">
+                      <button type="submit" className="w-full md:w-auto px-8 py-4 bg-primary text-primary-foreground font-semibold rounded-lg hover:bg-primary/90 transition-all">
                         Submit Application
                       </button>
                     </form>
                   )}
                 </div>
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
           </div>
         </section>
       </main>
       <Footer />
+      <CookieConsent />
     </div>
   );
 }

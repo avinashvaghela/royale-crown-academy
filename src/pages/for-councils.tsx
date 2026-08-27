@@ -42,7 +42,7 @@ export default function ForCouncils() {
               viewport={{ once: true }}
               variants={staggerContainer}
             >
-              <motion.span variants={fadeUp} className="text-secondary font-semibold tracking-wider uppercase text-sm">For Public Sector</motion.Span>
+              <motion.span variants={fadeUp} className="text-secondary font-semibold tracking-wider uppercase text-sm">For Public Sector</motion.span>
               <motion.h1 variants={fadeUp} className="font-heading text-5xl md:text-6xl lg:text-7xl font-bold text-primary-foreground mt-6 mb-6">Education Services for Councils & Local Authorities</motion.h1>
               <motion.p variants={fadeUp} className="text-xl text-primary-foreground/80 max-w-3xl mx-auto leading-relaxed">
                 Flexible, accountable education support designed around the requirements of local authorities, commissioning teams and SEND services.
@@ -99,7 +99,7 @@ export default function ForCouncils() {
                 viewport={{ once: true }}
                 variants={staggerContainer}
               >
-                <motion.span variants={fadeUp} className="text-secondary font-semibold tracking-wider uppercase text-sm">Partnership</motion.Span>
+                <motion.span variants={fadeUp} className="text-secondary font-semibold tracking-wider uppercase text-sm">Partnership</motion.span>
                 <motion.h2 variants={fadeUp} className="font-heading text-4xl md:text-5xl font-bold text-primary mt-4 mb-6">Professional, accountable partnership</motion.h2>
                 <motion.div variants={fadeUp} className="space-y-5 text-lg text-surface-600 leading-relaxed">
                   <p>
