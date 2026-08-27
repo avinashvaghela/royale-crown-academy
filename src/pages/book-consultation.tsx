@@ -29,8 +29,8 @@ export default function BookConsultation() {
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
-    setFormData(prev => ({ ...prev, [name]: type === 'checkbox' ? checked : value }));
-    setErrors(prev => ({ ...prev, [name]: '' }));
+    setFormData((prev) => ({ ...prev, [name]: type === 'checkbox' ? checked : value }));
+    setErrors((prev) => ({ ...prev, [name]: '' }));
   };
 
   const validate = () => {
@@ -55,8 +55,8 @@ export default function BookConsultation() {
       <SEOHead
         title="Book a Consultation | Royale Crown Academy"
         description="Book a free, no-obligation consultation with Royale Crown Academy to discuss tuition, SEN support or education staffing requirements."
-        canonical="https://royalecrown.serenitiesai.com/book-consultation"
-      />
+        canonical="https://royalecrown.serenitiesai.com/book-consultation" />
+
       <Header />
       <main id="main-content">
         <section className="relative py-32 lg:py-40 bg-primary overflow-hidden">
@@ -69,8 +69,8 @@ export default function BookConsultation() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              variants={staggerContainer}
-            >
+              variants={staggerContainer}>
+
               <motion.span variants={fadeUp} className="text-secondary font-semibold tracking-wider uppercase text-sm">Consultation</motion.span>
               <motion.h1 variants={fadeUp} className="font-heading text-5xl md:text-6xl lg:text-7xl font-bold text-primary-foreground mt-6 mb-6">Book a Consultation</motion.h1>
               <motion.p variants={fadeUp} className="text-xl text-primary-foreground/80 max-w-3xl mx-auto leading-relaxed">
@@ -86,24 +86,24 @@ export default function BookConsultation() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              variants={staggerContainer}
-            >
+              variants={staggerContainer}>
+
               <motion.div variants={fadeUp} className="bg-white rounded-2xl shadow-xl border border-surface-100 overflow-hidden">
                 <div className="bg-primary px-8 py-8">
                   <h2 className="font-heading text-2xl font-bold text-primary-foreground sm:text-3xl">Request a consultation</h2>
                   <p className="mt-2 text-primary-foreground/80">We will contact you to arrange a convenient time.</p>
                 </div>
                 <div className="p-8">
-                  {submitted ? (
-                    <div className="text-center py-12">
+                  {submitted ?
+                  <div className="text-center py-12">
                       <div className="w-16 h-16 mx-auto rounded-full bg-green-100 flex items-center justify-center mb-6">
                         <CheckCircle className="w-8 h-8 text-green-600" />
                       </div>
                       <h3 className="font-heading text-2xl font-bold text-primary mb-3">Consultation request received</h3>
                       <p className="text-surface-600">Thank you. A member of our team will be in touch shortly to arrange a convenient time to speak.</p>
-                    </div>
-                  ) : (
-                    <form onSubmit={handleSubmit} className="space-y-6" noValidate>
+                    </div> :
+
+                  <form onSubmit={handleSubmit} className="space-y-6" noValidate>
                       <div className="grid md:grid-cols-2 gap-6">
                         <div>
                           <label htmlFor="name" className="block text-sm font-semibold text-primary mb-2">Name *</label>
@@ -167,7 +167,7 @@ export default function BookConsultation() {
                         Request Consultation <ArrowRight className="w-5 h-5" />
                       </button>
                     </form>
-                  )}
+                  }
                 </div>
               </motion.div>
             </motion.div>
@@ -176,6 +176,6 @@ export default function BookConsultation() {
       </main>
       <Footer />
       <CookieConsent />
-    </div>
-  );
+    </div>);
+
 }
