@@ -27,7 +27,7 @@ export default function ForSchoolsColleges() {
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
-    setFormData(prev => ({ ...prev, [name]: type === 'checkbox' ? checked : value }));
+    setFormData((prev) => ({ ...prev, [name]: type === 'checkbox' ? checked : value }));
   };
 
   const handleSubmit = (e) => {
@@ -40,8 +40,8 @@ export default function ForSchoolsColleges() {
       <SEOHead
         title="For Schools & Colleges | Education Support & Staffing"
         description="Flexible education support, SEN provision, tuition and staffing solutions for UK schools and colleges."
-        canonical="https://royalecrown.serenitiesai.com/for-schools-colleges"
-      />
+        canonical="https://royalecrown.serenitiesai.com/for-schools-colleges" />
+
       <Header />
       <main id="main-content">
         {/* Hero */}
@@ -55,8 +55,8 @@ export default function ForSchoolsColleges() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              variants={staggerContainer}
-            >
+              variants={staggerContainer}>
+
               <motion.span variants={fadeUp} className="text-secondary font-semibold tracking-wider uppercase text-sm">For Schools & Colleges</motion.span>
               <motion.h1 variants={fadeUp} className="font-heading text-5xl md:text-6xl lg:text-7xl font-bold text-primary-foreground mt-6 mb-6">Education Support That Works Around Your Setting</motion.h1>
               <motion.p variants={fadeUp} className="text-xl text-primary-foreground/80 max-w-3xl mx-auto leading-relaxed">
@@ -74,8 +74,8 @@ export default function ForSchoolsColleges() {
               whileInView="visible"
               viewport={{ once: true }}
               variants={staggerContainer}
-              className="text-center mb-16"
-            >
+              className="text-center mb-16">
+
               <motion.span variants={fadeUp} className="text-secondary font-semibold tracking-wider uppercase text-sm">Services for Settings</motion.span>
               <motion.h2 variants={fadeUp} className="font-heading text-4xl md:text-5xl font-bold text-primary mt-4 mb-6">Comprehensive support for education settings</motion.h2>
             </motion.div>
@@ -84,24 +84,24 @@ export default function ForSchoolsColleges() {
               whileInView="visible"
               viewport={{ once: true }}
               variants={staggerContainer}
-              className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
-            >
+              className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
               {[
-                { icon: Heart, title: "SEN Support", desc: "Specialist support for learners with additional educational needs." },
-                { icon: BookOpen, title: "Targeted Tutoring", desc: "One-to-one and small-group tuition for specific learners or cohorts." },
-                { icon: School, title: "Catch-Up Support", desc: "Structured intervention to help learners close gaps and rebuild confidence." },
-                { icon: Users, title: "Teaching Assistants", desc: "Classroom and SEN support staff to reinforce learning." },
-                { icon: Users, title: "Cover Supervisors", desc: "Reliable cover to maintain continuity in your setting." },
-                { icon: Shield, title: "Flexible Staffing", desc: "Responsive staffing solutions that adapt to your timetable and needs." }
-              ].map((service) => (
-                <motion.div key={service.title} variants={fadeUp} className="bg-white rounded-xl p-8 shadow-sm border border-surface-100 hover:shadow-lg transition-shadow group">
+              { icon: Heart, title: "SEN Support", desc: "Specialist support for learners with additional educational needs." },
+              { icon: BookOpen, title: "Targeted Tutoring", desc: "One-to-one and small-group tuition for specific learners or cohorts." },
+              { icon: School, title: "Catch-Up Support", desc: "Structured intervention to help learners close gaps and rebuild confidence." },
+              { icon: Users, title: "Teaching Assistants", desc: "Classroom and SEN support staff to reinforce learning." },
+              { icon: Users, title: "Cover Supervisors", desc: "Reliable cover to maintain continuity in your setting." },
+              { icon: Shield, title: "Flexible Staffing", desc: "Responsive staffing solutions that adapt to your timetable and needs." }].
+              map((service) =>
+              <motion.div key={service.title} variants={fadeUp} className="bg-white rounded-xl p-8 shadow-sm border border-surface-100 hover:shadow-lg transition-shadow group">
                   <div className="w-12 h-12 rounded-lg bg-primary/5 flex items-center justify-center mb-5 group-hover:bg-secondary/20 transition-colors">
                     <service.icon className="w-6 h-6 text-primary" />
                   </div>
                   <h3 className="font-heading text-xl font-bold text-primary mb-3">{service.title}</h3>
                   <p className="text-surface-600 leading-relaxed">{service.desc}</p>
                 </motion.div>
-              ))}
+              )}
             </motion.div>
           </div>
         </section>
@@ -115,8 +115,8 @@ export default function ForSchoolsColleges() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-                className="relative"
-              >
+                className="relative">
+
                 <img src={schoolImageUrl} alt="School leadership team" className="rounded-2xl shadow-2xl w-full" />
                 <div className="absolute -bottom-6 -right-6 w-32 h-32 border-2 border-secondary rounded-2xl -z-10" />
               </motion.div>
@@ -124,23 +124,23 @@ export default function ForSchoolsColleges() {
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
-                variants={staggerContainer}
-              >
+                variants={staggerContainer}>
+
                 <motion.span variants={fadeUp} className="text-secondary font-semibold tracking-wider uppercase text-sm">Why Schools Work With Us</motion.span>
                 <motion.h2 variants={fadeUp} className="font-heading text-4xl md:text-5xl font-bold text-primary mt-4 mb-6">A partner, not just a provider</motion.h2>
                 <motion.div variants={fadeUp} className="space-y-5">
                   {[
-                    "Responsive communication and clear processes",
-                    "Support tailored to your setting's priorities",
-                    "Safeguarding-aware professionals",
-                    "Flexible arrangements that fit your timetable",
-                    "Regular review and ongoing partnership"
-                  ].map((item, index) => (
-                    <div key={index} className="flex gap-4">
+                  "Responsive communication and clear processes",
+                  "Support tailored to your setting's priorities",
+                  "Safeguarding-aware professionals",
+                  "Flexible arrangements that fit your timetable",
+                  "Regular review and ongoing partnership"].
+                  map((item, index) =>
+                  <div key={index} className="flex gap-4">
                       <CheckCircle className="w-6 h-6 text-secondary flex-shrink-0 mt-0.5" />
                       <p className="text-surface-700 text-lg">{item}</p>
                     </div>
-                  ))}
+                  )}
                 </motion.div>
               </motion.div>
             </div>
@@ -155,8 +155,8 @@ export default function ForSchoolsColleges() {
               whileInView="visible"
               viewport={{ once: true }}
               variants={staggerContainer}
-              className="text-center mb-12"
-            >
+              className="text-center mb-12">
+
               <motion.span variants={fadeUp} className="text-secondary font-semibold tracking-wider uppercase text-sm">Request Support</motion.span>
               <motion.h2 variants={fadeUp} className="font-heading text-4xl md:text-5xl font-bold text-primary mt-4 mb-6">Discuss your school's requirements</motion.h2>
               <motion.p variants={fadeUp} className="text-lg text-surface-600">
@@ -169,18 +169,18 @@ export default function ForSchoolsColleges() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="bg-white rounded-2xl p-8 md:p-12 shadow-lg border border-surface-100"
-            >
-              {submitted ? (
-                <div className="text-center py-12">
+              className="bg-white rounded-2xl p-8 md:p-12 shadow-lg border border-surface-100">
+
+              {submitted ?
+              <div className="text-center py-12">
                   <div className="w-16 h-16 mx-auto rounded-full bg-green-100 flex items-center justify-center mb-6">
                     <CheckCircle className="w-8 h-8 text-green-600" />
                   </div>
                   <h3 className="font-heading text-2xl font-bold text-primary mb-3">Thank you for your enquiry</h3>
                   <p className="text-surface-600">We have received your message and will be in touch shortly.</p>
-                </div>
-              ) : (
-                <form onSubmit={handleSubmit} className="space-y-6">
+                </div> :
+
+              <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
                       <label htmlFor="name" className="block text-sm font-semibold text-primary mb-2">Name *</label>
@@ -244,13 +244,13 @@ export default function ForSchoolsColleges() {
                     Request Support
                   </button>
                 </form>
-              )}
+              }
             </motion.div>
           </div>
         </section>
       </main>
       <Footer />
       <CookieConsent />
-    </div>
-  );
+    </div>);
+
 }
