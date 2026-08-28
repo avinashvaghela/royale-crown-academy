@@ -48,20 +48,20 @@ export default function Footer() {
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="grid gap-12 lg:grid-cols-12">
           <div className="lg:col-span-4">
-            <Link to="/" className="inline-flex items-center gap-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C6A15B] rounded-md">
-              <img
-                src={logoUrl}
-                alt="Royale Crown Academy Ltd logo"
-                className="h-16 w-auto object-contain"
-                width="64"
-                height="64" />
+            <Link to="/" className="inline-flex items-center gap-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C6A15B] rounded-md"><img src="/api/files/public/0f03a5beecd57526c67cdeb73a3ebf3d" alt="" className="max-w-full h-auto rounded" />
 
-              <div className="flex flex-col">
-                <span className="font-heading text-lg font-bold leading-tight text-[#FAF9F6]">
-                  Royale Crown Academy
-                </span>
-                <span className="text-xs tracking-widest text-[#C6A15B] uppercase">Ltd</span>
-              </div>
+
+
+
+
+
+
+
+
+
+
+
+
             </Link>
             <p className="mt-5 max-w-sm text-sm leading-relaxed text-[#FAF9F6]/80">
               Personalised SEN support, private tuition and education staffing for children, young people, families, schools, colleges and local authorities across the UK.
