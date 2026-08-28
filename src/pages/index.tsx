@@ -25,7 +25,7 @@ const scaleIn = {
 
 export default function Home() {
   const prefersReducedMotion = useReducedMotion();
-  const heroImageUrl = serenities.files.url('e190c6f1c9842cb3e855b088035f48fc');
+  const heroImageUrl = serenities.files.url('f325f7281e4fb37f2576f08ff2a51ada');
   const tutoringImageUrl = serenities.files.url('9d4afc54e4fe0660f8d55bba1f7f3634');
   const senImageUrl = serenities.files.url('45a479344c0996e95fef0084456de99a');
   const schoolImageUrl = serenities.files.url('d8a52ffe130477f20c51a632ffc8d950');
