@@ -58,6 +58,6 @@ export default function DataProtectionPage() {
       <p>
         For data protection queries, please contact [Data Protection Officer / contact to be inserted] at <a href="mailto:info@royalecrownacademy.co.uk" className="font-medium text-primary underline">info@royalecrownacademy.co.uk</a>.
       </p>
-    </LegalPageLayout>);
-
+    </LegalPageLayout>
+  );
 }
