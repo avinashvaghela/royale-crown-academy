@@ -48,7 +48,7 @@ export default function Footer() {
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8" data-oid="/components/Footer.tsx#o1">
         <div className="grid gap-12 lg:grid-cols-12" data-oid="/components/Footer.tsx#o2">
           <div className="lg:col-span-4" data-oid="/components/Footer.tsx#o3">
-            <Link to="/" className="inline-flex items-center gap-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C6A15B] rounded-md" style={{ fontSize: '21px', lineHeight: '24.3px', width: '130px', height: '40px' }} data-oid="/components/Footer.tsx#o4"><img src={logoUrl} alt="Royale Crown Academy" className="h-14 w-auto object-contain" data-oid="/components/Footer.tsx#o5" />
+            <Link to="/" className="inline-flex items-center gap-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C6A15B] rounded-md" style={{ fontSize: '21px', lineHeight: '24.3px', width: '130px', height: '40px' }} data-oid="/components/Footer.tsx#o4"><img src={logoUrl} alt="Royale Crown Academy" className="h-16 w-auto object-contain" data-oid="/components/Footer.tsx#o5" />
 
 
 
