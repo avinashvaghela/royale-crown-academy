@@ -24,6 +24,6 @@ export default function ResourceCard({ title, excerpt, category, date, href }) {
           </Link>
         </div>
       </div>
-    </article>);
-
+    </article>
+  );
 }
