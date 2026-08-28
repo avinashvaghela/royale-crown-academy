@@ -27,8 +27,8 @@ export default function EducationStaffing() {
       <SEOHead
         title="Education Staffing | Teaching Assistants, SEN Support & Cover"
         description="Professional education staffing solutions for schools and colleges. Supply of Teaching Assistants, SEN Teaching Assistants, Cover Supervisors and tutors."
-        canonical="https://royalecrown.serenitiesai.com/education-staffing" />
-
+        canonical="https://royalecrown.serenitiesai.com/education-staffing"
+      />
       <Header />
       <main id="main-content">
         {/* Hero */}
@@ -42,8 +42,8 @@ export default function EducationStaffing() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              variants={staggerContainer}>
-
+              variants={staggerContainer}
+            >
               <motion.span variants={fadeUp} className="text-secondary font-semibold tracking-wider uppercase text-sm">Education Staffing</motion.span>
               <motion.h1 variants={fadeUp} className="font-heading text-5xl md:text-6xl lg:text-7xl font-bold text-primary-foreground mt-6 mb-6">Reliable Education Professionals for Your Setting</motion.h1>
               <motion.p variants={fadeUp} className="text-xl text-primary-foreground/80 max-w-3xl mx-auto leading-relaxed">
@@ -61,8 +61,8 @@ export default function EducationStaffing() {
               whileInView="visible"
               viewport={{ once: true }}
               variants={staggerContainer}
-              className="text-center mb-16">
-
+              className="text-center mb-16"
+            >
               <motion.span variants={fadeUp} className="text-secondary font-semibold tracking-wider uppercase text-sm">Roles We Supply</motion.span>
               <motion.h2 variants={fadeUp} className="font-heading text-4xl md:text-5xl font-bold text-primary mt-4 mb-6">The right professional for the right role</motion.h2>
             </motion.div>
@@ -71,24 +71,24 @@ export default function EducationStaffing() {
               whileInView="visible"
               viewport={{ once: true }}
               variants={staggerContainer}
-              className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-
+              className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+            >
               {[
-              { icon: Users, title: "Teaching Assistants", desc: "Classroom support to help learners access the curriculum and stay engaged." },
-              { icon: Heart, title: "SEN Teaching Assistants", desc: "Specialist support for learners with additional educational needs." },
-              { icon: UserCheck, title: "Cover Supervisors", desc: "Reliable cover support to maintain continuity in the classroom." },
-              { icon: BookOpen, title: "Tutors", desc: "Subject specialists for one-to-one and small-group tuition." },
-              { icon: Briefcase, title: "Education Support Professionals", desc: "Additional support staff to meet the changing needs of your setting." },
-              { icon: School, title: "School & College Support", desc: "Flexible staffing solutions designed around your timetable and budget." }].
-              map((role) =>
-              <motion.div key={role.title} variants={fadeUp} className="bg-white rounded-xl p-8 shadow-sm border border-surface-100 hover:shadow-lg transition-shadow group">
+                { icon: Users, title: "Teaching Assistants", desc: "Classroom support to help learners access the curriculum and stay engaged." },
+                { icon: Heart, title: "SEN Teaching Assistants", desc: "Specialist support for learners with additional educational needs." },
+                { icon: UserCheck, title: "Cover Supervisors", desc: "Reliable cover support to maintain continuity in the classroom." },
+                { icon: BookOpen, title: "Tutors", desc: "Subject specialists for one-to-one and small-group tuition." },
+                { icon: Briefcase, title: "Education Support Professionals", desc: "Additional support staff to meet the changing needs of your setting." },
+                { icon: School, title: "School & College Support", desc: "Flexible staffing solutions designed around your timetable and budget." }
+              ].map((role) => (
+                <motion.div key={role.title} variants={fadeUp} className="bg-white rounded-xl p-8 shadow-sm border border-surface-100 hover:shadow-lg transition-shadow group">
                   <div className="w-12 h-12 rounded-lg bg-primary/5 flex items-center justify-center mb-5 group-hover:bg-secondary/20 transition-colors">
                     <role.icon className="w-6 h-6 text-primary" />
                   </div>
                   <h3 className="font-heading text-xl font-bold text-primary mb-3">{role.title}</h3>
                   <p className="text-surface-600 leading-relaxed">{role.desc}</p>
                 </motion.div>
-              )}
+              ))}
             </motion.div>
           </div>
         </section>
@@ -101,8 +101,8 @@ export default function EducationStaffing() {
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
-                variants={staggerContainer}>
-
+                variants={staggerContainer}
+              >
                 <motion.span variants={fadeUp} className="text-secondary font-semibold tracking-wider uppercase text-sm">Our Process</motion.span>
                 <motion.h2 variants={fadeUp} className="font-heading text-4xl md:text-5xl font-bold text-primary mt-4 mb-6">A professional placement journey</motion.h2>
                 <motion.p variants={fadeUp} className="text-lg text-surface-600 mb-10 leading-relaxed">
@@ -110,13 +110,13 @@ export default function EducationStaffing() {
                 </motion.p>
                 <motion.div variants={fadeUp} className="space-y-8">
                   {[
-                  { step: "01", title: "Understand the requirement", desc: "We discuss your needs, role specification and setting context." },
-                  { step: "02", title: "Identify suitable professionals", desc: "We match candidates with the skills, experience and approach you need." },
-                  { step: "03", title: "Appropriate verification", desc: "We complete relevant checks and safeguarding processes in line with the role." },
-                  { step: "04", title: "Introduce and arrange support", desc: "We facilitate introductions and confirm arrangements with your setting." },
-                  { step: "05", title: "Ongoing communication", desc: "We maintain contact to ensure the placement continues to work well." }].
-                  map((item) =>
-                  <div key={item.step} className="flex gap-5">
+                    { step: "01", title: "Understand the requirement", desc: "We discuss your needs, role specification and setting context." },
+                    { step: "02", title: "Identify suitable professionals", desc: "We match candidates with the skills, experience and approach you need." },
+                    { step: "03", title: "Appropriate verification", desc: "We complete relevant checks and safeguarding processes in line with the role." },
+                    { step: "04", title: "Introduce and arrange support", desc: "We facilitate introductions and confirm arrangements with your setting." },
+                    { step: "05", title: "Ongoing communication", desc: "We maintain contact to ensure the placement continues to work well." }
+                  ].map((item) => (
+                    <div key={item.step} className="flex gap-5">
                       <div className="w-12 h-12 rounded-full bg-primary/5 flex items-center justify-center flex-shrink-0 border-2 border-secondary/30">
                         <span className="font-heading font-bold text-secondary">{item.step}</span>
                       </div>
@@ -125,7 +125,7 @@ export default function EducationStaffing() {
                         <p className="text-surface-600">{item.desc}</p>
                       </div>
                     </div>
-                  )}
+                  ))}
                 </motion.div>
               </motion.div>
               <motion.div
@@ -133,8 +133,8 @@ export default function EducationStaffing() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-                className="relative">
-
+                className="relative"
+              >
                 <img src={schoolImageUrl} alt="Professional school staffing" className="rounded-2xl shadow-2xl w-full" />
                 <div className="absolute -bottom-6 -left-6 w-32 h-32 border-2 border-secondary rounded-2xl -z-10" />
               </motion.div>
@@ -149,8 +149,8 @@ export default function EducationStaffing() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              variants={staggerContainer}>
-
+              variants={staggerContainer}
+            >
               <motion.div variants={fadeUp} className="w-16 h-16 mx-auto rounded-full bg-white/10 flex items-center justify-center mb-6">
                 <Shield className="w-8 h-8 text-secondary" />
               </motion.div>
@@ -175,8 +175,8 @@ export default function EducationStaffing() {
               whileInView="visible"
               viewport={{ once: true }}
               variants={staggerContainer}
-              className="text-center mb-16">
-
+              className="text-center mb-16"
+            >
               <motion.h2 variants={fadeUp} className="font-heading text-4xl md:text-5xl font-bold text-primary mb-6">How can we help you?</motion.h2>
             </motion.div>
             <motion.div
@@ -184,8 +184,8 @@ export default function EducationStaffing() {
               whileInView="visible"
               viewport={{ once: true }}
               variants={staggerContainer}
-              className="grid md:grid-cols-2 gap-8">
-
+              className="grid md:grid-cols-2 gap-8"
+            >
               <motion.div variants={fadeUp} className="bg-white rounded-xl p-10 shadow-sm border border-surface-100 hover:shadow-lg transition-shadow">
                 <School className="w-12 h-12 text-secondary mb-6" />
                 <h3 className="font-heading text-2xl font-bold text-primary mb-3">I need education staff</h3>
@@ -213,8 +213,8 @@ export default function EducationStaffing() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              variants={staggerContainer}>
-
+              variants={staggerContainer}
+            >
               <motion.h2 variants={fadeUp} className="font-heading text-4xl md:text-5xl font-bold text-primary mb-6">Request education staffing support</motion.h2>
               <motion.p variants={fadeUp} className="text-lg text-surface-600 mb-10 leading-relaxed">
                 Tell us about your staffing requirement and we will respond promptly.
@@ -230,6 +230,6 @@ export default function EducationStaffing() {
       </main>
       <Footer />
       <CookieConsent />
-    </div>);
-
+    </div>
+  );
 }
