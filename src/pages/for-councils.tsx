@@ -26,8 +26,8 @@ export default function ForCouncils() {
       <SEOHead
         title="Councils & Local Authorities | Education Services"
         description="Professional education services for UK councils and local authorities, including SEN support, specialist tuition, intervention and education staffing."
-        canonical="https://royalecrown.serenitiesai.com/for-councils"
-      />
+        canonical="https://royalecrown.serenitiesai.com/for-councils" />
+
       <Header />
       <main id="main-content">
         <section className="relative py-32 lg:py-40 bg-primary overflow-hidden">
@@ -40,8 +40,8 @@ export default function ForCouncils() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              variants={staggerContainer}
-            >
+              variants={staggerContainer}>
+
               <motion.span variants={fadeUp} className="text-secondary font-semibold tracking-wider uppercase text-sm">For Public Sector</motion.span>
               <motion.h1 variants={fadeUp} className="font-heading text-5xl md:text-6xl lg:text-7xl font-bold text-primary-foreground mt-6 mb-6">Education Services for Councils & Local Authorities</motion.h1>
               <motion.p variants={fadeUp} className="text-xl text-primary-foreground/80 max-w-3xl mx-auto leading-relaxed">
@@ -58,8 +58,8 @@ export default function ForCouncils() {
               whileInView="visible"
               viewport={{ once: true }}
               variants={staggerContainer}
-              className="text-center mb-16"
-            >
+              className="text-center mb-16">
+
               <motion.span variants={fadeUp} className="text-secondary font-semibold tracking-wider uppercase text-sm">Services</motion.span>
               <motion.h2 variants={fadeUp} className="font-heading text-4xl md:text-5xl font-bold text-primary mt-4 mb-6">How we support local authorities</motion.h2>
             </motion.div>
@@ -68,24 +68,24 @@ export default function ForCouncils() {
               whileInView="visible"
               viewport={{ once: true }}
               variants={staggerContainer}
-              className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
-            >
+              className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
               {[
-                { icon: BookOpen, title: "Tuition Provision", desc: "One-to-one and small-group tuition across key subjects and stages." },
-                { icon: Heart, title: "SEN Support", desc: "Specialist educational support for learners with additional needs." },
-                { icon: Target, title: "Educational Intervention", desc: "Targeted catch-up programmes and academic intervention." },
-                { icon: Users, title: "Tutor Supply", desc: "Subject specialists available for local authority tuition programmes." },
-                { icon: Briefcase, title: "Education Staffing", desc: "Teaching assistants, SEN support staff and other professionals." },
-                { icon: Building2, title: "Bespoke Programmes", desc: "Programmes shaped around local priorities and commissioning needs." }
-              ].map((service) => (
-                <motion.div key={service.title} variants={fadeUp} className="bg-white rounded-xl p-8 shadow-sm border border-surface-100 hover:shadow-lg transition-shadow group">
+              { icon: BookOpen, title: "Tuition Provision", desc: "One-to-one and small-group tuition across key subjects and stages." },
+              { icon: Heart, title: "SEN Support", desc: "Specialist educational support for learners with additional needs." },
+              { icon: Target, title: "Educational Intervention", desc: "Targeted catch-up programmes and academic intervention." },
+              { icon: Users, title: "Tutor Supply", desc: "Subject specialists available for local authority tuition programmes." },
+              { icon: Briefcase, title: "Education Staffing", desc: "Teaching assistants, SEN support staff and other professionals." },
+              { icon: Building2, title: "Bespoke Programmes", desc: "Programmes shaped around local priorities and commissioning needs." }].
+              map((service) =>
+              <motion.div key={service.title} variants={fadeUp} className="bg-white rounded-xl p-8 shadow-sm border border-surface-100 hover:shadow-lg transition-shadow group">
                   <div className="w-12 h-12 rounded-lg bg-primary/5 flex items-center justify-center mb-5 group-hover:bg-secondary/20 transition-colors">
                     <service.icon className="w-6 h-6 text-primary" />
                   </div>
                   <h3 className="font-heading text-xl font-bold text-primary mb-3">{service.title}</h3>
                   <p className="text-surface-600 leading-relaxed">{service.desc}</p>
                 </motion.div>
-              ))}
+              )}
             </motion.div>
           </div>
         </section>
@@ -97,8 +97,8 @@ export default function ForCouncils() {
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
-                variants={staggerContainer}
-              >
+                variants={staggerContainer}>
+
                 <motion.span variants={fadeUp} className="text-secondary font-semibold tracking-wider uppercase text-sm">Partnership</motion.span>
                 <motion.h2 variants={fadeUp} className="font-heading text-4xl md:text-5xl font-bold text-primary mt-4 mb-6">Professional, accountable partnership</motion.h2>
                 <motion.div variants={fadeUp} className="space-y-5 text-lg text-surface-600 leading-relaxed">
@@ -111,16 +111,16 @@ export default function ForCouncils() {
                 </motion.div>
                 <motion.div variants={fadeUp} className="mt-8 space-y-3">
                   {[
-                    "Clear communication with commissioning teams",
-                    "Structured service agreements and reporting",
-                    "Safeguarding and safer recruitment processes",
-                    "Flexible delivery models to suit local needs"
-                  ].map((item, index) => (
-                    <div key={index} className="flex items-center gap-3">
+                  "Clear communication with commissioning teams",
+                  "Structured service agreements and reporting",
+                  "Safeguarding and safer recruitment processes",
+                  "Flexible delivery models to suit local needs"].
+                  map((item, index) =>
+                  <div key={index} className="flex items-center gap-3">
                       <Shield className="w-5 h-5 text-secondary" />
                       <span>{item}</span>
                     </div>
-                  ))}
+                  )}
                 </motion.div>
               </motion.div>
               <motion.div
@@ -128,8 +128,8 @@ export default function ForCouncils() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-                className="relative"
-              >
+                className="relative">
+
                 <img src={councilImageUrl} alt="Professional council partnership" className="rounded-2xl shadow-2xl w-full" />
                 <div className="absolute -bottom-6 -left-6 w-32 h-32 border-2 border-secondary rounded-2xl -z-10" />
               </motion.div>
@@ -143,8 +143,8 @@ export default function ForCouncils() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              variants={staggerContainer}
-            >
+              variants={staggerContainer}>
+
               <motion.h2 variants={fadeUp} className="font-heading text-4xl md:text-5xl font-bold mb-6">Discuss a council requirement</motion.h2>
               <motion.p variants={fadeUp} className="text-xl text-primary-foreground/80 mb-10 leading-relaxed">
                 Our team is ready to explore how Royale Crown Academy can support your local education provision.
@@ -163,6 +163,6 @@ export default function ForCouncils() {
       </main>
       <Footer />
       <CookieConsent />
-    </div>
-  );
+    </div>);
+
 }
