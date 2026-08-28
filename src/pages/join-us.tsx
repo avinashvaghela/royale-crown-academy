@@ -29,8 +29,8 @@ export default function JoinUs() {
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: type === 'checkbox' ? checked : value }));
-    setErrors((prev) => ({ ...prev, [name]: '' }));
+    setFormData(prev => ({ ...prev, [name]: type === 'checkbox' ? checked : value }));
+    setErrors(prev => ({ ...prev, [name]: '' }));
   };
 
   const validate = () => {
@@ -54,8 +54,8 @@ export default function JoinUs() {
       <SEOHead
         title="Join Our Team | Education Professionals"
         description="Join Royale Crown Academy Ltd as a tutor, teaching assistant, SEN support professional or education specialist."
-        canonical="https://royalecrown.serenitiesai.com/join-us" />
-
+        canonical="https://royalecrown.serenitiesai.com/join-us"
+      />
       <Header />
       <main id="main-content">
         <section className="relative py-32 lg:py-40 bg-primary overflow-hidden">
@@ -68,8 +68,8 @@ export default function JoinUs() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              variants={staggerContainer}>
-
+              variants={staggerContainer}
+            >
               <motion.span variants={fadeUp} className="text-secondary font-semibold tracking-wider uppercase text-sm">Careers</motion.span>
               <motion.h1 variants={fadeUp} className="font-heading text-5xl md:text-6xl lg:text-7xl font-bold text-primary-foreground mt-6 mb-6">Build Your Education Career With Us</motion.h1>
               <motion.p variants={fadeUp} className="text-xl text-primary-foreground/80 max-w-3xl mx-auto leading-relaxed">
@@ -86,8 +86,8 @@ export default function JoinUs() {
               whileInView="visible"
               viewport={{ once: true }}
               variants={staggerContainer}
-              className="text-center mb-16">
-
+              className="text-center mb-16"
+            >
               <motion.span variants={fadeUp} className="text-secondary font-semibold tracking-wider uppercase text-sm">Opportunities</motion.span>
               <motion.h2 variants={fadeUp} className="font-heading text-4xl md:text-5xl font-bold text-primary mt-4 mb-6">Who we are looking for</motion.h2>
             </motion.div>
@@ -96,24 +96,24 @@ export default function JoinUs() {
               whileInView="visible"
               viewport={{ once: true }}
               variants={staggerContainer}
-              className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-
+              className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+            >
               {[
-              { icon: BookOpen, title: "Tutors", desc: "Subject specialists across primary, secondary, GCSE and A-Level subjects." },
-              { icon: Users, title: "Teaching Assistants", desc: "Classroom support professionals who work confidently alongside learners." },
-              { icon: Heart, title: "SEN Teaching Assistants", desc: "Support professionals with experience of working with learners with additional needs." },
-              { icon: UserCheck, title: "Cover Supervisors", desc: "Reliable education professionals able to supervise classes." },
-              { icon: Users, title: "Learning Support Assistants", desc: "Professionals who provide targeted support to help learners access the curriculum." },
-              { icon: Briefcase, title: "Education Support Professionals", desc: "Other suitable education professionals with complementary skills." }].
-              map((role) =>
-              <motion.div key={role.title} variants={fadeUp} className="bg-white rounded-xl p-8 shadow-sm border border-surface-100 hover:shadow-lg transition-shadow group">
+                { icon: BookOpen, title: "Tutors", desc: "Subject specialists across primary, secondary, GCSE and A-Level subjects." },
+                { icon: Users, title: "Teaching Assistants", desc: "Classroom support professionals who work confidently alongside learners." },
+                { icon: Heart, title: "SEN Teaching Assistants", desc: "Support professionals with experience of working with learners with additional needs." },
+                { icon: UserCheck, title: "Cover Supervisors", desc: "Reliable education professionals able to supervise classes." },
+                { icon: Users, title: "Learning Support Assistants", desc: "Professionals who provide targeted support to help learners access the curriculum." },
+                { icon: Briefcase, title: "Education Support Professionals", desc: "Other suitable education professionals with complementary skills." }
+              ].map((role) => (
+                <motion.div key={role.title} variants={fadeUp} className="bg-white rounded-xl p-8 shadow-sm border border-surface-100 hover:shadow-lg transition-shadow group">
                   <div className="w-12 h-12 rounded-lg bg-primary/5 flex items-center justify-center mb-5 group-hover:bg-secondary/20 transition-colors">
                     <role.icon className="w-6 h-6 text-primary" />
                   </div>
                   <h3 className="font-heading text-xl font-bold text-primary mb-3">{role.title}</h3>
                   <p className="text-surface-600 leading-relaxed">{role.desc}</p>
                 </motion.div>
-              )}
+              ))}
             </motion.div>
           </div>
         </section>
@@ -124,24 +124,24 @@ export default function JoinUs() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              variants={staggerContainer}>
-
+              variants={staggerContainer}
+            >
               <motion.div variants={fadeUp} className="bg-white rounded-2xl shadow-xl border border-surface-100 overflow-hidden">
                 <div className="bg-primary px-8 py-8">
                   <h2 className="font-heading text-2xl font-bold text-primary-foreground sm:text-3xl">Application Form</h2>
                   <p className="mt-2 text-primary-foreground/80">Tell us about your experience and the role you are interested in.</p>
                 </div>
                 <div className="p-8">
-                  {submitted ?
-                  <div className="text-center py-12">
+                  {submitted ? (
+                    <div className="text-center py-12">
                       <div className="w-16 h-16 mx-auto rounded-full bg-green-100 flex items-center justify-center mb-6">
                         <CheckCircle className="w-8 h-8 text-green-600" />
                       </div>
                       <h3 className="font-heading text-2xl font-bold text-primary mb-3">Thank you for your application</h3>
                       <p className="text-surface-600">We have received your details and will be in touch shortly.</p>
-                    </div> :
-
-                  <form onSubmit={handleSubmit} className="space-y-6" noValidate>
+                    </div>
+                  ) : (
+                    <form onSubmit={handleSubmit} className="space-y-6" noValidate>
                       <div className="grid md:grid-cols-2 gap-6">
                         <div>
                           <label htmlFor="fullName" className="block text-sm font-semibold text-primary mb-2">Full name *</label>
@@ -210,7 +210,7 @@ export default function JoinUs() {
                         Submit Application
                       </button>
                     </form>
-                  }
+                  )}
                 </div>
               </motion.div>
             </motion.div>
@@ -219,6 +219,6 @@ export default function JoinUs() {
       </main>
       <Footer />
       <CookieConsent />
-    </div>);
-
+    </div>
+  );
 }
