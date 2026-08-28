@@ -11,7 +11,7 @@ export default function ContactForm({ audience = 'parent' }) {
     learnerAge: '',
     supportType: '',
     message: '',
-    consent: false,
+    consent: false
   });
   const [errors, setErrors] = useState({});
   const [submitted, setSubmitted] = useState(false);
@@ -59,8 +59,8 @@ export default function ContactForm({ audience = 'parent' }) {
         <p className="mt-2 text-sm text-surface-600">
           We have received your message and will be in touch shortly. If your enquiry is urgent, please call us directly.
         </p>
-      </div>
-    );
+      </div>);
+
   }
 
   return (
@@ -77,8 +77,8 @@ export default function ContactForm({ audience = 'parent' }) {
             className="mt-1.5 w-full rounded-md border border-surface-300 bg-background px-4 py-2.5 text-sm text-foreground placeholder:text-surface-400 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
             placeholder="Your name"
             aria-invalid={errors.name ? 'true' : 'false'}
-            aria-describedby={errors.name ? 'name-error' : undefined}
-          />
+            aria-describedby={errors.name ? 'name-error' : undefined} />
+
           {errors.name && <p id="name-error" className="mt-1.5 text-sm text-red-600">{errors.name}</p>}
         </div>
         <div>
@@ -92,8 +92,8 @@ export default function ContactForm({ audience = 'parent' }) {
             className="mt-1.5 w-full rounded-md border border-surface-300 bg-background px-4 py-2.5 text-sm text-foreground placeholder:text-surface-400 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
             placeholder="you@example.com"
             aria-invalid={errors.email ? 'true' : 'false'}
-            aria-describedby={errors.email ? 'email-error' : undefined}
-          />
+            aria-describedby={errors.email ? 'email-error' : undefined} />
+
           {errors.email && <p id="email-error" className="mt-1.5 text-sm text-red-600">{errors.email}</p>}
         </div>
       </div>
@@ -108,8 +108,8 @@ export default function ContactForm({ audience = 'parent' }) {
             value={formData.phone}
             onChange={handleChange}
             className="mt-1.5 w-full rounded-md border border-surface-300 bg-background px-4 py-2.5 text-sm text-foreground placeholder:text-surface-400 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
-            placeholder="Optional"
-          />
+            placeholder="Optional" />
+
         </div>
         <div>
           <label htmlFor="postcode" className="block text-sm font-medium text-foreground">Postcode</label>
@@ -120,8 +120,8 @@ export default function ContactForm({ audience = 'parent' }) {
             value={formData.postcode}
             onChange={handleChange}
             className="mt-1.5 w-full rounded-md border border-surface-300 bg-background px-4 py-2.5 text-sm text-foreground placeholder:text-surface-400 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
-            placeholder="Optional"
-          />
+            placeholder="Optional" />
+
         </div>
       </div>
 
@@ -135,8 +135,8 @@ export default function ContactForm({ audience = 'parent' }) {
             value={formData.learnerAge}
             onChange={handleChange}
             className="mt-1.5 w-full rounded-md border border-surface-300 bg-background px-4 py-2.5 text-sm text-foreground placeholder:text-surface-400 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
-            placeholder="e.g. Year 7"
-          />
+            placeholder="e.g. Year 7" />
+
         </div>
         <div>
           <label htmlFor="supportType" className="block text-sm font-medium text-foreground">Type of support</label>
@@ -145,8 +145,8 @@ export default function ContactForm({ audience = 'parent' }) {
             name="supportType"
             value={formData.supportType}
             onChange={handleChange}
-            className="mt-1.5 w-full rounded-md border border-surface-300 bg-background px-4 py-2.5 text-sm text-foreground focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
-          >
+            className="mt-1.5 w-full rounded-md border border-surface-300 bg-background px-4 py-2.5 text-sm text-foreground focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20">
+
             <option value="">Please select</option>
             <option value="sen">SEN support</option>
             <option value="tutoring">Personalised tutoring</option>
@@ -169,8 +169,8 @@ export default function ContactForm({ audience = 'parent' }) {
           className="mt-1.5 w-full rounded-md border border-surface-300 bg-background px-4 py-2.5 text-sm text-foreground placeholder:text-surface-400 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
           placeholder="Tell us about your needs, goals and any relevant background."
           aria-invalid={errors.message ? 'true' : 'false'}
-          aria-describedby={errors.message ? 'message-error' : undefined}
-        />
+          aria-describedby={errors.message ? 'message-error' : undefined} />
+
         {errors.message && <p id="message-error" className="mt-1.5 text-sm text-red-600">{errors.message}</p>}
       </div>
 
@@ -183,8 +183,8 @@ export default function ContactForm({ audience = 'parent' }) {
             onChange={handleChange}
             className="mt-1 h-4 w-4 rounded border-surface-300 text-primary focus:ring-primary"
             aria-invalid={errors.consent ? 'true' : 'false'}
-            aria-describedby={errors.consent ? 'consent-error' : undefined}
-          />
+            aria-describedby={errors.consent ? 'consent-error' : undefined} />
+
           <span className="text-sm text-surface-600">
             I agree to Royale Crown Academy Ltd processing my personal data in line with the <Link to="/privacy-policy" className="font-medium text-primary underline">Privacy Policy</Link>. I understand I can withdraw consent at any time. <span className="text-red-500">*</span>
           </span>
@@ -195,10 +195,10 @@ export default function ContactForm({ audience = 'parent' }) {
       <button
         type="submit"
         disabled={submitting}
-        className="inline-flex w-full items-center justify-center rounded-md bg-primary px-6 py-3 text-base font-semibold text-primary-foreground shadow-sm transition-colors hover:bg-primary/90 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 disabled:opacity-60 sm:w-auto"
-      >
+        className="inline-flex w-full items-center justify-center rounded-md bg-primary px-6 py-3 text-base font-semibold text-primary-foreground shadow-sm transition-colors hover:bg-primary/90 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 disabled:opacity-60 sm:w-auto">
+
         {submitting ? 'Sending...' : audience === 'school' ? 'Request Support' : 'Send Enquiry'}
       </button>
-    </form>
-  );
+    </form>);
+
 }

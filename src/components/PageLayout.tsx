@@ -14,6 +14,6 @@ export default function PageLayout({ children, className = '' }) {
       </main>
       <Footer />
       <CookieConsent />
-    </div>
-  );
+    </div>);
+
 }
