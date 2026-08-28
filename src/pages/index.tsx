@@ -80,7 +80,7 @@ export default function Home() {
               initial={prefersReducedMotion ? {} : { opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
-              className="text-lg sm:text-xl md:text-2xl text-primary-foreground/80 max-w-3xl mx-auto mb-12 leading-relaxed font-light" data-oid="/#o18">
+              className="text-lg sm:text-xl md:text-2xl text-white max-w-3xl mx-auto mb-12 leading-relaxed font-light" data-oid="/#o18">
 
 Specialist SEN support, personalised tuition and education services for learners, families, schools, colleges and local authorities across the UK.
             </motion.p>
