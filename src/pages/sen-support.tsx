@@ -27,8 +27,8 @@ export default function SENSupport() {
       <SEOHead
         title="SEN Support | Specialist SEND Support Across the UK"
         description="Personalised SEN and SEND support for learners with autism, ADHD, dyslexia, dyscalculia, SEMH and additional learning needs."
-        canonical="https://royalecrown.serenitiesai.com/sen-support" />
-
+        canonical="https://royalecrown.serenitiesai.com/sen-support"
+      />
       <Header />
       <main id="main-content">
         {/* Hero */}
@@ -42,8 +42,8 @@ export default function SENSupport() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              variants={staggerContainer}>
-
+              variants={staggerContainer}
+            >
               <motion.span variants={fadeUp} className="text-secondary font-semibold tracking-wider uppercase text-sm">Specialist Support</motion.span>
               <motion.h1 variants={fadeUp} className="font-heading text-5xl md:text-6xl lg:text-7xl font-bold text-primary-foreground mt-6 mb-6">SEN Support Designed Around the Learner</motion.h1>
               <motion.p variants={fadeUp} className="text-xl text-primary-foreground/80 max-w-3xl mx-auto leading-relaxed">
@@ -61,8 +61,8 @@ export default function SENSupport() {
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
-                variants={staggerContainer}>
-
+                variants={staggerContainer}
+              >
                 <motion.span variants={fadeUp} className="text-secondary font-semibold tracking-wider uppercase text-sm">Our Approach</motion.span>
                 <motion.h2 variants={fadeUp} className="font-heading text-4xl md:text-5xl font-bold text-primary mt-4 mb-6">Support that starts with understanding</motion.h2>
                 <motion.div variants={fadeUp} className="space-y-5 text-lg text-surface-600 leading-relaxed">
@@ -82,8 +82,8 @@ export default function SENSupport() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-                className="relative">
-
+                className="relative"
+              >
                 <img src={senImageUrl} alt="Supportive one-to-one SEN learning" className="rounded-2xl shadow-2xl w-full" />
                 <div className="absolute -bottom-6 -left-6 w-32 h-32 border-2 border-secondary rounded-2xl -z-10" />
               </motion.div>
@@ -99,8 +99,8 @@ export default function SENSupport() {
               whileInView="visible"
               viewport={{ once: true }}
               variants={staggerContainer}
-              className="text-center mb-16">
-
+              className="text-center mb-16"
+            >
               <motion.span variants={fadeUp} className="text-secondary font-semibold tracking-wider uppercase text-sm">Areas of Support</motion.span>
               <motion.h2 variants={fadeUp} className="font-heading text-4xl md:text-5xl font-bold text-primary mt-4 mb-6">Support tailored to a wide range of needs</motion.h2>
               <motion.p variants={fadeUp} className="text-lg text-surface-600 max-w-3xl mx-auto">
@@ -112,27 +112,27 @@ export default function SENSupport() {
               whileInView="visible"
               viewport={{ once: true }}
               variants={staggerContainer}
-              className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-
+              className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+            >
               {[
-              { title: "Autism / ASC", desc: "Structured, predictable support that respects sensory and communication preferences." },
-              { title: "ADHD", desc: "Engaging approaches that support focus, organisation and self-regulation." },
-              { title: "Dyslexia", desc: "Literacy support that builds confidence with reading, writing and spelling." },
-              { title: "Dyscalculia", desc: "Maths support that makes numbers and concepts more accessible." },
-              { title: "SEMH", desc: "Support for social, emotional and mental health needs in a calm, consistent environment." },
-              { title: "Learning Difficulties", desc: "Patient, step-by-step support matched to the learner's pace." },
-              { title: "Additional Learning Needs", desc: "Flexible provision for learners who need something different from standard classroom support." },
-              { title: "School Reintegration", desc: "Gentle, structured support to help learners return to school or college where appropriate." },
-              { title: "Confidence & Engagement", desc: "Support that helps learners feel safe, capable and willing to participate." }].
-              map((area) =>
-              <motion.div key={area.title} variants={fadeUp} className="bg-white rounded-xl p-8 shadow-sm border border-surface-100 hover:shadow-lg transition-shadow">
+                { title: "Autism / ASC", desc: "Structured, predictable support that respects sensory and communication preferences." },
+                { title: "ADHD", desc: "Engaging approaches that support focus, organisation and self-regulation." },
+                { title: "Dyslexia", desc: "Literacy support that builds confidence with reading, writing and spelling." },
+                { title: "Dyscalculia", desc: "Maths support that makes numbers and concepts more accessible." },
+                { title: "SEMH", desc: "Support for social, emotional and mental health needs in a calm, consistent environment." },
+                { title: "Learning Difficulties", desc: "Patient, step-by-step support matched to the learner's pace." },
+                { title: "Additional Learning Needs", desc: "Flexible provision for learners who need something different from standard classroom support." },
+                { title: "School Reintegration", desc: "Gentle, structured support to help learners return to school or college where appropriate." },
+                { title: "Confidence & Engagement", desc: "Support that helps learners feel safe, capable and willing to participate." }
+              ].map((area) => (
+                <motion.div key={area.title} variants={fadeUp} className="bg-white rounded-xl p-8 shadow-sm border border-surface-100 hover:shadow-lg transition-shadow">
                   <div className="w-10 h-10 rounded-lg bg-primary/5 flex items-center justify-center mb-4">
                     <Sparkles className="w-5 h-5 text-secondary" />
                   </div>
                   <h3 className="font-heading text-xl font-bold text-primary mb-2">{area.title}</h3>
                   <p className="text-surface-600 leading-relaxed">{area.desc}</p>
                 </motion.div>
-              )}
+              ))}
             </motion.div>
           </div>
         </section>
@@ -146,8 +146,8 @@ export default function SENSupport() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-                className="relative order-2 lg:order-1">
-
+                className="relative order-2 lg:order-1"
+              >
                 <img src={tutoringImageUrl} alt="Personalised learning session" className="rounded-2xl shadow-2xl w-full" />
                 <div className="absolute -top-6 -right-6 w-32 h-32 border-2 border-secondary rounded-2xl -z-10" />
               </motion.div>
@@ -156,18 +156,18 @@ export default function SENSupport() {
                 whileInView="visible"
                 viewport={{ once: true }}
                 variants={staggerContainer}
-                className="order-1 lg:order-2">
-
+                className="order-1 lg:order-2"
+              >
                 <motion.span variants={fadeUp} className="text-secondary font-semibold tracking-wider uppercase text-sm">How We Support</motion.span>
                 <motion.h2 variants={fadeUp} className="font-heading text-4xl md:text-5xl font-bold text-primary mt-4 mb-6">Flexible support formats</motion.h2>
                 <motion.div variants={fadeUp} className="space-y-6">
                   {[
-                  { icon: Users, title: "One-to-one support", desc: "Dedicated attention for learners who benefit from individualised support." },
-                  { icon: BookOpen, title: "Small-group support", desc: "Structured group sessions that encourage interaction and peer learning." },
-                  { icon: Monitor, title: "Online support", desc: "Remote sessions where appropriate, using accessible tools and approaches." },
-                  { icon: Home, title: "In-person support", desc: "Face-to-face support in suitable locations, including schools and homes where agreed." }].
-                  map((format) =>
-                  <div key={format.title} className="flex gap-4 group">
+                    { icon: Users, title: "One-to-one support", desc: "Dedicated attention for learners who benefit from individualised support." },
+                    { icon: BookOpen, title: "Small-group support", desc: "Structured group sessions that encourage interaction and peer learning." },
+                    { icon: Monitor, title: "Online support", desc: "Remote sessions where appropriate, using accessible tools and approaches." },
+                    { icon: Home, title: "In-person support", desc: "Face-to-face support in suitable locations, including schools and homes where agreed." }
+                  ].map((format) => (
+                    <div key={format.title} className="flex gap-4 group">
                       <div className="w-12 h-12 rounded-lg bg-primary/5 flex items-center justify-center flex-shrink-0 group-hover:bg-secondary/20 transition-colors">
                         <format.icon className="w-6 h-6 text-primary" />
                       </div>
@@ -176,7 +176,7 @@ export default function SENSupport() {
                         <p className="text-surface-600">{format.desc}</p>
                       </div>
                     </div>
-                  )}
+                  ))}
                 </motion.div>
               </motion.div>
             </div>
@@ -190,8 +190,8 @@ export default function SENSupport() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              variants={staggerContainer}>
-
+              variants={staggerContainer}
+            >
               <motion.div variants={fadeUp} className="w-16 h-16 mx-auto rounded-full bg-white/10 flex items-center justify-center mb-6">
                 <Shield className="w-8 h-8 text-secondary" />
               </motion.div>
@@ -215,8 +215,8 @@ export default function SENSupport() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              variants={staggerContainer}>
-
+              variants={staggerContainer}
+            >
               <motion.h2 variants={fadeUp} className="font-heading text-4xl md:text-5xl font-bold text-primary mb-6">Discuss your child's support needs</motion.h2>
               <motion.p variants={fadeUp} className="text-lg text-surface-600 mb-10 leading-relaxed">
                 Tell us about your child and we will arrange a confidential, no-obligation conversation about how we can help.
@@ -232,6 +232,6 @@ export default function SENSupport() {
       </main>
       <Footer />
       <CookieConsent />
-    </div>);
-
+    </div>
+  );
 }
