@@ -46,8 +46,8 @@ export default function Home() {
         {/* Hero Section */}
         <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-primary" aria-label="Welcome to Royale Crown Academy" data-oid="/#o4">
           <div className="absolute inset-0 z-0" data-oid="/#o5">
-            <img src={heroImageUrl} alt="" className="w-full h-full object-cover" style={{ objectPosition: 'center 100%' }} data-oid="/#o6" />
-            <div className="absolute inset-0 bg-primary/30" data-oid="/#o7" />
+            <img src={heroImageUrl} alt="" className="w-full h-full object-cover" style={{ objectPosition: 'center center' }} data-oid="/#o6" />
+            <div className="absolute inset-0 bg-primary/20" data-oid="/#o7" />
           </div>
           <div className="absolute top-20 right-20 w-96 h-96 rounded-full bg-secondary/10 blur-3xl" data-oid="/#o8" />
           <div className="absolute bottom-20 left-20 w-72 h-72 rounded-full bg-secondary/5 blur-3xl" data-oid="/#o9" />
