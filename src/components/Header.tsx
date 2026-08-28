@@ -172,7 +172,7 @@ export default function Header() {
               <img
                 src={logoUrl}
                 alt="Royale Crown Academy logo"
-                className="h-10 w-auto object-contain"
+                className="h-14 w-auto object-contain"
                 width="80"
                 height="80"
                 data-oid="/components/Header.tsx#o18" />
