@@ -27,8 +27,8 @@ export default function ForParents() {
       <SEOHead
         title="For Parents & Carers | Personalised Tuition & SEN Support"
         description="Personalised tuition, SEN support and academic guidance for children and young people across the UK."
-        canonical="https://royalecrown.serenitiesai.com/for-parents" />
-
+        canonical="https://royalecrown.serenitiesai.com/for-parents"
+      />
       <Header />
       <main id="main-content">
         <section className="relative py-32 lg:py-40 bg-primary overflow-hidden">
@@ -41,8 +41,8 @@ export default function ForParents() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              variants={staggerContainer}>
-
+              variants={staggerContainer}
+            >
               <motion.span variants={fadeUp} className="text-secondary font-semibold tracking-wider uppercase text-sm">For Families</motion.span>
               <motion.h1 variants={fadeUp} className="font-heading text-5xl md:text-6xl lg:text-7xl font-bold text-primary-foreground mt-6 mb-6">Support That Puts Your Child First</motion.h1>
               <motion.p variants={fadeUp} className="text-xl text-primary-foreground/80 max-w-3xl mx-auto leading-relaxed">
@@ -59,8 +59,8 @@ export default function ForParents() {
               whileInView="visible"
               viewport={{ once: true }}
               variants={staggerContainer}
-              className="text-center mb-16">
-
+              className="text-center mb-16"
+            >
               <motion.span variants={fadeUp} className="text-secondary font-semibold tracking-wider uppercase text-sm">How We Help Families</motion.span>
               <motion.h2 variants={fadeUp} className="font-heading text-4xl md:text-5xl font-bold text-primary mt-4 mb-6">Support for every learner</motion.h2>
             </motion.div>
@@ -69,24 +69,24 @@ export default function ForParents() {
               whileInView="visible"
               viewport={{ once: true }}
               variants={staggerContainer}
-              className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-
+              className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+            >
               {[
-              { icon: BookOpen, title: "Private Tuition", desc: "One-to-one and small-group tuition across primary, secondary and GCSE subjects." },
-              { icon: Heart, title: "SEN Support", desc: "Personalised support for learners with autism, ADHD, dyslexia, dyscalculia, SEMH and other needs." },
-              { icon: Users, title: "One-to-One Support", desc: "Dedicated attention for learners who benefit from individualised teaching." },
-              { icon: Monitor, title: "Online Tuition", desc: "Flexible remote sessions where appropriate, delivered safely and accessibly." },
-              { icon: GraduationCap, title: "Study Skills", desc: "Revision strategies, organisation and exam preparation support." },
-              { icon: Shield, title: "Safeguarding", desc: "All support is delivered with learner safety and wellbeing as the priority." }].
-              map((service) =>
-              <motion.div key={service.title} variants={fadeUp} className="bg-white rounded-xl p-8 shadow-sm border border-surface-100 hover:shadow-lg transition-shadow group">
+                { icon: BookOpen, title: "Private Tuition", desc: "One-to-one and small-group tuition across primary, secondary and GCSE subjects." },
+                { icon: Heart, title: "SEN Support", desc: "Personalised support for learners with autism, ADHD, dyslexia, dyscalculia, SEMH and other needs." },
+                { icon: Users, title: "One-to-One Support", desc: "Dedicated attention for learners who benefit from individualised teaching." },
+                { icon: Monitor, title: "Online Tuition", desc: "Flexible remote sessions where appropriate, delivered safely and accessibly." },
+                { icon: GraduationCap, title: "Study Skills", desc: "Revision strategies, organisation and exam preparation support." },
+                { icon: Shield, title: "Safeguarding", desc: "All support is delivered with learner safety and wellbeing as the priority." }
+              ].map((service) => (
+                <motion.div key={service.title} variants={fadeUp} className="bg-white rounded-xl p-8 shadow-sm border border-surface-100 hover:shadow-lg transition-shadow group">
                   <div className="w-12 h-12 rounded-lg bg-primary/5 flex items-center justify-center mb-5 group-hover:bg-secondary/20 transition-colors">
                     <service.icon className="w-6 h-6 text-primary" />
                   </div>
                   <h3 className="font-heading text-xl font-bold text-primary mb-3">{service.title}</h3>
                   <p className="text-surface-600 leading-relaxed">{service.desc}</p>
                 </motion.div>
-              )}
+              ))}
             </motion.div>
           </div>
         </section>
@@ -99,8 +99,8 @@ export default function ForParents() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-                className="relative">
-
+                className="relative"
+              >
                 <img src={tutoringImageUrl} alt="Personalised tutoring session" className="rounded-2xl shadow-2xl w-full" />
                 <div className="absolute -bottom-6 -right-6 w-32 h-32 border-2 border-secondary rounded-2xl -z-10" />
               </motion.div>
@@ -108,8 +108,8 @@ export default function ForParents() {
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
-                variants={staggerContainer}>
-
+                variants={staggerContainer}
+              >
                 <motion.span variants={fadeUp} className="text-secondary font-semibold tracking-wider uppercase text-sm">Our Approach</motion.span>
                 <motion.h2 variants={fadeUp} className="font-heading text-4xl md:text-5xl font-bold text-primary mt-4 mb-6">Understanding before teaching</motion.h2>
                 <motion.div variants={fadeUp} className="space-y-5 text-lg text-surface-600 leading-relaxed">
@@ -134,8 +134,8 @@ export default function ForParents() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              variants={staggerContainer}>
-
+              variants={staggerContainer}
+            >
               <motion.h2 variants={fadeUp} className="font-heading text-4xl md:text-5xl font-bold mb-6">Discuss your child's needs</motion.h2>
               <motion.p variants={fadeUp} className="text-xl text-primary-foreground/80 mb-10 leading-relaxed">
                 Tell us about your child and we will arrange a confidential, no-obligation conversation.
@@ -151,6 +151,6 @@ export default function ForParents() {
       </main>
       <Footer />
       <CookieConsent />
-    </div>);
-
+    </div>
+  );
 }
