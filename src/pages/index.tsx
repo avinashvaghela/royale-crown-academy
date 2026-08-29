@@ -30,7 +30,7 @@ export default function Home() {
   const senImageUrl = serenities.files.url('45a479344c0996e95fef0084456de99a');
   const schoolImageUrl = serenities.files.url('d8a52ffe130477f20c51a632ffc8d950');
   const professionalImageUrl = serenities.files.url('b1508abe1eb6618ff8eb1f79ee65e27f');
-  const parentImageUrl = serenities.files.url('b2a4f10f6ed670fb564167add0fd0e3f');
+  const parentImageUrl = serenities.files.url('e074fbbe669e6465b757633689c1633d');
   const studyImageUrl = serenities.files.url('a2078dfe9c07ced21d031bfe2ea9a313');
   const senLearnerImageUrl = serenities.files.url('e5fee8507681ccff4b3c2fdabe10a248');
 
@@ -158,7 +158,7 @@ Specialist SEN support, personalised tuition and education services for learners
                 className="group relative bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 border border-surface-100" data-oid="/#o34">
 
                   <div className="h-48 overflow-hidden" data-oid="/#o35">
-                    <img src={pathway.image} alt={pathway.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-oid="/#o36" style={{ objectFit: "cover" }} />
+                    <img src="/api/files/public/f325f7281e4fb37f2576f08ff2a51ada" alt={pathway.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-oid="/#o36" style={{ objectFit: "cover" }} />
                   </div>
                   <div className="p-8" data-oid="/#o37">
                     <div className="w-12 h-12 rounded-lg bg-primary/5 flex items-center justify-center mb-6 group-hover:bg-secondary/20 transition-colors" data-oid="/#o38">
