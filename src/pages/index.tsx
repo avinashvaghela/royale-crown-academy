@@ -29,6 +29,7 @@ export default function Home() {
   const tutoringImageUrl = serenities.files.url('9d4afc54e4fe0660f8d55bba1f7f3634');
   const senImageUrl = serenities.files.url('45a479344c0996e95fef0084456de99a');
   const schoolImageUrl = serenities.files.url('d8a52ffe130477f20c51a632ffc8d950');
+  const schoolsCardImageUrl = serenities.files.url('967bf083699a9983c2ed587283d0aa1e');
   const professionalImageUrl = serenities.files.url('b1508abe1eb6618ff8eb1f79ee65e27f');
   const parentImageUrl = serenities.files.url('e074fbbe669e6465b757633689c1633d');
   const studyImageUrl = serenities.files.url('a2078dfe9c07ced21d031bfe2ea9a313');
