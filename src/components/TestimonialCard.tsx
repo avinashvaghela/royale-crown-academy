@@ -11,6 +11,6 @@ export default function TestimonialCard({ quote, name, role, context }) {
         <p className="text-xs text-[#243247]">{role}</p>
         {context && <p className="mt-1 text-xs text-[#243247]/70">{context}</p>}
       </div>
-    </div>
-  );
+    </div>);
+
 }
