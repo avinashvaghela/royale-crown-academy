@@ -35,13 +35,13 @@ export default function CookieConsent() {
 
   return (
     <>
-      {!consent && (
-        <div
-          className="fixed inset-x-0 bottom-0 z-[70] border-t border-surface-200 bg-background p-4 shadow-2xl sm:p-6"
-          role="dialog"
-          aria-modal="true"
-          aria-label="Cookie consent"
-        >
+      {!consent &&
+      <div
+        className="fixed inset-x-0 bottom-0 z-[70] border-t border-surface-200 bg-background p-4 shadow-2xl sm:p-6"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Cookie consent">
+
           <div className="mx-auto max-w-7xl">
             <div className="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
               <div className="flex-1">
@@ -55,34 +55,34 @@ export default function CookieConsent() {
               </div>
               <div className="flex flex-wrap items-center gap-3">
                 <button
-                  type="button"
-                  onClick={() => setShowPreferences(true)}
-                  className="rounded-md border border-surface-300 px-4 py-2.5 text-sm font-medium text-foreground transition-colors hover:bg-surface-100"
-                >
+                type="button"
+                onClick={() => setShowPreferences(true)}
+                className="rounded-md border border-surface-300 px-4 py-2.5 text-sm font-medium text-foreground transition-colors hover:bg-surface-100">
+
                   Manage preferences
                 </button>
                 <button
-                  type="button"
-                  onClick={rejectNonEssential}
-                  className="rounded-md border border-surface-300 px-4 py-2.5 text-sm font-medium text-foreground transition-colors hover:bg-surface-100"
-                >
+                type="button"
+                onClick={rejectNonEssential}
+                className="rounded-md border border-surface-300 px-4 py-2.5 text-sm font-medium text-foreground transition-colors hover:bg-surface-100">
+
                   Reject non-essential
                 </button>
                 <button
-                  type="button"
-                  onClick={acceptAll}
-                  className="rounded-md bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-sm transition-colors hover:bg-primary/90"
-                >
+                type="button"
+                onClick={acceptAll}
+                className="rounded-md bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-sm transition-colors hover:bg-primary/90">
+
                   Accept all
                 </button>
               </div>
             </div>
           </div>
         </div>
-      )}
+      }
 
-      {showPreferences && (
-        <div className="fixed inset-0 z-[80] flex items-end justify-center bg-black/40 p-4 sm:items-center" role="dialog" aria-modal="true" aria-label="Cookie preferences centre">
+      {showPreferences &&
+      <div className="fixed inset-0 z-[80] flex items-end justify-center bg-black/40 p-4 sm:items-center" role="dialog" aria-modal="true" aria-label="Cookie preferences centre">
           <div className="max-h-[90vh] w-full max-w-lg overflow-y-auto rounded-lg bg-background p-6 shadow-2xl">
             <div className="flex items-start justify-between">
               <div>
@@ -90,11 +90,11 @@ export default function CookieConsent() {
                 <p className="mt-1 text-sm text-surface-500">Choose which cookies you allow.</p>
               </div>
               <button
-                type="button"
-                onClick={() => setShowPreferences(false)}
-                className="rounded-md p-1 text-surface-500 hover:bg-surface-100 hover:text-foreground"
-                aria-label="Close preferences"
-              >
+              type="button"
+              onClick={() => setShowPreferences(false)}
+              className="rounded-md p-1 text-surface-500 hover:bg-surface-100 hover:text-foreground"
+              aria-label="Close preferences">
+
                 <Icon name="close" className="h-5 w-5" />
               </button>
             </div>
@@ -112,11 +112,11 @@ export default function CookieConsent() {
                   <h3 className="font-semibold text-foreground">Analytics</h3>
                   <label className="relative inline-flex cursor-pointer items-center">
                     <input
-                      type="checkbox"
-                      className="peer sr-only"
-                      checked={prefs.analytics}
-                      onChange={(e) => setPrefs({ ...prefs, analytics: e.target.checked })}
-                    />
+                    type="checkbox"
+                    className="peer sr-only"
+                    checked={prefs.analytics}
+                    onChange={(e) => setPrefs({ ...prefs, analytics: e.target.checked })} />
+
                     <div className="h-6 w-11 rounded-full bg-surface-300 transition-colors peer-checked:bg-primary peer-focus-visible:ring-2 peer-focus-visible:ring-primary peer-focus-visible:ring-offset-2" />
                     <div className="absolute left-0.5 top-0.5 h-5 w-5 rounded-full bg-white transition-transform peer-checked:translate-x-5" />
                   </label>
@@ -128,11 +128,11 @@ export default function CookieConsent() {
                   <h3 className="font-semibold text-foreground">Marketing</h3>
                   <label className="relative inline-flex cursor-pointer items-center">
                     <input
-                      type="checkbox"
-                      className="peer sr-only"
-                      checked={prefs.marketing}
-                      onChange={(e) => setPrefs({ ...prefs, marketing: e.target.checked })}
-                    />
+                    type="checkbox"
+                    className="peer sr-only"
+                    checked={prefs.marketing}
+                    onChange={(e) => setPrefs({ ...prefs, marketing: e.target.checked })} />
+
                     <div className="h-6 w-11 rounded-full bg-surface-300 transition-colors peer-checked:bg-primary peer-focus-visible:ring-2 peer-focus-visible:ring-primary peer-focus-visible:ring-offset-2" />
                     <div className="absolute left-0.5 top-0.5 h-5 w-5 rounded-full bg-white transition-transform peer-checked:translate-x-5" />
                   </label>
@@ -143,23 +143,23 @@ export default function CookieConsent() {
 
             <div className="mt-6 flex flex-col-reverse gap-3 sm:flex-row sm:justify-end">
               <button
-                type="button"
-                onClick={() => setShowPreferences(false)}
-                className="rounded-md border border-surface-300 px-5 py-2.5 text-sm font-medium text-foreground transition-colors hover:bg-surface-100"
-              >
+              type="button"
+              onClick={() => setShowPreferences(false)}
+              className="rounded-md border border-surface-300 px-5 py-2.5 text-sm font-medium text-foreground transition-colors hover:bg-surface-100">
+
                 Cancel
               </button>
               <button
-                type="button"
-                onClick={savePreferences}
-                className="rounded-md bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-sm transition-colors hover:bg-primary/90"
-              >
+              type="button"
+              onClick={savePreferences}
+              className="rounded-md bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-sm transition-colors hover:bg-primary/90">
+
                 Save preferences
               </button>
             </div>
           </div>
         </div>
-      )}
-    </>
-  );
+      }
+    </>);
+
 }
