@@ -31,6 +31,7 @@ export default function Home() {
   const schoolImageUrl = serenities.files.url('d8a52ffe130477f20c51a632ffc8d950');
   const schoolsCardImageUrl = serenities.files.url('f325f7281e4fb37f2576f08ff2a51ada');
   const councilsCardImageUrl = serenities.files.url('f74f58fca2d93ddbaeb73b6742165a67');
+  const professionalsCardImageUrl = serenities.files.url('b53e78fab622bbebfeac322eb40b6ea7');
   const professionalImageUrl = serenities.files.url('b1508abe1eb6618ff8eb1f79ee65e27f');
   const parentImageUrl = serenities.files.url('e074fbbe669e6465b757633689c1633d');
   const studyImageUrl = serenities.files.url('a2078dfe9c07ced21d031bfe2ea9a313');
