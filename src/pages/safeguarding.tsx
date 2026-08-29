@@ -26,8 +26,8 @@ export default function Safeguarding() {
       <SEOHead
         title="Safeguarding | Royale Crown Academy"
         description="Our safeguarding commitment to learners, families, schools and colleges. Safer recruitment, training and reporting concerns."
-        canonical="https://royalecrown.serenitiesai.com/safeguarding"
-      />
+        canonical="https://royalecrown.serenitiesai.com/safeguarding" />
+
       <Header />
       <main id="main-content">
         {/* Hero */}
@@ -41,8 +41,8 @@ export default function Safeguarding() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              variants={staggerContainer}
-            >
+              variants={staggerContainer}>
+
               <motion.div variants={fadeUp} className="w-16 h-16 mx-auto rounded-full bg-white/10 flex items-center justify-center mb-6">
                 <Shield className="w-8 h-8 text-secondary" />
               </motion.div>
@@ -62,8 +62,8 @@ export default function Safeguarding() {
               whileInView="visible"
               viewport={{ once: true }}
               variants={staggerContainer}
-              className="text-center"
-            >
+              className="text-center">
+
               <motion.span variants={fadeUp} className="text-secondary font-semibold tracking-wider uppercase text-sm">Our Commitment</motion.span>
               <motion.h2 variants={fadeUp} className="font-heading text-4xl md:text-5xl font-bold text-primary mt-4 mb-6">A safeguarding-first culture</motion.h2>
               <motion.div variants={fadeUp} className="space-y-5 text-lg text-surface-600 leading-relaxed text-left">
@@ -89,8 +89,8 @@ export default function Safeguarding() {
               whileInView="visible"
               viewport={{ once: true }}
               variants={staggerContainer}
-              className="text-center mb-16"
-            >
+              className="text-center mb-16">
+
               <motion.span variants={fadeUp} className="text-secondary font-semibold tracking-wider uppercase text-sm">Safeguarding Principles</motion.span>
               <motion.h2 variants={fadeUp} className="font-heading text-4xl md:text-5xl font-bold text-primary mt-4 mb-6">How we keep learners safe</motion.h2>
             </motion.div>
@@ -99,24 +99,24 @@ export default function Safeguarding() {
               whileInView="visible"
               viewport={{ once: true }}
               variants={staggerContainer}
-              className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
-            >
+              className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
               {[
-                { icon: Users, title: "Safer Recruitment", desc: "We follow robust recruitment and verification processes appropriate to each role." },
-                { icon: FileCheck, title: "Appropriate Checks", desc: "Relevant checks are completed in line with the responsibilities of the position." },
-                { icon: GraduationCap, title: "Safeguarding Training", desc: "Staff and professionals receive safeguarding awareness training and updates." },
-                { icon: Monitor, title: "Online Safety", desc: "Online sessions are conducted safely, with appropriate tools, supervision and communication." },
-                { icon: AlertTriangle, title: "Reporting Concerns", desc: "Clear procedures for raising and responding to safeguarding concerns." },
-                { icon: Shield, title: "Culture of Vigilance", desc: "We encourage a proactive, open and questioning approach to safeguarding." }
-              ].map((principle) => (
-                <motion.div key={principle.title} variants={fadeUp} className="bg-white rounded-xl p-8 shadow-sm border border-surface-100 hover:shadow-lg transition-shadow group">
+              { icon: Users, title: "Safer Recruitment", desc: "We follow robust recruitment and verification processes appropriate to each role." },
+              { icon: FileCheck, title: "Appropriate Checks", desc: "Relevant checks are completed in line with the responsibilities of the position." },
+              { icon: GraduationCap, title: "Safeguarding Training", desc: "Staff and professionals receive safeguarding awareness training and updates." },
+              { icon: Monitor, title: "Online Safety", desc: "Online sessions are conducted safely, with appropriate tools, supervision and communication." },
+              { icon: AlertTriangle, title: "Reporting Concerns", desc: "Clear procedures for raising and responding to safeguarding concerns." },
+              { icon: Shield, title: "Culture of Vigilance", desc: "We encourage a proactive, open and questioning approach to safeguarding." }].
+              map((principle) =>
+              <motion.div key={principle.title} variants={fadeUp} className="bg-white rounded-xl p-8 shadow-sm border border-surface-100 hover:shadow-lg transition-shadow group">
                   <div className="w-12 h-12 rounded-lg bg-primary/5 flex items-center justify-center mb-5 group-hover:bg-secondary/20 transition-colors">
                     <principle.icon className="w-6 h-6 text-primary" />
                   </div>
                   <h3 className="font-heading text-xl font-bold text-primary mb-3">{principle.title}</h3>
                   <p className="text-surface-600 leading-relaxed">{principle.desc}</p>
                 </motion.div>
-              ))}
+              )}
             </motion.div>
           </div>
         </section>
@@ -128,8 +128,8 @@ export default function Safeguarding() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              variants={staggerContainer}
-            >
+              variants={staggerContainer}>
+
               <motion.div variants={fadeUp} className="w-16 h-16 mx-auto rounded-full bg-white/10 flex items-center justify-center mb-6">
                 <Phone className="w-8 h-8 text-secondary" />
               </motion.div>
@@ -154,8 +154,8 @@ export default function Safeguarding() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              variants={staggerContainer}
-            >
+              variants={staggerContainer}>
+
               <motion.h2 variants={fadeUp} className="font-heading text-3xl md:text-4xl font-bold text-primary mb-6 text-center">Reporting a concern</motion.h2>
               <motion.div variants={fadeUp} className="space-y-5 text-lg text-surface-600 leading-relaxed">
                 <p>
@@ -179,8 +179,8 @@ export default function Safeguarding() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              variants={staggerContainer}
-            >
+              variants={staggerContainer}>
+
               <motion.h2 variants={fadeUp} className="font-heading text-4xl md:text-5xl font-bold text-primary mb-6">Questions about safeguarding?</motion.h2>
               <motion.p variants={fadeUp} className="text-lg text-surface-600 mb-10 leading-relaxed">
                 We are happy to discuss our safeguarding approach with parents, schools and education professionals.
@@ -196,6 +196,6 @@ export default function Safeguarding() {
       </main>
       <Footer />
       <CookieConsent />
-    </div>
-  );
+    </div>);
+
 }
