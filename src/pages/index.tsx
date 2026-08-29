@@ -151,7 +151,7 @@ Specialist SEN support, personalised tuition and education services for learners
               {[
               { icon: Heart, title: "Parents & Carers", desc: "Personalised tuition and learning support designed around each learner.", cta: "For Parents", link: "/for-parents", image: parentImageUrl },
               { icon: School, title: "Schools & Colleges", desc: "Flexible education services, tuition and staffing support for education settings.", cta: "For Schools & Colleges", link: "/for-schools-colleges", image: schoolsCardImageUrl },
-              { icon: Briefcase, title: "Councils & Local Authorities", desc: "Professional education and learner-support services for council requirements.", cta: "For Councils", link: "/for-councils", image: professionalImageUrl },
+              { icon: Briefcase, title: "Councils & Local Authorities", desc: "Professional education and learner-support services for council requirements.", cta: "For Councils", link: "/for-councils", image: councilsCardImageUrl },
               { icon: Users, title: "Education Professionals", desc: "Opportunities for tutors, teachers and education professionals to work with us.", cta: "Join Our Team", link: "/join-us", image: tutoringImageUrl }].
               map((pathway, index) =>
               <motion.div
