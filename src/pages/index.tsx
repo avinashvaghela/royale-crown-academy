@@ -161,7 +161,7 @@ Specialist SEN support, personalised tuition and education services for learners
                 className="group relative bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 border border-surface-100" data-oid="/#o34">
 
                   <div className="h-48 overflow-hidden" data-oid="/#o35">
-                    <img src={pathway.image} alt={pathway.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-oid="/#o36" style={{ objectFit: "cover" }} />
+                    <img src={pathway.image} alt={pathway.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-oid="/#o36" style={{ objectFit: "cover", objectPosition: pathway.objectPosition || "center" }} />
                   </div>
                   <div className="p-8" data-oid="/#o37">
                     <div className="w-12 h-12 rounded-lg bg-primary/5 flex items-center justify-center mb-6 group-hover:bg-secondary/20 transition-colors" data-oid="/#o38">
