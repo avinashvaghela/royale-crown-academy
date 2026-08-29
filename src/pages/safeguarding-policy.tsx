@@ -65,6 +65,6 @@ export default function SafeguardingPolicyPage() {
       <p>
         For safeguarding queries or to report a concern, please contact the Designated Safeguarding Lead or email <a href="mailto:info@royalecrownacademy.co.uk" className="font-medium text-primary underline">info@royalecrownacademy.co.uk</a>.
       </p>
-    </LegalPageLayout>);
-
+    </LegalPageLayout>
+  );
 }

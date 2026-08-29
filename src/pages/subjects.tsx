@@ -22,51 +22,51 @@ export default function Subjects() {
   const studyImageUrl = serenities.files.url('a2078dfe9c07ced21d031bfe2ea9a313');
 
   const subjectGroups = [
-  {
-    category: "Core Subjects",
-    icon: BookOpen,
-    subjects: [
-    { name: "English", levels: "Primary, GCSE, A-Level where offered" },
-    { name: "Maths", levels: "Primary, GCSE, A-Level where offered" },
-    { name: "Science", levels: "Primary, GCSE, A-Level where offered" }]
-
-  },
-  {
-    category: "Sciences",
-    icon: FlaskConical,
-    subjects: [
-    { name: "Biology", levels: "GCSE, A-Level where offered" },
-    { name: "Chemistry", levels: "GCSE, A-Level where offered" },
-    { name: "Physics", levels: "GCSE, A-Level where offered" }]
-
-  },
-  {
-    category: "Humanities & Social Sciences",
-    icon: History,
-    subjects: [
-    { name: "History", levels: "Primary, GCSE, A-Level where offered" },
-    { name: "Geography", levels: "Primary, GCSE, A-Level where offered" },
-    { name: "Religious Studies", levels: "GCSE, A-Level where offered" }]
-
-  },
-  {
-    category: "Languages, Business & Computing",
-    icon: Globe,
-    subjects: [
-    { name: "Modern Languages", levels: "GCSE, A-Level where offered" },
-    { name: "Business Studies", levels: "GCSE, A-Level where offered" },
-    { name: "Computing / IT", levels: "Primary, GCSE, A-Level where offered" }]
-
-  }];
-
+    {
+      category: "Core Subjects",
+      icon: BookOpen,
+      subjects: [
+        { name: "English", levels: "Primary, GCSE, A-Level where offered" },
+        { name: "Maths", levels: "Primary, GCSE, A-Level where offered" },
+        { name: "Science", levels: "Primary, GCSE, A-Level where offered" }
+      ]
+    },
+    {
+      category: "Sciences",
+      icon: FlaskConical,
+      subjects: [
+        { name: "Biology", levels: "GCSE, A-Level where offered" },
+        { name: "Chemistry", levels: "GCSE, A-Level where offered" },
+        { name: "Physics", levels: "GCSE, A-Level where offered" }
+      ]
+    },
+    {
+      category: "Humanities & Social Sciences",
+      icon: History,
+      subjects: [
+        { name: "History", levels: "Primary, GCSE, A-Level where offered" },
+        { name: "Geography", levels: "Primary, GCSE, A-Level where offered" },
+        { name: "Religious Studies", levels: "GCSE, A-Level where offered" }
+      ]
+    },
+    {
+      category: "Languages, Business & Computing",
+      icon: Globe,
+      subjects: [
+        { name: "Modern Languages", levels: "GCSE, A-Level where offered" },
+        { name: "Business Studies", levels: "GCSE, A-Level where offered" },
+        { name: "Computing / IT", levels: "Primary, GCSE, A-Level where offered" }
+      ]
+    }
+  ];
 
   return (
     <div className="min-h-screen bg-background font-body text-foreground">
       <SEOHead
         title="Subjects | Private Tuition Across the UK Curriculum"
         description="Explore the subjects offered by Royale Crown Academy Ltd, including English, maths, science and more for primary, secondary and GCSE learners."
-        canonical="https://royalecrown.serenitiesai.com/subjects" />
-
+        canonical="https://royalecrown.serenitiesai.com/subjects"
+      />
       <Header />
       <main id="main-content">
         <section className="relative py-32 lg:py-40 bg-primary overflow-hidden">
@@ -79,8 +79,8 @@ export default function Subjects() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              variants={staggerContainer}>
-
+              variants={staggerContainer}
+            >
               <motion.span variants={fadeUp} className="text-secondary font-semibold tracking-wider uppercase text-sm">Academic Subjects</motion.span>
               <motion.h1 variants={fadeUp} className="font-heading text-5xl md:text-6xl lg:text-7xl font-bold text-primary-foreground mt-6 mb-6">Subject Support Across the Curriculum</motion.h1>
               <motion.p variants={fadeUp} className="text-xl text-primary-foreground/80 max-w-3xl mx-auto leading-relaxed">
@@ -97,10 +97,10 @@ export default function Subjects() {
               whileInView="visible"
               viewport={{ once: true }}
               variants={staggerContainer}
-              className="grid gap-8 lg:grid-cols-2">
-
-              {subjectGroups.map((group, groupIndex) =>
-              <motion.div key={groupIndex} variants={fadeUp} className="bg-white rounded-2xl p-8 shadow-sm border border-surface-100">
+              className="grid gap-8 lg:grid-cols-2"
+            >
+              {subjectGroups.map((group, groupIndex) => (
+                <motion.div key={groupIndex} variants={fadeUp} className="bg-white rounded-2xl p-8 shadow-sm border border-surface-100">
                   <div className="flex items-center gap-3 mb-6">
                     <div className="w-12 h-12 rounded-lg bg-primary/5 flex items-center justify-center">
                       <group.icon className="w-6 h-6 text-secondary" />
@@ -108,8 +108,8 @@ export default function Subjects() {
                     <h2 className="font-heading text-2xl font-bold text-primary">{group.category}</h2>
                   </div>
                   <div className="space-y-3">
-                    {group.subjects.map((subject, i) =>
-                  <div key={i} className="flex items-center justify-between rounded-lg border border-surface-100 bg-surface-50 p-4 hover:border-secondary/40 transition-colors">
+                    {group.subjects.map((subject, i) => (
+                      <div key={i} className="flex items-center justify-between rounded-lg border border-surface-100 bg-surface-50 p-4 hover:border-secondary/40 transition-colors">
                         <div>
                           <h3 className="font-heading text-lg font-semibold text-primary">{subject.name}</h3>
                           <p className="text-sm text-surface-600">{subject.levels}</p>
@@ -118,10 +118,10 @@ export default function Subjects() {
                           Enquire
                         </Link>
                       </div>
-                  )}
+                    ))}
                   </div>
                 </motion.div>
-              )}
+              ))}
             </motion.div>
           </div>
         </section>
@@ -132,8 +132,8 @@ export default function Subjects() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              variants={staggerContainer}>
-
+              variants={staggerContainer}
+            >
               <motion.h2 variants={fadeUp} className="font-heading text-4xl md:text-5xl font-bold text-primary mb-6">Cannot see the subject you need?</motion.h2>
               <motion.p variants={fadeUp} className="text-lg text-surface-600 mb-10 leading-relaxed">
                 Our subject network is expanding. Contact us to discuss your requirements and we will let you know how we can help.
@@ -149,6 +149,6 @@ export default function Subjects() {
       </main>
       <Footer />
       <CookieConsent />
-    </div>);
-
+    </div>
+  );
 }
