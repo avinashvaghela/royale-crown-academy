@@ -150,7 +150,7 @@ Specialist SEN support, personalised tuition and education services for learners
               { icon: Heart, title: "Parents & Carers", desc: "Personalised tuition and learning support designed around each learner.", cta: "For Parents", link: "/for-parents", image: parentImageUrl },
               { icon: School, title: "Schools & Colleges", desc: "Flexible education services, tuition and staffing support for education settings.", cta: "For Schools & Colleges", link: "/for-schools-colleges", image: schoolImageUrl },
               { icon: Briefcase, title: "Councils & Local Authorities", desc: "Professional education and learner-support services for council requirements.", cta: "For Councils", link: "/for-councils", image: professionalImageUrl },
-              { icon: Users, title: "Education Professionals", desc: "Opportunities for tutors, teachers and education professionals to work with us.", cta: "Join Our Team", link: "/join-us", image: professionalImageUrl }].
+              { icon: Users, title: "Education Professionals", desc: "Opportunities for tutors, teachers and education professionals to work with us.", cta: "Join Our Team", link: "/join-us", image: tutoringImageUrl }].
               map((pathway, index) =>
               <motion.div
                 key={pathway.title}
@@ -158,7 +158,7 @@ Specialist SEN support, personalised tuition and education services for learners
                 className="group relative bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 border border-surface-100" data-oid="/#o34">
 
                   <div className="h-48 overflow-hidden" data-oid="/#o35">
-                    <img src={pathway.image} alt={pathway.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-oid="/#o36" style={{ objectFit: "cover" }} />
+                    <img src="/api/files/public/f74f58fca2d93ddbaeb73b6742165a67" alt={pathway.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-oid="/#o36" style={{ objectFit: "cover" }} />
                   </div>
                   <div className="p-8" data-oid="/#o37">
                     <div className="w-12 h-12 rounded-lg bg-primary/5 flex items-center justify-center mb-6 group-hover:bg-secondary/20 transition-colors" data-oid="/#o38">
